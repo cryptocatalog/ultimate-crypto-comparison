@@ -13,6 +13,8 @@ import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { IUCAppState } from '../../../redux/app.app-state';
 import { UPDATE_FILTER } from '../../../redux/app.reducers';
+import { Observable } from 'rxjs';
+import { PaperDialogComponent } from '../../polymer/paper-dialog/paper-dialog.component';
 
 const FileSaver = require('file-saver');
 
@@ -39,6 +41,7 @@ export class ComparisonComponent {
     @ViewChild('genericTableHeader') genericTableHeader: PaperCardComponent;
     private expandShrinkOrigDisplay: Array<TableData> = [];
     public shrinked = true;
+    public state: Observable<PaperDialogComponent>;
 
     constructor(public serv: ComparisonService,
                 public dataServ: ComparisonDataService,
@@ -52,6 +55,7 @@ export class ComparisonComponent {
         this.confServ.loadTableData(this.cd);
         this.confServ.loadDescription(this.cd);
         this.citationServ.loadCitationData(this.cd);
+        this.state = this.store.select('currentModal');
     }
 
     public getVersionInformation(): VersionInformation {

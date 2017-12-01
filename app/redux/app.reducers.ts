@@ -24,8 +24,17 @@ export function modalReducer(state: IUCAppState = new UCAppState(), action: UCAc
     if (isUndefined(state)) {
         return new UCAppState();
     }
+    const newDialog = <PaperDialogComponent>action.value;
     switch (action.type) {
-        case UPDATE_MODAL: return { currentFilter: state.currentFilter, currentModal: <PaperDialogComponent>action.value };
+        case UPDATE_MODAL:
+            if (isNullOrUndefined(action.value)) {
+                state.currentModal.renderer.setStyle(state.currentModal.el.nativeElement, 'display', 'none');
+                state.currentModal.el.nativeElement.classList.remove('model-open');
+            } else {
+                newDialog.renderer.setStyle(newDialog.el.nativeElement, 'display', 'grid');
+                newDialog.el.nativeElement.classList.add('model-open');
+            }
+            state.currentModal = newDialog;
     }
     return state;
 }
