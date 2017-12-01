@@ -10,6 +10,9 @@ import { TableData } from '../shared/components/table-data';
 import { PaperCardComponent } from "../../polymer/paper-card/paper-card.component";
 import { LatexTableComponent } from '../../output/latex-table/latex-table.component';
 import { HttpClient } from '@angular/common/http';
+import { Store } from '@ngrx/store';
+import { IUCAppState } from '../../../redux/app.app-state';
+import { UPDATE_FILTER } from '../../../redux/app.reducers';
 
 const FileSaver = require('file-saver');
 
@@ -42,7 +45,8 @@ export class ComparisonComponent {
                 public confServ: ComparisonConfigService,
                 public citationServ: ComparisonCitationService,
                 private cd: ChangeDetectorRef,
-                private lss: LocalStorageService) {
+                private lss: LocalStorageService,
+                private store: Store<IUCAppState>) {
         this.confServ.loadComparison(this.cd);
         this.confServ.loadCriteria(this.cd);
         this.confServ.loadTableData(this.cd);
@@ -56,7 +60,7 @@ export class ComparisonComponent {
 
     public criteriaChanged(value: Array<String> | KeyboardEvent | { target: { value: string }}, crit: Criteria) {
         if (value) {
-            this.query[crit.tag] = new CriteriaSelection(value, crit);
+            this.store.dispatch({type: UPDATE_FILTER, value: new CriteriaSelection(value, crit)});
         }
         this.cd.markForCheck();
 
