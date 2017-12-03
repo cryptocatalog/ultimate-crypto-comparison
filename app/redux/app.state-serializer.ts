@@ -1,5 +1,7 @@
 import { RouterStateSerializer } from '@ngrx/router-store';
 import { Params, RouterStateSnapshot } from '@angular/router';
+import { IUCAppState } from './app.app-state';
+import { processUrl } from './app.url';
 
 export interface RouterStateUrl {
     url: string;
@@ -18,6 +20,14 @@ export class CustomRouterStateSerializer implements RouterStateSerializer<Router
         }
 
         const params = route.params;
+
+        for (const u of routerState.url.split('&')) {
+            if (u.match(/state=.+/)) {
+                const state: IUCAppState = <IUCAppState>JSON.parse(decodeURIComponent(u.split('=')[1]));
+                processUrl(state);
+                break;
+            }
+        }
 
         return { url, queryParams, params };
     }

@@ -8,24 +8,48 @@ import { Data } from '../components/comparison/shared/components/data';
 export const UPDATE_SEARCH = 'UPDATE_SEARCH';
 export const UPDATE_MODAL = 'UPDATE_MODAL';
 export const UPDATE_FILTER = 'UPDATE_FILTER';
+export const UPDATE_ROUTE = 'UPDATE_ROUTE';
 
-export function searchReducer(state: IUCAppState = new UCAppState(), action: UCAction): IUCAppState {
+export let INITIAL_STATE: IUCAppState = new UCAppState();
+
+export function routeReducer(state: IUCAppState = INITIAL_STATE, action: UCAction): IUCAppState {
     if (isUndefined(state)) {
-        return new UCAppState();
+        return INITIAL_STATE;
     }
+
     switch (action.type) {
-        case UPDATE_SEARCH: return {
-            currentSearch: mergeSearches(state.currentSearch, <CriteriaSelection>action.value),
-            currentModal: state.currentModal,
-            currentFilter: state.currentFilter
-        };
+        case UPDATE_ROUTE:
+            for (const param of window.location.search.split('&')) {
+                if (param.match(/state=.+/)) {
+                    (<UCAppState>state).set(<IUCAppState>JSON.parse(decodeURIComponent(param.split('=')[1])));
+                    return state;
+                }
+            }
+            break;
+        default: break;
     }
     return state;
 }
 
-export function modalReducer(state: IUCAppState = new UCAppState(), action: UCAction): IUCAppState {
+export function searchReducer(state: IUCAppState = INITIAL_STATE, action: UCAction): IUCAppState {
     if (isUndefined(state)) {
-        return new UCAppState();
+        return INITIAL_STATE;
+    }
+    switch (action.type) {
+        case UPDATE_SEARCH: state = {
+            currentSearch: mergeSearches(state.currentSearch, <CriteriaSelection>action.value, state),
+            currentModal: state.currentModal,
+            currentFilter: state.currentFilter
+        };
+        break;
+        default: return state;
+    }
+    return state;
+}
+
+export function modalReducer(state: IUCAppState = INITIAL_STATE, action: UCAction): IUCAppState {
+    if (isUndefined(state)) {
+        return INITIAL_STATE;
     }
     const newDialog = <PaperDialogComponent>action.value;
     switch (action.type) {
@@ -38,13 +62,16 @@ export function modalReducer(state: IUCAppState = new UCAppState(), action: UCAc
                 newDialog.el.nativeElement.classList.add('model-open');
             }
             state.currentModal = newDialog;
+            break;
+        default: return state;
     }
+    updateRoute(state);
     return state;
 }
 
-export function filterReducer(state: IUCAppState = new UCAppState(), action: UCAction): IUCAppState {
+export function filterReducer(state: IUCAppState = INITIAL_STATE, action: UCAction): IUCAppState {
     if (isUndefined(state)) {
-        return new UCAppState();
+        return INITIAL_STATE;
     }
     if (!action.value || action.value.constructor.name !== 'Data' || action.operation === 0) {
         return state;
@@ -60,25 +87,47 @@ export function filterReducer(state: IUCAppState = new UCAppState(), action: UCA
                 data.enabled = true;
             }
             break;
+        default: return state;
     }
+    updateRoute(state);
     return state;
 }
 
-function mergeSearches(original: { [name: string]: CriteriaSelection }, update: CriteriaSelection): IUCAppState['currentSearch'] {
+function updateRoute(state: IUCAppState) {
+    window.history.pushState(0, '', '?state=' + encodeURIComponent(JSON.stringify(state)));
+}
+
+function mergeSearches(original: { [name: string]: CriteriaSelection }, update: CriteriaSelection, state: IUCAppState):
+IUCAppState['currentSearch'] {
     if (!isNullOrUndefined(update.criteria)) {
         if (Array.isArray(update.values) && (<Array<string>>update.values).length > 0) {
+            // Criteria is a label one
+
             original[update.criteria.tag] = update;
+            updateRoute(state);
         } else if (update.values.constructor.name === 'KeyboardEvent') {
-            if (original[update.criteria.name]) {
-                console.log((<KeyboardEvent>update.values).srcElement.textContent);
-                (<{ target: { value: string } }>original[update.criteria.name].values).target.value += (<KeyboardEvent>update.values).srcElement.getAttribute('value');
-            } else if (!original[update.criteria.name]) {
-                original[update.criteria.name] = new CriteriaSelection({target: {value: (<KeyboardEvent>update.values).key}}, update.criteria);
+            // Criteria is range_search enabled
+
+            const event = <any>update.values;
+
+            if (original[update.criteria.name] && !event.metaKey && !event.key.match(/Arrow/)) {
+                // Search for Criteria already exists
+
+                (<{ target: { value: string } }>original[update.criteria.name].values).target.value = event.path[0].value;
+                updateRoute(state);
+
+            } else if (!original[update.criteria.name] && !event.metaKey && !event.key.match(/Arrow/)) {
+                // Create new search for Criteria
+
+                original[update.criteria.name] =
+                    new CriteriaSelection({target: {value: (<KeyboardEvent>update.values).key}}, update.criteria);
+                updateRoute(state);
             }
         } else if (original.hasOwnProperty(update.criteria.tag)) {
+            // No search for the Criteria exists anymore
             delete original[update.criteria.tag];
+            updateRoute(state);
         }
     }
-    console.log(original)
     return original;
 }

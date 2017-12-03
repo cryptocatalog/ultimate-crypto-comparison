@@ -12,4 +12,10 @@ export class UCAppState implements IUCAppState {
     currentSearch: { [name: string]: CriteriaSelection; } = {};
     currentModal: PaperDialogComponent = null;
     currentFilter: Array<Data> = [];
+
+    public set(state: IUCAppState) {
+        this.currentModal = state.currentModal;
+        this.currentSearch = state.currentSearch;
+        this.currentFilter = state.currentFilter;
+    }
 }
