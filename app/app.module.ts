@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { ComparisonModule } from './components/comparison/index';
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { StoreModule } from '@ngrx/store';
-import { filterReducer, modalReducer } from './redux/app.reducers';
+import { searchReducer, modalReducer, filterReducer } from './redux/app.reducers';
 import { RouterModule } from '@angular/router';
 import { ComparisonComponent } from './components/comparison/components/comparison.component';
 import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
@@ -20,8 +20,9 @@ import { CustomRouterStateSerializer } from './redux/app.state-serializer';
             storageType: 'localStorage'
         }),
         StoreModule.forRoot({
-            currentFilter: filterReducer,
-            currentModal: modalReducer
+            currentSearch: searchReducer,
+            currentModal: modalReducer,
+            currentFilter: filterReducer
         }),
         RouterModule.forRoot([{
             path: '', component: ComparisonComponent

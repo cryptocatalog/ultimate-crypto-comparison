@@ -3,18 +3,21 @@ import { UCAction } from './app.action';
 import { isNullOrUndefined, isUndefined } from 'util';
 import { CriteriaSelection } from '../components/comparison/shared/components/criteria-selection';
 import { PaperDialogComponent } from '../components/polymer/paper-dialog/paper-dialog.component';
+import { Data } from '../components/comparison/shared/components/data';
 
-export const UPDATE_FILTER = 'UPDATE_FILTER';
+export const UPDATE_SEARCH = 'UPDATE_SEARCH';
 export const UPDATE_MODAL = 'UPDATE_MODAL';
+export const UPDATE_FILTER = 'UPDATE_FILTER';
 
-export function filterReducer(state: IUCAppState = new UCAppState(), action: UCAction): IUCAppState {
+export function searchReducer(state: IUCAppState = new UCAppState(), action: UCAction): IUCAppState {
     if (isUndefined(state)) {
         return new UCAppState();
     }
     switch (action.type) {
-        case UPDATE_FILTER: return {
-            currentFilter: mergeFilters(state.currentFilter, <CriteriaSelection>action.value),
-            currentModal: state.currentModal
+        case UPDATE_SEARCH: return {
+            currentSearch: mergeSearches(state.currentSearch, <CriteriaSelection>action.value),
+            currentModal: state.currentModal,
+            currentFilter: state.currentFilter
         };
     }
     return state;
@@ -39,7 +42,29 @@ export function modalReducer(state: IUCAppState = new UCAppState(), action: UCAc
     return state;
 }
 
-function mergeFilters(original: { [name: string]: CriteriaSelection }, update: CriteriaSelection): IUCAppState['currentFilter'] {
+export function filterReducer(state: IUCAppState = new UCAppState(), action: UCAction): IUCAppState {
+    if (isUndefined(state)) {
+        return new UCAppState();
+    }
+    if (!action.value || action.value.constructor.name !== 'Data' || action.operation === 0) {
+        return state;
+    }
+    const data = <Data>action.value;
+    switch (action.type) {
+        case UPDATE_FILTER:
+            if (action.operation === 1 && state.currentFilter.indexOf(data) === -1) {
+                state.currentFilter.push(data);
+                data.enabled = false;
+            } else if (action.operation === -1 && state.currentFilter.indexOf(data) > -1) {
+                state.currentFilter.splice(state.currentFilter.indexOf(data), 1);
+                data.enabled = true;
+            }
+            break;
+    }
+    return state;
+}
+
+function mergeSearches(original: { [name: string]: CriteriaSelection }, update: CriteriaSelection): IUCAppState['currentSearch'] {
     if (!isNullOrUndefined(update.criteria)) {
         if (Array.isArray(update.values) && (<Array<string>>update.values).length > 0) {
             original[update.criteria.tag] = update;

@@ -12,7 +12,7 @@ import { LatexTableComponent } from '../../output/latex-table/latex-table.compon
 import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { IUCAppState } from '../../../redux/app.app-state';
-import { UPDATE_FILTER } from '../../../redux/app.reducers';
+import { UPDATE_FILTER, UPDATE_SEARCH } from '../../../redux/app.reducers';
 import { Observable } from 'rxjs';
 import { PaperDialogComponent } from '../../polymer/paper-dialog/paper-dialog.component';
 
@@ -64,7 +64,7 @@ export class ComparisonComponent {
 
     public criteriaChanged(value: Array<String> | KeyboardEvent | { target: { value: string }}, crit: Criteria) {
         if (value) {
-            this.store.dispatch({type: UPDATE_FILTER, value: new CriteriaSelection(value, crit)});
+            this.store.dispatch({type: UPDATE_SEARCH, value: new CriteriaSelection(value, crit)});
         }
         this.cd.markForCheck();
 
@@ -126,7 +126,7 @@ export class ComparisonComponent {
     }
 
     public changeEnabled(item: Data) {
-        item.enabled = !item.enabled;
+        this.store.dispatch({type: UPDATE_FILTER, value: item, operation: item.enabled ? 1 : -1});
         this.change();
     }
 
