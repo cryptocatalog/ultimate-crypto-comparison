@@ -41,11 +41,19 @@ export function modalReducer(state: IUCAppState = new UCAppState(), action: UCAc
 
 function mergeFilters(original: { [name: string]: CriteriaSelection }, update: CriteriaSelection): IUCAppState['currentFilter'] {
     if (!isNullOrUndefined(update.criteria)) {
-        if ((<Array<string>>update.values).length > 0) {
+        if (Array.isArray(update.values) && (<Array<string>>update.values).length > 0) {
             original[update.criteria.tag] = update;
+        } else if (update.values.constructor.name === 'KeyboardEvent') {
+            if (original[update.criteria.name]) {
+                console.log((<KeyboardEvent>update.values).srcElement.textContent);
+                (<{ target: { value: string } }>original[update.criteria.name].values).target.value += (<KeyboardEvent>update.values).srcElement.getAttribute('value');
+            } else if (!original[update.criteria.name]) {
+                original[update.criteria.name] = new CriteriaSelection({target: {value: (<KeyboardEvent>update.values).key}}, update.criteria);
+            }
         } else if (original.hasOwnProperty(update.criteria.tag)) {
             delete original[update.criteria.tag];
         }
     }
+    console.log(original)
     return original;
 }
