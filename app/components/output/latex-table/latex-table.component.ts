@@ -1,8 +1,5 @@
 import { Component, ElementRef } from '@angular/core';
-import { ComparisonDataService } from '../../comparison/components/comparison-data.service';
-import { ComparisonConfigService } from '../../comparison/components/comparison-config.service';
-import { ComparisonCitationService } from '../../comparison/components/comparison-citation.service';
-import { ComparisonService } from '../../comparison/components/comparison.service';
+import { ConfigurationService } from "../../comparison/components/configuration/configuration.service";
 
 @Component({
     selector: 'latextable',
@@ -14,9 +11,7 @@ export class LatexTableComponent {
     private showTableTooltips = true;
     private tableTooltipsAsFootnotes = false;
 
-    constructor(public serv: ComparisonService,
-                public dataServ: ComparisonDataService,
-                public confServ: ComparisonConfigService,
-                public citationServ: ComparisonCitationService,
-                public element: ElementRef) {}
+    constructor(public confServ: ConfigurationService,
+                public element: ElementRef) {
+    }
 }

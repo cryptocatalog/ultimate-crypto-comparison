@@ -68,7 +68,7 @@ pdialog {
     grid-row-gap: 15px;
     grid-template-columns: 1fr auto 1fr;
     grid-template-rows: 60px auto;
-    grid-template-areas: ". header corner" ". content ." "large large large" ". content-end ." ". latex ." "footer footer footer"
+    grid-template-areas: "corner header ." ". content ." "large large large" ". content-end ." ". latex ." "footer footer footer"
 
 }
 
@@ -85,7 +85,7 @@ pdialog {
 .grid-corner {
     grid-area: corner;
     display: inline-flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .grid-content {
@@ -154,4 +154,12 @@ pdialog {
     -ms-transform: translate(0, -50px);
     -o-transform: translate(0, -50px);
     transform: translate(0, -50px);
+}
+
+.description > :first-child {
+    margin-top: 0;
+}
+
+.description > :last-child {
+    margin-bottom: 0;
 }
