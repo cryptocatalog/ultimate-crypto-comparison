@@ -12,7 +12,6 @@
 }
 
 .card-content {
-    padding: 0 16px 16px 16px;
     position: relative;
 }
 
@@ -20,7 +19,7 @@
     display: inline-table;
 }
 
-.tooltip-text /deep/ ul {
+.tooltip-text ::ng-deep ul {
     padding-left: 15px;
 }
 

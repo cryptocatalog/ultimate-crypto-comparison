@@ -50,9 +50,9 @@
 
     <div class="grid-large-content">
         <pcard heading="{{configurationService.configuration.tableTitle}}">
-            <iicon #ExpandId icon="resize-full" class="shrink-expand" (click)="shrinkExpand()" *ngIf="shrinked"></iicon>
+            <iicon #ExpandId icon="resize-full" class="shrink-expand" (click)="shrinkExpand()" *ngIf="expanded"></iicon>
             <iicon #shrinkId icon="resize-small" class="shrink-expand" (click)="shrinkExpand()"
-                   *ngIf="!shrinked"></iicon>
+                   *ngIf="!expanded"></iicon>
             <generictable [configuration]="configurationService.configuration" [data]="dataService.data"
                           [changeNum]="configurationService.tableColumns.length + dataService.data.length"
                           (settingsCallback)="showTableProperties()" (showDetails)="showDetails($event)"></generictable>
@@ -64,74 +64,74 @@
                              [citationMap]="configurationService.configuration.citation"></referencestable>
         </pcard>
     </div>
+
+    <pdialog [(opened)]="detailsOpen" *ngIf="detailsOpen">
+        <comparison-details [data]="activeRow"></comparison-details>
+    </pdialog>
     <!--
-        <pdialog #details>
-            <configuration-details [data]="activeRow" *ngIf="detailsModal?.opened"></configuration-details>
-        </pdialog>
+     <pdialog #settings [heading]="'Table Settings'">
+                <div class="select-grid">
 
-        <pdialog #settings [heading]="'Table Settings'">
-            <div class="select-grid">
-
-                <div>
-                    <h5>Select Columns...</h5>
-                    <pitem>
-                        <pcheckbox [checked]="configurationService.displayAll" (checkedChange)="configurationService.displayAllChange($event, this)"
-                                   [label]="configurationService.displayAllName"></pcheckbox>
-                    </pitem>
-                    <ng-template ngFor let-column [ngForOf]="configurationService.tableDataSet?.getTableDataArray()">
+                    <div>
+                        <h5>Select Columns...</h5>
                         <pitem>
-                            <pcheckbox [checked]=column.display (checkedChange)="configurationService.displayChange(column,this)"
-                                       [label]="column.name"></pcheckbox>
+                            <pcheckbox [checked]="configurationService.displayAll" (checkedChange)="configurationService.displayAllChange($event, this)"
+                                       [label]="configurationService.displayAllName"></pcheckbox>
                         </pitem>
-                    </ng-template>
-                </div>
-                <div>
-                    <h5>Other Settings...</h5>
-                    <div *ngIf="configurationService.configuration">
-                        <pitem>
-                            <pcheckbox [checked]="configurationService.configuration.displaytemplate"
-                                       (checkedChange)="changeDisplayTemplate()"
-                                       [label]="'Display Template'"></pcheckbox>
-                        </pitem>
-                        <pitem>
-                            <pcheckbox [checked]="configurationService.configuration.displayall" (checkedChange)="changeDisplayAll()"
-                                       [label]="'Show Uncompared'"></pcheckbox>
-                        </pitem>
-                        <h6>Latex</h6>
-                        <pitem>
-                            <pbutton (click)="downloadLatexTable()">Download Table</pbutton>
-                        </pitem>
-                        <pitem>
-                            <pcheckbox [(checked)]="showTable" [label]="'Display Latex Table'"></pcheckbox>
-                        </pitem>
-                        <pitem>
-                            <pcheckbox [(checked)]="showTableTooltips" [label]="'Show Tooltips'"></pcheckbox>
-                        </pitem>
-                        <pitem>
-                            <pcheckbox [(checked)]="tableTooltipsAsFootnotes"
-                                       [label]="'Display tooltip text in Footnotes'"></pcheckbox>
-                        </pitem>
-                        <h6>Details page</h6>
-                        <pitem>
-                            <pcheckbox [(checked)]="configurationService.configuration?.details.tooltipAsText"
-                                       [label]="'Display tooltip text next to labels in the details page'"></pcheckbox>
-                        </pitem>
+                        <ng-template ngFor let-column [ngForOf]="configurationService.tableDataSet?.getTableDataArray()">
+                            <pitem>
+                                <pcheckbox [checked]=column.display (checkedChange)="configurationService.displayChange(column,this)"
+                                           [label]="column.name"></pcheckbox>
+                            </pitem>
+                        </ng-template>
+                    </div>
+                    <div>
+                        <h5>Other Settings...</h5>
+                        <div *ngIf="configurationService.configuration">
+                            <pitem>
+                                <pcheckbox [checked]="configurationService.configuration.displaytemplate"
+                                           (checkedChange)="changeDisplayTemplate()"
+                                           [label]="'Display Template'"></pcheckbox>
+                            </pitem>
+                            <pitem>
+                                <pcheckbox [checked]="configurationService.configuration.displayall" (checkedChange)="changeDisplayAll()"
+                                           [label]="'Show Uncompared'"></pcheckbox>
+                            </pitem>
+                            <h6>Latex</h6>
+                            <pitem>
+                                <pbutton (click)="downloadLatexTable()">Download Table</pbutton>
+                            </pitem>
+                            <pitem>
+                                <pcheckbox [(checked)]="showTable" [label]="'Display Latex Table'"></pcheckbox>
+                            </pitem>
+                            <pitem>
+                                <pcheckbox [(checked)]="showTableTooltips" [label]="'Show Tooltips'"></pcheckbox>
+                            </pitem>
+                            <pitem>
+                                <pcheckbox [(checked)]="tableTooltipsAsFootnotes"
+                                           [label]="'Display tooltip text in Footnotes'"></pcheckbox>
+                            </pitem>
+                            <h6>Details page</h6>
+                            <pitem>
+                                <pcheckbox [(checked)]="configurationService.configuration?.details.tooltipAsText"
+                                           [label]="'Display tooltip text next to labels in the details page'"></pcheckbox>
+                            </pitem>
+                        </div>
+                    </div>
+                    <div>
+                        <h5>Enabled Elements</h5>
+                        <ng-template ngFor let-item [ngForOf]="dataServ.data">
+                            <pitem>
+                                <pcheckbox [checked]="item.enabled" (checkedChange)="changeEnabled(item)"
+                                           [label]="item.getProperty('tag').plain"></pcheckbox>
+                            </pitem>
+                        </ng-template>
                     </div>
                 </div>
-                <div>
-                    <h5>Enabled Elements</h5>
-                    <ng-template ngFor let-item [ngForOf]="dataServ.data">
-                        <pitem>
-                            <pcheckbox [checked]="item.enabled" (checkedChange)="changeEnabled(item)"
-                                       [label]="item.getProperty('tag').plain"></pcheckbox>
-                        </pitem>
-                    </ng-template>
-                </div>
-            </div>
-        </pdialog>
+            </pdialog>
 
-        <latextable></latextable>
-    !-->
+            <latextable></latextable>
+        !-->
 
     <div class="grid-footer">
         <div class="container">

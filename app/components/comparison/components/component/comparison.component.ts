@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, ViewChild } from '@angular/core';
 import { VersionInformation } from '../../../../VersionInformation';
 import { PaperCardComponent } from "../../../polymer/paper-card/paper-card.component";
 import { LatexTableComponent } from '../../../output/latex-table/latex-table.component';
@@ -13,6 +13,7 @@ import { Criteria } from "../configuration/configuration";
 import { DataService } from "../data/data.service";
 import { Data } from "../data/data";
 
+// TODO evaluate how winery saves files
 const FileSaver = require('file-saver');
 
 @Component({
@@ -25,12 +26,16 @@ export class ComparisonComponent {
 
     private versionInformation: VersionInformation = new VersionInformation();
 
-    @ViewChild('details') detailsModal: any;
     @ViewChild(LatexTableComponent) latexTable: LatexTableComponent;
     @ViewChild('settings') settingsModal: any;
     @ViewChild('genericTableHeader') genericTableHeader: PaperCardComponent;
 
-    public shrinked = true;
+    // TODO move to redux
+    public expanded = true;
+    public activeRow: Data = new Data.Builder().build();
+    @Input() public detailsOpen: boolean = false;
+
+
     public state: Observable<PaperDialogComponent>;
 
     constructor(public dataService: DataService,
@@ -98,40 +103,17 @@ export class ComparisonComponent {
         return [];
     }
 
-    private showDetails(key: string) {
-        //this.activeRow = data;
-        this.detailsModal.open();
+    public showDetails(index: number) {
+        this.activeRow = this.dataService.data[index];
+        this.detailsOpen = true;
     }
 
     public shrinkExpand() {
-        if (this.shrinked) {
-            this.expand();
+        if (this.expanded) {
+            // TODO dispatch this.shrink();
         } else {
-            this.shrink();
+            //this.expand();
         }
-        this.shrinked = !this.shrinked;
-        this.cd.markForCheck();
-        this.change();
-    }
-
-    private shrink() {
-        /* const set = this.configurationService.tableDataSet.getTableDataArray();
-         for (const td of set) {
-             if (td.display && this.expandShrinkOrigDisplay.indexOf(td) === -1) {
-                 td.display = false;
-             }
-         }*/
-    }
-
-    private expand() {
-        /* const set = this.configurationService.tableDataSet.getTableDataArray();
-         for (const td of set) {
-             if (td.display) {
-                 this.expandShrinkOrigDisplay.push(td);
-             } else {
-                 td.display = true;
-             }
-         }
-         */
+        this.expanded = !this.expanded;
     }
 }

@@ -56,11 +56,9 @@ export function modalReducer(state: IUCAppState = INITIAL_STATE, action: UCActio
     switch (action.type) {
         case UPDATE_MODAL:
             if (isNullOrUndefined(action.value)) {
-                state.currentModal.renderer.setStyle(state.currentModal.el.nativeElement, 'display', 'none');
-                state.currentModal.el.nativeElement.classList.remove('model-open');
+
             } else {
-                newDialog.renderer.setStyle(newDialog.el.nativeElement, 'display', 'grid');
-                newDialog.el.nativeElement.classList.add('model-open');
+
             }
             state.currentModal = newDialog;
             break;

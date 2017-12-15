@@ -9,13 +9,13 @@
                 </button>
             </th>
         </ng-template>
-        <th style="width: 3%" name="details" *ngIf="settings">
+        <th style="width: 3%" name="details">
             <picon-button icon="settings" title="Settings" (click)="settingsCallback.emit()"></picon-button>
         </th>
     </tr>
     </thead>
     <tbody>
-    <ng-template ngFor let-item [ngForOf]="items">
+    <ng-template ngFor let-item [ngForOf]="items" let-i="index">
         <tr>
             <ng-template ngFor let-entry [ngForOf]="item" let-i="index">
                 <td *ngIf="types[i] === 0"><a class="anchored"
@@ -50,7 +50,7 @@
                 </td>
             </ng-template>
             <td>
-                <picon-button icon="info" title="Details" (click)="showDetails.emit(dat)"></picon-button>
+                <picon-button icon="info" title="Details" (click)="showDetails.emit(index[i])"></picon-button>
             </td>
         </tr>
     </ng-template>

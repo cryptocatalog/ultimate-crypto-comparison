@@ -20,19 +20,26 @@ criteria:
       name: Name    # default: 'id'
       search: false # default true
       table: true   # default true
-      detail: true  # default true
+      detail: false  # default true
       type: url     # default label
   - Rating:
       name: ""
       search: false
       type: rating
+  - Repository:
+      search: false
+      table: false
+      detail: false
+      type: repository
   - description:
       name: Short Description
       search: false
+      detail: false
       type: markdown
   - Description:
       table: false
       search: false
+      detail: false
       type: markdown
   - Performance:
       description: Preformance of entry.      # default: 'key|name' of entry.
@@ -129,6 +136,7 @@ autoColor:
   License:
     Apache-2.0:
       color: hsl(135,100%,70%)
+      backgroundColor:
     MIT:
       color: hsl(150, 100%, 70%)
     MPL-2.0:

@@ -31,11 +31,11 @@ export class GenericTableComponent implements OnChanges {
     @Output() orderChange: EventEmitter<any> = new EventEmitter();
     @Output() orderOptionChange: EventEmitter<any> = new EventEmitter();
 
-
     // TODO new inputs: (move to redux store)
     @Input() columns: Array<string> = [];
     @Input() types: Array<number> = [];
     @Input() items: Array<Array<String | Array<Label> | Text | Url | Markdown | number>> = [];
+    @Input() index: Array<number> = [];
 
     private ctrlCounter = 0;
 
@@ -44,6 +44,7 @@ export class GenericTableComponent implements OnChanges {
         let columns: Array<string> = [];
         let types: Array<number> = [];
         let items: Array<Array<Array<Label> | Text | Url | Markdown | number>> = [];
+        let index: Array<number> = [];
         const criteriaMap: Map<string, Criteria> = this.configuration.criteria;
         criteriaMap.forEach((criteria, key) => {
             if (criteria.table) {
@@ -52,7 +53,7 @@ export class GenericTableComponent implements OnChanges {
             }
 
         });
-        this.data.forEach(data => {
+        this.data.forEach((data, i) => {
             let item: Array<Array<Label> | Text | Url | Markdown | number> = [];
             criteriaMap.forEach((criteria, key) => {
                 if (criteria.table) {
@@ -70,14 +71,16 @@ export class GenericTableComponent implements OnChanges {
                 }
             });
             items.push(item);
+            index.push(i);
         });
         this.columns = columns;
         this.items = items;
         this.types = types;
+        this.index = index;
     }
 
     public labelClick(key: string, index: number) {
-
+        this.searchFor.emit({key, index});
     }
 
     private orderClick(e: MouseEvent, value: string) {

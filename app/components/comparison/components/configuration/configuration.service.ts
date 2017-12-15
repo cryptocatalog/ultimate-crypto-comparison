@@ -14,6 +14,7 @@ import {
 } from "./configuration";
 import * as Showdown from "showdown";
 import { DataService } from "../data/data.service";
+import { isNullOrUndefined } from "util";
 
 @Injectable()
 export class ConfigurationService {
@@ -50,12 +51,14 @@ export class ConfigurationService {
 
                 const detailsHeader: Header = new Header.Builder()
                     .setNameRef(headerObject.nameRef)
+                    .setLabelRef(headerObject.labelRef)
                     .setUrlRef(headerObject.urlRef)
                     .build();
 
                 const detailsBody: Body = new Body.Builder()
                     .setTitle(bodyObject.title)
                     .setBodyRef(bodyObject.bodyRef)
+                    .setTooltipAsText(bodyObject.tooltipAsText)
                     .build();
 
                 const details: Details = new Details.Builder()
@@ -66,30 +69,37 @@ export class ConfigurationService {
                 let criteria: Map<string, Criteria> = new Map<string, Criteria>();
                 criteriaArray.forEach((obj) => Object.keys(obj).forEach((key) => {
                     const value = obj[key];
-                    if (value == null) {
+                    if (isNullOrUndefined(value)) {
                         criteria.set(key, new Criteria.Builder().build());
                         return;
                     }
 
-                    const autoColorCriteria = autoColor[key] || {};
-                    const valuesObject = value.values || {};
+                    const autoColorCriteria = isNullOrUndefined(autoColor[key]) ? {} : autoColor[key];
+                    const valuesObject = isNullOrUndefined(value.values) ? {} : value.values;
 
                     let values: Map<string, CriteriaValue> = new Map<string, CriteriaValue>();
                     Object.keys(valuesObject).forEach(objKey => {
                         const value = valuesObject[objKey];
-                        const autoColorValue = autoColorCriteria[objKey] || {};
+                        const autoColorValue = isNullOrUndefined(autoColorCriteria[objKey]) ? {} : autoColorCriteria[objKey];
 
-                        if (value == null) {
-                            values.set(objKey, new CriteriaValue.Builder().build());
+                        // Value defined as 'key': null
+                        if (isNullOrUndefined(value)) {
+                            values.set(objKey, new CriteriaValue.Builder()
+                                .setCriteria(key)
+                                .setName(objKey)
+                                .setColor(autoColorValue.color)
+                                .setBackgroundColor(autoColorValue.backgroundColor)
+                                .build());
                             return;
                         }
+
                         values.set(objKey, new CriteriaValue.Builder()
                             .setCriteria(key)
                             .setName(objKey)
                             .setDescription(value.description)
                             .setClazz(value.class)
-                            .setColor(value.color || autoColorValue.color)
-                            .setBackgroundColor(value.backgroundColor || autoColorValue.backgroundColor)
+                            .setColor(isNullOrUndefined(value.color) ? autoColorValue.color : value.color)
+                            .setBackgroundColor(isNullOrUndefined(value.backgroundColor) ? autoColorValue.backgroundColor : value.backgroundColor)
                             .setWeight(value.weight)
                             .setMinAge(value.minAge)
                             .setMaxAge(value.maxAge)
@@ -116,18 +126,26 @@ export class ConfigurationService {
 
                 Object.keys(autoCriteria).forEach((key) => {
                     const valuesObject = autoCriteria[key];
+                    const autoColorCriteria = isNullOrUndefined(autoColor[key]) ? {} : autoColor[key];
 
+                    // If autoCriteria is already defined
                     if (criteria.get(key)) {
                         let old: Criteria = criteria.get(key);
-                        let values: Map<string, CriteriaValue> = new Map<string, CriteriaValue>();
+                        let values: Map<string, CriteriaValue> = old.values;
                         Object.keys(valuesObject).forEach(valueKey => {
                             const oldValue: CriteriaValue = old.values.get(valueKey);
+                            const autoColorValue = isNullOrUndefined(autoColorCriteria[valueKey]) ? {} : autoColorCriteria[valueKey];
                             const value = valuesObject[valueKey];
-                            if (oldValue != null) {
+                            if (!isNullOrUndefined(oldValue)) {
                                 values.set(valueKey, old.values.get(valueKey));
-                            } else if (value == null) {
-                                values.set(valueKey, new CriteriaValue.Builder().setCriteria(key).setName(valueKey).build());
-                            } else if (value != null) {
+                            } else if (isNullOrUndefined(value)) {
+                                values.set(valueKey, new CriteriaValue.Builder()
+                                    .setCriteria(key)
+                                    .setName(valueKey)
+                                    .setColor(autoColorValue.color)
+                                    .setBackgroundColor(autoColorValue.backgroundColor)
+                                    .build());
+                            } else if (!isNullOrUndefined(value)) {
                                 values.set(valueKey, new CriteriaValue.Builder()
                                     .setCriteria(key)
                                     .setName(valueKey)
@@ -136,6 +154,8 @@ export class ConfigurationService {
                                     .setWeight(value.weight)
                                     .setMinAge(value.minAge)
                                     .setMaxAge(value.maxAge)
+                                    .setColor(isNullOrUndefined(value.color) ? autoColorValue.color : value.color)
+                                    .setBackgroundColor(isNullOrUndefined(value.backgroundColor) ? autoColorValue.backgroundColor : value.backgroundColor)
                                     .setMinAgeUnit(value.minAgeUnit)
                                     .setMaxAgeUnit(value.maxAgeUnit)
                                     .build());
@@ -155,12 +175,14 @@ export class ConfigurationService {
                             .setValues(values)
                             .build());
                     } else {
+                        // if autoCriteria is not already defined
                         let values: Map<string, CriteriaValue> = new Map<string, CriteriaValue>();
                         Object.keys(valuesObject).forEach(valueKey => {
                             const value = valuesObject[valueKey];
-                            if (value == null) {
+                            const autoColorValue = isNullOrUndefined(autoColorCriteria[valueKey]) ? {} : autoColorCriteria[valueKey];
+                            if (isNullOrUndefined(value)) {
                                 values.set(valueKey, new CriteriaValue.Builder().setCriteria(key).setName(valueKey).build());
-                            } else if (value != null) {
+                            } else {
                                 values.set(valueKey, new CriteriaValue.Builder()
                                     .setCriteria(key)
                                     .setName(valueKey)
@@ -171,6 +193,8 @@ export class ConfigurationService {
                                     .setMaxAge(value.maxAge)
                                     .setMinAgeUnit(value.minAgeUnit)
                                     .setMaxAgeUnit(value.maxAgeUnit)
+                                    .setColor(autoColorValue.color)
+                                    .setBackgroundColor(autoColorValue.backgroundColor)
                                     .build());
                             }
                         });

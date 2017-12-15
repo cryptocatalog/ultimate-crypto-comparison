@@ -1,3 +1,5 @@
+import { isNullOrUndefined } from "util";
+
 export class Configuration {
     public title: string;
     public subtitle: string;
@@ -84,8 +86,8 @@ export class Details {
     public body: Body;
 
     constructor(builder) {
-        this.header = builder.header || new Header.Builder().build();
-        this.body = builder.body || new Body.Builder().build();
+        this.header = isNullOrUndefined(builder.header) ? new Header.Builder().build() : builder.header;
+        this.body = isNullOrUndefined(builder.body) ? new Body.Builder().build() : builder.body;
     }
 
     static get Builder() {
@@ -118,9 +120,9 @@ export class Header {
     public urlRef: string;
 
     constructor(builder) {
-        this.nameRef = builder.nameRef || "id";
-        this.labelRef = builder.labelRef || "";
-        this.urlRef = builder.urlRef || "inline";
+        this.nameRef = isNullOrUndefined(builder.nameRef) ? "id" : builder.nameRef;
+        this.labelRef = isNullOrUndefined(builder.labelRef) ? "" : builder.labelRef;
+        this.urlRef = isNullOrUndefined(builder.urlRef) ? "inline" : builder.urlRef;
     }
 
     static get Builder() {
@@ -156,16 +158,19 @@ export class Header {
 export class Body {
     public title: string;
     public bodyRef: string;
+    public tooltipAsText: boolean;
 
     constructor(builder) {
-        this.title = builder.title || "Description";
-        this.bodyRef = builder.bodyRef || "Description";
+        this.title = isNullOrUndefined(builder.title) ? "Description" : builder.title;
+        this.bodyRef = isNullOrUndefined(builder.bodyRef) ? "Description" : builder.bodyRef;
+        this.tooltipAsText = isNullOrUndefined(builder.tooltipAsText) ? true : false;
     }
 
     static get Builder() {
         class Builder {
             private title: string;
             private bodyRef: string;
+            private tooltipAsText: boolean;
 
             public setTitle(title: string): Builder {
                 this.title = title;
@@ -174,6 +179,11 @@ export class Body {
 
             public setBodyRef(bodyRef: string): Builder {
                 this.bodyRef = bodyRef;
+                return this;
+            }
+
+            public setTooltipAsText(tooltipAsText: boolean): Builder {
+                this.tooltipAsText = tooltipAsText;
                 return this;
             }
 
@@ -200,22 +210,22 @@ export class Criteria {
     public items: Array<string>;
 
     constructor(builder) {
-        let name: string = builder.name || "";
+        let name: string = isNullOrUndefined(builder.name) ? "" : builder.name;
         this.name = name;
-        this.search = builder.search == null ? true : builder.search;
-        this.table = builder.table == null ? true : builder.table;
-        this.detail = builder.detail == null ? true : builder.detail;
-        this.type = builder.type != null ? builder.type : CriteriaType.label;
-        this.description = builder.description != null ? builder.description : (name.length === 0 ? "" :
-            name.charAt(0).toUpperCase().concat(name.slice(1), " of entry."));
-        this.placeholder = builder.placeholder != null ? builder.placeholder : (name.length === 0 ? "" :
-            "Select ".concat(name.charAt(0), name.slice(1), " of ..."));
-        this.andSearch = builder.andSearch == null ? true : builder.andSearch;
-        this.rangeSearch = builder.rangeSearch == null ? false : builder.rangeSearch;
-        let values: Map<string, CriteriaValue> = builder.values || new Map<string, CriteriaValue>();
+        this.search = isNullOrUndefined(builder.search) ? true : builder.search;
+        this.table = isNullOrUndefined(builder.table) ? true : builder.table;
+        this.detail = isNullOrUndefined(builder.detail) ? true : builder.detail;
+        this.type = isNullOrUndefined(builder.type) ? CriteriaType.label : builder.type;
+        this.description = isNullOrUndefined(builder.description) ? (name.length === 0 ? "" :
+            name.charAt(0).toUpperCase().concat(name.slice(1), " of entry.")) : builder.description;
+        this.placeholder = isNullOrUndefined(builder.placeholder) ? (name.length === 0 ? "" :
+            "Select ".concat(name.charAt(0), name.slice(1), " of ...")) : builder.placeholder;
+        this.andSearch = isNullOrUndefined(builder.andSearch) ? true : builder.andSearch;
+        this.rangeSearch = isNullOrUndefined(builder.rangeSearch) ? false : builder.rangeSearch;
+        let values: Map<string, CriteriaValue> = isNullOrUndefined(builder.values) ? new Map<string, CriteriaValue>() : builder.values;
         this.values = values;
         this.items = [];
-        values.forEach((value, key) => {
+        values.forEach((value) => {
             this.items.push(value.name);
         });
     }
@@ -307,7 +317,8 @@ export enum CriteriaType {
     label = 1,
     text = 2,
     markdown = 3,
-    rating = 4
+    rating = 4,
+    repository = 5
 }
 
 export function getCriteriaType(value: string): CriteriaType {
@@ -320,9 +331,12 @@ export function getCriteriaType(value: string): CriteriaType {
             return CriteriaType.markdown;
         case "rating":
             return CriteriaType.rating;
+        case "repository":
+            return CriteriaType.repository;
         case "label":
-        default:
             return CriteriaType.label;
+        default:
+            return null;
     }
 }
 
@@ -340,23 +354,23 @@ export class CriteriaValue {
     public maxAgeUnit: string;
 
     constructor(builder) {
-        let criteria: string = builder.criteria || "";
-        let name: string = builder.name || "";
+        let criteria: string = isNullOrUndefined(builder.criteria) ? "" : builder.criteria;
+        let name: string = isNullOrUndefined(builder.name) ? "" : builder.name;
 
         this.criteria = criteria;
         this.name = name;
-        this.description = builder.description != null ? builder.description : ((criteria.length === 0 || name.length === 0) ? "" :
-            criteria.charAt(0).toUpperCase().concat(criteria.slice(1), " is ", name));
-        this.clazz = builder.clazz || "";
-        this.color = builder.color || "";
-        this.backgroundColor = builder.backgroundColor || "";
-        this.weight = builder.weight == null ? 1 : builder.weight;
-        this.minAge = builder.minAge == null ? -1 : builder.minAge;
-        this.maxAge = builder.maxAge == null ? -1 : builder.maxAge;
-        this.minAgeUnit = builder.minAgeUnit || "months";
-        this.maxAgeUnit = builder.maxAgeUnit || "months";
+        this.description = isNullOrUndefined(builder.description) ? ((criteria.length === 0 || name.length === 0) ? "" :
+            criteria.charAt(0).toUpperCase().concat(criteria.slice(1), " is ", name)) : builder.description;
+        this.clazz = isNullOrUndefined(builder.clazz) ? "" : builder.clazz;
+        this.color = isNullOrUndefined(builder.color) ? "" : builder.color;
+        this.backgroundColor = isNullOrUndefined(builder.backgroundColor) ? "" : builder.backgroundColor;
+        this.weight = isNullOrUndefined(builder.weight) ? 1 : builder.weight;
+        this.minAge = isNullOrUndefined(builder.minAge) ? -1 : builder.minAge;
+        this.maxAge = isNullOrUndefined(builder.maxAge) ? -1 : builder.maxAge;
+        this.minAgeUnit = isNullOrUndefined(builder.minAgeUnit) ? "months" : builder.minAgeUnit;
+        this.maxAgeUnit = isNullOrUndefined(builder.maxAgeUnit) ? "months" : builder.maxAgeUnit;
 
-        if (builder.clazz == null && builder.color == null && builder.backgroundColor == null) {
+        if (isNullOrUndefined(builder.clazz) && isNullOrUndefined(builder.color) && isNullOrUndefined(builder.backgroundColor)) {
             this.backgroundColor = "#777";
         }
     }
@@ -447,9 +461,15 @@ export class Citation {
     public text: string;
 
     constructor(builder) {
-        this.index = builder.index == null ? -1 : builder.index;
-        this.key = builder.key || "undefined";
-        this.text = builder.text || "";
+        this.index = isNullOrUndefined(builder.index) ? -1 : builder.index;
+        if (isNullOrUndefined(builder.key)) {
+            console.error("No key given for '".concat(JSON.stringify(builder), "'"));
+            this.key = "undefined";
+        } else {
+            this.key = builder.key;
+        }
+        ;
+        this.text = isNullOrUndefined(builder.text) ? "" : builder.text;
     }
 
     static get Builder() {

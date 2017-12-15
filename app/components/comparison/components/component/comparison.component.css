@@ -7,6 +7,7 @@
 
 pdialog {
     z-index: 5000;
+    display: grid;
 }
 
 .floatThead-container {

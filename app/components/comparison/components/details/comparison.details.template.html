@@ -1,63 +1,69 @@
-<!--<div class="pheader">
-    <h2>{{getHeaderText()}}
-        <ng-template ngFor let-sitem [ngForOf]="data?.getPropertyListItems(configurationService.configuration.details.header.labelRef)"
-                  *ngIf="configurationService.configuration">
-            <ptooltip [tooltip]="getHeaderColumn()?.values[sitem.content].tag"
-                      [tooltipHtml]="sitem.htmlChilds|citation:[citationServ]" [position]="'s'">
-                <div class="{{getHeaderLabel()?.getCls(sitem.content)}} mylabel">
-                    {{sitem.content}}
+<div class="pheader">
+    <h2>{{data.name}}
+        <ng-template ngFor let-label [ngForOf]="headerLabels">
+            <ptooltip [tooltip]="label.tooltip.text"
+                      [tooltipHtml]="label.tooltip.html" [position]="'s'">
+                <div class="label mylabel {{label.clazz}}" [style.color]="label.color"
+                     [style.background-color]="label.backgroundColor">
+                    {{label.name}}
                 </div>
             </ptooltip>
         </ng-template>
-        <small><a href="{{getHeaderUrl()}}" target="_blank">{{getHeaderUrl()}}</a></small>
+        <small><a href="{{data.url}}" target="_blank">{{data.url}}</a></small>
     </h2>
 </div>
 <div class="grid-content">
-    <pcard *ngIf="configurationService.configuration" heading="{{configurationService.configuration?.details.bodyMainTitle}}" class="description">
-        <htmlcitationtext [description]="getBody()" [citationServ]="citationServ"
-                          *ngIf="citationServ.check"></htmlcitationtext>
+    <pcard heading="{{bodyTitle}}" class="description">
+        <div [innerHTML]="description | sanitizeHtml" class="description"></div>
     </pcard>
-    <ng-template ngFor let-atag [ngForOf]="configurationService.getBodyAttachmentTags()" *ngIf="configurationService.configuration">
-        <pcard heading="{{getTable(atag).name}}">
+
+    <ng-template ngFor let-entry [ngForOf]="tags" let-i="index">
+        <pcard heading="{{headers[i]}}">
             <p class="card-content">
-                <ng-template ngFor let-sitem [ngForOf]="data?.getPropertyListItems(atag)">
-                    <ptooltip *ngIf="!configurationService.configuration?.details.tooltipAsText"
-                              [tooltip]="getTable(atag)?.values[sitem.content]"
-                              [tooltipHtml]="sitem.htmlChilds|citation:[citationServ]" [position]="'n'">
-                        <span class="{{getTable(atag)?.type?.getCls(sitem.content)}} mylabel">{{sitem.content}}</span>
+                <a *ngIf="types[i] === 0" class="anchored"
+                   href="{{entry.link}}"
+                   target="_blank">{{entry.text}}</a>
+                <ng-template *ngIf="types[i] === 1" ngFor let-label [ngForOf]="entry">
+                    <ptooltip *ngIf="!tooltipAsText"
+                              [tooltip]="label.tooltip.text"
+                              [tooltipHtml]="label.tooltip.html" [position]="'n'">
+                        <div class="label mylabel {{label.clazz}}" [style.color]="label.color"
+                             [style.background-color]="label.backgroundColor"
+                             (click)="labelClick(label, i)">
+                            {{label.name}}
+                        </div>
                     </ptooltip>
-                    <div *ngIf="configurationService.configuration?.details.tooltipAsText">
-                        <span *ngIf="(this.configurationService.tableDataSet.getTableData(atag).type.colors | json).length === 21"
-                              class="{{getTable(atag)?.type?.getCls(sitem.content)}} mylabel">{{sitem.content}}</span>
-                        <span *ngIf="(this.configurationService.tableDataSet.getTableData(atag).type.colors | json).length !== 21"
-                              class="label mylabel"
-                              [style.background-color]="this.configurationService.tableDataSet.getTableData(atag).type.colors.getColor(sitem.content)">{{sitem.content}}</span>
-                        <span class="tooltip-text">
-                        <htmlcitationtext [description]="getTable(atag)?.values[sitem.content]"
-                                          [citationServ]="citationServ"
-                                          *ngIf="citationServ.check"></htmlcitationtext>
-                        <htmlcitationtext [description]="sitem.htmlChilds" [citationServ]="citationServ"
-                                          *ngIf="citationServ.check"></htmlcitationtext>
-                        </span>
+                    <div *ngIf="tooltipAsText">
+                    <span class="label mylabel {{label.clazz}}" [style.color]="label.color"
+                          [style.background-color]="label.backgroundColor"
+                          (click)="labelClick(label, i)">
+                        {{label.name}}
+                    </span>
+                        <span class="tooltip-text" [innerHtml]="label.tooltip.text|sanitizeHtml"></span>
+                        <br *ngIf="label.tooltip.text && label.tooltip.html">
+                        <span class="tooltip-text" [innerHtml]="label.tooltip.html|sanitizeHtml"></span>
                     </div>
                 </ng-template>
+
+                <span *ngIf="types[i] === 2">{{entry.content}}</span>
+
+                <span *ngIf="types[i] === 3" [innerHtml]="entry?.htmlContent | sanitizeHtml"></span>
             </p>
         </pcard>
     </ng-template>
 
-    <pcard heading="Ratings" *ngIf="data?.getRatings().length > 0" style="display:block">
+    <pcard heading="Ratings" *ngIf="ratings.length > 0" style="display:block">
         <div class="card-content">
-            <ng-template ngFor let-item [ngForOf]="data?.getRatings()">
+            <ng-template ngFor let-rating [ngForOf]="ratings">
                 <dl>
                     <dt>
-                        <iicon icon="star">{{item.stars}}</iicon>
+                        <iicon icon="star">{{rating.stars}}</iicon>
                     </dt>
                     <dd>
-                        {{item.text}}
+                        {{rating.comment}}
                     </dd>
                 </dl>
             </ng-template>
         </div>
     </pcard>
 </div>
-!-->
