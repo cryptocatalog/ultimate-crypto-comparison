@@ -1,17 +1,20 @@
 'use strict';
 
-const gulp = require('gulp'),
-    rename = require('gulp-rename'),
-    jsontransform = require('gulp-json-transform'),
-    concatjson = require('gulp-concat-json'),
-    clean = require('gulp-clean'),
-    run = require('run-sequence'),
-    exec = require('gulp-exec'),
-    bibtex2json = require('./citation/bibtex2json'),
-    fs = require('fs'),
-    sh = require('sync-exec'),
-    gulpIf = require('gulp-if'),
-    execSimple = require('child_process').exec;
+import gulp from 'gulp'
+import rename from 'gulp-rename';
+import _ from 'lodash';
+
+import jsontransform from 'gulp-json-transform';
+import concatjson from 'gulp-concat-json';
+import clean from 'gulp-clean';
+import run from 'run-sequence';
+import exec from 'gulp-exec';
+import bibtex2json from './citation/bibtex2json';
+import fs from 'fs';
+import sh from 'sync-exec';
+import yaml2json from 'js-yaml';
+
+const execSimple = require('child_process').exec;
 
 const paths = {
     src: 'app',
@@ -46,7 +49,7 @@ gulp.task('build-data', function (callback) {
 });
 
 gulp.task('determinecolors', function () {
-    const config = './comparison-configuration/comparison.json';
+    const config = './comparison-configuration/comparison.yml';
     const colorArray = [
         'hsl(15, 100%, 70%)',
         'hsl(30, 100%, 70%)',
@@ -96,56 +99,100 @@ gulp.task('determinecolors', function () {
         "#0d0d0d"
     ];
     let color;
-    let input = JSON.parse(fs.readFileSync(config, "utf8"));
-    const data = input.criteria;
+    let input = yaml2json.safeLoad(fs.readFileSync(config, "utf8"));
+
+    const data = _.cloneDeep(input).criteria || [];
+    console.log(JSON.stringify(data));
     let changed = false;
-    let count = 0;
-    let cCount = 0;
-    for (let i = 0; i < data.length; i++) {
-        let o = data[i];
-        if (o.type.tag === "label" && o.type.values !== null) {
-            count += o.type.values.length;
-            cCount++;
-        }
-    }
-    let delta = Math.floor(colorArray.length / count);
-    let columnD;
-    if (delta < 1) {
-        columnD = Math.floor(colorArray.length / cCount);
-    } else {
-        columnD = 0;
-    }
-    color = Math.floor(Math.random() * colorArray.length);
-    for (let i = 0; i < data.length; i++) {
-        let o = data[i];
-        if (o.type.tag === "label" && o.type.values !== null) {
-            let vals;
-            if (o.type.values[0].weight === undefined) {
-                vals = o.type.values.sort(function (o1, o2) {
-                        return o1.name.toString().localeCompare(o2.name.toString());
+    let criteriaValueCount = 0;
+    let criteriaCount = 0;
+
+    data.forEach((map) => {
+        const criteriaMap = map || new Map;
+        Object.keys(criteriaMap).forEach((criteriaKey) => {
+            const criteria = criteriaMap[criteriaKey] || {};
+            if (criteria.type === "label" || criteria.type === undefined) {
+                const values = criteria.values || [];
+                let num = 0;
+                Object.keys(values).forEach(valueKey => {
+                    const value = values[valueKey] || {};
+                    if (value.class === undefined && value.color === undefined && value.backgroundColor === undefined) {
+                        criteriaValueCount++;
+                        num++;
                     }
-                );
-            } else {
-                let mult = (o.order === undefined || o.order.toLowerCase() === "asc") ? 1 : -1;
-                vals = o.type.values.sort(function (o1, o2) {
-                        return mult * (o1.weight - o2.weight);
-                    }
-                );
-            }
-            for (let j = 0; j < vals.length; j++) {
-                let v = vals[j];
-                if (!(v.hasOwnProperty("class") || v.hasOwnProperty("color"))) {
-                    v.color = colorArray[color];
-                    v.foreground = foregroundArray[color];
-                    changed = true;
-                    color = (color + delta) % colorArray.length;
+                });
+                if (num > 0) {
+                    criteriaCount++;
                 }
             }
-        }
-        color = (color + columnD) % colorArray.length;
+        })
+    });
+
+    let delta = Math.floor(colorArray.length / criteriaValueCount);
+    let columnDelta;
+    if (delta < 1) {
+        columnDelta = Math.floor(colorArray.length / criteriaCount);
+    } else {
+        columnDelta = 0;
     }
+
+    color = Math.floor(Math.random() * colorArray.length);
+
+    input.autoColor = input.autoColor || {};
+    let autoColor = input.autoColor;
+
+    data.forEach((map) => {
+        const criteriaMap = map || new Map;
+        Object.keys(criteriaMap).forEach((criteriaKey) => {
+            const criteria = criteriaMap[criteriaKey] || {};
+            if (criteria.type === "label" || criteria.type === undefined) {
+                const values = criteria.values || [];
+                let tmpValues = [];
+                Object.keys(values).forEach((key) => {
+                    const value = values[key] || {};
+                    if (value.class === undefined && value.color === undefined && value.backgroundColor === undefined) {
+                        let obj = value;
+                        obj.name = key;
+                        tmpValues.push(obj);
+                    }
+                });
+
+                if (tmpValues[0] && tmpValues[0].weight === undefined) {
+                    tmpValues.sort((val1, val2) => {
+                        const name1 = val1.name || "";
+                        const name2 = val2.name || "";
+                        return name1.toString().localeCompare(name2.toString());
+                    })
+                } else {
+                    // TODO support order in config (ASC|DESC)
+                    let weight = 1;
+                    tmpValues.sort((val1, val2) => {
+                        const weight1 = val1.weight || 0;
+                        const weight2 = val2.weight || 0;
+                        return weight * (weight1 - weight2);
+                    });
+                }
+                if (tmpValues.length > 0) {
+                    autoColor[criteriaKey] = autoColor[criteriaKey] || {};
+                }
+
+                tmpValues.forEach(value => {
+                    if (!autoColor[criteriaKey][value.name]) {
+                        changed = true;
+                        autoColor[criteriaKey][value.name] = {
+                            color: foregroundArray[color],
+                            backgroundColor: colorArray[color]
+                        };
+                        color = (color + delta) % colorArray.length;
+                    }
+                });
+                color = (color + columnDelta) % colorArray.length;
+            }
+        })
+    });
+
     if (changed) {
-        fs.writeFileSync(config, JSON.stringify(input, null, 4), "utf8");
+        fs.writeFileSync(config, yaml2json.safeDump(input), "utf8");
     }
     return true;
 });

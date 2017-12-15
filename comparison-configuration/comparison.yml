@@ -78,8 +78,8 @@ criteria:
           class: label-info
         red 1:
           description: Show case for red label 1
-          backgroundColor: #d9534f
-          color: #fff
+          backgroundColor: "#d9534f"
+          color: "#fff"
         red 2:
           description: Show case for red label 2
           class: label-danger
@@ -133,32 +133,6 @@ criteria:
           weight: 4
 
 autoColor:
-  License:
-    Apache-2.0:
-      color: hsl(135,100%,70%)
-      backgroundColor:
-    MIT:
-      color: hsl(150, 100%, 70%)
-    MPL-2.0:
-      color: hsl(165, 100%, 70%)
-  Uncolored:
-    Color 1:
-      color: hsl(180, 100%, 70%)
-    Color 2:
-      color: hsl(195, 100%, 70%)
-    Color 3:
-      color: hsl(210, 100%, 70%)
-  Number Column:
-    100:
-      color: hsl(225, 100%, 70%)
-    199:
-      color: hsl(240, 100%, 70%)
-    200:
-      color: hsl(255, 100%, 70%)
-    250:
-      color: hsl(270, 100%, 70%)
-    300:
-      color: hsl(285, 100%, 70%)
 
 autoCriteria:
   NumberColumn:
