@@ -9,19 +9,20 @@ import concatjson from 'gulp-concat-json';
 import clean from 'gulp-clean';
 import run from 'run-sequence';
 import exec from 'gulp-exec';
-import bibtex2json from './citation/bibtex2json';
-import fs from 'fs';
+import {readFile, readFileSync, writeFileSync} from 'fs';
 import sh from 'sync-exec';
 import yaml2json from 'js-yaml';
 
 const execSimple = require('child_process').exec;
+const Cite = require('citation-js');
 
 const paths = {
     src: 'app',
     dev: 'www',
     json: 'comparison-elements-json',
     markdown: 'comparison-elements',
-    data: 'app/components/comparison/data/'
+    data: 'app/components/comparison/data/',
+    config: './comparison-configuration/'
 };
 
 const files = {
@@ -36,7 +37,9 @@ const files = {
     ],
     json: [
         './comparison-elements-json/*.json'
-    ]
+    ],
+    config: paths.config.concat('comparison.yml'),
+    defaultConfig: paths.config.concat('comparison-default.yml')
 };
 
 const destfiles = {
@@ -45,11 +48,11 @@ const destfiles = {
 
 // BUILD / UPDATE data files -------------------------------------<
 gulp.task('build-data', function (callback) {
-    run('determinecolors', 'markdown', 'json', 'citation', callback);
+    run('markdown', 'json', 'criteria', 'determinecolors', 'citation', callback);
 });
 
 gulp.task('determinecolors', function () {
-    const config = './comparison-configuration/comparison.yml';
+    const config = files.config;
     const colorArray = [
         'hsl(15, 100%, 70%)',
         'hsl(30, 100%, 70%)',
@@ -74,7 +77,7 @@ gulp.task('determinecolors', function () {
         'hsl(315, 100%, 70%)',
         'hsl(330, 100%, 70%)'
     ];
-    var foregroundArray = [
+    const foregroundArray = [
         "#0d0d0d",
         "#0d0d0d",
         "#0d0d0d",
@@ -99,11 +102,12 @@ gulp.task('determinecolors', function () {
         "#0d0d0d"
     ];
     let color;
-    let input = yaml2json.safeLoad(fs.readFileSync(config, "utf8"));
+    let input = yaml2json.safeLoad(readFileSync(config, "utf8"));
 
     const data = _.cloneDeep(input).criteria || [];
-    console.log(JSON.stringify(data));
+    const autoCriteria = _.cloneDeep(input.autoCriteria) || {};
     let changed = false;
+    let criteriaSet = new Set();
     let criteriaValueCount = 0;
     let criteriaCount = 0;
 
@@ -122,10 +126,29 @@ gulp.task('determinecolors', function () {
                     }
                 });
                 if (num > 0) {
+                    criteriaSet.add(criteriaKey);
                     criteriaCount++;
                 }
             }
         })
+    });
+
+    Object.keys(autoCriteria).forEach(criteriaKey => {
+        const criteria = autoCriteria[criteriaKey] || {};
+        if (criteria.type === "label" || criteria.type === undefined) {
+            const values = criteria.values || [];
+            let num = 0;
+            Object.keys(values).forEach(valueKey => {
+                const value = values[valueKey] || {};
+                if (value.class === undefined && value.color === undefined && value.backgroundColor === undefined) {
+                    criteriaValueCount++;
+                    num++;
+                }
+            });
+            if (num > 0 && !criteriaSet.has(criteriaKey)) {
+                criteriaCount++;
+            }
+        }
     });
 
     let delta = Math.floor(colorArray.length / criteriaValueCount);
@@ -143,8 +166,14 @@ gulp.task('determinecolors', function () {
 
     data.forEach((map) => {
         const criteriaMap = map || new Map;
-        Object.keys(criteriaMap).forEach((criteriaKey) => {
-            const criteria = criteriaMap[criteriaKey] || {};
+        completeAutoColor(criteriaMap);
+    });
+
+    completeAutoColor(autoCriteria);
+
+    function completeAutoColor(cmap) {
+        Object.keys(cmap).forEach((criteriaKey) => {
+            const criteria = cmap[criteriaKey] || {};
             if (criteria.type === "label" || criteria.type === undefined) {
                 const values = criteria.values || [];
                 let tmpValues = [];
@@ -188,11 +217,12 @@ gulp.task('determinecolors', function () {
                 });
                 color = (color + columnDelta) % colorArray.length;
             }
-        })
-    });
+        });
+    }
+
 
     if (changed) {
-        fs.writeFileSync(config, yaml2json.safeDump(input), "utf8");
+        writeFileSync(config, yaml2json.safeDump(input), "utf8");
     }
     return true;
 });
@@ -239,10 +269,167 @@ gulp.task('json', function () {
         .pipe(gulp.dest(paths.data))
 });
 
-gulp.task('citation', function (callback) {
-    let fileContent = JSON.parse(fs.readFileSync("./citation/config.json", "utf8"));
-    bibtex2json.parse('./citation/' + fileContent.bibtex_file, 'utf8', './citation/' + fileContent.bibtex_style, './citation/output', callback);
+gulp.task('citation', function (done) {
+    let input = yaml2json.safeLoad(readFileSync(files.config, "utf8"));
+    const citation = input.citation || {};
+    const csl = citation.csl;
+    const bib = citation.bib;
+
+    if (csl) {
+        readFile(paths.config.concat(csl), "utf8", function (err, cslString) {
+            if (err) {
+                return console.error("Could not read File: ".concat(err.toString()));
+            }
+            Cite.CSL.register.addTemplate("defaultParameter", cslString.toString());
+            readBib(done)
+        });
+    } else {
+        console.info("Undefined 'csl' file using default!");
+        readBib(done)
+    }
+
+    function readBib(done) {
+        if (bib) {
+            readFile(paths.config.concat(bib), "utf8", function (err, data) {
+                let changed;
+                if (err) {
+                    return console.error("Could not read File: ".concat(err.toString()));
+                }
+                const cite = new Cite(data.toString().replace(/^%.*\n?/gm, ''), {forceType: 'string/bibtex'});
+
+                let map = new Map();
+                for (let item of cite.data) {
+                    let itemData = new Cite(item);
+                    map.set(item.id, (csl ?
+                            itemData.get({
+                                type: 'string',
+                                style: 'citation-defaultParameter'
+                            }) :
+                            item.get({type: 'string'})
+                        ).trim().replace(/\. \./gm, ".")
+                    );
+                    changed = true;
+                }
+
+                if (changed) {
+                    const data = readFileSync(paths.data.concat("/data.json"), "utf8");
+                    let keys = new Set();
+                    let keyReg = /\[@(.*?)]/g;
+                    let match;
+                    do {
+                        match = keyReg.exec(data);
+                        if (match) keys.add(match[1]);
+                    } while (match);
+
+                    keys.forEach(key => {
+                        if (!map.has(key)) {
+                            throw new Error("Bibtex entry for key '".concat(key, "' is missing!"));
+                        }
+                    });
+
+                    let obj = Object.create(null);
+                    let i = 0;
+                    for (let [k, v] of map) {
+                        if (data.match('@'.concat(k))) {
+                            obj[k] = {index: i, value: v};
+                            i++;
+                        }
+                    }
+                    input.autoCitation = obj;
+                    writeFileSync(files.config, yaml2json.safeDump(input), "utf8");
+                }
+                done();
+            });
+        } else {
+            done();
+        }
+    }
 });
+
+gulp.task('criteria', function (done) {
+    let config = yaml2json.safeLoad(readFileSync(files.config, "utf8"));
+    const defaultConfig = yaml2json.safeLoad(readFileSync(files.defaultConfig, "utf8"));
+    const defaultCriteria = defaultConfig.autoCriteria || {};
+    let criteriaObject = config.criteria || [];
+    let criteria = new Map();
+    criteriaObject.forEach(criteriaMap => Object.keys(criteriaMap).forEach(key => {
+        const valueObject = criteriaMap[key] || {};
+        const valuesObject = valueObject.values || {};
+        let values = new Set();
+        Object.keys(valuesObject).forEach(valueKey => values.add(valueKey));
+        criteria.set(key, {type: valueObject.type || defaultConfig.criteria[0].Example.type, values: values});
+    }));
+
+    const data = JSON.parse(readFileSync(paths.data.concat("/data.json"), "utf8")) || [];
+
+    let autoCriteria = Object.create(null);
+    data.forEach(entry => Object.keys(entry).forEach(entryKey => {
+        if ("tag" === entryKey.toString() || "descr" === entryKey.toString()) {
+            if (!criteria.has("id")) {
+                autoCriteria["id"] = defaultCriteria.id;
+            }
+
+            if (!criteria.has("description")) {
+                autoCriteria["description"] = defaultCriteria.description;
+            }
+            return;
+        }
+
+        const entryValue = entry[entryKey];
+        if (criteria.has(entryKey) && "label" !== criteria.get(entryKey).type) {
+            return;
+        } else if (criteria.has(entryKey)) {
+            const childs = entryValue.childs || {};
+            const firstChild = childs["0"] || [];
+            firstChild.forEach(array => {
+                const vals = array || [];
+                vals.forEach(value => {
+                    const name = value.content;
+                    if (!name) return;
+                    if (!criteria.get(entryKey).values.has(name)) {
+                        if (!autoCriteria[entryKey]) {
+                            autoCriteria[entryKey] = {};
+                            autoCriteria[entryKey].values = {};
+                        }
+                        autoCriteria[entryKey].values[name] = {};
+                    }
+                });
+
+            });
+        } else {
+            const childs = entryValue.childs || {};
+            const firstChild = childs["0"] || [];
+            if (firstChild.length > 0) {
+                if (firstChild[0] === "") {
+                    return;
+                }
+                if (typeof firstChild[0] === "string") {
+                    autoCriteria[entryKey] = _.cloneDeep(defaultCriteria.defaultMarkdown);
+                } else {
+                    if (autoCriteria[entryKey] === undefined) {
+                        autoCriteria[entryKey] = _.cloneDeep(defaultCriteria.defaultLabel);
+                        autoCriteria[entryKey].values = {};
+                    }
+                    firstChild.forEach(array => {
+                        const vals = array || [];
+                        vals.forEach(value => {
+                            const name = value.content;
+                            if (!name) return;
+                            autoCriteria[entryKey].values[name] = {};
+                        });
+                    })
+                }
+            }
+
+        }
+    }));
+
+    config.autoCriteria = autoCriteria;
+    writeFileSync(files.config, yaml2json.safeDump(config), "utf8");
+
+    done();
+})
+;
 // --------------------------------------------------------------->
 
 

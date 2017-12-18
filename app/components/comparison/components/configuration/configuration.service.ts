@@ -45,7 +45,7 @@ export class ConfigurationService {
                 const headerObject: any = detailsObject.header || {};
                 const bodyObject: any = detailsObject.body || {};
                 const criteriaArray = comparisonObject.criteria || [];
-                const citationObject = comparisonObject.autoBibtex || {};
+                const citationObject = comparisonObject.autoCitation || {};
                 const autoCriteria = comparisonObject.autoCriteria || {};
                 const autoColor = comparisonObject.autoColor || {};
 
@@ -125,7 +125,8 @@ export class ConfigurationService {
                 }));
 
                 Object.keys(autoCriteria).forEach((key) => {
-                    const valuesObject = autoCriteria[key];
+                    const autoCriteriaObject = autoCriteria[key];
+                    const valuesObject = autoCriteriaObject.values || {};
                     const autoColorCriteria = isNullOrUndefined(autoColor[key]) ? {} : autoColor[key];
 
                     // If autoCriteria is already defined
@@ -200,7 +201,15 @@ export class ConfigurationService {
                         });
 
                         criteria.set(key, new Criteria.Builder()
-                            .setName(key)
+                            .setName(autoCriteriaObject.name)
+                            .setSearch(autoCriteriaObject.search)
+                            .setTable(autoCriteriaObject.table)
+                            .setDetail(autoCriteriaObject.detail)
+                            .setType(autoCriteriaObject.type)
+                            .setDescription(autoCriteriaObject.description)
+                            .setPlaceholder(autoCriteriaObject.placeholder)
+                            .setAndSearch(autoCriteriaObject.andSearch)
+                            .setRangeSearch(autoCriteriaObject.rangeSearch)
                             .setValues(values)
                             .build());
                     }
