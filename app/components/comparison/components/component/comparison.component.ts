@@ -3,8 +3,7 @@ import { VersionInformation } from '../../../../VersionInformation';
 import { PaperCardComponent } from "../../../polymer/paper-card/paper-card.component";
 import { LatexTableComponent } from '../../../output/latex-table/latex-table.component';
 import { Store } from '@ngrx/store';
-import { IUCAppState } from '../../../../redux/app.app-state';
-import { UPDATE_ROUTE } from '../../../../redux/app.reducers';
+import { IUCAppState } from '../../../../redux/uc.app-state';
 import { Observable } from 'rxjs';
 import { PaperDialogComponent } from '../../../polymer/paper-dialog/paper-dialog.component';
 import { Router } from '@angular/router';
@@ -12,6 +11,7 @@ import { ConfigurationService } from "../configuration/configuration.service";
 import { Criteria } from "../configuration/configuration";
 import { DataService } from "../data/data.service";
 import { Data } from "../data/data";
+import { isNullOrUndefined } from 'util';
 
 const FileSaver = require('file-saver');
 
@@ -31,16 +31,12 @@ export class ComparisonComponent {
     @ViewChild('genericTableHeader') genericTableHeader: PaperCardComponent;
 
     public shrinked = true;
-    public state: Observable<PaperDialogComponent>;
 
-    constructor(public dataService: DataService,
-                public configurationService: ConfigurationService,
+    constructor(public configurationService: ConfigurationService,
                 private cd: ChangeDetectorRef,
-                private store: Store<IUCAppState>,
+                public store: Store<IUCAppState>,
                 private router: Router) {
         this.configurationService.loadComparison(this.cd);
-        this.state = this.store.select('currentModal');
-        this.router.events.subscribe(res => this.store.dispatch({type: UPDATE_ROUTE}))
     }
 
     public getVersionInformation(): VersionInformation {

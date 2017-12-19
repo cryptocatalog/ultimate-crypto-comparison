@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Injectable } from '@angular/core';
+import { ChangeDetectorRef, EventEmitter, Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import * as yaml from 'js-yaml';
@@ -11,29 +11,32 @@ import {
     Details,
     getCriteriaType,
     Header
-} from "./configuration";
-import * as Showdown from "showdown";
-import { DataService } from "../data/data.service";
+} from './configuration';
+import * as Showdown from 'showdown';
+import { DataService } from '../data/data.service';
 
 @Injectable()
 export class ConfigurationService {
     public configuration: Configuration = new Configuration.Builder().build();
-    public description: string = "";
+    public description = '';
     public criteria: Array<Criteria> = [];
     // TODO move to redux
     public tableColumns: Array<string> = [];
     private converter: Showdown.Converter;
 
-    constructor(public title: Title,
-                private http: HttpClient,
-                private dataService: DataService) {
-        this.converter = new Showdown.Converter();
-    }
+    public initializeData: EventEmitter<any> = new EventEmitter();
 
     static getHtml(converter: Showdown.Converter, citation: Map<string, Citation>, markdown: string): string {
         return converter.makeHtml(markdown).replace(/(?:\[@)([^\]]*)(?:\])/g, (match, dec) => {
             return '<a class="cite-link" href="#' + dec + '">[' + citation.get(dec).index + ']</a>';
         });
+    }
+
+    constructor(public title: Title,
+                private http: HttpClient,
+                private dataService: DataService) {
+        this.converter = new Showdown.Converter();
+        this.dataService.setSubscriber(this);
     }
 
     public loadComparison(cd: ChangeDetectorRef) {
@@ -63,7 +66,7 @@ export class ConfigurationService {
                     .setBody(detailsBody)
                     .build();
 
-                let criteria: Map<string, Criteria> = new Map<string, Criteria>();
+                const criteria: Map<string, Criteria> = new Map<string, Criteria>();
                 criteriaArray.forEach((obj) => Object.keys(obj).forEach((key) => {
                     const value = obj[key];
                     if (value == null) {
@@ -74,27 +77,27 @@ export class ConfigurationService {
                     const autoColorCriteria = autoColor[key] || {};
                     const valuesObject = value.values || {};
 
-                    let values: Map<string, CriteriaValue> = new Map<string, CriteriaValue>();
+                    const values: Map<string, CriteriaValue> = new Map<string, CriteriaValue>();
                     Object.keys(valuesObject).forEach(objKey => {
-                        const value = valuesObject[objKey];
+                        const v = valuesObject[objKey];
                         const autoColorValue = autoColorCriteria[objKey] || {};
 
-                        if (value == null) {
+                        if (v == null) {
                             values.set(objKey, new CriteriaValue.Builder().build());
                             return;
                         }
                         values.set(objKey, new CriteriaValue.Builder()
                             .setCriteria(key)
                             .setName(objKey)
-                            .setDescription(value.description)
-                            .setClazz(value.class)
-                            .setColor(value.color || autoColorValue.color)
-                            .setBackgroundColor(value.backgroundColor || autoColorValue.backgroundColor)
-                            .setWeight(value.weight)
-                            .setMinAge(value.minAge)
-                            .setMaxAge(value.maxAge)
-                            .setMinAgeUnit(value.minAgeUnit)
-                            .setMaxAgeUnit(value.maxAgeUnit)
+                            .setDescription(v.description)
+                            .setClazz(v.class)
+                            .setColor(v.color || autoColorValue.color)
+                            .setBackgroundColor(v.backgroundColor || autoColorValue.backgroundColor)
+                            .setWeight(v.weight)
+                            .setMinAge(v.minAge)
+                            .setMaxAge(v.maxAge)
+                            .setMinAgeUnit(v.minAgeUnit)
+                            .setMaxAgeUnit(v.maxAgeUnit)
                             .build()
                         );
                     });
@@ -118,8 +121,8 @@ export class ConfigurationService {
                     const valuesObject = autoCriteria[key];
 
                     if (criteria.get(key)) {
-                        let old: Criteria = criteria.get(key);
-                        let values: Map<string, CriteriaValue> = new Map<string, CriteriaValue>();
+                        const old: Criteria = criteria.get(key);
+                        const values: Map<string, CriteriaValue> = new Map<string, CriteriaValue>();
                         Object.keys(valuesObject).forEach(valueKey => {
                             const oldValue: CriteriaValue = old.values.get(valueKey);
                             const value = valuesObject[valueKey];
@@ -155,7 +158,7 @@ export class ConfigurationService {
                             .setValues(values)
                             .build());
                     } else {
-                        let values: Map<string, CriteriaValue> = new Map<string, CriteriaValue>();
+                        const values: Map<string, CriteriaValue> = new Map<string, CriteriaValue>();
                         Object.keys(valuesObject).forEach(valueKey => {
                             const value = valuesObject[valueKey];
                             if (value == null) {
@@ -182,7 +185,7 @@ export class ConfigurationService {
                     }
                 });
 
-                let citation: Map<string, Citation> = new Map<string, Citation>();
+                const citation: Map<string, Citation> = new Map<string, Citation>();
                 Object.keys(citationObject).forEach(
                     citationKey => {
                         const value = citationObject[citationKey];
@@ -206,9 +209,10 @@ export class ConfigurationService {
                     .setCitation(citation)
                     .build();
 
+                this.initializeData.emit({configuration: this.configuration, dataService: this.dataService, cd: cd});
+
                 this.title.setTitle(this.configuration.title);
-                this.loadDescription(cd, citation);
-                this.dataService.loadData(cd, this.configuration);
+                this.loadDescription(citation);
 
                 criteria.forEach((value, key) => {
                     if (value.search) {
@@ -222,11 +226,10 @@ export class ConfigurationService {
             });
     }
 
-    public loadDescription(cd: ChangeDetectorRef, citation: Map<string, Citation>) {
+    public loadDescription(citation: Map<string, Citation>) {
         this.http.get('comparison-configuration/description.md', {responseType: 'text'})
             .subscribe(res => {
                 this.description = ConfigurationService.getHtml(this.converter, citation, res);
-                cd.markForCheck();
             });
     }
 }

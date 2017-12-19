@@ -200,19 +200,19 @@ export class Criteria {
     public items: Array<string>;
 
     constructor(builder) {
-        let name: string = builder.name || "";
+        const name: string = builder.name || '';
         this.name = name;
         this.search = builder.search == null ? true : builder.search;
         this.table = builder.table == null ? true : builder.table;
         this.detail = builder.detail == null ? true : builder.detail;
         this.type = builder.type != null ? builder.type : CriteriaType.label;
-        this.description = builder.description != null ? builder.description : (name.length === 0 ? "" :
-            name.charAt(0).toUpperCase().concat(name.slice(1), " of entry."));
-        this.placeholder = builder.placeholder != null ? builder.placeholder : (name.length === 0 ? "" :
-            "Select ".concat(name.charAt(0), name.slice(1), " of ..."));
+        this.description = builder.description != null ? builder.description : (name.length === 0 ? '' :
+            name.charAt(0).toUpperCase().concat(name.slice(1), ' of entry.'));
+        this.placeholder = builder.placeholder != null ? builder.placeholder : (name.length === 0 ? '' :
+            'Select '.concat(name.charAt(0), name.slice(1), ' of ...'));
         this.andSearch = builder.andSearch == null ? true : builder.andSearch;
         this.rangeSearch = builder.rangeSearch == null ? false : builder.rangeSearch;
-        let values: Map<string, CriteriaValue> = builder.values || new Map<string, CriteriaValue>();
+        const values: Map<string, CriteriaValue> = builder.values || new Map<string, CriteriaValue>();
         this.values = values;
         this.items = [];
         values.forEach((value, key) => {

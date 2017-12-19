@@ -1,7 +1,7 @@
 import { Component, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
-import { IUCAppState } from '../../../redux/app.app-state';
+import { IUCAppState } from '../../../redux/uc.app-state';
 import { Store } from '@ngrx/store';
-import { UPDATE_MODAL } from '../../../redux/app.reducers';
+import { UPDATE_MODAL } from '../../../redux/uc.reducers';
 
 @Component({
     selector: 'pdialog',
