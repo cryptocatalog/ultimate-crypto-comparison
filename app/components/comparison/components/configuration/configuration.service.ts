@@ -205,7 +205,7 @@ export class ConfigurationService {
                             .setSearch(autoCriteriaObject.search)
                             .setTable(autoCriteriaObject.table)
                             .setDetail(autoCriteriaObject.detail)
-                            .setType(autoCriteriaObject.type)
+                            .setType(getCriteriaType(autoCriteriaObject.type))
                             .setDescription(autoCriteriaObject.description)
                             .setPlaceholder(autoCriteriaObject.placeholder)
                             .setAndSearch(autoCriteriaObject.andSearch)
