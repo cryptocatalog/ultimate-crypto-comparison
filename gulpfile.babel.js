@@ -312,7 +312,8 @@ gulp.task('citation', function (done) {
                 }
 
                 if (changed) {
-                    const data = readFileSync(paths.data.concat("/data.json"), "utf8");
+                    let data = readFileSync(paths.data.concat("/data.json"), "utf8");
+                    data = data.concat(readFileSync(paths.config.concat("description.md"), "utf8"));
                     let keys = new Set();
                     let keyReg = /\[@(.*?)]/g;
                     let match;
