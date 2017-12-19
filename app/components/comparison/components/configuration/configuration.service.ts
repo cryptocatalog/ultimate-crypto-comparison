@@ -201,7 +201,7 @@ export class ConfigurationService {
                         });
 
                         criteria.set(key, new Criteria.Builder()
-                            .setName(autoCriteriaObject.name)
+                            .setName(isNullOrUndefined(autoCriteriaObject.name) ? key : autoCriteriaObject)
                             .setSearch(autoCriteriaObject.search)
                             .setTable(autoCriteriaObject.table)
                             .setDetail(autoCriteriaObject.detail)
