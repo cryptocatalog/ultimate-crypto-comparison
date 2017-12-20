@@ -272,9 +272,11 @@ gulp.task('json', function () {
 
 gulp.task('citation', function (done) {
     let input = yaml2json.safeLoad(readFileSync(files.config, "utf8"));
+    let defaults = yaml2json.safeLoad(readFileSync(paths.config.concat("comparison-default.yml"), "utf8"));
     const citation = input.citation || {};
-    const csl = citation.csl;
-    const bib = citation.bib;
+    const citationDefault = defaults.citation;
+    const csl = citation.csl || citationDefault.csl;
+    const bib = citation.bib || citationDefault.bib;
 
     if (csl) {
         readFile(paths.config.concat(csl), "utf8", function (err, cslString) {
@@ -312,7 +314,8 @@ gulp.task('citation', function (done) {
                 }
 
                 if (changed) {
-                    const data = readFileSync(paths.data.concat("/data.json"), "utf8");
+                    let data = readFileSync(paths.data.concat("/data.json"), "utf8");
+                    data = data.concat(readFileSync(paths.config.concat("description.md"), "utf8"));
                     let keys = new Set();
                     let keyReg = /\[@(.*?)]/g;
                     let match;
@@ -353,7 +356,7 @@ gulp.task('citation', function (done) {
 });
 
 gulp.task('criteria', function (done) {
-    let config = yaml2json.safeLoad(readFileSync(files.config, "utf8"));
+    let config = yaml2json.safeLoad(readFileSync(files.config, "utf8")) || {};
     const defaultConfig = yaml2json.safeLoad(readFileSync(files.defaultConfig, "utf8"));
     const defaultCriteria = defaultConfig.autoCriteria || {};
     let criteriaObject = config.criteria || [];

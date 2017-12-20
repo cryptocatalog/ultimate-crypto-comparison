@@ -204,11 +204,11 @@ export class ConfigurationService {
                         });
 
                         criteria.set(key, new Criteria.Builder()
-                            .setName(autoCriteriaObject.name)
+                            .setName(isNullOrUndefined(autoCriteriaObject.name) ? key : autoCriteriaObject.name)
                             .setSearch(autoCriteriaObject.search)
                             .setTable(autoCriteriaObject.table)
                             .setDetail(autoCriteriaObject.detail)
-                            .setType(autoCriteriaObject.type)
+                            .setType(getCriteriaType(autoCriteriaObject.type))
                             .setDescription(autoCriteriaObject.description)
                             .setPlaceholder(autoCriteriaObject.placeholder)
                             .setAndSearch(autoCriteriaObject.andSearch)
