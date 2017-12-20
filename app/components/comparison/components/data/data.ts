@@ -1,4 +1,5 @@
 import { DataService } from './data.service';
+import { isNullOrUndefined } from "util";
 
 export class Data {
     public name: string;
@@ -109,11 +110,11 @@ export class Label {
     public backgroundColor: string;
 
     constructor(builder) {
-        this.name = builder.name || "";
-        this.tooltip = builder.tooltip || new Tooltip(null, null, null);
-        this.clazz = builder.clazz || "";
-        this.color = builder.color || "";
-        this.backgroundColor = builder.backgroundColor || "";
+        this.name = isNullOrUndefined(builder.name) ? "" : builder.name;
+        this.tooltip = isNullOrUndefined(builder.tooltip) ? new Tooltip(null, null, null) : builder.tooltip;
+        this.clazz = isNullOrUndefined(builder.clazz) ? "" : builder.clazz;
+        this.color = isNullOrUndefined(builder.color) ? "" : builder.color;
+        this.backgroundColor = isNullOrUndefined(builder.backgroundColor) ? "" : builder.backgroundColor;
     }
 
     static get Builder() {
@@ -172,8 +173,8 @@ export class Url {
     public link: string;
 
     constructor(text: string, link: string) {
-        this.text = text || link || "";
-        this.link = link || "";
+        this.text = !isNullOrUndefined(text) ? text : (!isNullOrUndefined(link) ? link : "");
+        this.link = isNullOrUndefined(link) ? "" : link;
     }
 }
 
@@ -182,8 +183,8 @@ export class Markdown {
     public htmlContent: string;
 
     constructor(content: string, htmlContent: string) {
-        this.content = content || "";
-        this.htmlContent = htmlContent || "";
+        this.content = isNullOrUndefined(content) ? "" : content;
+        this.htmlContent = isNullOrUndefined(htmlContent) ? "" : htmlContent;
     }
 }
 
@@ -192,8 +193,8 @@ export class Rating {
     public comment: string;
 
     constructor(stars: number, comment: string) {
-        this.stars = stars || 0;
-        this.comment = comment || "";
+        this.stars = isNullOrUndefined(stars) ? 0 : stars;
+        this.comment = isNullOrUndefined(comment) ? "" : comment;
     }
 }
 
@@ -203,8 +204,8 @@ export class Tooltip {
     public latex: string;
 
     constructor(text: string, html: string, latex: string) {
-        this.text = text || "";
-        this.html = html || "";
-        this.latex = latex || "";
+        this.text = isNullOrUndefined(text) ? "" : text;
+        this.html = isNullOrUndefined(html) ? "" : html;
+        this.latex = isNullOrUndefined(latex) ? "" : latex;
     }
 }

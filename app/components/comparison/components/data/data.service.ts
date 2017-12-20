@@ -1,9 +1,10 @@
-import { ChangeDetectorRef, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import * as Showdown from 'showdown';
-import { Data, Label, Markdown, Rating, Text, Tooltip, Url } from './data';
-import { Configuration, Criteria, CriteriaType, CriteriaValue } from '../configuration/configuration';
-import { ConfigurationService } from '../configuration/configuration.service';
+import { ChangeDetectorRef, Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import * as Showdown from "showdown";
+import { Data, Label, Markdown, Rating, Text, Tooltip, Url } from "./data";
+import { Configuration, Criteria, CriteriaType, CriteriaValue } from "../configuration/configuration";
+import { ConfigurationService } from "../configuration/configuration.service";
+import { isNullOrUndefined } from "util";
 import { UCDataUpdateAction } from '../../../../redux/uc.action';
 import { Store } from '@ngrx/store';
 import { IUCAppState } from '../../../../redux/uc.app-state';
@@ -33,49 +34,57 @@ export class DataService {
                 const data: Array<Data> = [];
 
                 dataArrayObject.forEach(dataObject => {
+                    // Split markdown first level header (e.g. Default 1 - www.example.com) into 'name' and 'url'
                     const regArray =
                         /^((?:(?:\w+\s*)(?:-?\s*\w+.)*)+)\s*-?\s*((?:(?:http|ftp|https)(?::\/\/)(?:[\w_-]+(?:(?:\.[\w_-]+)+))|(?:www.))(?:[\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?)$/gi
                             .exec(dataObject.tag);
-                    const name: string = ((regArray && regArray.length > 1) ? regArray[1] : dataObject.tag || '').trim();
-
-                    let url: string = ((regArray && regArray.length > 2) ? regArray[2] : dataObject.tag || '').trim();
+                    const name: string = ((regArray && regArray.length > 1) ? regArray[1] : dataObject.tag || "").trim();
+                    let url: string = ((regArray && regArray.length > 2) ? regArray[2] : dataObject.tag || "").trim();
                     if (/^(www)/.test(url)) {
                         url = 'http://'.concat(url);
                     }
+
                     let averageRating = 0;
 
+                    // Iterate over second level header and automatically generated ('tag' and 'description')
                     const criteria: Map<string, Map<string, Label> | Text | Url | Markdown | Array<Rating>> =
                         new Map<string, Map<string, Label> | Text | Markdown | Array<Rating>>();
                     Object.keys(dataObject).forEach(criteriaKey => {
                             const criteriaObject = dataObject[criteriaKey];
 
-                            if (criteriaObject == null) {
+                            if (isNullOrUndefined(criteriaObject)) {
                                 return;
                             }
-
-                            if (criteriaKey === 'tag') {
-                                const crit: Criteria = configuration.criteria.get('id');
-                                const type: CriteriaType = crit ? crit.type : CriteriaType.url;
+                            // tag is the name of first level header key in json => build column based on Configuration 'id'
+                            if (criteriaKey === "tag") {
+                                const critConf: Criteria = configuration.criteria.get("id");
+                                const type: CriteriaType = critConf ? critConf.type : CriteriaType.url;
                                 switch (type) {
                                     case CriteriaType.text:
                                         criteria.set('id', new Text(name));
                                         break;
                                     case CriteriaType.markdown:
-                                        criteria.set('id', new Markdown(name, dataService.converter.makeHtml(name)));
+                                        criteria.set("id", new Markdown(name,
+                                            ConfigurationService.getHtml(this.converter, configuration.citation, name)));
                                         break;
                                     case CriteriaType.label:
                                         const labels: Map<string, Label> = new Map<string, Label>();
                                         labels.set(name, new Label.Builder().setName(name).build());
                                         criteria.set('id', labels);
                                         break;
+                                    case CriteriaType.url:
+                                        criteria.set("id", new Url(name, url));
+                                        break;
                                     default:
-                                        criteria.set('id', new Url(name, url));
+                                        return;
                                 }
                                 return;
                             }
-                            if (criteriaKey === 'descr') {
-                                const crit: Criteria = configuration.criteria.get('description');
-                                const type: CriteriaType = crit ? crit.type : CriteriaType.url;
+                            // key is the name of first level header content key in json =>
+                            // build column based on Configuration 'description'
+                            if (criteriaKey === "descr") {
+                                const critConf: Criteria = configuration.criteria.get("description");
+                                const type: CriteriaType = critConf ? critConf.type : CriteriaType.url;
                                 switch (type) {
                                     case CriteriaType.text:
                                         criteria.set('description', new Text(criteriaObject));
@@ -83,19 +92,24 @@ export class DataService {
                                     case CriteriaType.markdown:
                                         criteria.set('description',
                                             new Markdown(criteriaObject,
-                                            ConfigurationService.getHtml(dataService.converter, configuration.citation, criteriaObject)));
+                                                ConfigurationService
+                                                    .getHtml(dataService.converter, configuration.citation, criteriaObject)));
                                         break;
                                     case CriteriaType.label:
                                         const labels: Map<string, Label> = new Map<string, Label>();
                                         labels.set(criteriaObject, new Label.Builder().setName(criteriaObject).build());
                                         criteria.set('description', labels);
                                         break;
+                                    case CriteriaType.url:
+                                        criteria.set("description", new Url(criteriaObject, url));
+                                        break;
                                     default:
-                                        criteria.set('description', new Url(criteriaObject, url));
+                                        criteria.set("description", new Text(""));
                                 }
                                 return;
                             }
 
+                            // Handle all other second level headers
                             const criteriaConf: Criteria = configuration.criteria.get(criteriaKey) || new Criteria.Builder().build();
                             const childs = criteriaObject.childs || {};
                             const childsArrayLvl1 = childs['0'] || [];
@@ -108,7 +122,7 @@ export class DataService {
                                 case CriteriaType.markdown:
                                     criteria.set(criteriaKey,
                                         new Markdown(criteriaObject.plain,
-                                        dataService.converter.makeHtml(criteriaObject.plain)));
+                                            ConfigurationService.getHtml(dataService.converter, configuration.citation, criteriaObject.plain)));
                                     break;
                                 case CriteriaType.url:
                                     criteria.set(criteriaObject.plain, new Url(criteriaObject.plain, criteriaObject.plain));
@@ -132,18 +146,24 @@ export class DataService {
 
                                     criteria.set(criteriaKey, ratings);
                                     break;
-                                default:
-                                    const labels: Map<string, Label> = new Map<string, Label>();
+                                case CriteriaType.label:
+                                    let labels: Map<string, Label> = new Map<string, Label>();
 
                                     if (typeof childsArray !== 'string') {
                                         childsArray.forEach(labelObject => {
-                                            const criteriaValueConf: CriteriaValue =
-                                                criteriaConf.values.get(labelObject.content) || new CriteriaValue.Builder().build();
-                                            const tooltipArray = labelObject.childs || [];
-                                            let htmlTooltip = '';
-                                            let latexTooltip = '';
-                                            if (tooltipArray.length === 1) {
-                                                htmlTooltip = (tooltipArray[0].plain || '').trim();
+                                            let criteriaValueConf: CriteriaValue;
+                                            if (isNullOrUndefined(criteriaConf.values.get(labelObject.content))) {
+                                                console.error("Could not resolve CriteriaValue with name '"
+                                                    .concat(labelObject.content, "'"));
+                                                criteriaValueConf = new CriteriaValue.Builder().build();
+                                            } else {
+                                                criteriaValueConf = criteriaConf.values.get(labelObject.content);
+                                            }
+                                            let tooltipArray = isNullOrUndefined(labelObject.childs) ? [] : labelObject.childs;
+                                            let htmlTooltip = "";
+                                            let latexTooltip = "";
+                                            if (tooltipArray.length == 1) {
+                                                htmlTooltip = isNullOrUndefined(tooltipArray[0].plain) ? "" : tooltipArray[0].plain.trim();
                                             } else {
                                                 htmlTooltip = labelObject.plainChilds.replace(/^[\s]{3}/gm, '');
                                                 if (htmlTooltip) {
@@ -169,6 +189,11 @@ export class DataService {
                                     }
 
                                     criteria.set(criteriaKey, labels);
+                                    break;
+                                case CriteriaType.repository:
+                                    break;
+                                default:
+                                    console.error("Could not resolve second level header CriteriaType: '".concat(criteriaKey, "'!"));
                             }
 
                         }

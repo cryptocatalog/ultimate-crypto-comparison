@@ -1,73 +1,90 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ConfigurationService } from "../configuration/configuration.service";
-import { Data } from "../data/data";
+import { Data, Label, Markdown, Rating, Text, Url } from "../data/data";
+import { Criteria } from "../configuration/configuration";
 
 @Component({
     selector: 'comparison-details',
     templateUrl: './comparison.details.template.html',
     styleUrls: ['./comparison.details.component.css']
 })
-export class ComparisonDetailsComponent {
-    @Input() data: Data;
+export class ComparisonDetailsComponent implements OnChanges {
+    @Input() data: Data = new Data.Builder().build();
 
-    private opened = false;
+    @Input() headerLabels: Array<Label> = [];
+    @Input() description: string = "";
+    @Input() bodyTitle: string = "";
+    @Input() tags: Array<Array<Label> | Markdown | Text | Url> = [];
+    @Input() types: Array<string>;
+    @Input() headers: Array<string> = [];
+    @Input() ratings: Array<Rating> = [];
+
+
+    // TODO move to redux
+    @Input() tooltipAsText: boolean = true;
 
     constructor(public configurationService: ConfigurationService) {
     }
 
-    /*
-        private getBody(): string {
-            let data = <string> this.data.getProperty(this.confServ.configuration.details.body.bodyRef).plain;
-            if (isNullOrUndefined(data)) {
-                data = String(this.data.getProperty(this.confServ.configuration.details.body.bodyRef).plain);
+    ngOnChanges(changes: SimpleChanges): void {
+        if (changes.data && this.data && this.data.criteria) {
+            let headerLabels: Array<Label> = [];
+            let cS = this.configurationService.configuration;
+            let cD = this.data.criteria;
+            const criteria: any = cD.get(cS.details.header.labelRef);
+            if (criteria instanceof Map) {
+                criteria.forEach(label => headerLabels.push(label));
             }
-            const body = this.confServ.configuration ?
-                this.serv.converter.makeHtml(data) : '';
-            if (body && body !== this.body) {
-                this.body = body;
+            this.headerLabels = headerLabels;
+
+            this.bodyTitle = this.configurationService.configuration.details.body.title || "";
+
+            let description: any = this.data.criteria.get(this.configurationService.configuration.details.body.bodyRef);
+            if (description instanceof Markdown) {
+                this.description = description.htmlContent;
+            } else if (description instanceof Text) {
+                this.description = description.content;
             }
-            return this.body;
+
+            let tags: Array<Array<Label> | Markdown | Text | Url> = [];
+            let types: Array<string> = [];
+            let headers: Array<string> = [];
+            let ratings: Array<Rating> = [];
+            const criteriaMap: Map<string, Criteria> = this.configurationService.configuration.criteria;
+            this.data.criteria.forEach((criteria, key) => {
+                const criteriaConf = criteriaMap.get(key);
+                if (criteriaConf.detail) {
+                    if (criteria instanceof Map) {
+                        let labels: Array<Label> = [];
+                        criteria.forEach(c => labels.push(c));
+                        tags.push(labels);
+                        types.push(criteriaConf.type);
+                        headers.push(criteriaConf.name);
+                    } else if (criteria instanceof Array) {
+                        let labels: Array<Label> = [];
+                        criteria.forEach(item => {
+                            if (item instanceof Label) labels.push(item);
+                            if (item instanceof Rating) ratings.push(item);
+                        });
+                        if (labels.length > 0) {
+                            this.tags.push(labels);
+                            types.push(criteriaConf.type);
+                            headers.push(criteriaConf.name);
+                        }
+                    } else {
+                        tags.push(criteria);
+                        types.push(criteriaConf.type);
+                        headers.push(criteriaConf.name);
+                    }
+                }
+            });
+            this.tags = tags;
+            this.types = types;
+            this.headers = headers;
+            this.ratings = ratings;
         }
 
-        private getHeaderText(): string {
-            const headerText = this.confServ.configuration ? this.data[this.confServ.configuration.details.header.nameRef] : '';
-            if (headerText && headerText !== this.header.text) {
-                this.header.text = headerText;
-            }
-            return this.header.text;
-        }
-
-
-            private getHeaderUrl(): string {
-                const headerUrl = this.confServ.comparison ? this.data[this.confServ.comparison.details.header.urlRef] : '';
-                if (headerUrl && headerUrl !== this.header.url) {
-                    this.header.url = headerUrl;
-                }
-                return this.header.url;
-            }
-
-            private getHeaderColumn(): TableData {
-                const headerColumn = (this.confServ.comparison && this.confServ.comparison.details.header.labelRef) ?
-                    this.data[this.confServ.comparison.details.header.labelRef] :
-                    new TableData();
-                if (headerColumn && headerColumn !== this.header.column) {
-                    this.header.column = headerColumn;
-                }
-                return this.header.column;
-            }
-
-            private getHeaderLabel(): Type {
-                const headerLabel = (this.confServ.comparison && this.confServ.tableDataSet) ?
-                    this.confServ.tableDataSet.getTableData(this.confServ.comparison.details.headerLabel).type :
-                    new Type();
-                if (headerLabel && headerLabel !== this.header.label) {
-                    this.header.label = headerLabel;
-                }
-                return headerLabel;
-            }
-
-            private getTable(tag: string): TableData {
-                return this.confServ.tableDataSet ? this.confServ.tableDataSet.getTableData(tag) : new TableData();
-            }
-            */
+        // TODO (re)move to redux
+        this.tooltipAsText = this.configurationService.configuration.details.body.tooltipAsText;
+    }
 }

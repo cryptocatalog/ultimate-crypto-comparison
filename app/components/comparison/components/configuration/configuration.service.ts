@@ -11,9 +11,10 @@ import {
     Details,
     getCriteriaType,
     Header
-} from './configuration';
-import * as Showdown from 'showdown';
-import { DataService } from '../data/data.service';
+} from "./configuration";
+import * as Showdown from "showdown";
+import { DataService } from "../data/data.service";
+import { isNullOrUndefined } from "util";
 
 @Injectable()
 export class ConfigurationService {
@@ -47,18 +48,20 @@ export class ConfigurationService {
                 const headerObject: any = detailsObject.header || {};
                 const bodyObject: any = detailsObject.body || {};
                 const criteriaArray = comparisonObject.criteria || [];
-                const citationObject = comparisonObject.autoBibtex || {};
+                const citationObject = comparisonObject.autoCitation || {};
                 const autoCriteria = comparisonObject.autoCriteria || {};
                 const autoColor = comparisonObject.autoColor || {};
 
                 const detailsHeader: Header = new Header.Builder()
                     .setNameRef(headerObject.nameRef)
+                    .setLabelRef(headerObject.labelRef)
                     .setUrlRef(headerObject.urlRef)
                     .build();
 
                 const detailsBody: Body = new Body.Builder()
                     .setTitle(bodyObject.title)
                     .setBodyRef(bodyObject.bodyRef)
+                    .setTooltipAsText(bodyObject.tooltipAsText)
                     .build();
 
                 const details: Details = new Details.Builder()
@@ -69,35 +72,42 @@ export class ConfigurationService {
                 const criteria: Map<string, Criteria> = new Map<string, Criteria>();
                 criteriaArray.forEach((obj) => Object.keys(obj).forEach((key) => {
                     const value = obj[key];
-                    if (value == null) {
+                    if (isNullOrUndefined(value)) {
                         criteria.set(key, new Criteria.Builder().build());
                         return;
                     }
 
-                    const autoColorCriteria = autoColor[key] || {};
-                    const valuesObject = value.values || {};
+                    const autoColorCriteria = isNullOrUndefined(autoColor[key]) ? {} : autoColor[key];
+                    const valuesObject = isNullOrUndefined(value.values) ? {} : value.values;
 
                     const values: Map<string, CriteriaValue> = new Map<string, CriteriaValue>();
                     Object.keys(valuesObject).forEach(objKey => {
-                        const v = valuesObject[objKey];
-                        const autoColorValue = autoColorCriteria[objKey] || {};
+                        const value = valuesObject[objKey];
+                        const autoColorValue = isNullOrUndefined(autoColorCriteria[objKey]) ? {} : autoColorCriteria[objKey];
 
-                        if (v == null) {
-                            values.set(objKey, new CriteriaValue.Builder().build());
+                        // Value defined as 'key': null
+                        if (isNullOrUndefined(value)) {
+                            values.set(objKey, new CriteriaValue.Builder()
+                                .setCriteria(key)
+                                .setName(objKey)
+                                .setColor(autoColorValue.color)
+                                .setBackgroundColor(autoColorValue.backgroundColor)
+                                .build());
                             return;
                         }
+
                         values.set(objKey, new CriteriaValue.Builder()
                             .setCriteria(key)
                             .setName(objKey)
-                            .setDescription(v.description)
-                            .setClazz(v.class)
-                            .setColor(v.color || autoColorValue.color)
-                            .setBackgroundColor(v.backgroundColor || autoColorValue.backgroundColor)
-                            .setWeight(v.weight)
-                            .setMinAge(v.minAge)
-                            .setMaxAge(v.maxAge)
-                            .setMinAgeUnit(v.minAgeUnit)
-                            .setMaxAgeUnit(v.maxAgeUnit)
+                            .setDescription(value.description)
+                            .setClazz(value.class)
+                            .setColor(isNullOrUndefined(value.color) ? autoColorValue.color : value.color)
+                            .setBackgroundColor(isNullOrUndefined(value.backgroundColor) ? autoColorValue.backgroundColor : value.backgroundColor)
+                            .setWeight(value.weight)
+                            .setMinAge(value.minAge)
+                            .setMaxAge(value.maxAge)
+                            .setMinAgeUnit(value.minAgeUnit)
+                            .setMaxAgeUnit(value.maxAgeUnit)
                             .build()
                         );
                     });
@@ -118,19 +128,28 @@ export class ConfigurationService {
                 }));
 
                 Object.keys(autoCriteria).forEach((key) => {
-                    const valuesObject = autoCriteria[key];
+                    const autoCriteriaObject = autoCriteria[key];
+                    const valuesObject = autoCriteriaObject.values || {};
+                    const autoColorCriteria = isNullOrUndefined(autoColor[key]) ? {} : autoColor[key];
 
+                    // If autoCriteria is already defined
                     if (criteria.get(key)) {
-                        const old: Criteria = criteria.get(key);
-                        const values: Map<string, CriteriaValue> = new Map<string, CriteriaValue>();
+                        let old: Criteria = criteria.get(key);
+                        let values: Map<string, CriteriaValue> = old.values;
                         Object.keys(valuesObject).forEach(valueKey => {
                             const oldValue: CriteriaValue = old.values.get(valueKey);
+                            const autoColorValue = isNullOrUndefined(autoColorCriteria[valueKey]) ? {} : autoColorCriteria[valueKey];
                             const value = valuesObject[valueKey];
-                            if (oldValue != null) {
+                            if (!isNullOrUndefined(oldValue)) {
                                 values.set(valueKey, old.values.get(valueKey));
-                            } else if (value == null) {
-                                values.set(valueKey, new CriteriaValue.Builder().setCriteria(key).setName(valueKey).build());
-                            } else if (value != null) {
+                            } else if (isNullOrUndefined(value)) {
+                                values.set(valueKey, new CriteriaValue.Builder()
+                                    .setCriteria(key)
+                                    .setName(valueKey)
+                                    .setColor(autoColorValue.color)
+                                    .setBackgroundColor(autoColorValue.backgroundColor)
+                                    .build());
+                            } else if (!isNullOrUndefined(value)) {
                                 values.set(valueKey, new CriteriaValue.Builder()
                                     .setCriteria(key)
                                     .setName(valueKey)
@@ -139,6 +158,8 @@ export class ConfigurationService {
                                     .setWeight(value.weight)
                                     .setMinAge(value.minAge)
                                     .setMaxAge(value.maxAge)
+                                    .setColor(isNullOrUndefined(value.color) ? autoColorValue.color : value.color)
+                                    .setBackgroundColor(isNullOrUndefined(value.backgroundColor) ? autoColorValue.backgroundColor : value.backgroundColor)
                                     .setMinAgeUnit(value.minAgeUnit)
                                     .setMaxAgeUnit(value.maxAgeUnit)
                                     .build());
@@ -158,12 +179,14 @@ export class ConfigurationService {
                             .setValues(values)
                             .build());
                     } else {
-                        const values: Map<string, CriteriaValue> = new Map<string, CriteriaValue>();
+                        // if autoCriteria is not already defined
+                        let values: Map<string, CriteriaValue> = new Map<string, CriteriaValue>();
                         Object.keys(valuesObject).forEach(valueKey => {
                             const value = valuesObject[valueKey];
-                            if (value == null) {
+                            const autoColorValue = isNullOrUndefined(autoColorCriteria[valueKey]) ? {} : autoColorCriteria[valueKey];
+                            if (isNullOrUndefined(value)) {
                                 values.set(valueKey, new CriteriaValue.Builder().setCriteria(key).setName(valueKey).build());
-                            } else if (value != null) {
+                            } else {
                                 values.set(valueKey, new CriteriaValue.Builder()
                                     .setCriteria(key)
                                     .setName(valueKey)
@@ -174,12 +197,22 @@ export class ConfigurationService {
                                     .setMaxAge(value.maxAge)
                                     .setMinAgeUnit(value.minAgeUnit)
                                     .setMaxAgeUnit(value.maxAgeUnit)
+                                    .setColor(autoColorValue.color)
+                                    .setBackgroundColor(autoColorValue.backgroundColor)
                                     .build());
                             }
                         });
 
                         criteria.set(key, new Criteria.Builder()
-                            .setName(key)
+                            .setName(autoCriteriaObject.name)
+                            .setSearch(autoCriteriaObject.search)
+                            .setTable(autoCriteriaObject.table)
+                            .setDetail(autoCriteriaObject.detail)
+                            .setType(autoCriteriaObject.type)
+                            .setDescription(autoCriteriaObject.description)
+                            .setPlaceholder(autoCriteriaObject.placeholder)
+                            .setAndSearch(autoCriteriaObject.andSearch)
+                            .setRangeSearch(autoCriteriaObject.rangeSearch)
                             .setValues(values)
                             .build());
                     }

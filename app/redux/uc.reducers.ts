@@ -1,8 +1,8 @@
 import { IUCAppState, UCAppState } from './uc.app-state';
 import { UCAction, UCDataUpdateAction, UCRouterAction } from './uc.action';
 import { DataService } from '../components/comparison/components/data/data.service';
-import { Criteria } from '../components/comparison/components/configuration/configuration';
-import { Data } from '../components/comparison/components/data/data';
+import { Criteria, CriteriaType } from '../components/comparison/components/configuration/configuration';
+import { Data, Label, Markdown, Text, Url } from '../components/comparison/components/data/data';
 import { isNullOrUndefined } from 'util';
 
 export const UPDATE_SEARCH = 'UPDATE_SEARCH';
@@ -12,6 +12,7 @@ export const UPDATE_DATA = 'UPDATE_DATA';
 const UPDATE_ROUTE = 'ROUTER_NAVIGATION';
 
 export function masterReducer(state: IUCAppState = new UCAppState(), action: UCAction) {
+    console.log(action.type)
     if (action.type === UPDATE_ROUTE) {
         state.currentElements = [];
         state.currentSearch = new Map();
@@ -55,6 +56,62 @@ function updateElements(state: IUCAppState): IUCAppState {
     return state;
 }
 
+function sort(first: Map<string, Array<String | Array<Label> | Text | Url | Markdown | number>>,
+              second: Map<string, Array<String | Array<Label> | Text | Url | Markdown | number>>,
+              column: string) {
+    const stringCompare = (s1: string, s2: string) => s1 > s2 ? 1 : -1;
+    const a = first.get(column);
+    const b = second.get(column);
+    if (isNullOrUndefined(a) && isNullOrUndefined(b) || a.length === 0 && b.length === 0) {
+        return 0;
+    }
+    if (isNullOrUndefined(a) || a.length === 0 && b.length > 0) {
+        return -1;
+    }
+    if (isNullOrUndefined(b) || a.length > 0 && b.length === 0) {
+        return 1;
+    }
+
+    const x = a[0];
+    const y = b[0];
+
+    if (x.constructor.name === 'String') {
+        const xi = <string>x;
+        const yi = <string>y;
+        return stringCompare(xi, yi);
+    }
+    if (Array.isArray(x) && Array.isArray(y)) {
+        if (x.length === 0 && y.length === 0) {
+            return 0;
+        }
+        if (x.length === 0 && y.length > 0) {
+            return -1;
+        }
+        if (x.length > 0 && y.length === 0) {
+            return 1;
+        }
+        const xi = <Label>x[0];
+        const yi = <Label>y[0];
+        return stringCompare(xi.name, yi.name);
+    }
+    if (x.constructor.name === 'Text') {
+        const xi = <Text>x;
+        const yi = <Text>y;
+        return stringCompare(xi.content, yi.content);
+    }
+    if (x.constructor.name === 'Url') {
+        const xi = <Url>x;
+        const yi = <Url>y;
+        return stringCompare(xi.text, yi.text);
+    }
+    if (x.constructor.name === 'Markdown') {
+        const xi = <Markdown>x;
+        const yi = <Markdown>y;
+        return stringCompare(xi.content, yi.content);
+    }
+    return 0;
+}
+
 function sortElements(state: IUCAppState): IUCAppState {
     const column = state.currentOrder.substr(1);
     let direction: 1 | -1;
@@ -65,7 +122,8 @@ function sortElements(state: IUCAppState): IUCAppState {
     } else {
         return state;
     }
-    state.currentElements.sort((a, b) => direction * a.sort(b, column));
+    state.currentElements.sort((a, b) => direction * sort(a, b, column));
+    console.log(state)
     return state;
 }
 
@@ -77,6 +135,10 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
         return state;
     }
     const data = DataService.data;
+    const elems: Map<string, Array<String | Array<Label> | Text | Url | Markdown | number>> = new Map();
+    state.criterias.forEach((value, key) => {
+        elems.set(key, []);
+    });
     for (let i = data.length - 1; i >= 0; i--) {
         if (state.currentFilter.indexOf(i) !== -1) {
             continue;
@@ -102,9 +164,15 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
             includeData = includeData && fulfillsField;
         }
         if (includeData) {
-            state.currentElements.push(data[i]);
+            state.criterias.forEach((value, key) => {
+                if (data[i].criteria.get(key).values) {
+                    elems.get(key).push(Array.from(<Map<string, number | string | Array<Label> | Text | Url | Markdown>>data[i].criteria.get(key)).values()));
+                }
+                    elems.get(key).push(data[i].criteria.get(key));
+            });
         }
     }
+    console.log(state)
     return state;
 }
 
@@ -190,7 +258,7 @@ function routeReducer(state: IUCAppState = new UCAppState(), action: UCRouterAct
     state.currentColumns = columns.split(',').map(x => Number.parseInt(x.trim()));
     state.currentlyMaximized = maximized;
     state.currentOrder = order;
-
+    console.log(state);
     return state;
 }
 

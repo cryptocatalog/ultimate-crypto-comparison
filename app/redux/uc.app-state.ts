@@ -1,5 +1,5 @@
 import { PaperDialogComponent } from '../components/polymer/paper-dialog/paper-dialog.component';
-import { Data } from '../components/comparison/components/data/data';
+import { Data, Label, Markdown, Text, Url } from '../components/comparison/components/data/data';
 import { Criteria } from '../components/comparison/components/configuration/configuration';
 
 export interface IUCAppState {
@@ -18,7 +18,7 @@ export interface IUCAppState {
     /**
      * Which elements should be shown after the filter and the search are applied.
      */
-    currentElements: Array<Data>;
+    currentElements: Array<Map<string, Array<String | Array<Label> | Text | Url | Markdown | number>>>;
     /**
      * Which columns are shown. The column whose index is saved in this array are shown if their default is hidden and vice versa.
      */
@@ -45,7 +45,7 @@ export class UCAppState implements IUCAppState {
     currentSearch: Map<string, Array<string>> = new Map<string, Array<string>>();
     currentDetails = -1;
     currentFilter: Array<number> = [];
-    currentElements: Array<Data> = [];
+    currentElements: Array<Map<string, Array<String | Array<Label> | Text | Url | Markdown | number>>> = [];
     criterias: Map<string, Criteria> = null;
     shownColumns: Array<string> = [];
 }
