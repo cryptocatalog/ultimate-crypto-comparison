@@ -7,7 +7,7 @@ import {
     Output,
     SimpleChanges
 } from '@angular/core';
-import { Configuration, Criteria } from "../../comparison/components/configuration/configuration";
+import { Configuration, Criteria, CriteriaType } from '../../comparison/components/configuration/configuration';
 import { Data, Label, Markdown, Text, Url } from "../../comparison/components/data/data";
 
 @Component({
@@ -19,7 +19,7 @@ import { Data, Label, Markdown, Text, Url } from "../../comparison/components/da
 export class GenericTableComponent implements OnChanges {
     @Input() changeNum = 0;
 
-    @Input() data: Array<Data> = [];
+    @Input() data: Array<Array<String | Array<Label> | Text | Url | Markdown | number>> = [];
     @Input() configuration: Configuration = new Configuration.Builder().build();
 
     @Input() order: Array<String> = [];
@@ -33,16 +33,17 @@ export class GenericTableComponent implements OnChanges {
 
     // TODO new inputs: (move to redux store)
     @Input() columns: Array<string> = [];
-    @Input() types: Array<number> = [];
+    @Input() types: Array<string> = [];
     @Input() items: Array<Array<String | Array<Label> | Text | Url | Markdown | number>> = [];
     @Input() index: Array<number> = [];
 
     private ctrlCounter = 0;
+    public criteriaTypes = CriteriaType;
 
     // TODO Remove => move to redux
     ngOnChanges(changes: SimpleChanges): void {
-        let columns: Array<string> = [];
-        let types: Array<number> = [];
+        /*let columns: Array<string> = [];
+        let types: Array<string> = [];
         let items: Array<Array<Array<Label> | Text | Url | Markdown | number>> = [];
         let index: Array<number> = [];
         const criteriaMap: Map<string, Criteria> = this.configuration.criteria;
@@ -58,12 +59,12 @@ export class GenericTableComponent implements OnChanges {
             criteriaMap.forEach((criteria, key) => {
                 if (criteria.table) {
                     const obj: any = data.criteria.get(key);
-                    if (criteria.type === 1) {
+                    if (criteria.type === CriteriaType.label) {
                         const labelMap: Map<string, Label> = obj || new Map;
                         let labels: Array<Label> = [];
                         labelMap.forEach(label => labels.push(label));
                         item.push(labels);
-                    } else if (criteria.type === 4) {
+                    } else if (criteria.type === CriteriaType.rating) {
                         item.push(data.averageRating);
                     } else {
                         item.push(obj);
@@ -76,7 +77,11 @@ export class GenericTableComponent implements OnChanges {
         this.columns = columns;
         this.items = items;
         this.types = types;
-        this.index = index;
+        this.index = index;*/
+    }
+
+    public getKeys(item: Data) {
+        return Object.keys(item);
     }
 
     public labelClick(key: string, index: number) {

@@ -5,29 +5,40 @@ import { Data, Label, Markdown, Rating, Text, Tooltip, Url } from "./data";
 import { Configuration, Criteria, CriteriaType, CriteriaValue } from "../configuration/configuration";
 import { ConfigurationService } from "../configuration/configuration.service";
 import { isNullOrUndefined } from "util";
+import { UCDataUpdateAction } from '../../../../redux/uc.action';
+import { Store } from '@ngrx/store';
+import { IUCAppState } from '../../../../redux/uc.app-state';
 
 @Injectable()
 export class DataService {
-    public data: Array<Data> = [];
+    public static data: Array<Data> = [];
 
     private converter: Showdown.Converter;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient,
+                private store: Store<IUCAppState>) {
         this.converter = new Showdown.Converter();
     }
 
-    public loadData(cd: ChangeDetectorRef, configuration: Configuration) {
-        this.http.get('app/components/comparison/data/data.json')
+    public setSubscriber(configurationService: ConfigurationService) {
+        configurationService.initializeData.subscribe(this.loadData)
+    }
+
+    private loadData(value: {configuration: Configuration; dataService: DataService, cd: ChangeDetectorRef; }) {
+        const configuration = value.configuration;
+        const dataService = value.dataService;
+        const cd = value.cd;
+        dataService.http.get('app/components/comparison/data/data.json')
             .subscribe(res => {
-                let dataArrayObject: Array<any> = <Array<any>>res || [];
-                let data: Array<Data> = [];
+                const dataArrayObject: Array<any> = <Array<any>>res || [];
+                const data: Array<Data> = [];
 
                 dataArrayObject.forEach(dataObject => {
                     // Split markdown first level header (e.g. Default 1 - www.example.com) into 'name' and 'url'
                     const regArray =
                         /^((?:(?:\w+\s*)(?:-?\s*\w+.)*)+)\s*-?\s*((?:(?:http|ftp|https)(?::\/\/)(?:[\w_-]+(?:(?:\.[\w_-]+)+))|(?:www.))(?:[\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?)$/gi
                             .exec(dataObject.tag);
-                    let name: string = ((regArray && regArray.length > 1) ? regArray[1] : dataObject.tag || "").trim();
+                    const name: string = ((regArray && regArray.length > 1) ? regArray[1] : dataObject.tag || "").trim();
                     let url: string = ((regArray && regArray.length > 2) ? regArray[2] : dataObject.tag || "").trim();
                     if (/^(www)/.test(url)) {
                         url = 'http://'.concat(url);
@@ -36,50 +47,58 @@ export class DataService {
                     let averageRating = 0;
 
                     // Iterate over second level header and automatically generated ('tag' and 'description')
-                    let criteria: Map<string, Map<string, Label> | Text | Url | Markdown | Array<Rating>> =
+                    const criteria: Map<string, Map<string, Label> | Text | Url | Markdown | Array<Rating>> =
                         new Map<string, Map<string, Label> | Text | Markdown | Array<Rating>>();
                     Object.keys(dataObject).forEach(criteriaKey => {
                             const criteriaObject = dataObject[criteriaKey];
 
-                        if (isNullOrUndefined(criteriaObject)) return;
-                        // tag is the name of first level header key in json => build column based on Configuration 'id'
+                            if (isNullOrUndefined(criteriaObject)) {
+                                return;
+                            }
+                            // tag is the name of first level header key in json => build column based on Configuration 'id'
                             if (criteriaKey === "tag") {
-                                let criteriaConf: Criteria = configuration.criteria.get("id");
-                                let type: CriteriaType = criteriaConf ? criteriaConf.type : CriteriaType.url;
+                                const critConf: Criteria = configuration.criteria.get("id");
+                                const type: CriteriaType = critConf ? critConf.type : CriteriaType.url;
                                 switch (type) {
                                     case CriteriaType.text:
-                                        criteria.set("id", new Text(name));
+                                        criteria.set('id', new Text(name));
                                         break;
                                     case CriteriaType.markdown:
-                                        criteria.set("id", new Markdown(name, ConfigurationService.getHtml(this.converter, configuration.citation, name)));
+                                        criteria.set("id", new Markdown(name,
+                                            ConfigurationService.getHtml(this.converter, configuration.citation, name)));
                                         break;
                                     case CriteriaType.label:
-                                        let labels: Map<string, Label> = new Map<string, Label>();
+                                        const labels: Map<string, Label> = new Map<string, Label>();
                                         labels.set(name, new Label.Builder().setName(name).build());
-                                        criteria.set("id", labels);
+                                        criteria.set('id', labels);
                                         break;
                                     case CriteriaType.url:
                                         criteria.set("id", new Url(name, url));
+                                        break;
                                     default:
                                         return;
                                 }
                                 return;
                             }
-                        // key is the name of first level header content key in json => build column based on Configuration 'description'
+                            // key is the name of first level header content key in json =>
+                            // build column based on Configuration 'description'
                             if (criteriaKey === "descr") {
-                                let criteriaConf: Criteria = configuration.criteria.get("description");
-                                let type: CriteriaType = criteriaConf ? criteriaConf.type : CriteriaType.url;
+                                const critConf: Criteria = configuration.criteria.get("description");
+                                const type: CriteriaType = critConf ? critConf.type : CriteriaType.url;
                                 switch (type) {
                                     case CriteriaType.text:
-                                        criteria.set("description", new Text(criteriaObject));
+                                        criteria.set('description', new Text(criteriaObject));
                                         break;
                                     case CriteriaType.markdown:
-                                        criteria.set("description", new Markdown(criteriaObject, ConfigurationService.getHtml(this.converter, configuration.citation, criteriaObject)));
+                                        criteria.set('description',
+                                            new Markdown(criteriaObject,
+                                                ConfigurationService
+                                                    .getHtml(dataService.converter, configuration.citation, criteriaObject)));
                                         break;
                                     case CriteriaType.label:
-                                        let labels: Map<string, Label> = new Map<string, Label>();
+                                        const labels: Map<string, Label> = new Map<string, Label>();
                                         labels.set(criteriaObject, new Label.Builder().setName(criteriaObject).build());
-                                        criteria.set("description", labels);
+                                        criteria.set('description', labels);
                                         break;
                                     case CriteriaType.url:
                                         criteria.set("description", new Url(criteriaObject, url));
@@ -90,10 +109,10 @@ export class DataService {
                                 return;
                             }
 
-                        // Handle all other second level headers
-                            let criteriaConf: Criteria = configuration.criteria.get(criteriaKey) || new Criteria.Builder().build();
+                            // Handle all other second level headers
+                            const criteriaConf: Criteria = configuration.criteria.get(criteriaKey) || new Criteria.Builder().build();
                             const childs = criteriaObject.childs || {};
-                            const childsArrayLvl1 = childs["0"] || [];
+                            const childsArrayLvl1 = childs['0'] || [];
                             const childsArray = childsArrayLvl1.length > 0 ? childsArrayLvl1[0] : [];
 
                             switch (criteriaConf.type) {
@@ -101,21 +120,23 @@ export class DataService {
                                     criteria.set(criteriaKey, new Text(criteriaObject.plain));
                                     break;
                                 case CriteriaType.markdown:
-                                    criteria.set(criteriaKey, new Markdown(criteriaObject.plain, ConfigurationService.getHtml(this.converter, configuration.citation, criteriaObject.plain)));
+                                    criteria.set(criteriaKey,
+                                        new Markdown(criteriaObject.plain,
+                                            ConfigurationService.getHtml(dataService.converter, configuration.citation, criteriaObject.plain)));
                                     break;
                                 case CriteriaType.url:
                                     criteria.set(criteriaObject.plain, new Url(criteriaObject.plain, criteriaObject.plain));
                                     break;
                                 case CriteriaType.rating:
-                                    let ratings: Array<Rating> = [];
+                                    const ratings: Array<Rating> = [];
                                     let sum = 0;
 
-                                    if (typeof childsArray !== "string") {
+                                    if (typeof childsArray !== 'string') {
                                         childsArray.forEach(ratingObject => {
-                                            const starsString: string = /\[(\d*)\]/gm.exec(ratingObject.content)[1];
+                                            const starsString: string = /\[(\d*)]/gm.exec(ratingObject.content)[1];
                                             const stars: number = parseInt(starsString, 10);
                                             sum += stars;
-                                            const comment: string = /(?:\[\d*\])((?:.|\n)*)/gm.exec(ratingObject.content)[1];
+                                            const comment: string = /(?:\[\d*])((?:.|\n)*)/gm.exec(ratingObject.content)[1];
                                             ratings.push(new Rating(stars, comment));
                                         });
                                     }
@@ -128,11 +149,12 @@ export class DataService {
                                 case CriteriaType.label:
                                     let labels: Map<string, Label> = new Map<string, Label>();
 
-                                    if (typeof childsArray !== "string") {
+                                    if (typeof childsArray !== 'string') {
                                         childsArray.forEach(labelObject => {
                                             let criteriaValueConf: CriteriaValue;
                                             if (isNullOrUndefined(criteriaConf.values.get(labelObject.content))) {
-                                                console.error("Could not resolve CriteriaValue with name '".concat(labelObject.content, "'"));
+                                                console.error("Could not resolve CriteriaValue with name '"
+                                                    .concat(labelObject.content, "'"));
                                                 criteriaValueConf = new CriteriaValue.Builder().build();
                                             } else {
                                                 criteriaValueConf = criteriaConf.values.get(labelObject.content);
@@ -150,11 +172,11 @@ export class DataService {
                                                 }
                                             }
                                             htmlTooltip = ConfigurationService.getHtml(
-                                                this.converter,
+                                                dataService.converter,
                                                 configuration.citation,
                                                 htmlTooltip
                                             );
-                                            let tooltip: Tooltip = new Tooltip(criteriaValueConf.description, htmlTooltip, latexTooltip);
+                                            const tooltip: Tooltip = new Tooltip(criteriaValueConf.description, htmlTooltip, latexTooltip);
 
                                             labels.set(labelObject.content, new Label.Builder()
                                                 .setName(labelObject.content)
@@ -185,8 +207,8 @@ export class DataService {
 
                 });
 
-                this.data = data;
-
+                DataService.data = data;
+                dataService.store.dispatch(new UCDataUpdateAction(configuration.criteria));
                 cd.markForCheck();
             });
     }

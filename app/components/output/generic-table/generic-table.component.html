@@ -18,11 +18,11 @@
     <ng-template ngFor let-item [ngForOf]="items" let-i="index"><!-- Do not remove this index here! -->
         <tr>
             <ng-template ngFor let-entry [ngForOf]="item" let-i="index">
-                <td *ngIf="types[i] === 0"><a class="anchored"
+                <td *ngIf="types[i] === criteriaTypes.url"><a class="anchored"
                                               href="{{entry.link}}"
                                               target="_blank">{{entry.text}}</a>
                 </td>
-                <td *ngIf="types[i] ===  1">
+                <td *ngIf="types[i] ===  criteriaTypes.label">
                     <ng-template ngFor let-label [ngForOf]="entry">
                         <ptooltip [tooltip]="label.tooltip.text"
                                   [tooltipHtml]="label.tooltip.html" [position]="'n'">

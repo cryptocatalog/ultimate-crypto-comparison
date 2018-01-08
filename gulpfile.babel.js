@@ -39,7 +39,8 @@ const files = {
         './comparison-elements-json/*.json'
     ],
     config: paths.config.concat('comparison.yml'),
-    defaultConfig: paths.config.concat('comparison-default.yml')
+    defaultConfig: paths.config.concat('comparison-default.yml'),
+    description: paths.config.concat('description.md')
 };
 
 const destfiles = {
@@ -298,7 +299,6 @@ gulp.task('citation', function (done) {
                     return console.error("Could not read File: ".concat(err.toString()));
                 }
                 const cite = new Cite(data.toString().replace(/^%.*\n?/gm, ''), {forceType: 'string/bibtex'});
-
                 let map = new Map();
                 for (let item of cite.data) {
                     let itemData = new Cite(item);
@@ -323,7 +323,7 @@ gulp.task('citation', function (done) {
                         match = keyReg.exec(data);
                         if (match) keys.add(match[1]);
                     } while (match);
-
+                    
                     keys.forEach(key => {
                         if (!map.has(key)) {
                             throw new Error("Bibtex entry for key '".concat(key, "' is missing!"));
@@ -333,7 +333,7 @@ gulp.task('citation', function (done) {
                     let obj = Object.create(null);
                     let i = 0;
                     for (let [k, v] of map) {
-                        if (data.match('@'.concat(k))) {
+                        if (data.match('@'.concat(k)) || description.match('@'.concat(k))) {
                             obj[k] = {index: i, value: v};
                             i++;
                         }

@@ -15,7 +15,7 @@ export class ComparisonDetailsComponent implements OnChanges {
     @Input() description: string = "";
     @Input() bodyTitle: string = "";
     @Input() tags: Array<Array<Label> | Markdown | Text | Url> = [];
-    @Input() types: Array<number>;
+    @Input() types: Array<string>;
     @Input() headers: Array<string> = [];
     @Input() ratings: Array<Rating> = [];
 
@@ -47,7 +47,7 @@ export class ComparisonDetailsComponent implements OnChanges {
             }
 
             let tags: Array<Array<Label> | Markdown | Text | Url> = [];
-            let types: Array<number> = [];
+            let types: Array<string> = [];
             let headers: Array<string> = [];
             let ratings: Array<Rating> = [];
             const criteriaMap: Map<string, Criteria> = this.configurationService.configuration.criteria;
