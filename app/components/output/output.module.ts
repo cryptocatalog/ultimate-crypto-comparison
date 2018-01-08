@@ -5,6 +5,7 @@ import { PolymerModule } from "./../polymer/polymer.module";
 import { GenericTableComponent } from "./generic-table/generic-table.component";
 import { ReferencesTableComponent } from "./references-table/references-table.component";
 import { LatexTableComponent } from './latex-table/latex-table.component';
+import { FootnoteComponent } from "./footnote/footnote.component";
 
 @NgModule({
     imports: [
@@ -19,6 +20,7 @@ import { LatexTableComponent } from './latex-table/latex-table.component';
         LatexTableComponent
     ],
     declarations: [
+        FootnoteComponent,
         GenericTableComponent,
         ReferencesTableComponent,
         LatexTableComponent

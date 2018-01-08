@@ -37,6 +37,7 @@ export class ComparisonComponent {
 
 
     public state: Observable<PaperDialogComponent>;
+    public showLatexTable = true;
 
     constructor(public dataService: DataService,
                 public configurationService: ConfigurationService,
@@ -79,7 +80,7 @@ export class ComparisonComponent {
     }
 
     private previewLatexTable() {
-        this.latexTable.showTable = !this.latexTable.showTable;
+        this.showLatexTable = !this.showLatexTable;
     }
 
     public change() {

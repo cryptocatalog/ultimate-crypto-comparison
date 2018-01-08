@@ -15,7 +15,7 @@
     </tr>
     </thead>
     <tbody>
-    <ng-template ngFor let-item [ngForOf]="items" let-i="index">
+    <ng-template ngFor let-item [ngForOf]="items" let-i="index"><!-- Do not remove this index here! -->
         <tr>
             <ng-template ngFor let-entry [ngForOf]="item" let-i="index">
                 <td *ngIf="types[i] === 0"><a class="anchored"
@@ -45,7 +45,7 @@
                     <div [innerHtml]="entry?.htmlContent | sanitizeHtml"></div>
                 </td>
                 <td *ngIf="types[i] === 4">
-                    <iicon icon="star" *ngIf="entry?.averageRating">{{entry.averageRating}}
+                    <iicon icon="star" *ngIf="entry">{{entry}}
                     </iicon>
                 </td>
             </ng-template>

@@ -129,9 +129,12 @@
                     </div>
                 </div>
             </pdialog>
+    !-->
+    <latextable class="grid-content-latex "
+                [configuration]="configurationService.configuration" [data]="dataService.data"
+                [changeNum]="configurationService.tableColumns.length + dataService.data.length"
+                #latexTable></latextable>
 
-            <latextable></latextable>
-        !-->
 
     <div class="grid-footer">
         <div class="container">

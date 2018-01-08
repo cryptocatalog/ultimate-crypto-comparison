@@ -35,11 +35,6 @@ criteria:
       search: false
       detail: false
       type: markdown
-  - Description:
-      search: false
-      detail: true
-      type: markdown
-      table: false
   - Performance:
       description: Preformance of entry.
       placeholder: Select performance of ...
@@ -85,7 +80,7 @@ criteria:
         yellow:
           description: Show case for yellow label
           class: label-warning
-  - Uncolored:
+  - Uncolored1:
       description: Tags that were originally uncolored.
       values:
         Color 1:
@@ -130,47 +125,71 @@ criteria:
         '300':
           description: 300
           weight: 4
-autoCriteria:
-  NumberColumn:
-    values:
-      '100': {}
 autoColor:
   License:
     Apache-2.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(240, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     MIT:
       color: '#ffff00'
-      backgroundColor: 'hsl(270, 100%, 70%)'
+      backgroundColor: 'hsl(225, 100%, 70%)'
     MPL-2.0:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(300, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
   Uncolored:
     Color 1:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
     Color 2:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(30, 100%, 70%)'
+      backgroundColor: 'hsl(315, 100%, 70%)'
     Color 3:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(60, 100%, 70%)'
+      backgroundColor: 'hsl(15, 100%, 70%)'
   NumberColumn:
     '100':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(210, 100%, 70%)'
+      backgroundColor: 'hsl(15, 100%, 70%)'
     '199':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(90, 100%, 70%)'
+      backgroundColor: 'hsl(45, 100%, 70%)'
     '200':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(120, 100%, 70%)'
+      backgroundColor: 'hsl(75, 100%, 70%)'
     '250':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
+      backgroundColor: 'hsl(105, 100%, 70%)'
     '300':
       color: '#0d0d0d'
+      backgroundColor: 'hsl(135, 100%, 70%)'
+  Uncolored1:
+    Color 1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
+    Color 2:
+      color: '#0d0d0d'
       backgroundColor: 'hsl(180, 100%, 70%)'
+    Color 3:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(195, 100%, 70%)'
+autoCriteria:
+  Description:
+    search: false
+    table: true
+    detail: true
+    type: markdown
+  Uncolored:
+    search: true
+    table: true
+    detail: true
+    type: label
+    values:
+      Color 1: {}
+      Color 2: {}
+      Color 3: {}
+  NumberColumn:
+    values:
+      '100': {}
 autoCitation:
   'Adi:2004:ASM:988145.988150':
     index: 0
