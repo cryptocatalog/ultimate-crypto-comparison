@@ -4,14 +4,11 @@ import { PaperCardComponent } from "../../../polymer/paper-card/paper-card.compo
 import { LatexTableComponent } from '../../../output/latex-table/latex-table.component';
 import { Store } from '@ngrx/store';
 import { IUCAppState } from '../../../../redux/uc.app-state';
-import { Observable } from 'rxjs';
-import { PaperDialogComponent } from '../../../polymer/paper-dialog/paper-dialog.component';
 import { Router } from '@angular/router';
 import { ConfigurationService } from "../configuration/configuration.service";
 import { Criteria } from "../configuration/configuration";
 import { DataService } from "../data/data.service";
 import { Data } from "../data/data";
-import { isNullOrUndefined } from 'util';
 
 // TODO evaluate how winery saves files
 const FileSaver = require('file-saver');

@@ -55,7 +55,8 @@
             <iicon #ExpandId icon="resize-full" class="shrink-expand" (click)="shrinkExpand()" *ngIf="expanded"></iicon>
             <iicon #shrinkId icon="resize-small" class="shrink-expand" (click)="shrinkExpand()"
                    *ngIf="!expanded"></iicon>
-            <generictable [configuration]="configurationService.configuration" [data]="(store | async).state.currentElements"
+            <generictable [configuration]="configurationService.configuration"
+                          [data]="(store | async).state.currentElements"
                           [changeNum]="configurationService.tableColumns.length + (store | async).state.currentElements.length"
                           (settingsCallback)="showTableProperties()" (showDetails)="showDetails($event)"></generictable>
         </pcard>
@@ -132,11 +133,12 @@
                 </div>
             </pdialog>
     !-->
+    <!-- TODO use store data
     <latextable class="grid-content-latex "
                 [configuration]="configurationService.configuration" [data]="dataService.data"
                 [changeNum]="configurationService.tableColumns.length + dataService.data.length"
                 #latexTable></latextable>
-
+    -->
 
     <div class="grid-footer">
         <div class="container">

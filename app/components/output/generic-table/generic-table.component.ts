@@ -7,7 +7,7 @@ import {
     Output,
     SimpleChanges
 } from '@angular/core';
-import { Configuration, Criteria, CriteriaType } from '../../comparison/components/configuration/configuration';
+import { Configuration, CriteriaType } from '../../comparison/components/configuration/configuration';
 import { Data, Label, Markdown, Text, Url } from "../../comparison/components/data/data";
 
 @Component({

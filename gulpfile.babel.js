@@ -323,7 +323,7 @@ gulp.task('citation', function (done) {
                         match = keyReg.exec(data);
                         if (match) keys.add(match[1]);
                     } while (match);
-                    
+
                     keys.forEach(key => {
                         if (!map.has(key)) {
                             throw new Error("Bibtex entry for key '".concat(key, "' is missing!"));

@@ -1,8 +1,8 @@
 import { IUCAppState, UCAppState } from './uc.app-state';
 import { UCAction, UCDataUpdateAction, UCRouterAction } from './uc.action';
 import { DataService } from '../components/comparison/components/data/data.service';
-import { Criteria, CriteriaType } from '../components/comparison/components/configuration/configuration';
-import { Data, Label, Markdown, Text, Url } from '../components/comparison/components/data/data';
+import { Criteria } from '../components/comparison/components/configuration/configuration';
+import { Label, Markdown, Rating, Text, Url } from '../components/comparison/components/data/data';
 import { isNullOrUndefined } from 'util';
 
 export const UPDATE_SEARCH = 'UPDATE_SEARCH';
@@ -12,7 +12,7 @@ export const UPDATE_DATA = 'UPDATE_DATA';
 const UPDATE_ROUTE = 'ROUTER_NAVIGATION';
 
 export function masterReducer(state: IUCAppState = new UCAppState(), action: UCAction) {
-    console.log(action.type)
+    console.log(action.type);
     if (action.type === UPDATE_ROUTE) {
         state.currentElements = [];
         state.currentSearch = new Map();
@@ -165,14 +165,26 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
         }
         if (includeData) {
             state.criterias.forEach((value, key) => {
-                if (data[i].criteria.get(key).values) {
-                    elems.get(key).push(Array.from(<Map<string, number | string | Array<Label> | Text | Url | Markdown>>data[i].criteria.get(key)).values()));
+                if (data[i].criteria.get(key) instanceof Map) {
+                    const labels: Map<string, Label> = <Map<string, Label>> data[i].criteria.get(key);
+                    elems.get(key).push(Array.from(labels.values()));
+                } else if (data[i].criteria.get(key) instanceof Array && data[i].criteria.get(key)[0] instanceof Rating) {
+                    const rating: Array<Rating> = <Array<Rating>>data[i].criteria.get(key);
+                    const val = rating.map(r => r.stars || 0).reduce((a, b) => a + b);
+                    if (val > 0) {
+                        elems.get(key).push(val / rating.filter(r => r.stars !== 0).length);
+                    } else {
+                        elems.get(key).push(null)
+                    }
+                } else {
+                    const remains: Text | Url | Markdown = <Text | Url | Markdown>data[i].criteria.get(key);
+                    elems.get(key).push(remains);
                 }
-                    elems.get(key).push(data[i].criteria.get(key));
             });
         }
     }
-    console.log(state)
+    //state.currentElements = Array.from(elems.values());
+    console.log(state);
     return state;
 }
 

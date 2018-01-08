@@ -1,4 +1,3 @@
-import { DataService } from './data.service';
 import { isNullOrUndefined } from "util";
 
 export class Data {

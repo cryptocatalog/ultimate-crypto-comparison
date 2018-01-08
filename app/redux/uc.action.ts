@@ -1,6 +1,4 @@
 import { Action } from '@ngrx/store';
-import { PaperDialogComponent } from '../components/polymer/paper-dialog/paper-dialog.component';
-import { Data } from "../components/comparison/components/data/data";
 import { UPDATE_DATA } from './uc.reducers';
 import { Criteria } from '../components/comparison/components/configuration/configuration';
 

@@ -19,8 +19,8 @@
         <tr>
             <ng-template ngFor let-entry [ngForOf]="item" let-i="index">
                 <td *ngIf="types[i] === criteriaTypes.url"><a class="anchored"
-                                              href="{{entry.link}}"
-                                              target="_blank">{{entry.text}}</a>
+                                                              href="{{entry.link}}"
+                                                              target="_blank">{{entry.text}}</a>
                 </td>
                 <td *ngIf="types[i] ===  criteriaTypes.label">
                     <ng-template ngFor let-label [ngForOf]="entry">

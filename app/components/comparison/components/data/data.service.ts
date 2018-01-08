@@ -24,7 +24,7 @@ export class DataService {
         configurationService.initializeData.subscribe(this.loadData)
     }
 
-    private loadData(value: {configuration: Configuration; dataService: DataService, cd: ChangeDetectorRef; }) {
+    private loadData(value: { configuration: Configuration; dataService: DataService, cd: ChangeDetectorRef; }) {
         const configuration = value.configuration;
         const dataService = value.dataService;
         const cd = value.cd;
@@ -52,10 +52,10 @@ export class DataService {
                     Object.keys(dataObject).forEach(criteriaKey => {
                             const criteriaObject = dataObject[criteriaKey];
 
-                            if (isNullOrUndefined(criteriaObject)) {
-                                return;
-                            }
-                            // tag is the name of first level header key in json => build column based on Configuration 'id'
+                        if (isNullOrUndefined(criteriaObject)) {
+                            return;
+                        }
+                        // tag is the name of first level header key in json => build column based on Configuration 'id'
                             if (criteriaKey === "tag") {
                                 const critConf: Criteria = configuration.criteria.get("id");
                                 const type: CriteriaType = critConf ? critConf.type : CriteriaType.url;
@@ -80,8 +80,8 @@ export class DataService {
                                 }
                                 return;
                             }
-                            // key is the name of first level header content key in json =>
-                            // build column based on Configuration 'description'
+                        // key is the name of first level header content key in json =>
+                        // build column based on Configuration 'description'
                             if (criteriaKey === "descr") {
                                 const critConf: Criteria = configuration.criteria.get("description");
                                 const type: CriteriaType = critConf ? critConf.type : CriteriaType.url;
@@ -109,10 +109,10 @@ export class DataService {
                                 return;
                             }
 
-                            // Handle all other second level headers
-                            const criteriaConf: Criteria = configuration.criteria.get(criteriaKey) || new Criteria.Builder().build();
+                        // Handle all other second level headers
+                        const criteriaConf: Criteria = configuration.criteria.get(criteriaKey) || new Criteria.Builder().build();
                             const childs = criteriaObject.childs || {};
-                            const childsArrayLvl1 = childs['0'] || [];
+                        const childsArrayLvl1 = childs['0'] || [];
                             const childsArray = childsArrayLvl1.length > 0 ? childsArrayLvl1[0] : [];
 
                             switch (criteriaConf.type) {

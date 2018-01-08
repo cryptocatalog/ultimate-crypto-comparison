@@ -1,5 +1,4 @@
-import { PaperDialogComponent } from '../components/polymer/paper-dialog/paper-dialog.component';
-import { Data, Label, Markdown, Text, Url } from '../components/comparison/components/data/data';
+import { Label, Markdown, Text, Url } from '../components/comparison/components/data/data';
 import { Criteria } from '../components/comparison/components/configuration/configuration';
 
 export interface IUCAppState {

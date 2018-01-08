@@ -27,17 +27,17 @@ export class ConfigurationService {
 
     public initializeData: EventEmitter<any> = new EventEmitter();
 
-    static getHtml(converter: Showdown.Converter, citation: Map<string, Citation>, markdown: string): string {
-        return converter.makeHtml(markdown).replace(/(?:\[@)([^\]]*)(?:\])/g, (match, dec) => {
-            return '<a class="cite-link" href="#' + dec + '">[' + citation.get(dec).index + ']</a>';
-        });
-    }
-
     constructor(public title: Title,
                 private http: HttpClient,
                 private dataService: DataService) {
         this.converter = new Showdown.Converter();
         this.dataService.setSubscriber(this);
+    }
+
+    static getHtml(converter: Showdown.Converter, citation: Map<string, Citation>, markdown: string): string {
+        return converter.makeHtml(markdown).replace(/(?:\[@)([^\]]*)(?:\])/g, (match, dec) => {
+            return '<a class="cite-link" href="#' + dec + '">[' + citation.get(dec).index + ']</a>';
+        });
     }
 
     public loadComparison(cd: ChangeDetectorRef) {
