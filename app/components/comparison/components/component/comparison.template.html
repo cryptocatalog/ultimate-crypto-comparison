@@ -68,6 +68,14 @@
         </pcard>
     </div>
 
+    <latextable class="grid-content-latex"
+                [items]="(store | async).state.currentElements"
+                [columns]="(store | async).state.columnNames"
+                [types]="(store | async).state.columnTypes"
+                [index]="(store | async).state.rowIndexes"
+                [changeNum]="configurationService.tableColumns.length + (store | async).state.columnNames.length"
+                #latexTable></latextable>
+
     <pdialog [(opened)]="detailsOpen" *ngIf="detailsOpen">
         <comparison-details [data]="activeRow"></comparison-details>
     </pdialog>
@@ -133,12 +141,7 @@
                 </div>
             </pdialog>
     !-->
-    <!-- TODO use store data
-    <latextable class="grid-content-latex "
-                [configuration]="configurationService.configuration" [data]="dataService.data"
-                [changeNum]="configurationService.tableColumns.length + dataService.data.length"
-                #latexTable></latextable>
-    -->
+
 
     <div class="grid-footer">
         <div class="container">
