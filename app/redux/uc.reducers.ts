@@ -138,87 +138,123 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
     return state;
 }
 
-/*
-function removeColumns(state: IUCAppState): IUCAppState {
-    if (isNullOrUndefined(state.criterias)) {
+function sortElements(state: IUCAppState): IUCAppState {
+    if (state.currentOrder === null) {
         return state;
     }
-    state.currentColumns.sort();
-    state.currentColumns.reverse();
-    state.shownColumns = Array.from(state.criterias.keys());
-    state.currentColumns.forEach(c => state.shownColumns.splice(c, 1));
-    return state;
-}*/
+    const keys: Array<number> = state.currentOrder.map(value => {
+        const key: string = value.substring(1);
+        if (state.currentColumns.indexOf(key) !== -1) {
+            return state.currentColumns.indexOf(key);
+        } else {
+            return 0;
+        }
+    });
+    const direction: Array<number> = state.currentOrder.map(key => {
+        if (key.startsWith('+')) {
+            return 1;
+        } else if (key.startsWith('-')) {
+            return -1;
+        } else {
+            // Default is positive (ascending)
+            return 1;
+        }
+    });
 
-function sort(first: Map<string, Array<String | Array<Label> | Text | Url | Markdown | number>>,
-              second: Map<string, Array<String | Array<Label> | Text | Url | Markdown | number>>,
-              column: string) {
-    const stringCompare = (s1: string, s2: string) => s1 > s2 ? 1 : -1;
-    const a = first.get(column);
-    const b = second.get(column);
-    if (isNullOrUndefined(a) && isNullOrUndefined(b) || a.length === 0 && b.length === 0) {
+    const combined: Array<{
+        currentElements: Array<String | Array<Label> | Text | Url | Markdown | number>,
+        indexes: number
+    }> = [];
+    state.currentElements.forEach((value, index) => combined.push({
+        currentElements: value,
+        indexes: state.rowIndexes[index]
+    }));
+    combined.sort((a, b) => sort(a.currentElements, b.currentElements, state.columnTypes, keys, direction));
+    state.currentElements = combined.map(element => element.currentElements);
+    state.rowIndexes = combined.map(element => element.indexes);
+
+    console.log(state);
+    return state;
+}
+
+function sort(first: Array<String | Array<Label> | Text | Url | Markdown | number>,
+              second: Array<String | Array<Label> | Text | Url | Markdown | number>,
+              types: Array<CriteriaType>,
+              keys: Array<number>,
+              directions: Array<number>) {
+    const stringCompare = (s1: string, s2: string) => s1 > s2 ? -1 : 1;
+    const numberCompare = (n1: number, n2: number) => n1 > n2 ? -1 : 1;
+
+    if (isNullOrUndefined(first) && isNullOrUndefined(second) || first.length === 0 && second.length === 0) {
         return 0;
     }
-    if (isNullOrUndefined(a) || a.length === 0 && b.length > 0) {
+    if (isNullOrUndefined(first) || first.length === 0 && second.length > 0) {
         return -1;
     }
-    if (isNullOrUndefined(b) || a.length > 0 && b.length === 0) {
+    if (isNullOrUndefined(first) || first.length > 0 && second.length === 0) {
         return 1;
     }
 
-    const x = a[0];
-    const y = b[0];
+    let result = 0;
+    let index = 0;
+    while (result === 0 && index < keys.length) {
+        const a = first[keys[index]];
+        const b = second[keys[index]];
+        if (isNullOrUndefined(a) && isNullOrUndefined(b)) {
+            result = 0;
+        } else if (isNullOrUndefined(a)) {
+            result = 1;
+        } else if (isNullOrUndefined(b)) {
+            result = -1;
+        } else {
+            switch (types[index]) {
+                case 'repository':
+                case 'url':
+                    const s1: string = <string>a;
+                    const s2: string = <string>b;
+                    result = stringCompare(s1, s2);
+                    break;
+                case 'text':
+                    const t1: Text = <Text>a;
+                    const t2: Text = <Text>b;
+                    result = stringCompare(t1.content, t2.content);
+                    break;
+                case 'markdown':
+                    const md1: Markdown = <Markdown>a;
+                    const md2: Markdown = <Markdown>b;
+                    result = stringCompare(md1.content, md2.content);
+                    break;
+                case 'rating':
+                    const r1: number = <number>a;
+                    const r2: number = <number>b;
+                    result = numberCompare(r1, r2);
+                    break;
+                case 'label':
+                    const la1: Array<Label> = <Array<Label>>a;
+                    const la2: Array<Label> = <Array<Label>>b;
 
-    if (x.constructor.name === 'String') {
-        const xi = <string>x;
-        const yi = <string>y;
-        return stringCompare(xi, yi);
-    }
-    if (Array.isArray(x) && Array.isArray(y)) {
-        if (x.length === 0 && y.length === 0) {
-            return 0;
+                    // TODO improve label sorting (label weighting...)
+                    const l1: Label = la1[0];
+                    const l2: Label = la2[0];
+                    if (isNullOrUndefined(l1) && isNullOrUndefined(l2)) {
+                        result = 0;
+                    } else if (isNullOrUndefined(l1)) {
+                        result = 1;
+                    } else if (isNullOrUndefined(l2)) {
+                        result = -1;
+                    } else {
+                        stringCompare(l1[0].name, l2.name)
+                    }
+                    break;
+                default:
+                    result = 0;
+            }
         }
-        if (x.length === 0 && y.length > 0) {
-            return -1;
+        if (result === 0) {
+            index++;
         }
-        if (x.length > 0 && y.length === 0) {
-            return 1;
-        }
-        const xi = <Label>x[0];
-        const yi = <Label>y[0];
-        return stringCompare(xi.name, yi.name);
     }
-    if (x.constructor.name === 'Text') {
-        const xi = <Text>x;
-        const yi = <Text>y;
-        return stringCompare(xi.content, yi.content);
-    }
-    if (x.constructor.name === 'Url') {
-        const xi = <Url>x;
-        const yi = <Url>y;
-        return stringCompare(xi.text, yi.text);
-    }
-    if (x.constructor.name === 'Markdown') {
-        const xi = <Markdown>x;
-        const yi = <Markdown>y;
-        return stringCompare(xi.content, yi.content);
-    }
-    return 0;
-}
-
-function sortElements(state: IUCAppState): IUCAppState {
-    /*const column = state.currentOrder.substr(1);
-    let direction: 1 | -1;
-    if (state.currentOrder.startsWith('+')) {
-        direction = 1;
-    } else if (state.currentOrder.startsWith('-')) {
-        direction = -1;
-    } else {
-        return state;
-    }
-    state.currentElements.sort((a, b) => direction * sort(a, b, column));
-    console.log(state);*/
-    return state;
+    return directions[index] * result;
 }
 
 function numberQueryContains(query: string, value: string): boolean {
@@ -289,7 +325,7 @@ function routeReducer(state: IUCAppState = new UcAppState(), action: UCRouterAct
     const optionsDialog = params.hasOwnProperty('options');
     const columns = params.columns || '';
     const maximized = params.hasOwnProperty('maximized');
-    const order = params.order || '+id';
+    const order = params.order || ['+id'];
 
     search.split(';').map(x => x.trim()).forEach(x => {
         const splits = x.split(':');

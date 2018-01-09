@@ -58,7 +58,8 @@
                           [types]="(store | async).state.columnTypes"
                           [index]="(store | async).state.rowIndexes"
                           [changeNum]="configurationService.tableColumns.length + (store | async).state.columnNames.length"
-                          (settingsCallback)="showTableProperties()" (showDetails)="showDetails($event)"></generictable>
+                          (settingsCallback)="showTableProperties()" (showDetails)="showDetails($event)"
+                          style="margin-top: -25px"></generictable>
         </pcard>
     </div>
     <div class="grid-content-end">

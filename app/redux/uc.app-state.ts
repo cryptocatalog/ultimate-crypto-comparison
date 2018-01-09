@@ -69,7 +69,7 @@ export class UcAppState implements IUCAppState {
     currentFilter: Array<number> = [];
     currentColumns: Array<string> = [];
     currentlyMaximized = false;
-    currentOrder = ['-id'];
+    currentOrder = ['+id'];
     criterias: Map<string, Criteria> = null;
     columnNames: Array<string> = [];
     columnTypes: Array<CriteriaType> = [];
