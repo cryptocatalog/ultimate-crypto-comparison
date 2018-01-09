@@ -7,7 +7,7 @@ import {
     Output,
     SimpleChanges
 } from '@angular/core';
-import { Configuration, CriteriaType } from '../../comparison/components/configuration/configuration';
+import { CriteriaType } from '../../comparison/components/configuration/configuration';
 import { Data, Label, Markdown, Text, Url } from "../../comparison/components/data/data";
 
 @Component({
@@ -18,9 +18,6 @@ import { Data, Label, Markdown, Text, Url } from "../../comparison/components/da
 })
 export class GenericTableComponent implements OnChanges {
     @Input() changeNum = 0;
-
-    @Input() data: Array<Array<String | Array<Label> | Text | Url | Markdown | number>> = [];
-    @Input() configuration: Configuration = new Configuration.Builder().build();
 
     @Input() order: Array<String> = [];
     @Input() orderOption: Array<number> = [];
@@ -78,6 +75,7 @@ export class GenericTableComponent implements OnChanges {
         this.items = items;
         this.types = types;
         this.index = index;*/
+        console.log(changes);
     }
 
     public getKeys(item: Data) {
