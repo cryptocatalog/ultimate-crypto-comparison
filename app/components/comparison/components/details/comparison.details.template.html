@@ -13,7 +13,7 @@
     </h2>
 </div>
 <div class="grid-content">
-    <pcard heading="{{bodyTitle}}" class="description">
+    <pcard *ngIf="displayDescription" heading="{{bodyTitle}}" class="description">
         <div [innerHTML]="description | sanitizeHtml" class="description"></div>
     </pcard>
 

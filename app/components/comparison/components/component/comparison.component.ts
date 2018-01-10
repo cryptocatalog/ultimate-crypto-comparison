@@ -9,6 +9,8 @@ import { ConfigurationService } from "../configuration/configuration.service";
 import { Criteria } from "../configuration/configuration";
 import { DataService } from "../data/data.service";
 import { Data } from "../data/data";
+import { UCTableOrderAction } from "../../../../redux/uc.action";
+import { isNullOrUndefined } from "util";
 
 // TODO evaluate how winery saves files
 const FileSaver = require('file-saver');
@@ -39,7 +41,7 @@ export class ComparisonComponent {
                 public store: Store<IUCAppState>,
                 private router: Router) {
         this.configurationService.loadComparison(this.cd);
-        store.subscribe(res => console.log(JSON.stringify(res, null, 2)));
+        store.subscribe(res => console.log(res));
     }
 
     public getVersionInformation(): VersionInformation {
@@ -109,5 +111,15 @@ export class ComparisonComponent {
             //this.expand();
         }
         this.expanded = !this.expanded;
+    }
+
+    /**
+     * Callback functions dispatching to redux store
+     */
+
+    public changeOrder(change: { index: number, ctrl: boolean }) {
+        if (!isNullOrUndefined(change)) {
+            this.store.dispatch(new UCTableOrderAction(change.index, change.ctrl));
+        }
     }
 }

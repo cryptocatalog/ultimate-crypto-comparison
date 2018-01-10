@@ -53,6 +53,11 @@ export interface IUCAppState {
     columnTypes: Array<CriteriaType>;
 
     /**
+     * List of column order ( 1 = ascending, -1 = descending)
+     */
+    columnOrder: Array<number>;
+
+    /**
      * List of row indexes
      */
     rowIndexes: Array<number>;
@@ -73,6 +78,7 @@ export class UcAppState implements IUCAppState {
     criterias: Map<string, Criteria> = null;
     columnNames: Array<string> = [];
     columnTypes: Array<CriteriaType> = [];
+    columnOrder: Array<number> = [];
     rowIndexes: Array<number> = [];
     currentElements: Array<Array<String | Array<Label> | Text | Url | Markdown | number>> = [];
 }

@@ -1,5 +1,5 @@
 import { IUCAppState, UcAppState } from './uc.app-state';
-import { UCAction, UCDataUpdateAction, UCRouterAction } from './uc.action';
+import { UCAction, UCDataUpdateAction, UCRouterAction, UCTableOrderAction } from './uc.action';
 import { DataService } from '../components/comparison/components/data/data.service';
 import { Criteria, CriteriaType } from '../components/comparison/components/configuration/configuration';
 import { Data, Label, Markdown, Text, Url } from '../components/comparison/components/data/data';
@@ -9,6 +9,7 @@ export const UPDATE_SEARCH = 'UPDATE_SEARCH';
 export const UPDATE_MODAL = 'UPDATE_MODAL';
 export const UPDATE_FILTER = 'UPDATE_FILTER';
 export const UPDATE_DATA = 'UPDATE_DATA';
+export const UPDATE_ORDER = 'UPDATE_ORDER';
 const UPDATE_ROUTE = 'ROUTER_NAVIGATION';
 
 export function masterReducer(state: IUCAppState = new UcAppState(), action: UCAction) {
@@ -35,8 +36,32 @@ export function masterReducer(state: IUCAppState = new UcAppState(), action: UCA
         case UPDATE_DATA:
             state.criterias = (<UCDataUpdateAction>action).criterias;
             state = filterColumns(state);
+            break;
+        case UPDATE_ORDER:
+            state = changeOrder(state, <UCTableOrderAction>action);
+            state = sortElements(state);
     }
     return updateElements(state);
+}
+
+function changeOrder(state: IUCAppState, action: UCTableOrderAction): IUCAppState {
+    const key: string = state.currentColumns[action.index];
+    const prefix: string = state.currentOrder.indexOf('+'.concat(key)) === -1 ? '+' : '-';
+
+    if (action.ctrl) {
+        const index = state.currentOrder.indexOf((prefix === '-' ? '+' : '-').concat(key));
+        if (index !== -1) {
+            state.currentOrder[index] = prefix.concat(key);
+        } else {
+            state.currentOrder.push(prefix.concat(key));
+        }
+    } else {
+        state.columnOrder = [];
+        state.currentOrder = [prefix + key];
+    }
+
+    state.columnOrder[action.index] = prefix === '+' ? 1 : -1;
+    return state;
 }
 
 function updateElements(state: IUCAppState): IUCAppState {
@@ -69,6 +94,19 @@ function filterColumns(state: IUCAppState, columns: Map<string, boolean> = new M
     });
     state.columnNames = columnNames;
     state.columnTypes = columnTypes;
+
+    const columnOrder = [];
+    state.currentOrder.forEach(pk => {
+        let index;
+        if (pk.startsWith('-') && (index = state.currentColumns.indexOf(pk.substring(1))) !== -1) {
+            columnOrder[index] = -1;
+        } else if (pk.startsWith('+') && (index = state.currentColumns.indexOf(pk.substring(1))) !== -1) {
+            columnOrder[index] = 1;
+        } else if ((index = state.currentColumns.indexOf(pk)) !== -1) {
+            columnOrder[index] = 1;
+        }
+    });
+    state.columnOrder = columnOrder;
 
     return state;
 }
@@ -134,7 +172,6 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
     }
     state.rowIndexes = indexes;
     state.currentElements = elements;
-    console.log(state);
     return state;
 }
 
@@ -173,7 +210,6 @@ function sortElements(state: IUCAppState): IUCAppState {
     state.currentElements = combined.map(element => element.currentElements);
     state.rowIndexes = combined.map(element => element.indexes);
 
-    console.log(state);
     return state;
 }
 
@@ -182,8 +218,19 @@ function sort(first: Array<String | Array<Label> | Text | Url | Markdown | numbe
               types: Array<CriteriaType>,
               keys: Array<number>,
               directions: Array<number>) {
-    const stringCompare = (s1: string, s2: string) => s1 > s2 ? -1 : 1;
-    const numberCompare = (n1: number, n2: number) => n1 > n2 ? -1 : 1;
+    const stringCompare = (s1: string, s2: string) => {
+        if (isNullOrUndefined(s1) && isNullOrUndefined(s2)) {
+            return 0;
+        }
+        if (isNullOrUndefined(s1)) {
+            return 1;
+        }
+        if (isNullOrUndefined(s2)) {
+            return -1;
+        }
+        return s1.toLowerCase() > s2.toLowerCase() ? 1 : s1.toLowerCase() < s2.toLowerCase() ? -1 : 0;
+    };
+    const numberCompare = (n1: number, n2: number) => n1 > n2 ? 1 : n1 < n2 ? -1 : 0;
 
     if (isNullOrUndefined(first) && isNullOrUndefined(second) || first.length === 0 && second.length === 0) {
         return 0;
@@ -207,12 +254,16 @@ function sort(first: Array<String | Array<Label> | Text | Url | Markdown | numbe
         } else if (isNullOrUndefined(b)) {
             result = -1;
         } else {
-            switch (types[index]) {
+            switch (types[keys[index]]) {
                 case 'repository':
-                case 'url':
                     const s1: string = <string>a;
                     const s2: string = <string>b;
                     result = stringCompare(s1, s2);
+                    break;
+                case 'url':
+                    const u1: Url = <Url>a;
+                    const u2: Url = <Url>b;
+                    result = stringCompare(u1.text, u2.text);
                     break;
                 case 'text':
                     const t1: Text = <Text>a;
@@ -243,7 +294,7 @@ function sort(first: Array<String | Array<Label> | Text | Url | Markdown | numbe
                     } else if (isNullOrUndefined(l2)) {
                         result = -1;
                     } else {
-                        stringCompare(l1[0].name, l2.name)
+                        result = stringCompare(l1.name, l2.name)
                     }
                     break;
                 default:
@@ -325,7 +376,7 @@ function routeReducer(state: IUCAppState = new UcAppState(), action: UCRouterAct
     const optionsDialog = params.hasOwnProperty('options');
     const columns = params.columns || '';
     const maximized = params.hasOwnProperty('maximized');
-    const order = params.order || ['+id'];
+    const order = params.order || '+id';
 
     search.split(';').map(x => x.trim()).forEach(x => {
         const splits = x.split(':');
@@ -338,8 +389,7 @@ function routeReducer(state: IUCAppState = new UcAppState(), action: UCRouterAct
     state.currentFilter = filter.split(',').map(x => Number.parseInt(x.trim()));
     state.currentColumns = columns.split(',').map(x => Number.parseInt(x.trim()));
     state.currentlyMaximized = maximized;
-    state.currentOrder = order;
-    console.log(state);
+    state.currentOrder = order.split(',');
     return state;
 }
 

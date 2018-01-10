@@ -50,15 +50,18 @@
 
     <div class="grid-large-content">
         <pcard heading="{{configurationService.configuration.tableTitle}}">
-            <iicon #ExpandId icon="resize-full" class="shrink-expand" (click)="shrinkExpand()" *ngIf="expanded"></iicon>
-            <iicon #shrinkId icon="resize-small" class="shrink-expand" (click)="shrinkExpand()"
+            <iicon icon="resize-full" class="shrink-expand" (click)="shrinkExpand()" *ngIf="expanded"></iicon>
+            <iicon icon="resize-small" class="shrink-expand" (click)="shrinkExpand()"
                    *ngIf="!expanded"></iicon>
             <generictable [items]="(store | async).state.currentElements"
                           [columns]="(store | async).state.columnNames"
                           [types]="(store | async).state.columnTypes"
                           [index]="(store | async).state.rowIndexes"
+                          [order]="(store | async).state.columnOrder"
                           [changeNum]="configurationService.tableColumns.length + (store | async).state.columnNames.length"
-                          (settingsCallback)="showTableProperties()" (showDetails)="showDetails($event)"
+                          (settingsCallback)="showTableProperties()"
+                          (showDetails)="showDetails($event)"
+                          (orderChange)="changeOrder($event)"
                           style="margin-top: -25px"></generictable>
         </pcard>
     </div>
