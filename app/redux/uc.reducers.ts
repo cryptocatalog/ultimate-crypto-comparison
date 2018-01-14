@@ -1,5 +1,5 @@
 import { IUCAppState, UcAppState } from './uc.app-state';
-import { UCAction, UCDataUpdateAction, UCRouterAction, UCTableOrderAction } from './uc.action';
+import { UCAction, UCDataUpdateAction, UCRouterAction, UCSearchUpdateAction, UCTableOrderAction } from './uc.action';
 import { DataService } from '../components/comparison/components/data/data.service';
 import { Criteria, CriteriaType } from '../components/comparison/components/configuration/configuration';
 import { Data, Label, Markdown, Text, Url } from '../components/comparison/components/data/data';
@@ -13,7 +13,6 @@ export const UPDATE_ORDER = 'UPDATE_ORDER';
 const UPDATE_ROUTE = 'ROUTER_NAVIGATION';
 
 export function masterReducer(state: IUCAppState = new UcAppState(), action: UCAction) {
-    console.log(action.type);
     if (action.type === UPDATE_ROUTE) {
         state.currentElements = [];
         state.currentSearch = new Map();
@@ -22,7 +21,7 @@ export function masterReducer(state: IUCAppState = new UcAppState(), action: UCA
     }
     switch (action.type) {
         case UPDATE_SEARCH:
-            state = searchReducer(state, action);
+            state = searchReducer(state, <UCSearchUpdateAction>action);
             break;
         case UPDATE_MODAL:
             state = detailsReducer(state, action);
@@ -65,9 +64,64 @@ function changeOrder(state: IUCAppState, action: UCTableOrderAction): IUCAppStat
 }
 
 function updateElements(state: IUCAppState): IUCAppState {
-    state = filterElements(state);
+    state = filterElements(state, state.criterias);
     state = sortElements(state);
+    putStateIntoURL(state);
     return state;
+}
+
+function putStateIntoURL(state: IUCAppState) {
+    let query = '';
+    if (state.currentSearch.size > 0) {
+        query = 'search=';
+        for (const [key, value] of state.currentSearch) {
+            let crit = key;
+            for (const val of value) {
+                crit += `:${val}`;
+            }
+            query += `${encodeURIComponent(crit)};`;
+        }
+        query = query.substr(0, query.length - 1);
+    }
+    if (state.currentFilter.length > 0) {
+        if (query.length > 0) {
+            query += '&';
+        }
+        query += 'filter=';
+        for (const filter of state.currentFilter) {
+            query += `${filter},`;
+        }
+        query = query.substr(0, query.length - 1);
+    }
+    if (state.currentColumns.length > 0) {
+        if (query.length > 0) {
+            query += '&';
+        }
+        query += 'columns=';
+        for (const column of state.currentColumns) {
+            query += `${encodeURIComponent(column)},`;
+        }
+        query = query.substr(0, query.length - 1);
+    }
+    if (state.currentlyMaximized) {
+        if (query.length > 0) {
+            query += '&';
+        }
+        query += 'maximized=';
+    }
+    if (state.currentOrder.length > 0) {
+        if (query.length > 0) {
+            query += '&';
+        }
+        query += 'order=';
+        for (const order of state.currentOrder) {
+            query += `${encodeURIComponent(order)},`;
+        }
+        query = query.substr(0, query.length - 1);
+    }
+    if (query.length > 0) {
+        window.location.hash = query;
+    }
 }
 
 function filterColumns(state: IUCAppState, columns: Map<string, boolean> = new Map()): IUCAppState {
@@ -87,7 +141,7 @@ function filterColumns(state: IUCAppState, columns: Map<string, boolean> = new M
 
     const columnNames = [];
     const columnTypes = [];
-    currentColumns.forEach(key => {
+    state.currentColumns.forEach(key => {
         const criteria: Criteria = state.criterias.get(key);
         columnNames.push(criteria.name);
         columnTypes.push(criteria.type);
@@ -155,7 +209,7 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
                 const obj: any = dataElement.criteria.get(key);
                 if (state.columnTypes[index] === CriteriaType.label) {
                     const labelMap: Map<string, Label> = obj || new Map;
-                    let labels: Array<Label> = [];
+                    const labels: Array<Label> = [];
                     labelMap.forEach(label => labels.push(label));
                     item.push(labels);
                 } else if (state.columnTypes[index] === CriteriaType.rating) {
@@ -369,7 +423,9 @@ function routeReducer(state: IUCAppState = new UcAppState(), action: UCRouterAct
     if (action.type !== UPDATE_ROUTE) {
         return state;
     }
+    console.log(action)
     const params = action.payload.routerState.queryParams;
+    console.log(params)
     const search = params.search || '';
     const filter = params.filter || '';
     const detailsDialog = Number.parseInt(params.details || -1);
@@ -386,10 +442,23 @@ function routeReducer(state: IUCAppState = new UcAppState(), action: UCRouterAct
             state.currentSearch.set(key[0], splits);
         }
     });
-    state.currentFilter = filter.split(',').map(x => Number.parseInt(x.trim()));
-    state.currentColumns = columns.split(',').map(x => Number.parseInt(x.trim()));
+    state.currentFilter = filter.split(',')
+        .filter(x => x.trim().length > 0)
+        .filter(x => Number.isInteger(x.trim()))
+        .map(x => Number.parseInt(x.trim()));
+    state.currentColumns = columns.split(',')
+        .filter(x => x.trim().length > 0)
+        .filter(x => Number.isInteger(x.trim()))
+        .map(x => Number.parseInt(x.trim()));
+    if (state.currentColumns.length === 0 && state.criterias) {
+        const values = state.criterias.values();
+        let crit;
+        while ((crit = values.next()) !== null) {
+            state.currentColumns.push(crit.name);
+        }
+    }
     state.currentlyMaximized = maximized;
-    state.currentOrder = order.split(',');
+    state.currentOrder = order.split(',').map(x => decodeURIComponent(x));
     return state;
 }
 
@@ -401,6 +470,9 @@ function detailsReducer(state: IUCAppState = new UcAppState(), action: UCAction)
     return state;
 }
 
-function searchReducer(state: IUCAppState = new UcAppState(), action: UCAction) {
+function searchReducer(state: IUCAppState = new UcAppState(), action: UCSearchUpdateAction) {
+    for (const [key, value] of action.criterias) {
+        state.currentSearch.set(key, value);
+    }
     return state;
 }

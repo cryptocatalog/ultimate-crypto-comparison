@@ -333,7 +333,7 @@ gulp.task('citation', function (done) {
                     let obj = Object.create(null);
                     let i = 0;
                     for (let [k, v] of map) {
-                        if (data.match('@'.concat(k)) || description.match('@'.concat(k))) {
+                        if (data.match('@'.concat(k)) || false /*description.match('@'.concat(k))*/) {
                             obj[k] = {index: i, value: v};
                             i++;
                         }

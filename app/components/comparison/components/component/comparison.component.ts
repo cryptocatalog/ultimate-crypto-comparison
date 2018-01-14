@@ -9,8 +9,9 @@ import { ConfigurationService } from "../configuration/configuration.service";
 import { Criteria } from "../configuration/configuration";
 import { DataService } from "../data/data.service";
 import { Data } from "../data/data";
-import { UCTableOrderAction } from "../../../../redux/uc.action";
+import { UCDataUpdateAction, UCSearchUpdateAction, UCTableOrderAction } from '../../../../redux/uc.action';
 import { isNullOrUndefined } from "util";
+import { UPDATE_SEARCH } from '../../../../redux/uc.reducers';
 
 // TODO evaluate how winery saves files
 const FileSaver = require('file-saver');
@@ -41,16 +42,17 @@ export class ComparisonComponent {
                 public store: Store<IUCAppState>,
                 private router: Router) {
         this.configurationService.loadComparison(this.cd);
-        store.subscribe(res => console.log(res));
     }
 
     public getVersionInformation(): VersionInformation {
         return this.versionInformation;
     }
 
-    public criteriaChanged(value: Array<String> | KeyboardEvent | { target: { value: string } }, crit: Criteria) {
+    public criteriaChanged(value: Array<string>, crit: Criteria) {
         if (value) {
-            //this.store.dispatch({type: UPDATE_SEARCH, value: new CriteriaSelection(value, crit)});
+            const map = new Map<string, Array<string>>();
+            map.set(crit.name, value);
+            this.store.dispatch(new UCSearchUpdateAction(map));
         }
         this.cd.markForCheck();
 
