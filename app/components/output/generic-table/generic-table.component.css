@@ -46,8 +46,8 @@ table {
 .anchored::before {
     content: '';
     display: block;
-    height:48px;
-    margin:-48px 0 0;
+    height: 48px;
+    margin: -48px 0 0;
 }
 
 .unknown {

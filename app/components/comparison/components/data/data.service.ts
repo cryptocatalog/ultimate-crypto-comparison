@@ -13,7 +13,7 @@ import { IUCAppState } from '../../../../redux/uc.app-state';
 export class DataService {
     public static data: Array<Data> = [];
 
-    private converter: Showdown.Converter;
+    public converter: Showdown.Converter;
 
     constructor(private http: HttpClient,
                 private store: Store<IUCAppState>) {
@@ -65,7 +65,9 @@ export class DataService {
                                         break;
                                     case CriteriaType.markdown:
                                         criteria.set("id", new Markdown(name,
-                                            ConfigurationService.getHtml(this.converter, configuration.citation, name)));
+                                            ConfigurationService.getHtml(dataService.converter, configuration.citation, name),
+                                            ConfigurationService.getLatex(dataService.converter, name))
+                                        );
                                         break;
                                     case CriteriaType.label:
                                         const labels: Map<string, Label> = new Map<string, Label>();
@@ -93,7 +95,9 @@ export class DataService {
                                         criteria.set('description',
                                             new Markdown(criteriaObject,
                                                 ConfigurationService
-                                                    .getHtml(dataService.converter, configuration.citation, criteriaObject)));
+                                                    .getHtml(dataService.converter, configuration.citation, criteriaObject),
+                                                ConfigurationService.getLatex(dataService.converter, criteriaObject))
+                                        );
                                         break;
                                     case CriteriaType.label:
                                         const labels: Map<string, Label> = new Map<string, Label>();
@@ -122,7 +126,9 @@ export class DataService {
                                 case CriteriaType.markdown:
                                     criteria.set(criteriaKey,
                                         new Markdown(criteriaObject.plain,
-                                            ConfigurationService.getHtml(dataService.converter, configuration.citation, criteriaObject.plain)));
+                                            ConfigurationService.getHtml(dataService.converter, configuration.citation, criteriaObject.plain),
+                                            ConfigurationService.getLatex(dataService.converter, criteriaObject.plain))
+                                    );
                                     break;
                                 case CriteriaType.url:
                                     criteria.set(criteriaObject.plain, new Url(criteriaObject.plain, criteriaObject.plain));
@@ -164,6 +170,10 @@ export class DataService {
                                             let latexTooltip = "";
                                             if (tooltipArray.length == 1) {
                                                 htmlTooltip = isNullOrUndefined(tooltipArray[0].plain) ? "" : tooltipArray[0].plain.trim();
+                                                latexTooltip = htmlTooltip.trim();
+                                                if (latexTooltip.startsWith('-') || latexTooltip.startsWith('*')) {
+                                                    latexTooltip = latexTooltip.substring(1).trim();
+                                                }
                                             } else {
                                                 htmlTooltip = labelObject.plainChilds.replace(/^[\s]{3}/gm, '');
                                                 if (htmlTooltip) {
@@ -176,6 +186,9 @@ export class DataService {
                                                 configuration.citation,
                                                 htmlTooltip
                                             );
+                                            latexTooltip = (latexTooltip.replace(/(?:\[@)([^\]]*)(?:\])/g, (match, dec) => {
+                                                return '\\cite{' + dec + '}';
+                                            }) || "").trim();
                                             const tooltip: Tooltip = new Tooltip(criteriaValueConf.description, htmlTooltip, latexTooltip);
 
                                             labels.set(labelObject.content, new Label.Builder()

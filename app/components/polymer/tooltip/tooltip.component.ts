@@ -10,14 +10,13 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class TooltipComponent implements OnInit {
     @Input() tooltip: any = '';
     @Input() tooltipHtml = '';
-
-    @Input() set position(p: string) {
-        this.positionClass = p;
-    }
-
     @HostBinding('class') positionClass = 'n';
 
     constructor(private _sanitizer: DomSanitizer) {
+    }
+
+    @Input() set position(p: string) {
+        this.positionClass = p;
     }
 
     ngOnInit(): void {

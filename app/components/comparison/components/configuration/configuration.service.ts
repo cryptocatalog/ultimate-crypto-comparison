@@ -3,13 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import * as yaml from 'js-yaml';
 import {
-    Body,
-    Citation,
-    Configuration,
-    Criteria,
-    CriteriaValue,
-    Details,
-    getCriteriaType,
+    Body, Citation, Configuration, Criteria, CriteriaValue, Details, getCriteriaType,
     Header
 } from "./configuration";
 import * as Showdown from "showdown";
@@ -23,9 +17,8 @@ export class ConfigurationService {
     public criteria: Array<Criteria> = [];
     // TODO move to redux
     public tableColumns: Array<string> = [];
-    private converter: Showdown.Converter;
-
     public initializeData: EventEmitter<any> = new EventEmitter();
+    private converter: Showdown.Converter;
 
     constructor(public title: Title,
                 private http: HttpClient,
@@ -39,6 +32,13 @@ export class ConfigurationService {
             return '<a class="cite-link" href="#' + dec + '">[' + citation.get(dec).index + ']</a>';
         });
     }
+
+    static getLatex(converter: Showdown.Converter, text: string): string {
+        return converter.makeHtml(text).replace(/(?:\[@)([^\]]*)(?:\])/g, (match, dec) => {
+            return '\\cite{' + dec + '}';
+        });
+    }
+
 
     public loadComparison(cd: ChangeDetectorRef) {
         this.http.get('comparison-configuration/comparison.yml', {responseType: 'text'})

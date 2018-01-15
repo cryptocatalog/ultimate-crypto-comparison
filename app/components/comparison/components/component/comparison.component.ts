@@ -21,19 +21,16 @@ const FileSaver = require('file-saver');
     styleUrls: ['./comparison.component.css']
 })
 export class ComparisonComponent {
-    private changed = 0;
-
-    private versionInformation: VersionInformation = new VersionInformation();
-
     @ViewChild(LatexTableComponent) latexTable: LatexTableComponent;
     @ViewChild('settings') settingsModal: any;
     @ViewChild('genericTableHeader') genericTableHeader: PaperCardComponent;
-
     // TODO move to redux
     public expanded = true;
     public activeRow: Data = new Data.Builder().build();
     @Input() public detailsOpen: boolean = false;
     public showLatexTable = true;
+    private changed = 0;
+    private versionInformation: VersionInformation = new VersionInformation();
 
     constructor(public dataService: DataService,
                 public configurationService: ConfigurationService,
@@ -60,22 +57,6 @@ export class ComparisonComponent {
     public changeEnabled(item: Data) {
         //this.store.dispatch({type: UPDATE_FILTER, value: item, operation: item.enabled ? 1 : -1});
         this.change();
-    }
-
-    private showTableProperties() {
-        this.settingsModal.open();
-    }
-
-    private downloadLatexTable() {
-        let content: string = this.latexTable.element.nativeElement.textContent;
-        content = content.substr(content.indexOf('%'), content.length);
-        const blob: Blob = new Blob([content], {type: 'plain/text'});
-        FileSaver.saveAs(blob, 'latextable.tex');
-        return window.URL.createObjectURL(blob);
-    }
-
-    private previewLatexTable() {
-        this.showLatexTable = !this.showLatexTable;
     }
 
     public change() {
@@ -121,5 +102,21 @@ export class ComparisonComponent {
         if (!isNullOrUndefined(change)) {
             this.store.dispatch(new UCTableOrderAction(change.index, change.ctrl));
         }
+    }
+
+    private showTableProperties() {
+        this.settingsModal.open();
+    }
+
+    private downloadLatexTable() {
+        let content: string = this.latexTable.element.nativeElement.textContent;
+        content = content.substr(content.indexOf('%'), content.length);
+        const blob: Blob = new Blob([content], {type: 'plain/text'});
+        FileSaver.saveAs(blob, 'latextable.tex');
+        return window.URL.createObjectURL(blob);
+    }
+
+    private previewLatexTable() {
+        this.showLatexTable = !this.showLatexTable;
     }
 }
