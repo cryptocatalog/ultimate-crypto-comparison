@@ -41,7 +41,7 @@ export class ConfigurationService {
 
 
     public loadComparison(cd: ChangeDetectorRef) {
-        this.http.get('comparison-configuration/comparison.yml', {responseType: 'text'})
+        this.http.get('configuration/comparison.yml', {responseType: 'text'})
             .subscribe(res => {
                 const comparisonObject: any = yaml.safeLoad(res) || {};
                 const detailsObject: any = comparisonObject.details || {};
