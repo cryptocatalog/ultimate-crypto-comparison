@@ -260,7 +260,7 @@ export class ConfigurationService {
     }
 
     public loadDescription(citation: Map<string, Citation>) {
-        this.http.get('comparison-configuration/description.md', {responseType: 'text'})
+        this.http.get('configuration/description.md', {responseType: 'text'})
             .subscribe(res => {
                 this.description = ConfigurationService.getHtml(this.converter, citation, res);
             });
