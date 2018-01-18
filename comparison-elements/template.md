@@ -1,7 +1,7 @@
-# Template - http://www.example.com
+# Template - http://www.beispiel.de
 Default short description (with bibkey: [@esper-reference])
 
-## ILanguage
+## Language
 - C++
 
 ## License
@@ -9,10 +9,8 @@ Default short description (with bibkey: [@esper-reference])
 - Apache 2.0
 - MPL 2.0
 
-## Language
-- C#
-- C++
-- Java
+## ILanguage
+- Python
 
 ## Description
 Default long description in __markdown__.
@@ -20,9 +18,8 @@ Default long description in __markdown__.
 - [Link example](http://example.com).
 
 ## Rating
-- [5] Template is perfect
-- [1] I don't understand nothing
-- [3] It works
+- [5] This is awesome
+- [4] Some slight mistakes
 
 ## Encryption
-- SHA
+- PGP
