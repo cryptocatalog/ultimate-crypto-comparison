@@ -1,27 +1,18 @@
 # Template - http://www.example.com
 Default short description (with bibkey: [@esper-reference])
 
-## Performance
-- slow
-- fast
+## ILanguage
+- C++
 
 ## License
 - MIT
 - Apache 2.0
 - MPL 2.0
 
-## Showcase 2.0
-- red 1
-- red 2
-- green
-    - [@eckertThesisCEP]
-- yellow
-    - yellow property
-- dark blue
-    - [@eckertThesisCEP]
-    - more properties
-- grey
-- light blue
+## Language
+- C#
+- C++
+- Java
 
 ## Description
 Default long description in __markdown__.
@@ -33,8 +24,5 @@ Default long description in __markdown__.
 - [1] I don't understand nothing
 - [3] It works
 
-## Uncolored
-- color 1
-
-## NumberColumn
-- 200
+## Encryption
+- SHA

@@ -1,18 +1,55 @@
 [
   {
-    "name": "Performance",
-    "tag": "Performance",
-    "description": "Performace of entry.",
-    "placeholder": "Select performace rating ...",
+    "name": "Language",
+    "tag": "Language",
+    "description": "Programming language of the binaries",
+    "placeholder": "Select binary language",
     "and_search": true,
     "values": [
       {
-        "name": "slow",
-        "description": "I am slow!"
+        "name": "C++"
       },
       {
-        "name": "fast",
-        "description": "I am fast!"
+        "name": "Java"
+      },
+      {
+        "name": "C"
+      },
+      {
+        "name": "C#"
+      },
+      {
+        "name": "Assembler"
+      }
+    ]
+  },
+  {
+    "name": "Inteface Language",
+    "tag": "ILanguage",
+    "description": "The language in which the library can be used",
+    "placeholder": "Select interface language ...",
+    "and_search": true,
+    "values": [
+      {
+        "name": "C++"
+      },
+      {
+        "name": "Java"
+      },
+      {
+        "name": "Python"
+      },
+      {
+        "name": "C#"
+      },
+      {
+        "name": "C"
+      },
+      {
+        "name": "PHP"
+      },
+      {
+        "name": "Node.JS"
       }
     ]
   },
@@ -35,50 +72,23 @@
     ]
   },
   {
-    "name": "Showcase",
-    "tag": "Showcase 2.0",
-    "description": "Popular showcases.",
-    "placeholder": "Select showcase ...",
-    "and_search": false,
+    "name": "Encryption",
+    "tag": "Encryption",
+    "description": "The supported encryptions of the library",
+    "placeholder": "Select encryption ...",
+    "and_search": true,
     "values": [
       {
-        "name": "red 1"
+        "name": "SHA"
       },
       {
-        "name": "red 2"
+        "name": "PGP"
       },
       {
-        "name": "green"
+        "name": "Blowfish"
       },
       {
-        "name": "yellow"
-      },
-      {
-        "name": "dark blue"
-      },
-      {
-        "name": "grey"
-      },
-      {
-        "name": "light blue"
-      }
-    ]
-  },
-  {
-    "name": "Uncolored",
-    "tag": "Uncolored",
-    "description": "Tags that were originally uncolored.",
-    "placeholder": "Select color ...",
-    "and_search": false,
-    "values": [
-      {
-        "name": "color 1"
-      },
-      {
-        "name": "color 2"
-      },
-      {
-        "name": "color 3"
+        "name": "AES"
       }
     ]
   },
@@ -99,13 +109,5 @@
         "name": "Inactive"
       }
     ]
-  },
-  {
-    "name": "Number Column",
-    "tag": "NumberColumn",
-    "description": "Tags that were originally numbered.",
-    "placeholder": "Select number ranges ...",
-    "and_search": false,
-    "range_search": true
   }
 ]

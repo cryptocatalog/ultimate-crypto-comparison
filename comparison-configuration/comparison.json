@@ -1,17 +1,17 @@
 {
-  "title": "Ultimate-Comparison",
+  "title": "Crypto Catalog",
   "subtitle": "Ultimate comparison framework",
   "selecttitle": "Criteria",
-  "tabletitle": "Comparison of DOM manipulation libraries",
+  "tabletitle": "Comparison of cryptographic libraries",
   "details": {
     "header-label": "Performance",
     "body-main-title": "Description",
     "body": "Description",
     "body-attachment-tags": [
-      "Performance",
+      "Language",
+      "ILanguage",
       "License",
-      "Showcase 2.0",
-      "Uncolored",
+      "Encryption",
       "Active Development"
     ]
   },

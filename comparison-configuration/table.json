@@ -28,23 +28,33 @@
         }
     },
     {
-        "name": "Performance",
-        "tag": "Performance",
+        "name": "Language",
+        "tag": "Language",
         "style": "width: 5%",
         "display": true,
         "type": {
             "tag": "label",
             "values": [
-                {
-                    "name": "fast",
-                    "description": "Overall performance below 200ms.",
-                    "class": "label-success"
-                },
-                {
-                    "name": "slow",
-                    "description": "Overall performance above 200ms.",
-                    "class": "label-danger"
-                }
+              {
+                "name": "C++",
+                "class": "label-primary"
+              },
+              {
+                "name": "Java",
+                "class": "label-primary"
+              },
+              {
+                "name": "C",
+                "class": "label-primary"
+              },
+              {
+                "name": "C#",
+                "class": "label-primary"
+              },
+              {
+                "name": "Assembler",
+                "class": "label-primary"
+              }
             ]
         }
     },
@@ -75,76 +85,67 @@
         }
     },
     {
-        "name": "Showcase",
-        "tag": "Showcase 2.0",
+        "name": "Interface Language",
+        "tag": "ILanguage",
         "style": "width: 5%",
         "display": true,
         "type": {
             "tag": "label",
             "values": [
-                {
-                    "name": "dark blue",
-                    "description": "Show case for dark blue label",
-                    "class": "label-primary"
-                },
-                {
-                    "name": "green",
-                    "description": "Show case for green label",
-                    "class": "label-success"
-                },
-                {
-                    "name": "grey",
-                    "description": "Show case for grey label",
-                    "class": "label-default"
-                },
-                {
-                    "name": "light blue",
-                    "description": "",
-                    "class": "label-info"
-                },
-                {
-                    "name": "red 1",
-                    "description": "Show case for red label 1",
-                    "class": "label-danger"
-                },
-                {
-                    "name": "red 2",
-                    "description": "Show case for red label 2",
-                    "class": "label-danger"
-                },
-                {
-                    "name": "yellow",
-                    "description": "Show case for yellow label",
-                    "class": "label-warning"
-                }
+              {
+                "name": "C++",
+                "class": "label-primary"
+              },
+              {
+                "name": "Java",
+                "class": "label-primary"
+              },
+              {
+                "name": "Python",
+                "class": "label-primary"
+              },
+              {
+                "name": "C#",
+                "class": "label-primary"
+              },
+              {
+                "name": "C",
+                "class": "label-primary"
+              },
+              {
+                "name": "PHP",
+                "class": "label-primary"
+              },
+              {
+                "name": "Node.JS",
+                "class": "label-primary"
+              }
             ]
         }
     },
     {
-        "name": "Uncolored",
-        "tag": "Uncolored",
+        "name": "Encryption",
+        "tag": "Encryption",
         "display": true,
         "type": {
             "tag": "label",
             "values": [
-                {
-                    "name": "color 1",
-                    "description": "Color 1",
-                    "weight": 1,
-                    "color": "hsl(180, 100%, 70%)"
-                },
-                {
-                    "name": "color 2",
-                    "description": "Color 2",
-                    "weight": 2,
-                    "color": "hsl(195, 100%, 70%)"
-                },
-                {
-                    "name": "color 3",
-                    "description": "Color 3",
-                    "weight": 3,
-                    "color": "hsl(210, 100%, 70%)"
-                }
+              {
+                "name": "SHA",
+                "class": "label-primary"
+              },
+              {
+                "name": "PGP",
+                "class": "label-primary"
+              },
+              {
+                "name": "Blowfish",
+                "class": "label-primary"
+              },
+              {
+                "name": "AES",
+                "class": "label-primary"
+              }
             ]
         }
     },
@@ -180,47 +181,6 @@
                     "max-age": 6,
                     "max-age-unit": "months",
                     "class": "label-warning"
-                }
-            ]
-        }
-    },
-    {
-        "name": "Number Column",
-        "tag": "NumberColumn",
-        "display": true,
-        "order": "asc",
-        "type": {
-            "tag": "label",
-            "values": [
-                {
-                    "name": 100,
-                    "description": 100,
-                    "weight": 1,
-                    "color": "hsl(225, 100%, 70%)"
-                },
-                {
-                    "name": 199,
-                    "description": 199,
-                    "weight": 1.99,
-                    "color": "hsl(240, 100%, 70%)"
-                },
-                {
-                    "name": 200,
-                    "description": 200,
-                    "weight": 2,
-                    "color": "hsl(255, 100%, 70%)"
-                },
-                {
-                    "name": 250,
-                    "description": 250,
-                    "weight": 3,
-                    "color": "hsl(270, 100%, 70%)"
-                },
-                {
-                    "name": 300,
-                    "description": 300,
-                    "weight": 4,
-                    "color": "hsl(285, 100%, 70%)"
                 }
             ]
         }
