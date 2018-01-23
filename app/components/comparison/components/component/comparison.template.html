@@ -83,7 +83,8 @@
                 #latexTable></latextable>
 
     <pdialog [(opened)]="detailsOpen" *ngIf="detailsOpen">
-        <comparison-details [data]="activeRow"></comparison-details>
+        <comparison-details [data]="activeRow"
+                            [tooltipAsText]="(store | async).state.detailsDisplayTooltips"></comparison-details>
     </pdialog>
 
     <pdialog *ngIf="settingsOpen"
@@ -100,6 +101,7 @@
             [latexDisplayTable]="(store | async).state.latexDisplayTable"
             [latexEnableTooltips]="(store | async).state.latexEnableTooltips"
             [latexTooltipsAsFootnotes]="(store | async).state.latexTooltipsAsFootnotes"
+            [detailsDisplayTooltips]="(store | async).state.detailsDisplayTooltips"
             (columnsDisplayAllChange)="store.dispatch({type: 'UPDATE_SETTINGS', enable: $event, operation: 'ColumnDisplayAll'})"
             (columnChange)="store.dispatch({type: 'UPDATE_SETTINGS', value: $event, operation: 'ColumnChange'})"
             (elementsDisplayAllChange)="store.dispatch({type: 'UPDATE_SETTINGS', enable: $event, operation: 'ElementDisplayAll'})"
@@ -107,7 +109,7 @@
             (latexDisplayTableChange)="store.dispatch({type: 'UPDATE_SETTINGS', enable: $event, operation: 'LatexDisplayTable'})"
             (latexEnableTooltipsChange)="store.dispatch({type: 'UPDATE_SETTINGS', enable: $event, operation: 'LatexEnableTooltips'})"
             (latexTooltipsAsFootnotesChange)="store.dispatch({type: 'UPDATE_SETTINGS', enable: $event, operation: 'LatexTooltipsAsFootnotes'})"
-
+            (detailsDisplayTooltipsChange)="store.dispatch({type: 'UPDATE_SETTINGS', enable: $event, operation: 'DetailsDisplayTooltips'})"
         ></comparison-settings>
     </pdialog>
 

@@ -18,6 +18,8 @@ export class ComparisonSettingsComponent {
     @Input() latexEnableTooltips: boolean = false;
     @Input() latexTooltipsAsFootnotes: boolean = false;
 
+    @Input() detailsDisplayTooltips: boolean = false;
+
     @Output() columnsDisplayAllChange: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() columnChange: EventEmitter<number> = new EventEmitter<number>();
 
@@ -27,4 +29,6 @@ export class ComparisonSettingsComponent {
     @Output() latexDisplayTableChange: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() latexEnableTooltipsChange: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() latexTooltipsAsFootnotesChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+    @Output() detailsDisplayTooltipsChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 }

@@ -89,6 +89,9 @@ export function masterReducer(state: IUCAppState = new UcAppState(), action: UCA
                         state.columnsEnabledCache = state.columnsEnabled;
                     }
                     break;
+                case 'DetailsDisplayTooltips':
+                    state.detailsDisplayTooltips = act.enable;
+                    break;
                 default:
                     state = filterElements(state);
                     state = sortElements(state);

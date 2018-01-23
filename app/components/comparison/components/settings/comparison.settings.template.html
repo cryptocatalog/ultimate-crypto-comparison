@@ -50,5 +50,12 @@
                        (checkedChange)="latexTooltipsAsFootnotesChange.emit($event)"
                        [label]="'Display tooltips as footnotes'"></pcheckbox>
         </pitem>
+
+        <h5>Details</h5>
+        <pitem>
+            <pcheckbox [checked]="detailsDisplayTooltips"
+                       (checkedChange)="detailsDisplayTooltipsChange.emit($event)"
+                       [label]="'Display tooltips next to labels'"></pcheckbox>
+        </pitem>
     </pcard>
 </div>

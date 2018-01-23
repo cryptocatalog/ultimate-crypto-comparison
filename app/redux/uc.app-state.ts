@@ -84,6 +84,8 @@ export interface IUCAppState {
     latexEnableTooltips: boolean;
     latexTooltipsAsFootnotes: boolean;
 
+    detailsDisplayTooltips: boolean;
+
     tableExpand: boolean;
 }
 
@@ -101,6 +103,8 @@ export class UcAppState implements IUCAppState {
     latexDisplayTable: boolean = false;
     latexEnableTooltips: boolean = false;
     latexTooltipsAsFootnotes: boolean = false;
+
+    detailsDisplayTooltips: boolean = false;
 
     tableExpand: boolean = false;
 
