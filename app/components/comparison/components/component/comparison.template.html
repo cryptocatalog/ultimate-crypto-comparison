@@ -53,14 +53,14 @@
         <pcard [heading]="configurationService.configuration.tableTitle"
                [symbol]="true"
                [expand]="(store | async).state.tableExpand"
-               (expandChange)="store.dispatch({type: 'UPDATE_SETTINGS', enable: $event, operation: 'TableExpand'})">
+               (expandChange)="store.dispatch({type: 'UPDATE_SETTINGS', enable: $event, operation: 'TableExpand'}); deferredUpdate()">
             <generictable [items]="(store | async).state.currentElements"
                           [columns]="(store | async).state.currentColumnNames"
                           [types]="(store | async).state.columnTypes"
                           [index]="(store | async).state.rowIndexes"
                           [order]="(store | async).state.columnOrder"
-                          [changeNum]="configurationService.tableColumns.length + (store | async).state.currentColumnNames.length + (settingsOpen? 0: 1)"
-                          (settingsCallback)="showTableProperties()"
+                          [changeNum]="configurationService.tableColumns.length + (store | async).state.currentColumnNames.length + (settingsOpen? 0: 1) + changed"
+                          (settingsCallback)="settingsOpen = true"
                           (showDetails)="showDetails($event)"
                           (orderChange)="changeOrder($event)"></generictable>
         </pcard>
@@ -86,7 +86,10 @@
         <comparison-details [data]="activeRow"></comparison-details>
     </pdialog>
 
-    <pdialog [(opened)]="settingsOpen" *ngIf="settingsOpen" [heading]="'Table Settings'">
+    <pdialog *ngIf="settingsOpen"
+             [opened]="settingsOpen"
+             (openedChange)="store.dispatch({type: 'UPDATE_SETTINGS', enable: $event, operation: 'SettingsOpenChange'}); settingsOpen = !settingsOpen"
+             [heading]="'Table Settings'">
         <comparison-settings
             [columnDisplayAll]="(store | async).state.columnDisplayAll"
             [columnNames]="(store | async).state.columnNames"

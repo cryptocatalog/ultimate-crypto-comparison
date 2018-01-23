@@ -77,6 +77,7 @@ export interface IUCAppState {
     columnKeys: Array<string>;
     columnNames: Array<string>;
     columnsEnabled: Array<boolean>;
+    columnsEnabledCache: Array<boolean>;
     columnDisplayAll: boolean;
 
     latexDisplayTable: boolean;
@@ -94,6 +95,7 @@ export class UcAppState implements IUCAppState {
     columnKeys: Array<string> = [];
     columnNames: Array<string> = [];
     columnsEnabled: Array<boolean> = [];
+    columnsEnabledCache: Array<boolean> = [];
     columnDisplayAll: boolean = false;
 
     latexDisplayTable: boolean = false;

@@ -46,7 +46,7 @@ export class GenericTableComponent implements AfterViewChecked, OnChanges {
         anchors.add('.anchored');
     }
 
-    ngOnChanges(): void {
+    ngOnChanges(changes): void {
         this.update();
     }
 

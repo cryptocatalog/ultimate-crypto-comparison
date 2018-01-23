@@ -68,8 +68,10 @@ export function masterReducer(state: IUCAppState = new UcAppState(), action: UCA
                     if (act.enable) {
                         state = columnDisplayAll(state, act.enable);
                     } else {
-                        state = initColumn(state);
+                        state.columnsEnabled = state.columnsEnabledCache;
                     }
+                    state = filterColumns(state);
+                    state.tableExpand = act.enable;
                     break;
             }
             switch (act.operation) {
@@ -81,6 +83,11 @@ export function masterReducer(state: IUCAppState = new UcAppState(), action: UCA
                     break;
                 case 'LatexTooltipsAsFootnotes':
                     state.latexTooltipsAsFootnotes = act.enable;
+                    break;
+                case 'SettingsOpenChange':
+                    if (!act.enable && !state.elementDisplayAll) {
+                        state.columnsEnabledCache = state.columnsEnabled;
+                    }
                     break;
                 default:
                     state = filterElements(state);
@@ -155,15 +162,18 @@ function initColumn(state: IUCAppState): IUCAppState {
     const columnKeys: Array<string> = [];
     const columnNames: Array<string> = [];
     const columnsEnabled: Array<boolean> = [];
+    const columnsEnabledCache: Array<boolean> = [];
     state.criterias.forEach((value, key) => {
         const name: string = value.name.length === 0 ? key : value.name;
         columnKeys.push(key);
         columnNames.push(name);
         columnsEnabled.push(value.table);
+        columnsEnabledCache.push(value.table);
     });
     state.columnKeys = columnKeys;
     state.columnNames = columnNames;
     state.columnsEnabled = columnsEnabled;
+    state.columnsEnabledCache = columnsEnabledCache;
     state.columnDisplayAll = columnsEnabled.filter(value => value).length === columnNames.length;
     return state;
 }

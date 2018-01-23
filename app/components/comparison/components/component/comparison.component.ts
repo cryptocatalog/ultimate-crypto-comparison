@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone, ViewChild } from '@angular/core';
 import { VersionInformation } from '../../../../VersionInformation';
 import { PaperCardComponent } from "../../../polymer/paper-card/paper-card.component";
 import { LatexTableComponent } from '../../../output/latex-table/latex-table.component';
@@ -23,20 +23,21 @@ const FileSaver = require('file-saver');
 export class ComparisonComponent {
     @ViewChild(LatexTableComponent) latexTable: LatexTableComponent;
     @ViewChild('genericTableHeader') genericTableHeader: PaperCardComponent;
-    // TODO move to redux
-    public expanded = true;
     public activeRow: Data = new Data.Builder().build();
-    @Input() public detailsOpen: boolean = false;
-    @Input() public settingsOpen: boolean = false;
-    public showLatexTable = true;
-    private changed = 0;
+
+    // TODO move to redux
+    public detailsOpen: boolean = false;
+    public settingsOpen: boolean = false;
+
+    public changed = 7;
     private versionInformation: VersionInformation = new VersionInformation();
 
     constructor(public dataService: DataService,
                 public configurationService: ConfigurationService,
                 private cd: ChangeDetectorRef,
                 public store: Store<IUCAppState>,
-                private router: Router) {
+                private router: Router,
+                private zone: NgZone) {
         this.configurationService.loadComparison(this.cd);
         store.subscribe(res => console.log(res));
     }
@@ -85,27 +86,20 @@ export class ComparisonComponent {
         this.detailsOpen = true;
     }
 
-    public shrinkExpand() {
-        if (this.expanded) {
-            // TODO dispatch this.shrink();
-        } else {
-            //this.expand();
-        }
-        this.expanded = !this.expanded;
+    public deferredUpdate() {
+        setTimeout(() => {
+            this.changed > 0 ? (this.changed = this.changed - 100) : (this.changed = this.changed + 100);
+        }, 100);
     }
+
 
     /**
      * Callback functions dispatching to redux store
      */
-
     public changeOrder(change: { index: number, ctrl: boolean }) {
         if (!isNullOrUndefined(change)) {
             this.store.dispatch(new UCTableOrderAction(change.index, change.ctrl));
         }
-    }
-
-    private showTableProperties() {
-        this.settingsOpen = true;
     }
 
     private downloadLatexTable() {
@@ -114,9 +108,5 @@ export class ComparisonComponent {
         const blob: Blob = new Blob([content], {type: 'plain/text'});
         FileSaver.saveAs(blob, 'latextable.tex');
         return window.URL.createObjectURL(blob);
-    }
-
-    private previewLatexTable() {
-        this.showLatexTable = !this.showLatexTable;
     }
 }
