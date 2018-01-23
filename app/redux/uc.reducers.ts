@@ -51,6 +51,7 @@ export function masterReducer(state: IUCAppState = new UcAppState(), action: UCA
                 case 'ColumnDisplayAll':
                     state = columnDisplayAll(state, act.enable);
                     state = filterColumns(state);
+                    state.tableExpand = act.enable;
                     break;
                 case 'ColumnChange':
                     state = columnDisplayChange(state, act.value);
@@ -85,7 +86,7 @@ export function masterReducer(state: IUCAppState = new UcAppState(), action: UCA
                     state.latexTooltipsAsFootnotes = act.enable;
                     break;
                 case 'SettingsOpenChange':
-                    if (!act.enable && !state.elementDisplayAll) {
+                    if (!act.enable && !state.columnDisplayAll) {
                         state.columnsEnabledCache = state.columnsEnabled;
                     }
                     break;
