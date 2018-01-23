@@ -1,0 +1,54 @@
+<div class="grid-content">
+    <pcard [heading]="'Columns'">
+        <div class="pcard">
+            <pitem>
+                <pcheckbox [checked]="columnDisplayAll"
+                           (checkedChange)="columnsDisplayAllChange.emit($event)"
+                           [label]="'All'"></pcheckbox>
+            </pitem>
+            <ng-template ngFor let-name [ngForOf]="columnNames" let-i="index">
+                <pitem>
+                    <pcheckbox [checked]="columnsEnabled[i]"
+                               (checkedChange)="columnChange.emit(i)"
+                               [label]="name"></pcheckbox>
+                </pitem>
+            </ng-template>
+        </div>
+    </pcard>
+
+    <pcard [heading]="'Elements'">
+        <div class="pcard">
+            <pitem>
+                <pcheckbox [checked]="elementDisplayAll"
+                           (checkedChange)="elementsDisplayAllChange.emit($event)"
+                           [label]="'All'"></pcheckbox>
+            </pitem>
+            <ng-template ngFor let-name [ngForOf]="elementNames" let-i="index">
+                <pitem>
+                    <pcheckbox [checked]="elementsEnabled[i]"
+                               (checkedChange)="elementChange.emit(i)"
+                               [label]="name"></pcheckbox>
+                </pitem>
+            </ng-template>
+        </div>
+    </pcard>
+
+    <pcard [heading]="'Other'">
+        <h5>Latex</h5>
+        <pitem>
+            <pcheckbox [checked]="latexDisplayTable"
+                       (checkedChange)="latexDisplayTableChange.emit($event)"
+                       [label]="'Display Latex table'"></pcheckbox>
+        </pitem>
+        <pitem>
+            <pcheckbox [checked]="latexEnableTooltips"
+                       (checkedChange)="latexEnableTooltipsChange.emit($event)"
+                       [label]="'Enable tooltips for Latex table'"></pcheckbox>
+        </pitem>
+        <pitem *ngIf="latexEnableTooltips">
+            <pcheckbox [checked]="latexTooltipsAsFootnotes"
+                       (checkedChange)="latexTooltipsAsFootnotesChange.emit($event)"
+                       [label]="'Display tooltips as footnotes'"></pcheckbox>
+        </pitem>
+    </pcard>
+</div>

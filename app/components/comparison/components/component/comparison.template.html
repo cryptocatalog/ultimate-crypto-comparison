@@ -38,8 +38,7 @@
                             <br>
                             <select2 [options]="crit.items" [placeholder]="crit.placeholder" [name]="crit.name"
                                      [tag]="crit.tag"
-                                     (result)="criteriaChanged($event, crit)" *ngIf="!crit.rangeSearch"
-                                     [active]="getActive(state | async, crit)"></select2>
+                                     (result)="criteriaChanged($event, crit)" *ngIf="!crit.rangeSearch"></select2>
                             <number-input *ngIf="crit.rangeSearch" [comparisonComponent]="this" [name]="crit.name"
                                           [active]="getActive(state | async, crit)"
                                           [criteria]="crit" [tag]="crit.tag"></number-input>
@@ -51,20 +50,19 @@
     </div>
 
     <div class="grid-large-content">
-        <pcard heading="{{configurationService.configuration.tableTitle}}">
-            <iicon icon="resize-full" class="shrink-expand" (click)="shrinkExpand()" *ngIf="expanded"></iicon>
-            <iicon icon="resize-small" class="shrink-expand" (click)="shrinkExpand()"
-                   *ngIf="!expanded"></iicon>
+        <pcard [heading]="configurationService.configuration.tableTitle"
+               [symbol]="true"
+               [expand]="(store | async).state.tableExpand"
+               (expandChange)="store.dispatch({type: 'UPDATE_SETTINGS', enable: $event, operation: 'TableExpand'})">
             <generictable [items]="(store | async).state.currentElements"
-                          [columns]="(store | async).state.columnNames"
+                          [columns]="(store | async).state.currentColumnNames"
                           [types]="(store | async).state.columnTypes"
                           [index]="(store | async).state.rowIndexes"
                           [order]="(store | async).state.columnOrder"
-                          [changeNum]="configurationService.tableColumns.length + (store | async).state.columnNames.length"
+                          [changeNum]="configurationService.tableColumns.length + (store | async).state.currentColumnNames.length + (settingsOpen? 0: 1)"
                           (settingsCallback)="showTableProperties()"
                           (showDetails)="showDetails($event)"
-                          (orderChange)="changeOrder($event)"
-                          style="margin-top: -25px"></generictable>
+                          (orderChange)="changeOrder($event)"></generictable>
         </pcard>
     </div>
     <div class="grid-content-end">
@@ -74,79 +72,41 @@
         </pcard>
     </div>
 
-    <latextable class="grid-content-latex"
+    <latextable class="grid-content-latex" *ngIf="(store|async).state.latexDisplayTable"
                 [items]="(store | async).state.currentElements"
-                [columns]="(store | async).state.columnNames"
+                [columns]="(store | async).state.currentColumnNames"
                 [types]="(store | async).state.columnTypes"
                 [index]="(store | async).state.rowIndexes"
-                [changeNum]="configurationService.tableColumns.length + (store | async).state.columnNames.length"
+                [changeNum]="configurationService.tableColumns.length + (store | async).state.currentColumnNames.length"
+                [showTableTooltips]="(store | async).state.latexEnableTooltips"
+                [tableTooltipsAsFootnotes]="(store | async).state.latexTooltipsAsFootnotes"
                 #latexTable></latextable>
 
     <pdialog [(opened)]="detailsOpen" *ngIf="detailsOpen">
         <comparison-details [data]="activeRow"></comparison-details>
     </pdialog>
-    <!--
-     <pdialog #settings [heading]="'Table Settings'">
-                <div class="select-grid">
 
-                    <div>
-                        <h5>Select Columns...</h5>
-                        <pitem>
-                            <pcheckbox [checked]="configurationService.displayAll" (checkedChange)="configurationService.displayAllChange($event, this)"
-                                       [label]="configurationService.displayAllName"></pcheckbox>
-                        </pitem>
-                        <ng-template ngFor let-column [ngForOf]="configurationService.tableDataSet?.getTableDataArray()">
-                            <pitem>
-                                <pcheckbox [checked]=column.display (checkedChange)="configurationService.displayChange(column,this)"
-                                           [label]="column.name"></pcheckbox>
-                            </pitem>
-                        </ng-template>
-                    </div>
-                    <div>
-                        <h5>Other Settings...</h5>
-                        <div *ngIf="configurationService.configuration">
-                            <pitem>
-                                <pcheckbox [checked]="configurationService.configuration.displaytemplate"
-                                           (checkedChange)="changeDisplayTemplate()"
-                                           [label]="'Display Template'"></pcheckbox>
-                            </pitem>
-                            <pitem>
-                                <pcheckbox [checked]="configurationService.configuration.displayall" (checkedChange)="changeDisplayAll()"
-                                           [label]="'Show Uncompared'"></pcheckbox>
-                            </pitem>
-                            <h6>Latex</h6>
-                            <pitem>
-                                <pbutton (click)="downloadLatexTable()">Download Table</pbutton>
-                            </pitem>
-                            <pitem>
-                                <pcheckbox [(checked)]="showTable" [label]="'Display Latex Table'"></pcheckbox>
-                            </pitem>
-                            <pitem>
-                                <pcheckbox [(checked)]="showTableTooltips" [label]="'Show Tooltips'"></pcheckbox>
-                            </pitem>
-                            <pitem>
-                                <pcheckbox [(checked)]="tableTooltipsAsFootnotes"
-                                           [label]="'Display tooltip text in Footnotes'"></pcheckbox>
-                            </pitem>
-                            <h6>Details page</h6>
-                            <pitem>
-                                <pcheckbox [(checked)]="configurationService.configuration?.details.tooltipAsText"
-                                           [label]="'Display tooltip text next to labels in the details page'"></pcheckbox>
-                            </pitem>
-                        </div>
-                    </div>
-                    <div>
-                        <h5>Enabled Elements</h5>
-                        <ng-template ngFor let-item [ngForOf]="dataServ.data">
-                            <pitem>
-                                <pcheckbox [checked]="item.enabled" (checkedChange)="changeEnabled(item)"
-                                           [label]="item.getProperty('tag').plain"></pcheckbox>
-                            </pitem>
-                        </ng-template>
-                    </div>
-                </div>
-            </pdialog>
-    !-->
+    <pdialog [(opened)]="settingsOpen" *ngIf="settingsOpen" [heading]="'Table Settings'">
+        <comparison-settings
+            [columnDisplayAll]="(store | async).state.columnDisplayAll"
+            [columnNames]="(store | async).state.columnNames"
+            [columnsEnabled]="(store | async).state.columnsEnabled"
+            [elementDisplayAll]="(store | async).state.elementDisplayAll"
+            [elementNames]="(store | async).state.elementNames"
+            [elementsEnabled]="(store | async).state.elementsEnabled"
+            [latexDisplayTable]="(store | async).state.latexDisplayTable"
+            [latexEnableTooltips]="(store | async).state.latexEnableTooltips"
+            [latexTooltipsAsFootnotes]="(store | async).state.latexTooltipsAsFootnotes"
+            (columnsDisplayAllChange)="store.dispatch({type: 'UPDATE_SETTINGS', enable: $event, operation: 'ColumnDisplayAll'})"
+            (columnChange)="store.dispatch({type: 'UPDATE_SETTINGS', value: $event, operation: 'ColumnChange'})"
+            (elementsDisplayAllChange)="store.dispatch({type: 'UPDATE_SETTINGS', enable: $event, operation: 'ElementDisplayAll'})"
+            (elementChange)="store.dispatch({type: 'UPDATE_SETTINGS', value: $event, operation: 'ElementChange'})"
+            (latexDisplayTableChange)="store.dispatch({type: 'UPDATE_SETTINGS', enable: $event, operation: 'LatexDisplayTable'})"
+            (latexEnableTooltipsChange)="store.dispatch({type: 'UPDATE_SETTINGS', enable: $event, operation: 'LatexEnableTooltips'})"
+            (latexTooltipsAsFootnotesChange)="store.dispatch({type: 'UPDATE_SETTINGS', enable: $event, operation: 'LatexTooltipsAsFootnotes'})"
+
+        ></comparison-settings>
+    </pdialog>
 
 
     <div class="grid-footer">

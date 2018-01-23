@@ -9,4 +9,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 export class PaperIconButtonComponent {
     @Input() icon: string;
     @Input() title: string;
+    @Input() showTooltip: boolean = true;
 }

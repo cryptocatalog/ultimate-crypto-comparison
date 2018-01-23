@@ -1,5 +1,10 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+    AfterViewChecked, ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges,
+    Output
+} from '@angular/core';
 import { Label, Markdown, Text, Url } from "../../comparison/components/data/data";
+
+declare const anchors;
 
 @Component({
     selector: 'generictable',
@@ -7,7 +12,7 @@ import { Label, Markdown, Text, Url } from "../../comparison/components/data/dat
     styleUrls: ['./generic-table.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GenericTableComponent {
+export class GenericTableComponent implements AfterViewChecked, OnChanges {
     @Input() changeNum = 0;
 
     @Output() settingsCallback: EventEmitter<any> = new EventEmitter();
@@ -22,11 +27,32 @@ export class GenericTableComponent {
     @Input() index: Array<number> = [];
     @Input() order: Array<number> = [];
 
+    private table;
+
     public labelClick(key: string, index: number) {
         this.searchFor.emit({key, index});
     }
 
-    private orderClick(e: MouseEvent, value: number) {
+    public orderClick(e: MouseEvent, value: number) {
         this.orderChange.emit({index: value, ctrl: e.ctrlKey});
+    }
+
+    ngAfterViewChecked(): void {
+        this.table = (<any>$('table.table-hover'));
+        this.table.floatThead();
+        anchors.options = {
+            placement: 'right'
+        };
+        anchors.add('.anchored');
+    }
+
+    ngOnChanges(): void {
+        this.update();
+    }
+
+    public update(): void {
+        if (this.table != null) {
+            this.table.trigger('reflow');
+        }
     }
 }

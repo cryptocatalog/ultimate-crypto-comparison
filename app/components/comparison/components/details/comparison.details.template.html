@@ -33,15 +33,15 @@
                             {{label.name}}
                         </div>
                     </ptooltip>
-                    <div *ngIf="tooltipAsText">
-                    <span class="label mylabel {{label.clazz}}" [style.color]="label.color"
-                          [style.background-color]="label.backgroundColor"
-                          (click)="labelClick(label, i)">
+                    <div *ngIf="tooltipAsText" class="tt-container">
+                        <span class="label mylabel {{label.clazz}} tt-label" [style.color]="label.color"
+                              [style.background-color]="label.backgroundColor"
+                              (click)="labelClick(label, i)">
                         {{label.name}}
-                    </span>
-                        <span class="tooltip-text" [innerHtml]="label.tooltip.text|sanitizeHtml"></span>
+                        </span>
+                        <span class="tooltip-text tt-tooltip" [innerHtml]="label.tooltip.text|sanitizeHtml"></span>
                         <br *ngIf="label.tooltip.text && label.tooltip.html">
-                        <span class="tooltip-text" [innerHtml]="label.tooltip.html|sanitizeHtml"></span>
+                        <span class="tooltip-text tt-tooltip" [innerHtml]="label.tooltip.html|sanitizeHtml"></span>
                     </div>
                 </ng-template>
 

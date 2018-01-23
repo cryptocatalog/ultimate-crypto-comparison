@@ -24,6 +24,17 @@
     border: solid black 1px;
 }
 
+th {
+    padding: 0 2px 2px 4px;
+    vertical-align: bottom;
+}
+
+td {
+    padding: 2px 2px 0 4px;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
 th > button {
     border: none;
     padding: 0;

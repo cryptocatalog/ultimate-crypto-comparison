@@ -22,12 +22,12 @@ const FileSaver = require('file-saver');
 })
 export class ComparisonComponent {
     @ViewChild(LatexTableComponent) latexTable: LatexTableComponent;
-    @ViewChild('settings') settingsModal: any;
     @ViewChild('genericTableHeader') genericTableHeader: PaperCardComponent;
     // TODO move to redux
     public expanded = true;
     public activeRow: Data = new Data.Builder().build();
     @Input() public detailsOpen: boolean = false;
+    @Input() public settingsOpen: boolean = false;
     public showLatexTable = true;
     private changed = 0;
     private versionInformation: VersionInformation = new VersionInformation();
@@ -105,7 +105,7 @@ export class ComparisonComponent {
     }
 
     private showTableProperties() {
-        this.settingsModal.open();
+        this.settingsOpen = true;
     }
 
     private downloadLatexTable() {

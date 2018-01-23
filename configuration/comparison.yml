@@ -24,6 +24,7 @@ criteria:
   - Rating:
       name: ''
       search: false
+      table: false
       type: rating
   - Repository:
       search: false

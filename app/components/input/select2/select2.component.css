@@ -71,3 +71,7 @@
 :host /deep/ span.ui-select-match-item.btn.btn-default.btn-secondary.btn-xs a.close:hover {
     opacity: 0.5;
 }
+
+:host ::ng-deep .criteriaLabel {
+% TODO
+}

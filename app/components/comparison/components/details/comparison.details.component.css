@@ -48,3 +48,16 @@
         grid-template-columns: auto auto;
     }
 }
+
+.tt-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.tt-label {
+    grid-column: 1;
+}
+
+tt-tooltip {
+    grid-column: 2;
+}
