@@ -15,13 +15,13 @@
 --><ng-template ngFor let-column [ngForOf]="columns">p&#123;\linewidth/{{columns.length}}&#125;<!--
 --></ng-template>&#64;&#123;&#125;&#125;<br/>
 \toprule<br/>
-   <ng-template ngFor let-column [ngForOf]="columns" let-last="last" let-i="index">{{columns[i]}} <!--
+<!--
+--><ng-template ngFor let-column [ngForOf]="columns" let-last="last" let-i="index">{{columns[i]}} <!--
     --><ng-template [ngIf]="!last">&#38; </ng-template><!--
     --><ng-template [ngIf]="last">\\<br/></ng-template><!--
---></ng-template><!--
--->\midrule<br/><!--
-
-iterate over data rows
+--></ng-template>
+\midrule<br/>
+<!-- iterate over data rows
 --><ng-template ngFor let-item [ngForOf]="items"><!--
     iterate over data columns
     --><ng-template ngFor let-entry [ngForOf]="item" let-last="last" let-i="index"><!--
@@ -59,7 +59,8 @@ iterate over data rows
             --><span class="ltInline" [innerHtml]="entry.latex|sanitizeHtml"></span><!--
         --></ng-template><!--
        --><ng-template [ngIf]="!last"> &#38; </ng-template><!--
-       --><ng-template [ngIf]="last">\\<br/></ng-template><!--
+       --><ng-template [ngIf]="last">\\<br/>
+<!--   --></ng-template><!--
     --></ng-template><!--
 --></ng-template>\bottomrule<br/><!--
 

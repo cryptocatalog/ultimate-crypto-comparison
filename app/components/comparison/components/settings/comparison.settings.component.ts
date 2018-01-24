@@ -29,6 +29,7 @@ export class ComparisonSettingsComponent {
     @Output() latexDisplayTableChange: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() latexEnableTooltipsChange: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() latexTooltipsAsFootnotesChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+    @Output() latexDownload: EventEmitter<any> = new EventEmitter();
 
     @Output() detailsDisplayTooltipsChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 }
