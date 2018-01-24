@@ -51,7 +51,6 @@ export function masterReducer(state: IUCAppState = new UcAppState(), action: UCA
                 case 'ColumnDisplayAll':
                     state = columnDisplayAll(state, act.enable);
                     state = filterColumns(state);
-                    state.tableExpand = act.enable;
                     break;
                 case 'ColumnChange':
                     state = columnDisplayChange(state, act.value);
@@ -70,6 +69,7 @@ export function masterReducer(state: IUCAppState = new UcAppState(), action: UCA
                         state = columnDisplayAll(state, act.enable);
                     } else {
                         state.columnsEnabled = state.columnsEnabledCache;
+                        state.columnDisplayAll = act.enable;
                     }
                     state = filterColumns(state);
                     state.tableExpand = act.enable;
@@ -105,12 +105,14 @@ export function masterReducer(state: IUCAppState = new UcAppState(), action: UCA
 function columnDisplayChange(state: IUCAppState, index: number): IUCAppState {
     state.columnsEnabled[index] = !state.columnsEnabled[index];
     state.columnDisplayAll = state.columnsEnabled.filter(value => value).length === state.columnNames.length;
+    state.tableExpand = state.columnDisplayAll;
     return state;
 }
 
 function columnDisplayAll(state: IUCAppState, enable: boolean): IUCAppState {
     state.columnsEnabled = state.columnsEnabled.map(() => enable);
     state.columnDisplayAll = enable;
+    state.tableExpand = enable;
     return state;
 }
 

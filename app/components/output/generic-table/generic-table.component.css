@@ -48,6 +48,7 @@ th > button {
 
 table tr {
     white-space: normal;
+    line-height: 1em;
 }
 
 table {
