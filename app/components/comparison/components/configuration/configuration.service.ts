@@ -28,7 +28,8 @@ export class ConfigurationService {
     }
 
     static getHtml(converter: Showdown.Converter, citation: Map<string, Citation>, markdown: string): string {
-        return converter.makeHtml(markdown).replace(/(?:\[@)([^\]]*)(?:\])/g, (match, dec) => {
+        if (isNullOrUndefined(markdown)) return null;
+        return converter.makeHtml(markdown.toString()).replace(/(?:\[@)([^\]]*)(?:\])/g, (match, dec) => {
             return '<a class="cite-link" href="#' + dec + '">[' + citation.get(dec).index + ']</a>';
         });
     }
@@ -69,6 +70,19 @@ export class ConfigurationService {
                     .setBody(detailsBody)
                     .build();
 
+                const citation: Map<string, Citation> = new Map<string, Citation>();
+                Object.keys(citationObject).forEach(
+                    citationKey => {
+                        const value = citationObject[citationKey];
+                        citation.set(citationKey, new Citation.Builder()
+                            .setIndex(value.index)
+                            .setKey(citationKey)
+                            .setText(value.value)
+                            .build()
+                        )
+                    }
+                );
+
                 const criteria: Map<string, Criteria> = new Map<string, Criteria>();
                 criteriaArray.forEach((obj) => Object.keys(obj).forEach((key) => {
                     const value = obj[key];
@@ -99,7 +113,7 @@ export class ConfigurationService {
                         values.set(objKey, new CriteriaValue.Builder()
                             .setCriteria(key)
                             .setName(objKey)
-                            .setDescription(value.description)
+                            .setDescription(ConfigurationService.getHtml(this.converter, citation, value.description))
                             .setClazz(value.class)
                             .setColor(isNullOrUndefined(value.color) ? autoColorValue.color : value.color)
                             .setBackgroundColor(isNullOrUndefined(value.backgroundColor) ? autoColorValue.backgroundColor : value.backgroundColor)
@@ -153,7 +167,7 @@ export class ConfigurationService {
                                 values.set(valueKey, new CriteriaValue.Builder()
                                     .setCriteria(key)
                                     .setName(valueKey)
-                                    .setDescription(value.description)
+                                    .setDescription(ConfigurationService.getHtml(this.converter, citation, value.description))
                                     .setClazz(value.class)
                                     .setWeight(value.weight)
                                     .setMinAge(value.minAge)
@@ -190,7 +204,7 @@ export class ConfigurationService {
                                 values.set(valueKey, new CriteriaValue.Builder()
                                     .setCriteria(key)
                                     .setName(valueKey)
-                                    .setDescription(value.description)
+                                    .setDescription(ConfigurationService.getHtml(this.converter, citation, value.description))
                                     .setClazz(value.class)
                                     .setWeight(value.weight)
                                     .setMinAge(value.minAge)
@@ -217,19 +231,6 @@ export class ConfigurationService {
                             .build());
                     }
                 });
-
-                const citation: Map<string, Citation> = new Map<string, Citation>();
-                Object.keys(citationObject).forEach(
-                    citationKey => {
-                        const value = citationObject[citationKey];
-                        citation.set(citationKey, new Citation.Builder()
-                            .setIndex(value.index)
-                            .setKey(citationKey)
-                            .setText(value.value)
-                            .build()
-                        )
-                    }
-                );
 
                 this.configuration = new Configuration.Builder()
                     .setTitle(comparisonObject.title)
