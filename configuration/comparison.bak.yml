@@ -1,8 +1,8 @@
-title: Ultimate-Comparison
+title: Ultimate-Crypto-Comparison
 subtitle: Ultimate comparison framework
 selectTitle: Criteria
-tableTitle: Comparison of Examples
-repository: 'https://github.com/ultimate-comparisons/ultimate-comparison-BASE.git'
+tableTitle: Comparison of cryptographic libraries
+repository: 'https://github.com/CryptoCatalog/ultimate-crypto-comparison.git'
 details:
   header:
     nameRef: id

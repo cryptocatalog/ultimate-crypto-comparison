@@ -1,8 +1,8 @@
-title: Ultimate-Comparison
+title: Ultimate-Crypto-Comparison
 subtitle: Ultimate comparison framework
 selectTitle: Criteria
-tableTitle: Comparison of Examples
-repository: 'https://github.com/ultimate-comparisons/ultimate-comparison-BASE.git'
+tableTitle: Comparison of cryptographic libraries
+repository: 'https://github.com/CryptoCatalog/ultimate-crypto-comparison.git'
 details:
   header:
     nameRef: id
@@ -132,9 +132,12 @@ criteria:
           description: 300
           weight: 4
 autoCriteria:
-  NumberColumn:
+  License:
     values:
-      '100': {}
+      Simplified BSD: {}
+      Sleepycat (Berkeley Database) License: {}
+      Apache-1.0: {}
+      Four-clause BSD License: {}
 autoColor:
   License:
     Apache-2.0:
@@ -146,6 +149,18 @@ autoColor:
     MPL-2.0:
       color: '#0d0d0d'
       backgroundColor: 'hsl(300, 100%, 70%)'
+    Simplified BSD:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    Sleepycat (Berkeley Database) License:
+      color: '#ffff00'
+      backgroundColor: 'hsl(255, 100%, 70%)'
+    Apache-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(180, 100%, 70%)'
+    Four-clause BSD License:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(195, 100%, 70%)'
   Uncolored:
     Color 1:
       color: '#0d0d0d'
@@ -172,6 +187,10 @@ autoColor:
     '300':
       color: '#0d0d0d'
       backgroundColor: 'hsl(180, 100%, 70%)'
+  Performance:
+    ',[@Bry07towardsformal]':
+      color: '#ffff00'
+      backgroundColor: 'hsl(255, 100%, 70%)'
 autoCitation:
   'Adi:2004:ASM:988145.988150':
     index: 0
