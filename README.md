@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/CryptoCatalog/ultimate-crypto-comparison.svg?branch=master)](https://travis-ci.org/CryptoCatalog/ultimate-crypto-comparison)
 
+Link to the GitHub pages: https://cryptocatalog.github.io/ultimate-crypto-comparison/
+
 This is an ultimate comparison of cryptographic libraries. It is based on https://github.com/ultimate-comparisons/ultimate-comparison-BASE.
 
 ## Test it
