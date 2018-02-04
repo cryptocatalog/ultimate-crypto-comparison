@@ -1,5 +1,5 @@
 import { IUCAppState, UcAppState } from './uc.app-state';
-import { UCAction, UCDataUpdateAction, UCRouterAction, UCSearchUpdateAction, UCTableOrderAction } from './uc.action';
+import { UCAction, UCDataUpdateAction, UCRouterAction, UCSearchUpdateAction, UCSettingsUpdateAction, UCTableOrderAction } from './uc.action';
 import { DataService } from '../components/comparison/components/data/data.service';
 import { Criteria, CriteriaType } from '../components/comparison/components/configuration/configuration';
 import { Data, Label, Markdown, Text, Url } from '../components/comparison/components/data/data';
@@ -10,6 +10,7 @@ export const UPDATE_MODAL = 'UPDATE_MODAL';
 export const UPDATE_FILTER = 'UPDATE_FILTER';
 export const UPDATE_DATA = 'UPDATE_DATA';
 export const UPDATE_ORDER = 'UPDATE_ORDER';
+export const UPDATE_SETTINGS = 'UPDATE_SETTINGS';
 const UPDATE_ROUTE = 'ROUTER_NAVIGATION';
 
 export function masterReducer(state: IUCAppState = new UcAppState(), action: UCAction) {
@@ -34,14 +35,86 @@ export function masterReducer(state: IUCAppState = new UcAppState(), action: UCA
             break;
         case UPDATE_DATA:
             state.criterias = (<UCDataUpdateAction>action).criterias;
+            state = initSettings(state);
             state = filterColumns(state);
+            state = filterElements(state);
+            state = sortElements(state);
             break;
         case UPDATE_ORDER:
             state = changeOrder(state, <UCTableOrderAction>action);
             state = sortElements(state);
+            break;
+        case UPDATE_SETTINGS:
+            const act: UCSettingsUpdateAction = <UCSettingsUpdateAction>action;
+            switch (act.operation) {
+                case 'ColumnDisplayAll':
+                    state = columnDisplayAll(state, act.enable);
+                    state = filterColumns(state);
+                    break;
+                case 'ColumnChange':
+                    state = columnDisplayChange(state, act.value);
+                    state = filterColumns(state);
+                    break;
+                case 'ElementDisplayAll':
+                    state.elementsEnabled = state.elementsEnabled.map(() => act.enable);
+                    state.elementDisplayAll = act.enable;
+                    break;
+                case 'ElementChange':
+                    state.elementsEnabled[act.value] = !state.elementsEnabled[act.value];
+                    state.elementDisplayAll = state.elementsEnabled.filter(value => value).length === state.elementNames.length;
+                    break;
+                case 'TableExpand':
+                    if (act.enable) {
+                        state = columnDisplayAll(state, act.enable);
+                    } else {
+                        state.columnsEnabled = state.columnsEnabledCache;
+                        state.columnDisplayAll = act.enable;
+                    }
+                    state = filterColumns(state);
+                    state.tableExpand = act.enable;
+                    break;
+            }
+            switch (act.operation) {
+                case 'LatexDisplayTable':
+                    state.latexDisplayTable = act.enable;
+                    break;
+                case 'LatexEnableTooltips':
+                    state.latexEnableTooltips = act.enable;
+                    break;
+                case 'LatexTooltipsAsFootnotes':
+                    state.latexTooltipsAsFootnotes = act.enable;
+                    break;
+                case 'SettingsOpenChange':
+                    if (!act.enable && !state.columnDisplayAll) {
+                        state.columnsEnabledCache = state.columnsEnabled;
+                    }
+                    break;
+                case 'DetailsDisplayTooltips':
+                    state.detailsDisplayTooltips = act.enable;
+                    break;
+                default:
+                    state = filterElements(state);
+                    state = sortElements(state);
+            }
     }
-    return updateElements(state);
+    return state;
 }
+
+
+function columnDisplayChange(state: IUCAppState, index: number): IUCAppState {
+    state.columnsEnabled[index] = !state.columnsEnabled[index];
+    state.columnDisplayAll = state.columnsEnabled.filter(value => value).length === state.columnNames.length;
+    state.tableExpand = state.columnDisplayAll;
+    return state;
+}
+
+function columnDisplayAll(state: IUCAppState, enable: boolean): IUCAppState {
+    state.columnsEnabled = state.columnsEnabled.map(() => enable);
+    state.columnDisplayAll = enable;
+    state.tableExpand = enable;
+    return state;
+}
+
 
 function changeOrder(state: IUCAppState, action: UCTableOrderAction): IUCAppState {
     const key: string = state.currentColumns[action.index];
@@ -72,6 +145,53 @@ function updateElements(state: IUCAppState): IUCAppState {
     }
     console.log("hashing2")
     putStateIntoURL(state);
+    return state;
+}
+
+function initSettings(state: IUCAppState): IUCAppState {
+    // Set elements settings
+    const elementNames: Array<string> = [];
+    const elementsEnabled: Array<boolean> = [];
+    DataService.data.forEach(value => {
+        elementNames.push(value.name);
+        if (value.name === "Template") {
+            elementsEnabled.push(false);
+        } else {
+            elementsEnabled.push(true);
+        }
+    });
+    state.elementNames = elementNames;
+    state.elementsEnabled = elementsEnabled;
+    state.elementDisplayAll = false;
+
+    // Set column settings
+    state = initColumn(state);
+
+    // Set latex settings
+    state.latexDisplayTable = false;
+    state.latexEnableTooltips = false;
+    state.latexTooltipsAsFootnotes = false;
+
+    return state;
+}
+
+function initColumn(state: IUCAppState): IUCAppState {
+    const columnKeys: Array<string> = [];
+    const columnNames: Array<string> = [];
+    const columnsEnabled: Array<boolean> = [];
+    const columnsEnabledCache: Array<boolean> = [];
+    state.criterias.forEach((value, key) => {
+        const name: string = value.name.length === 0 ? key : value.name;
+        columnKeys.push(key);
+        columnNames.push(name);
+        columnsEnabled.push(value.table);
+        columnsEnabledCache.push(value.table);
+    });
+    state.columnKeys = columnKeys;
+    state.columnNames = columnNames;
+    state.columnsEnabled = columnsEnabled;
+    state.columnsEnabledCache = columnsEnabledCache;
+    state.columnDisplayAll = columnsEnabled.filter(value => value).length === columnNames.length;
     return state;
 }
 
@@ -135,11 +255,9 @@ function filterColumns(state: IUCAppState, columns: Map<string, boolean> = new M
     }
 
     const currentColumns = [];
-    state.criterias.forEach((value, key) => {
-        if (columns.has(key) && columns.get(key)) {
-            currentColumns.push(key);
-        } else if (!columns.has(key) && value.table) {
-            currentColumns.push(key);
+    state.columnKeys.forEach((value, index) => {
+        if (state.columnsEnabled[index]) {
+            currentColumns.push(value);
         }
     });
     state.currentColumns = currentColumns;
@@ -151,7 +269,7 @@ function filterColumns(state: IUCAppState, columns: Map<string, boolean> = new M
         columnNames.push(criteria.name);
         columnTypes.push(criteria.type);
     });
-    state.columnNames = columnNames;
+    state.currentColumnNames = columnNames;
     state.columnTypes = columnTypes;
 
     const columnOrder = [];
@@ -183,9 +301,9 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
     const indexes: Array<number> = [];
 
 
-    for (let i = data.length - 1; i >= 0; i--) {
-        if (state.currentFilter.indexOf(i) !== -1) {
-            continue;
+    DataService.data.forEach((value, i) => {
+        if (state.currentFilter.indexOf(i) !== -1 || !state.elementsEnabled[i]) {
+            return;
         }
         let includeData = true;
         for (const field of state.currentSearch.keys()) {
@@ -214,7 +332,7 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
             const dataElement: Data = data[i];
             const item: Array<Array<Label> | Text | Url | Markdown | number> = [];
             state.currentColumns.forEach((key, index) => {
-                const obj: any = dataElement.criteria.get(key);
+                const obj: any = dataElement.criteria.get(key)
                 if (state.columnTypes[index] === CriteriaType.label) {
                     const labelMap: Map<string, Label> = obj || new Map;
                     const labels: Array<Label> = [];
@@ -222,6 +340,8 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
                     item.push(labels);
                 } else if (state.columnTypes[index] === CriteriaType.rating) {
                     item.push(dataElement.averageRating);
+                } else if (state.columnTypes[index] === CriteriaType.repository) {
+                    item.push(obj);
                 } else {
                     item.push(obj);
                 }
@@ -231,7 +351,8 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
             indexes.push(i);
 
         }
-    }
+    });
+
     if (state.rowIndexes.length !== indexes.length) {
         state.currentChanged = true;
     } else {

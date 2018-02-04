@@ -45,7 +45,7 @@ export interface IUCAppState {
     /**
      * List of columns that should be shown.
      */
-    columnNames: Array<string>;
+    currentColumnNames: Array<string>;
 
     /**
      * List of the CriteriaTypes of the columns
@@ -71,9 +71,48 @@ export interface IUCAppState {
      * True if one of the current* properties was changed
      */
     currentChanged: boolean;
+
+    /**
+     * Settings
+     */
+    elementNames: Array<string>;
+    elementsEnabled: Array<boolean>;
+    elementDisplayAll: boolean;
+
+    columnKeys: Array<string>;
+    columnNames: Array<string>;
+    columnsEnabled: Array<boolean>;
+    columnsEnabledCache: Array<boolean>;
+    columnDisplayAll: boolean;
+
+    latexDisplayTable: boolean;
+    latexEnableTooltips: boolean;
+    latexTooltipsAsFootnotes: boolean;
+
+    detailsDisplayTooltips: boolean;
+
+    tableExpand: boolean;
 }
 
 export class UcAppState implements IUCAppState {
+    elementNames: Array<string> = [];
+    elementsEnabled: Array<boolean> = [];
+    elementDisplayAll: boolean = false;
+
+    columnKeys: Array<string> = [];
+    columnNames: Array<string> = [];
+    columnsEnabled: Array<boolean> = [];
+    columnsEnabledCache: Array<boolean> = [];
+    columnDisplayAll: boolean = false;
+
+    latexDisplayTable: boolean = false;
+    latexEnableTooltips: boolean = false;
+    latexTooltipsAsFootnotes: boolean = false;
+
+    detailsDisplayTooltips: boolean = false;
+
+    tableExpand: boolean = false;
+
     currentSearch: Map<string, Array<string>> = new Map<string, Array<string>>();
     currentDetails = -1;
     currentFilter: Array<number> = [];
@@ -81,7 +120,7 @@ export class UcAppState implements IUCAppState {
     currentlyMaximized = false;
     currentOrder = ['+id'];
     criterias: Map<string, Criteria> = null;
-    columnNames: Array<string> = [];
+    currentColumnNames: Array<string> = [];
     columnTypes: Array<CriteriaType> = [];
     columnOrder: Array<number> = [];
     rowIndexes: Array<number> = [];

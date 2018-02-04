@@ -1,10 +1,5 @@
 import {
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    EventEmitter,
-    Input,
-    Output,
+    ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output,
     ViewChild
 } from '@angular/core';
 import { isNullOrUndefined } from "util";
@@ -20,7 +15,6 @@ import { InputInterface } from "../input-interface";
 })
 export class Select2Component implements InputInterface {
     public static components: Array<Select2Component> = [];
-    private ops = [{value: 't1', label: 't2'}];
     @Input() options: Array<Object> = [];
     @Input() maximumSelectionLength = 0;
     @Input() placeholder: string;
@@ -28,10 +22,9 @@ export class Select2Component implements InputInterface {
     @Input() name: string;
     @Input() active: Array<string>;
     @ViewChild('selector') ngSelect: any;
-
     @Output() result: EventEmitter<any> = new EventEmitter();
-
-    public value: Array<string> = [];
+    private ops = [{value: 't1', label: 't2'}];
+    private value: Array<string> = [];
 
     public constructor(private cd: ChangeDetectorRef) {
         Select2Component.components.push(this);

@@ -3,6 +3,7 @@ import { ComparisonComponent } from "../../comparison/components/component/compa
 import { InputInterface } from "../input-interface";
 import { isNullOrUndefined } from "util";
 import { Criteria } from "../../comparison/components/configuration/configuration";
+import { IUCAppState } from '../../../redux/uc.app-state';
 
 @Component({
     templateUrl: './number-input.template.html',
@@ -25,6 +26,10 @@ export class NumberInputComponent implements InputInterface {
 
     public criteriaChanged(value: Array<String> | KeyboardEvent | { target: { value: string } }) {
         this.result.emit([this.content.nativeElement.value]);
+    }
+    
+    public getActive(state: IUCAppState, crit: Criteria) {
+        return [];
     }
 
     public addToGui(item: string): void {
