@@ -64,8 +64,13 @@ function changeOrder(state: IUCAppState, action: UCTableOrderAction): IUCAppStat
 }
 
 function updateElements(state: IUCAppState): IUCAppState {
+    state.currentChanged = false;
     state = filterElements(state, state.criterias);
     state = sortElements(state);
+    if (!state.currentChanged) {
+        return state;
+    }
+    console.log("hashing2")
     putStateIntoURL(state);
     return state;
 }
@@ -120,7 +125,7 @@ function putStateIntoURL(state: IUCAppState) {
         query = query.substr(0, query.length - 1);
     }
     if (query.length > 0) {
-        window.location.hash = query;
+        window.history.pushState(state, '', '?' + query);
     }
 }
 
@@ -166,8 +171,9 @@ function filterColumns(state: IUCAppState, columns: Map<string, boolean> = new M
 }
 
 function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = null) {
-    if (state.criterias === null) {
+    if (state.criterias === null && criterias !== null) {
         state.criterias = criterias;
+        state.currentChanged = true;
     }
     if (state.criterias === null) {
         return state;
@@ -183,6 +189,8 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
         }
         let includeData = true;
         for (const field of state.currentSearch.keys()) {
+            console.log(criterias)
+            console.log(`searching for ${field}`)
             let fulfillsField = criterias.get(field).andSearch;
             for (const query of state.currentSearch.get(field)) {
                 let fulfillsQuery = false;
@@ -224,7 +232,21 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
 
         }
     }
+    if (state.rowIndexes.length !== indexes.length) {
+        state.currentChanged = true;
+    } else {
+        for (let i = 0; i < indexes.length; i++) {
+            state.currentChanged = state.currentChanged || indexes[i] === state.rowIndexes[i];
+        }
+    }
     state.rowIndexes = indexes;
+    if (state.currentElements.length !== elements.length) {
+        state.currentChanged = true;
+    } else {
+        for (let i = 0; i < elements.length; i++) {
+            state.currentChanged = state.currentChanged || elements[i] === state.currentElements[i];
+        }
+    }
     state.currentElements = elements;
     return state;
 }
@@ -261,6 +283,15 @@ function sortElements(state: IUCAppState): IUCAppState {
         indexes: state.rowIndexes[index]
     }));
     combined.sort((a, b) => sort(a.currentElements, b.currentElements, state.columnTypes, keys, direction));
+    if (state.currentElements.length !== combined.length) {
+        state.currentChanged = true;
+    } else {
+        for (let i = 0; i < combined.length; i++) {
+            state.currentChanged = state.currentChanged ||
+                state.currentElements[i] === combined[i].currentElements ||
+                state.rowIndexes[i] === combined[i].indexes;
+        }
+    }
     state.currentElements = combined.map(element => element.currentElements);
     state.rowIndexes = combined.map(element => element.indexes);
 

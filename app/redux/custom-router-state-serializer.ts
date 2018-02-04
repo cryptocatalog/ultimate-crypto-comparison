@@ -26,6 +26,9 @@ export class CustomRouterStateSerializer implements RouterStateSerializer<Router
 
         for (const u of url.split('&')) {
             const regex = /(.+)=(.*)/.exec(u);
+            if (regex === null) {
+                continue;
+            }
             queryParams[regex[1]] = regex[2];
         }
 

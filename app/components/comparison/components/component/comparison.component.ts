@@ -51,6 +51,7 @@ export class ComparisonComponent {
     public criteriaChanged(value: Array<string>, crit: Criteria) {
         if (value) {
             const map = new Map<string, Array<string>>();
+            console.log(crit)
             map.set(crit.name, value);
             this.store.dispatch(new UCSearchUpdateAction(map));
         }

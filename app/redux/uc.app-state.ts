@@ -66,6 +66,11 @@ export interface IUCAppState {
      * Which elements should be shown after the filter and the search are applied.
      */
     currentElements: Array<Array<String | Array<Label> | Text | Url | Markdown | number>>;
+
+    /**
+     * True if one of the current* properties was changed
+     */
+    currentChanged: boolean;
 }
 
 export class UcAppState implements IUCAppState {
@@ -81,4 +86,5 @@ export class UcAppState implements IUCAppState {
     columnOrder: Array<number> = [];
     rowIndexes: Array<number> = [];
     currentElements: Array<Array<String | Array<Label> | Text | Url | Markdown | number>> = [];
+    currentChanged = false;
 }
