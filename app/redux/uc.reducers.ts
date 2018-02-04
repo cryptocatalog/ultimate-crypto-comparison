@@ -1,5 +1,8 @@
 import { IUCAppState, UcAppState } from './uc.app-state';
-import { UCAction, UCDataUpdateAction, UCRouterAction, UCSearchUpdateAction, UCSettingsUpdateAction, UCTableOrderAction } from './uc.action';
+import {
+    UCAction, UCDataUpdateAction, UCRouterAction, UCSearchUpdateAction, UCSettingsUpdateAction,
+    UCTableOrderAction
+} from './uc.action';
 import { DataService } from '../components/comparison/components/data/data.service';
 import { Criteria, CriteriaType } from '../components/comparison/components/configuration/configuration';
 import { Data, Label, Markdown, Text, Url } from '../components/comparison/components/data/data';
@@ -37,8 +40,6 @@ export function masterReducer(state: IUCAppState = new UcAppState(), action: UCA
             state.criterias = (<UCDataUpdateAction>action).criterias;
             state = initSettings(state);
             state = filterColumns(state);
-            state = filterElements(state);
-            state = sortElements(state);
             break;
         case UPDATE_ORDER:
             state = changeOrder(state, <UCTableOrderAction>action);
@@ -92,11 +93,10 @@ export function masterReducer(state: IUCAppState = new UcAppState(), action: UCA
                 case 'DetailsDisplayTooltips':
                     state.detailsDisplayTooltips = act.enable;
                     break;
-                default:
-                    state = filterElements(state);
-                    state = sortElements(state);
             }
     }
+    state = filterElements(state);
+    state = sortElements(state);
     return state;
 }
 
@@ -143,7 +143,6 @@ function updateElements(state: IUCAppState): IUCAppState {
     if (!state.currentChanged) {
         return state;
     }
-    console.log("hashing2")
     putStateIntoURL(state);
     return state;
 }
@@ -307,32 +306,93 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
         }
         let includeData = true;
         for (const field of state.currentSearch.keys()) {
-            console.log(criterias)
-            console.log(`searching for ${field}`)
-            let fulfillsField = criterias.get(field).andSearch;
-            for (const query of state.currentSearch.get(field)) {
-                let fulfillsQuery = false;
-                for (const key of (<Map<string, any>>data[i].criteria.get(field)).keys()) {
-                    if (criterias.get(field).rangeSearch) {
-                        fulfillsQuery = fulfillsQuery || numberQueryContains(query, key);
-                    } else {
+            const columnIndex = state.columnNames.indexOf(field);
+            const columnName = state.columnKeys[columnIndex];
+            const criteria = state.criterias.get(columnName);
+            if (criteria.rangeSearch) {
+                if (state.currentSearch.get(field).length > 0) {
+                    const queries = state.currentSearch.get(field)[0].trim().replace(' ', '')
+                        .replace(/,.*[a-zA-Z].*|.*[a-zA-Z].*,|.*[a-zA-Z].*/g, '').split(',');
+                    if (queries.length === 0 || queries.map(y => y.length === 0).reduce((p, c) => p && c)) {
+                        continue;
+                    }
+                    let includeElement = false;
+                    for (const query of queries) {
+                        const splits = query.split('-');
+                        let a = Number.MAX_VALUE;
+                        let b = Number.MIN_VALUE;
+                        if (splits.length === 1) {
+                            a = b = Number.parseInt(splits[0]);
+                            // only one number in the query
+                        } else if (splits.length === 2 && splits[0].length === 0) {
+                            // only one number in the query and it is negative
+                            a = b = -1 * Number.parseInt(splits[1]);
+                        } else if (splits.length === 2 && splits[0].length > 0 && splits[1] .length > 0) {
+                            // range search with two positive numbers
+                            a = Number.parseInt(splits[0]);
+                            b = Number.parseInt(splits[1]);
+                            if (a > b) {
+                                const c = b;
+                                b = a;
+                                a = c;
+                            }
+                        } else if (splits.length === 2 && splits[0].length > 0 && splits[1].length === 0) {
+                            // intermittent range search, something like `250-` inbetween entering valid states
+                            a = b = Number.parseInt(splits[0]);
+                        } else if (splits.length === 3 && splits[0].length === 0 && splits[2] .length === 0) {
+                            // intermittent range search, something like `-250-` inbetween entering valid states
+                            a = b = -1 * Number.parseInt(splits[1]);
+                        } else if (splits.length === 3 && splits[0].length === 0 && splits[2].length > 0) {
+                            // range search with first number negative
+                            a = -1 * Number.parseInt(splits[1]);
+                            b = Number.parseInt(splits[2]);
+                        } else if (splits.length === 3 && splits[1].length === 0) {
+                            // range search with second number negative
+                            a = -1 * Number.parseInt(splits[2]);
+                            b = Number.parseInt(splits[0]);
+                        } else if (splits.length === 4 && splits[0].length === 0 && splits[2].length === 0) {
+                            // range search with both numbers negative
+                            a = -1 * Number.parseInt(splits[0]);
+                            b = -1 * Number.parseInt(splits[1]);
+                            if (a > b) {
+                                const c = b;
+                                b = a;
+                                a = c;
+                            }
+                        }
+                        const labelMap: Map<string, Label> = <Map<string, Label>>value.criteria.get(columnName);
+                        for (const val of labelMap.keys()) {
+                            const numberVal = Number.parseInt(val);
+                            if (a <= numberVal && numberVal <= b) {
+                                includeElement = true;
+                                break;
+                            }
+                        }
+                    }
+                    includeData = includeData && includeElement;
+                }
+            } else {
+                let fulfillsField = criteria.andSearch;
+                for (const query of state.currentSearch.get(columnName)) {
+                    let fulfillsQuery = false;
+                    for (const key of (<Map<string, any>>data[i].criteria.get(criteria.name)).keys()) {
                         fulfillsQuery = fulfillsQuery || (key === query);
                     }
+                    if (criteria.andSearch) {
+                        fulfillsField = fulfillsField && fulfillsQuery;
+                    } else {
+                        fulfillsField = fulfillsField || fulfillsQuery;
+                    }
                 }
-                if (criterias.get(field).andSearch) {
-                    fulfillsField = fulfillsField && fulfillsQuery;
-                } else {
-                    fulfillsField = fulfillsField || fulfillsQuery;
-                }
+                includeData = includeData && fulfillsField;
             }
-            includeData = includeData && fulfillsField;
         }
 
         if (includeData) {
             const dataElement: Data = data[i];
             const item: Array<Array<Label> | Text | Url | Markdown | number> = [];
             state.currentColumns.forEach((key, index) => {
-                const obj: any = dataElement.criteria.get(key)
+                const obj: any = dataElement.criteria.get(key);
                 if (state.columnTypes[index] === CriteriaType.label) {
                     const labelMap: Map<string, Label> = obj || new Map;
                     const labels: Array<Label> = [];
@@ -514,77 +574,18 @@ function sort(first: Array<String | Array<Label> | Text | Url | Markdown | numbe
     return directions[index] * result;
 }
 
-function numberQueryContains(query: string, value: string): boolean {
-    const v = Number.parseInt(value);
-    if (Number.isNaN(v)) {
-        return false;
-    }
-    return query.split(',').map(x => x.trim()).map(q => {
-        const splits = q.split('-');
-        if (splits.length === 1) {
-            // single number that is positive (length === 1)
-            const n = Number.parseInt(q.replace(' ', ''));
-            return n === v;
-        } else if (splits.length === 2 && (splits[0].trim().length === 0 || splits[1].trim().length === 0)) {
-            // single number that is negative (includes cases like " - 1"
-            const n = Number.parseInt(q.replace(' ', ''));
-            return n === v;
-        } else if (splits.length === 2) {
-            // two positive numbers describing a range
-            const n1 = Number.parseInt(splits[0].replace(' ', ''));
-            const n2 = Number.parseInt(splits[1].replace(' ', ''));
-            if (n1 < n2) {
-                return n1 <= v && v <= n2;
-            } else {
-                return n2 <= v && v <= n1;
-            }
-        } else if (splits.length === 3) {
-            // one negative number included, either first one or last one
-            let n1, n2;
-            if (splits[0].trim().length === 0) {
-                // first number negative
-                n1 = -Number.parseInt(splits[1].replace(' ', ''));
-                n2 = Number.parseInt(splits[2].replace(' ', ''));
-            } else if (splits[1].trim().length === 0) {
-                // second number is negative
-                n2 = Number.parseInt(splits[0].replace(' ', ''));
-                n1 = -Number.parseInt(splits[2].replace(' ', ''));
-            } else {
-                // wrong format of number (eg "1-1-1") return false to ignore
-                return false;
-            }
-            // invariant: n1 is negative and n2 is positive
-            return n1 <= v && v <= n2;
-        } else if (splits.length === 4 && splits[0].trim().length === 0 && splits[2].trim().length === 0) {
-            // both numbers are negative
-            const n1 = -Number.parseInt(splits[1].replace(' ', ''));
-            const n2 = -Number.parseInt(splits[3].replace(' ', ''));
-            if (n1 < n2) {
-                return n1 <= v && v <= n2;
-            } else {
-                return n2 <= v && v <= n1;
-            }
-        } else {
-            // error, wrong format, return false to ignore
-            return false;
-        }
-    }).reduce(((previousValue, currentValue) => previousValue || currentValue));
-}
-
 function routeReducer(state: IUCAppState = new UcAppState(), action: UCRouterAction) {
     if (action.type !== UPDATE_ROUTE) {
         return state;
     }
-    console.log(action)
     const params = action.payload.routerState.queryParams;
-    console.log(params)
-    const search = params.search || '';
-    const filter = params.filter || '';
-    const detailsDialog = Number.parseInt(params.details || -1);
-    const optionsDialog = params.hasOwnProperty('options');
-    const columns = params.columns || '';
-    const maximized = params.hasOwnProperty('maximized');
-    const order = params.order || '+id';
+    const search = decodeURIComponent(params.search || params['?search'] || '');
+    const filter = params.filter || params['?filter'] || '';
+    const detailsDialog = Number.parseInt(params.details || params['?details'] || -1);
+    const optionsDialog = params.hasOwnProperty('options') || params.hasOwnProperty('?options');
+    const columns = params.columns || params['?columns'] || '';
+    const maximized = params.hasOwnProperty('maximized') || params.hasOwnProperty('?maximized');
+    const order = params.order || params['?order'] || '+id';
 
     search.split(';').map(x => x.trim()).forEach(x => {
         const splits = x.split(':');
@@ -624,7 +625,11 @@ function detailsReducer(state: IUCAppState = new UcAppState(), action: UCAction)
 
 function searchReducer(state: IUCAppState = new UcAppState(), action: UCSearchUpdateAction) {
     for (const [key, value] of action.criterias) {
-        state.currentSearch.set(key, value);
+        if (value === null || value.length === 0) {
+            state.currentSearch.delete(key);
+        } else {
+            state.currentSearch.set(key, value);
+        }
     }
     return state;
 }

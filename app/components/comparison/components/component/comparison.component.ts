@@ -42,17 +42,17 @@ export class ComparisonComponent {
     }
 
     public criteriaChanged(value: Array<string>, crit: Criteria) {
-        if (value) {
-            const map = new Map<string, Array<string>>();
-            console.log(crit)
-            map.set(crit.name, value);
-            this.store.dispatch(new UCSearchUpdateAction(map));
-        }
+        const map = new Map<string, Array<string>>();
+        map.set(crit.name, value || null);
+        this.store.dispatch(new UCSearchUpdateAction(map));
         this.cd.markForCheck();
     }
 
-    public getActive(state: IUCAppState, crit: Criteria) {
-        return [];
+    public getActive(state: {state: IUCAppState}, crit: Criteria) {
+        if (isNullOrUndefined(state)) {
+            return [];
+        }
+        return state.state.currentSearch.get(crit.name);
     }
 
     public showDetails(index: number) {

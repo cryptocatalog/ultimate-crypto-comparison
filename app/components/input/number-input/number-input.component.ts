@@ -27,9 +27,9 @@ export class NumberInputComponent implements InputInterface {
     public criteriaChanged(value: Array<String> | KeyboardEvent | { target: { value: string } }) {
         this.result.emit([this.content.nativeElement.value]);
     }
-    
+
     public getActive(state: IUCAppState, crit: Criteria) {
-        return [];
+        return state.currentSearch.get(crit.name);
     }
 
     public addToGui(item: string): void {
@@ -59,7 +59,7 @@ export class NumberInputComponent implements InputInterface {
     }
 
     public getValue() {
-        if (this.active.length > 0) {
+        if (!isNullOrUndefined(this.active) && this.active.length > 0) {
             return this.active[0];
         }
         return '';

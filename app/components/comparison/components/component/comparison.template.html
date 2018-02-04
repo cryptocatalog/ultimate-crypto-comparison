@@ -38,9 +38,10 @@
                             <br>
                             <select2 [options]="crit.items" [placeholder]="crit.placeholder" [name]="crit.name"
                                      [tag]="crit.tag"
+                                     [active]="getActive(store | async, crit)"
                                      (result)="criteriaChanged($event, crit)" *ngIf="!crit.rangeSearch"></select2>
                             <number-input *ngIf="crit.rangeSearch" [comparisonComponent]="this" [name]="crit.name"
-                                          [active]="getActive(state | async, crit)"
+                                          [active]="getActive(store | async, crit)"
                                           (result)="criteriaChanged($event, crit)"
                                           [criteria]="crit" [tag]="crit.tag"></number-input>
                         </div>
