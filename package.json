@@ -4,11 +4,11 @@
     "scripts": {
         "start": "npm run gulp:compile && npm run webpack:start",
         "webpack:start": "webpack-dev-server --open --inline --progress --port 3000",
-        "webpack:build": "webpack --config lib/webpack/webpack.prod.js --progress --profile --bail",
+        "webpack:build": "webpack --config lib/webpack/webpack.common.js --progress --profile --bail",
         "gulp:compile": "node ./node_modules/gulp/bin/gulp.js default --dir=./",
         "gulp:development": "node ./node_modules/gulp/bin/gulp.js dev --dir=./",
         "dev": "concurrently \"npm run gulp:development\" \"npm run webpack:start\" ",
-        "test": "node_modules/gulp/bin/gulp.js default && npm run webpack:build"
+        "test": "npm run gult:compile && npm run webpack:build"
     },
     "bin": {
         "uc": "./lib/uc/uc"
