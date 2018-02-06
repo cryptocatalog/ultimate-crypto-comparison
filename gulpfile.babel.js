@@ -255,8 +255,9 @@ gulp.task('update-data', function () {
 gulp.task('markdown', function (callback) {
     deleteFolderRecursive(paths.json);
     const isWin = /^win/i.test(process.platform);
+    const gradlew = path.join(gUtil.env.dir, 'gradlew');
     if (isWin) {
-        execSimple("gradlew -q -b "
+        execSimple(gradlew + " -q -b "
             + files.mdToJsonGradle
             + " md2json -PappArgs=\""
             + paths.data
@@ -269,7 +270,7 @@ gulp.task('markdown', function (callback) {
                 callback(err);
             });
     } else {
-        execSimple("./gradlew -q -b "
+        execSimple(gradlew + " -q -b "
             + files.mdToJsonGradle
             + " md2json -PappArgs=\""
             + paths.data
