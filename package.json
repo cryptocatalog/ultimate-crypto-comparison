@@ -1,6 +1,6 @@
 {
     "name": "ultimate-comparison",
-    "version": "2.0.0-alpha.1",
+    "version": "2.0.0-alpha.3",
     "scripts": {
         "start": "npm run gulp:compile && npm run webpack:start",
         "webpack:start": "webpack-dev-server --open --inline --progress --port 3000",
@@ -77,5 +77,8 @@
         "postcss-import": "^11.0.0",
         "postcss-url": "^7.3.0",
         "tslint": "^5.9.1"
+    },
+    "devDependencies": {
+        "babel-preset-env": "^1.6.1"
     }
 }

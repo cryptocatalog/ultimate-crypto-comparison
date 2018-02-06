@@ -20,12 +20,12 @@ setup () {
   sed -i "s/##asdfn/${NAME}/" ${CWD}/package.json
   sed -i "s/##asdfv/${VERS}/" ${CWD}/package.json
   sed -i "s/##asdfd/${DESC}/" ${CWD}/package.json
-  cp -r ${DIR}/../data ${CWD}/
-  cp -r ${DIR}/../configuration ${CWD}/
+  cp -r ${DIR}/../../data ${CWD}/
+  cp -r ${DIR}/../../configuration ${CWD}/
   cp ${DIR}/webpack.config.js ${CWD}/
-  cp ${DIR}/../gulpfile.babel.js ${CWD}/
-  cp ${DIR}/../.babelrc ${CWD}/
-  cp ${DIR}/../tsconfig.json ${CWD}/
+  cp ${DIR}/../../gulpfile.babel.js ${CWD}/
+  cp ${DIR}/../../.babelrc ${CWD}/
+  cp ${DIR}/../../tsconfig.json ${CWD}/
   npm install
 }
 
