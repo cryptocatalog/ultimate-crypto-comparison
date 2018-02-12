@@ -17,6 +17,8 @@ const execSimple = require('child_process').exec;
 const Cite = require('citation-js');
 const gUtil = require('gulp-util');
 
+gUtil.env.dir = gUtil.env.dir || "";
+
 // convert 'dir' to absolute path assuming that 'dir' was relative to the absolute folder '__dirname'
 gUtil.env.dir = path.join(__dirname, gUtil.env.dir);
 
