@@ -88,8 +88,18 @@ public class Md2Json {
     }
 
     private String toJSON(String md) {
+        StringBuffer newMd = new StringBuffer();
+        if (Objects.nonNull(md) && !md.isEmpty()) {
+            // Escape '"' => '\"' but do not escape '\"'
+            Pattern p = Pattern.compile("([^\\\\])\"");
+            Matcher m = p.matcher(md);
+            while (m.find()) {
+                m.appendReplacement(newMd, m.group(1) + "\\\\\"");
+            }
+            m.appendTail(newMd);
+        }
         this.reset();
-        this.createSyntaxTree(md.toCharArray());
+        this.createSyntaxTree(newMd.toString().toCharArray());
         String json = jsonSer.toJSON(root);
         Logger.debug("toJSON string >{}<", json);
         JsonParser jsonParser = new JsonParser();
