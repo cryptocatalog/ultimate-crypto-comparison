@@ -44,6 +44,7 @@ const files = {
         path.join(tmp, 'data', '*.json')
     ],
     config: path.join(paths.config, 'comparison.yml'),
+    style: path.join(paths.config, 'style.css'),
     defaultConfig: path.join(paths.config, 'comparison-default.yml'),
     description: path.join(paths.config, 'description.md'),
     mdToJsonGradle: path.join(paths.lib, 'md-to-json/build.gradle'),
@@ -58,7 +59,7 @@ gulp.task('build-data', function (callback) {
 });
 
 gulp.task('assets', function () {
-    return gulp.src([files.description, files.config])
+    return gulp.src([files.description, files.config, files.style])
         .pipe(gulp.dest(paths.assets));
 });
 
