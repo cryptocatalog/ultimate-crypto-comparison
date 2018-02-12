@@ -47,7 +47,7 @@
 /* north */
 :host.n .ptooltiptext {
     bottom: 115%;
-    left: -25%;
+    left: -25px;
     margin-left: 1em;
     margin-top: 0;
 }
