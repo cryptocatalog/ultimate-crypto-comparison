@@ -7,7 +7,7 @@ This is an ultimate comparison framework written in [Angular](https://angular.io
 It is released on [npm](https://www.npmjs.com/package/ultimate-comparison) under **ultiamte-comparison**.
 
 ## Create your own ultimate comparison 
-1. Install the **ultimate-comparison**-package globally on your system via `npm install --global ultiamte-comparison`
+1. Install the **ultimate-comparison**-package globally on your system via `npm install --global ultimate-comparison`
 2. Create the directory which should contain the comparison and change into it, e. g. with `mkdir MY_COMPARISON && cd MY_COMPARISON`
 3. Set up your comparison with `uc setup`
     1. Enter the name of your comparison press enter
@@ -45,7 +45,7 @@ A **comparison.yml** has following attributes:
     - *title*: The heading of the used field
     - *bodyRef*: The field to use as content of the body
 - *citation*: Configures the citation of sources
-    - *csl*: The style of the citation as [bibtex](http://www.bibtex.org/) class
+    - *csl*: The style of the citation as [bibtex](http://www.bibtex.org/) class. Example classes: https://github.com/citation-style-language/styles
     - *bib*: The file containing the used sources in [bibtex](http://www.bibtex.org/) style
 - *criteria*: List of fields that all comparison-elements use. The attributes for each criteria are:
     - *name*: The display name of the criteria. Type: `string`
