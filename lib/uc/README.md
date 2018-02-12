@@ -4,7 +4,7 @@
 
 This is an ultimate comparison of THINGs.
 
-To run this example, please take a look at the [README.md](README.md)
+To run this example, please take a look at the [README.md](../../README.md)
 
 ## Ultimate-THING-Comparison Element Specification
 
