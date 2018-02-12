@@ -3,9 +3,9 @@ import {
     UCAction, UCDataUpdateAction, UCRouterAction, UCSearchUpdateAction, UCSettingsUpdateAction,
     UCTableOrderAction
 } from './uc.action';
-import { DataService } from '../components/comparison/components/data/data.service';
-import { Criteria, CriteriaType } from '../components/comparison/components/configuration/configuration';
-import { Data, Label, Markdown, Text, Url } from '../components/comparison/components/data/data';
+import { DataService } from '../components/comparison/data/data.service';
+import { Criteria, CriteriaType } from '../components/comparison/configuration/configuration';
+import { Data, Label, Markdown, Text, Url } from '../components/comparison/data/data';
 import { isNullOrUndefined } from 'util';
 
 export const UPDATE_SEARCH = 'UPDATE_SEARCH';

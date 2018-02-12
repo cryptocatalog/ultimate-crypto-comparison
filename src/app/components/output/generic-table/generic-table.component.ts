@@ -2,7 +2,7 @@ import {
     AfterViewChecked, ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges,
     Output
 } from '@angular/core';
-import { Label, Markdown, Text, Url } from "../../comparison/components/data/data";
+import { Label, Markdown, Text, Url } from "../../comparison/data/data";
 
 declare const anchors;
 

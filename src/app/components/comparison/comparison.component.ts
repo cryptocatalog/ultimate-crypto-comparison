@@ -1,14 +1,14 @@
 import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
-import { VersionInformation } from '../../../../../assets/VersionInformation';
-import { PaperCardComponent } from "../../../polymer/paper-card/paper-card.component";
-import { LatexTableComponent } from '../../../output/latex-table/latex-table.component';
+import { VersionInformation } from '../../../assets/VersionInformation';
+import { PaperCardComponent } from "../polymer/paper-card/paper-card.component";
+import { LatexTableComponent } from '../output/latex-table/latex-table.component';
 import { Store } from '@ngrx/store';
-import { IUCAppState } from '../../../../redux/uc.app-state';
-import { ConfigurationService } from "../configuration/configuration.service";
-import { Criteria } from "../configuration/configuration";
-import { DataService } from "../data/data.service";
-import { Data } from "../data/data";
-import { UCSearchUpdateAction, UCTableOrderAction } from '../../../../redux/uc.action';
+import { IUCAppState } from '../../redux/uc.app-state';
+import { ConfigurationService } from "./configuration/configuration.service";
+import { Criteria } from "./configuration/configuration";
+import { DataService } from "./data/data.service";
+import { Data } from "./data/data";
+import { UCSearchUpdateAction, UCTableOrderAction } from '../../redux/uc.action';
 import { isNullOrUndefined } from "util";
 
 import { saveAs } from 'file-saver';

@@ -1,8 +1,8 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { ComparisonComponent } from "../../comparison/components/component/comparison.component";
+import { ComparisonComponent } from "../../comparison/comparison.component";
 import { InputInterface } from "../input-interface";
 import { isNullOrUndefined } from "util";
-import { Criteria } from "../../comparison/components/configuration/configuration";
+import { Criteria } from "../../comparison/configuration/configuration";
 import { IUCAppState } from '../../../redux/uc.app-state';
 
 @Component({

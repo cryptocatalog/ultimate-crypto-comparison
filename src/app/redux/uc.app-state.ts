@@ -1,5 +1,5 @@
-import { Label, Markdown, Text, Url } from '../components/comparison/components/data/data';
-import { Criteria, CriteriaType } from '../components/comparison/components/configuration/configuration';
+import { Label, Markdown, Text, Url } from '../components/comparison/data/data';
+import { Criteria, CriteriaType } from '../components/comparison/configuration/configuration';
 
 export interface IUCAppState {
     /**

@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { UPDATE_DATA, UPDATE_ORDER, UPDATE_SEARCH, UPDATE_SETTINGS } from './uc.reducers';
-import { Criteria } from '../components/comparison/components/configuration/configuration';
+import { Criteria } from '../components/comparison/configuration/configuration';
 
 export class UCAction implements Action {
     type: string;

@@ -5,9 +5,9 @@ import { Data, Label, Markdown, Rating, Text, Tooltip, Url } from "./data";
 import { Configuration, Criteria, CriteriaType, CriteriaValue } from "../configuration/configuration";
 import { ConfigurationService } from "../configuration/configuration.service";
 import { isNullOrUndefined } from "util";
-import { UCDataUpdateAction } from '../../../../redux/uc.action';
+import { UCDataUpdateAction } from '../../../redux/uc.action';
 import { Store } from '@ngrx/store';
-import { IUCAppState } from '../../../../redux/uc.app-state';
+import { IUCAppState } from '../../../redux/uc.app-state';
 
 @Injectable()
 export class DataService {
