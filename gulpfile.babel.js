@@ -3,19 +3,16 @@
 import gulp from 'gulp'
 import rename from 'gulp-rename';
 import _ from 'lodash';
-
-import jsonTransform from 'gulp-json-transform';
-import concatJson from 'gulp-concat-json';
-import run from 'run-sequence';
 import exec from 'gulp-exec';
 import {existsSync, lstatSync, readdirSync, readFile, readFileSync, rmdirSync, unlinkSync, writeFileSync} from 'fs';
 import sh from 'sync-exec';
 import yaml2json from 'js-yaml';
 
-const path = require('path');
-const execSimple = require('child_process').exec;
+import * as path from 'path';
+import * as gUtil from 'gulp-util';
+import {exec as execSimple} from 'child_process';
+
 const Cite = require('citation-js');
-const gUtil = require('gulp-util');
 
 gUtil.env.dir = gUtil.env.dir || "";
 
@@ -54,16 +51,12 @@ const files = {
 };
 
 // BUILD / UPDATE data files -------------------------------------<
-gulp.task('build-data', function (callback) {
-    run('markdown', 'json', 'criteria', 'determineColors', 'citation', 'assets', callback);
-});
-
 gulp.task('assets', function () {
     return gulp.src([files.description, files.config, files.style])
         .pipe(gulp.dest(paths.assets));
 });
 
-gulp.task('determineColors', function () {
+gulp.task('determineColors', function (done) {
     const config = files.config;
     const colorArray = [
         'hsl(15, 100%, 70%)',
@@ -236,7 +229,7 @@ gulp.task('determineColors', function () {
     if (changed) {
         writeFileSync(config, yaml2json.safeDump(input), "utf8");
     }
-    return true;
+    done();
 });
 
 gulp.task('versionInfo', function () {
@@ -257,35 +250,21 @@ gulp.task('update-data', function () {
 
 gulp.task('markdown', function (callback) {
     deleteFolderRecursive(paths.json);
-    const isWin = /^win/i.test(process.platform);
     const gradlew = path.join(gUtil.env.dir, 'gradlew');
-    if (isWin) {
-        execSimple(gradlew + " -q -b "
-            + files.mdToJsonGradle
-            + " md2json -PappArgs=\""
-            + paths.data
-            + ","
-            + paths.json
-            + ", 1, true\"",
-            function (err, stdout, stderr) {
-                console.log(stdout);
-                console.log(stderr);
-                callback(err);
-            });
-    } else {
-        execSimple(gradlew + " -q -b "
-            + files.mdToJsonGradle
-            + " md2json -PappArgs=\""
-            + paths.data
-            + ","
-            + paths.json
-            + ", 1, true\"",
-            function (err, stdout, stderr) {
-                console.log(stdout);
-                console.log(stderr);
-                callback(err);
-            });
-    }
+    execSimple(gradlew + " -q -b "
+        + files.mdToJsonGradle
+        + " md2json -PappArgs=\""
+        + paths.data
+        + ","
+        + paths.json
+        + ","
+        + files.dataJson
+        + ", 1, true\"",
+        function (err, stdout, stderr) {
+            console.log(stdout);
+            console.log(stderr);
+            callback(err);
+        });
 
     function deleteFolderRecursive(folder) {
         if (existsSync(folder)) {
@@ -300,15 +279,6 @@ gulp.task('markdown', function (callback) {
             rmdirSync(folder);
         }
     }
-});
-
-gulp.task('json', function () {
-    return gulp.src(files.json)
-        .pipe(concatJson(names.data))
-        .pipe(jsonTransform(function (data) {
-            return data;
-        }, 2))
-        .pipe(gulp.dest(paths.assets))
 });
 
 gulp.task('citation', function (done) {
@@ -473,14 +443,12 @@ gulp.task('criteria', function (done) {
 
     done();
 });
+
+gulp.task('build-data', gulp.series('markdown', 'criteria', 'determineColors', 'citation', 'assets'));
 // --------------------------------------------------------------->
 
 // DEFAULT and DEV tasks -----------------------------------------<
-gulp.task('default', function (callback) {
-    run('build-data', callback);
-});
+gulp.task('default', gulp.series('build-data'));
 
-gulp.task('dev', ['default'], function (callback) {
-    run('update-data', callback);
-});
+gulp.task('dev', gulp.series('default', 'update-data'));
 // --------------------------------------------------------------->
