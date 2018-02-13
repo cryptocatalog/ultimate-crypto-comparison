@@ -9,22 +9,22 @@ import sh from 'sync-exec';
 import yaml2json from 'js-yaml';
 
 import * as path from 'path';
-import * as gUtil from 'gulp-util';
 import {exec as execSimple} from 'child_process';
 
 const Cite = require('citation-js');
+const argv = require('minimist')(process.argv.slice(2));
 
-gUtil.env.dir = gUtil.env.dir || "";
+argv.dir = argv.dir || "";
 
 // convert 'dir' to absolute path assuming that 'dir' was relative to the absolute folder '__dirname'
-gUtil.env.dir = path.join(__dirname, gUtil.env.dir);
+argv.dir = path.join(__dirname, argv.dir);
 
-const tmp = path.join(gUtil.env.dir, 'tmp');
+const tmp = path.join(argv.dir, 'tmp');
 
 const paths = {
     json: path.join(tmp, 'data'),
-    assets: path.join(gUtil.env.dir, 'src/assets'),
-    lib: path.join(gUtil.env.dir, 'lib'),
+    assets: path.join(argv.dir, 'src/assets'),
+    lib: path.join(argv.dir, 'lib'),
     data: path.join(__dirname, 'data'),
     config: path.join(__dirname, 'configuration'),
 };
@@ -250,7 +250,7 @@ gulp.task('update-data', function () {
 
 gulp.task('markdown', function (callback) {
     deleteFolderRecursive(paths.json);
-    const gradlew = path.join(gUtil.env.dir, 'gradlew');
+    const gradlew = path.join(argv.dir, 'gradlew');
     execSimple(gradlew + " -q -b "
         + files.mdToJsonGradle
         + " md2json -PappArgs=\""
