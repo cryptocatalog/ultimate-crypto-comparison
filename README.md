@@ -1,60 +1,94 @@
-# Ultimate Crypto Comparison
+# Ultimate Comparison BASE
 
-[![Build Status](https://travis-ci.org/CryptoCatalog/ultimate-crypto-comparison.svg?branch=master)](https://travis-ci.org/CryptoCatalog/ultimate-crypto-comparison)
+[![Build Status](https://travis-ci.org/ultimate-comparisons/ultimate-comparison-BASE.svg?branch=master)](https://travis-ci.org/ultimate-comparisons/ultimate-comparison-BASE)
+[![Issue Count](https://codeclimate.com/github/ultimate-comparisons/ultimate-comparison-BASE/badges/issue_count.svg)](https://codeclimate.com/github/ultimate-comparisons/ultimate-comparison-BASE)
 
-Link to the GitHub pages: https://cryptocatalog.github.io/ultimate-crypto-comparison/
+This is an ultimate comparison framework written in [Angular](https://angular.io/).
+It is released on [npm](https://www.npmjs.com/package/ultimate-comparison) under **ultiamte-comparison**.
 
-This is an ultimate comparison of cryptographic libraries. It is based on https://github.com/ultimate-comparisons/ultimate-comparison-BASE.
+## Create your own ultimate comparison 
+1. Install the **ultimate-comparison**-package globally on your system via `npm install --global ultimate-comparison`
+2. Create the directory which should contain the comparison and change into it, e. g. with `mkdir MY_COMPARISON && cd MY_COMPARISON`
+3. Set up your comparison with `uc setup`
+    1. Enter the name of your comparison press enter
+    2. Enter the [semantic version](https://semver.org/) of your comparison and press enter
+    3. Enter a short description of your comparison and press enter (not required)
+4. Make sure a `node_modules` directory exists in your current one.
+    - If it doesn't exist look at the error message and run `npm install` afterwards
+    - The error is most likely a malformed name or version of your comparison
+5. Run `uc start` to start the comparison.
 
-## Test it
-1. Install [node.js](https://nodejs.org/en/)
-  - Windows: `choco install nodejs` via [chocolatey](https://chocolatey.org/)
-2. Windows: Install required tooling:
-  - In an adminstrative shell: `npm install --global --production windows-build-tools` [source](https://github.com/nodejs/node-gyp#option-1)
-3. Install [Java JDK8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-  - Windows: `choco install jdk8`
-5. Install [pandoc](http://pandoc.org/installing.html) (Version 1.17.2) [pandoc-citeproc](https://hackage.haskell.org/package/pandoc-citeproc)
-   - Linux:
-     1. `wget https://github.com/jgm/pandoc/releases/download/1.17.2/pandoc-1.17.2-1-amd64.deb`
-     2. `sudo dpkg -i pandoc-1.17.2-1-amd64.deb`
-   - Windows: `choco install pandoc`
-6. Update npm (sudo): `npm install -g npm`
-7. Test dependencies:
+### Configuration
 
-        java -version
-        npm -version
+The configuration files are located in the **configuration** directory.
 
-8. `npm install`
-9. `npm start` (starts the web page)
-10. [Setup automatic deployment of `www` directory using Travis CI](docs/Travis_Build_Deploy.md)
+**description.md**: It contains the description of your comparison which can be seen by visitors.
+It is located underneath the headline of your comparison.
 
-## Ultimate-Crypto-Comparison Element Specification
+**comparison-example.yml**: Example configuration file containing comments on fields to explain their meaning.
 
-The code below shows a sample element.
+**comparison-default.yml**: Default configuration, intended as backup of your local comparison.
 
-    # Crypto Element - http://example.com
-    Element short description ...
+**comparison.yml**: The used configuration. Missing values are taken from **comparison-default.yml** and written back into this file.
+A **comparison.yml** has following attributes:
 
-    ## Description
-    Element long __markdown__ description ...
-    
-    ## Property 1
-    - label 1
-    - label 2
-    
-    ## Property 2
-    - label 3
-    - label 4
-    - label 5
-    
-    ## Rating
-    - [1] Bad THING
-    - [3] It is ok
-    - [5] Good THING
+- *title*: The title of the comparison. It is the headline of the page.
+- *subtitle*: The subtitle of the comparison. It is next to the headline of the page.
+- *selectTitle*: It is the headline for the search criteria, meaning that the area meant to enter search parameters uses this as headline.
+- *tableTitle*: It is the headline for the table, meaning that the area containing the table uses this as headline.
+- *repository*: The link to the repository containing the comparison.
+- *header*: The heading of the details page
+    - *nameRef*: Heading of details page (field name)
+    - *labelRef*: Which label to add to the heading of the details page (field name)
+    - *urlRef*: Which url to show next to the heading of the details page (field name)
+- *body*: The body of the details page
+    - *title*: The heading of the used field
+    - *bodyRef*: The field to use as content of the body
+- *citation*: Configures the citation of sources
+    - *csl*: The style of the citation as [bibtex](http://www.bibtex.org/) class. Example classes: https://github.com/citation-style-language/styles
+    - *bib*: The file containing the used sources in [bibtex](http://www.bibtex.org/) style
+- *criteria*: List of fields that all comparison-elements use. The attributes for each criteria are:
+    - *name*: The display name of the criteria. Type: `string`
+    - *search*: Whether a text box should be added to the search form. Allowed values: `true`, `false`
+    - *table*: Whether it should be included in the comparison table by default. Allowed values: `true`, `false`
+    - *detail*: Whether it is in the detail page. Allowed values: `true`, `false`
+    - *type*: The content type of the field. Allowed values: `url`, `markdown`, `text`, `label`, `rating`, `repository`
+    - *andSearch*: Whether the search should be **match all** or **match one**. Allowed values: `true`, `false`
+    - *values*: All allowed values the field can assume. Values can have the following attributes:
+        - *description*: Part of the tooltip for every instance of the value. Type: `string`
+        - *class*: CSS-class of the label. Type: `string` (label-only)
+        - *backgroundColor*: The background color of the label. Applies only if no class is given. Type: `string` (label-only)
+        - *color*: The text color of the label. Applies only if no class is given. Type: `string` (label-only)
+        - *minAge*: The minimum age of the last commit to apply this value. Type: `number` (repository-only)
+        - *minAgeUnit*: The unit to apply to the minAge attribute. Allowed values: https://momentjs.com/docs/#/durations/as-iso-string/ (repository-only)
+        - *maxAge*: The maximum age of the last commit to apply this value. Type: `number` (repository-only)
+        - *maxAgeUnit*: The unit to apply to the maxAge attribute. Allowed values: https://momentjs.com/docs/#/durations/as-iso-string/ (repository-only)
+    - *placeholder*: Text shown in the search bar if it is empty
+    - *rangeSearch*: Changes search to allow searching for number ranges. It allows searching for numbers and ranges of numbers. Only supports integers.
 
+### Define comparison elements
+
+For each thing, create a markdown file in comparison-elements.
+You can base it on template.md.
+If one column depends on a repository (repo-attribute in **comparison.yml** true), you have to define a `repo` section (## section title) and add the repository as first list item, eg:
+
+    ## Repo
+    - https://github.com/ultimate-comparisons/ultimate-comparison-BASE
+
+## Update your comparison
+
+To update the ultimate comparison framework that your comparison uses, just run `npm update` in the directory that contains your comparison.
+It installs the latest version with the same major version number (ie. `2.x.x`).
+ 
 ## License
 
-The code is licensed under [MIT], the content (located at `comparison-elements`) under [CC-BY-SA-4.0].
+The code is licensed under [MIT], the content (located at `comparison-elements`) under [CC0-1.0].
+
+  [CC0-1.0]: https://creativecommons.org/publicdomain/zero/1.0/
+
+<hr />
+
+See [README-THING.template](https://github.com/ultimate-comparisons/ultimate-comparison-BASE/blob/master/README-THING.template.md) for a README skeletton for your ultimate-THING-comparison.
 
   [MIT]: https://opensource.org/licenses/MIT
   [CC-BY-SA-4.0]: http://creativecommons.org/licenses/by-sa/4.0/
