@@ -1,6 +1,6 @@
 import { IUCAppState, UcAppState } from './uc.app-state';
 import {
-    UCAction, UCDataUpdateAction, UCRouterAction, UCSearchUpdateAction, UCSettingsUpdateAction,
+    UCAction, UCClickAction, UCDataUpdateAction, UCRouterAction, UCSearchUpdateAction, UCSettingsUpdateAction,
     UCTableOrderAction
 } from './uc.action';
 import { DataService } from '../components/comparison/data/data.service';
@@ -15,6 +15,7 @@ export const UPDATE_DATA = 'UPDATE_DATA';
 export const UPDATE_ORDER = 'UPDATE_ORDER';
 export const UPDATE_SETTINGS = 'UPDATE_SETTINGS';
 const UPDATE_ROUTE = 'ROUTER_NAVIGATION';
+export const CLICK_ACTION = 'CLICK_ACTION';
 
 export function masterReducer(state: IUCAppState = new UcAppState(), action: UCAction) {
     if (action.type === UPDATE_ROUTE) {
@@ -24,6 +25,9 @@ export function masterReducer(state: IUCAppState = new UcAppState(), action: UCA
         state.currentDetails = -1;
     }
     switch (action.type) {
+        case CLICK_ACTION:
+            state = clickReducer(state, <UCClickAction>action);
+            break;
         case UPDATE_SEARCH:
             state = searchReducer(state, <UCSearchUpdateAction>action);
             break;
@@ -97,6 +101,29 @@ export function masterReducer(state: IUCAppState = new UcAppState(), action: UCA
     }
     state = filterElements(state);
     state = sortElements(state);
+    return state;
+}
+
+function clickReducer(state: IUCAppState, action: UCClickAction) {
+    const column = state.currentColumns[action.index];
+    const map = new Map<string, Array<string>>();
+    const criteria = state.criterias.get(column);
+    map.set(criteria.name, [action.val]);
+    const search = state.currentSearch.get(criteria.name);
+    if (criteria.rangeSearch) {
+        if (search === undefined) {
+            state.currentSearch.set(criteria.name, [action.val]);
+        } else {
+            state.currentSearch.set(criteria.name, [search[0] + ',' + action.val]);
+        }
+    } else {
+        if (search === undefined) {
+            state.currentSearch.set(criteria.name, [action.val]);
+        } else {
+            search.push(action.val);
+            state.currentSearch.set(criteria.name, search);
+        }
+    }
     return state;
 }
 

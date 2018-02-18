@@ -64,7 +64,8 @@
                           [changeNum]="configurationService.tableColumns.length + (store | async).state.currentColumnNames.length + (settingsOpen? 0: 1) + changed"
                           (settingsCallback)="settingsOpen = true"
                           (showDetails)="showDetails($event)"
-                          (orderChange)="changeOrder($event)"></generictable>
+                          (orderChange)="changeOrder($event)"
+                          (searchFor)="criteriaClicked($event, key, index)"></generictable>
         </pcard>
     </div>
     <div class="grid-content-end">
