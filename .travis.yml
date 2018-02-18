@@ -17,13 +17,8 @@ after_success:
 - echo $TRAVIS_PULL_REQUEST
 - ./deploy.sh
 before_install:
-- wget https://github.com/jgm/pandoc/releases/download/1.17.2/pandoc-1.17.2-1-amd64.deb
-- sudo dpkg -i pandoc-1.17.2-1-amd64.deb
-- rm pandoc-1.17.2-1-amd64.deb
 - npm install -g npm
 - java -version
-- pandoc -v
 - npm -version
-- npm install
 sudo: required
 dist: trusty

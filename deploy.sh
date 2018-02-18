@@ -121,9 +121,10 @@ build_master () {
 git remote add SSH git@github.com:ultimate-comparisons/ultimate-comparison-BASE.git
 git fetch --all
 # decide which functions should be called
-if [[ ${TRAVIS_PULL_REQUEST} != false ]]; then
-  CURRENT_BRANCH=${TRAVIS_PULL_REQUEST_BRANCH}
-  build_branch ${TRAVIS_PULL_REQUEST_BRANCH}
+if [[ ${TRAVIS_BRANCH} != "master" ]]; then
+  git checkout master
+  CURRENT_BRANCH=${TRAVIS_BRANCH}
+  build_branch ${TRAVIS_BRANCH}
 else
   if [[ ${TRAVIS_BRANCH} != "master" ]]; then
     echo "or not..."
