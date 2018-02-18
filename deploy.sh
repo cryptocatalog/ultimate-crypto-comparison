@@ -122,7 +122,6 @@ git remote add SSH git@github.com:ultimate-comparisons/ultimate-comparison-BASE.
 git fetch --all
 # decide which functions should be called
 if [[ ${TRAVIS_BRANCH} != "master" ]]; then
-  git checkout master
   CURRENT_BRANCH=${TRAVIS_BRANCH}
   build_branch ${TRAVIS_BRANCH}
 else
