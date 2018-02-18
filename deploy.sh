@@ -16,9 +16,9 @@ build_branch () {
 
 # add prs/${BRANCH} to gh-pages
   git commit -m "Travis commit for ${BRANCH}"
-  git checkout -b ${BRANCH}
+  git checkout -b "${BRANCH}_2"
   git checkout -f gh-pages
-  git checkout -f ${BRANCH} prs/${BRANCH}
+  git checkout -f "${BRANCH}_2" prs/${BRANCH}
   git add prs
 
 # add index.md
