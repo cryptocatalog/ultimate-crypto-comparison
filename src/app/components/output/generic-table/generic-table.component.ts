@@ -29,8 +29,8 @@ export class GenericTableComponent implements AfterViewChecked, OnChanges {
 
     private table;
 
-    public labelClick(key: string, index: number) {
-        this.searchFor.emit({key, index});
+    public labelClick(event: MouseEvent, key: Label, index: number) {
+        this.searchFor.emit({event, key, index});
     }
 
     public orderClick(e: MouseEvent, value: number) {

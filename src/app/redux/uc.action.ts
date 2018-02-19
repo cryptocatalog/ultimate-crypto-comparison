@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { UPDATE_DATA, UPDATE_ORDER, UPDATE_SEARCH, UPDATE_SETTINGS } from './uc.reducers';
+import { CLICK_ACTION, UPDATE_DATA, UPDATE_ORDER, UPDATE_SEARCH, UPDATE_SETTINGS } from './uc.reducers';
 import { Criteria } from '../components/comparison/configuration/configuration';
 
 export class UCAction implements Action {
@@ -39,6 +39,14 @@ export class UCSettingsUpdateAction extends UCAction {
     type = UPDATE_SETTINGS;
 
     constructor(public enable: boolean, public operation: string) {
+        super();
+    }
+}
+
+export class UCClickAction extends UCAction {
+    type = CLICK_ACTION;
+
+    constructor(public val: string, public index: number) {
         super();
     }
 }

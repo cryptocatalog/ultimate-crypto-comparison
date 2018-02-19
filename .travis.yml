@@ -5,26 +5,21 @@ notifications:
   email: false
 env:
 - GIT_DEPLOY_DIR: www
-script: npm test
+script: npm run build
 after_success:
-- git remote set-url origin git@github.com:CryptoCatalog/ultimate-crypto-comparison.git
-- openssl aes-256-cbc -K $encrypted_f7261d254db3_key -iv $encrypted_f7261d254db3_iv -in id_rsa.enc -out id_rsa -d
+- git remote set-url origin git@github.com:ultimate-comparisons/ultimate-comparison-BASE.git
+- openssl aes-256-cbc -K $encrypted_e7cc94ff2647_key -iv $encrypted_e7cc94ff2647_iv -in ./lib/travis/github_deploy_key.enc -out id_rsa -d
+- ssh-add github_deploy_key
 - eval "$(ssh-agent -s)"
 - chmod 600 id_rsa
 - ssh-add id_rsa
 - git reset --hard
 - echo $TRAVIS_BRANCH
 - echo $TRAVIS_PULL_REQUEST
-- if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then ./lib/travis/update.sh; fi
 - ./lib/travis/deploy.sh
 before_install:
-- wget https://github.com/jgm/pandoc/releases/download/1.17.2/pandoc-1.17.2-1-amd64.deb
-- sudo dpkg -i pandoc-1.17.2-1-amd64.deb
-- rm pandoc-1.17.2-1-amd64.deb
 - npm install -g npm
 - java -version
-- pandoc -v
 - npm -version
-- npm install
 sudo: required
 dist: trusty

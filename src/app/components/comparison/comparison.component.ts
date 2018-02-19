@@ -7,8 +7,8 @@ import { IUCAppState } from '../../redux/uc.app-state';
 import { ConfigurationService } from "./configuration/configuration.service";
 import { Criteria } from "./configuration/configuration";
 import { DataService } from "./data/data.service";
-import { Data } from "./data/data";
-import { UCSearchUpdateAction, UCTableOrderAction } from '../../redux/uc.action';
+import { Data, Label } from './data/data';
+import { UCClickAction, UCSearchUpdateAction, UCTableOrderAction } from '../../redux/uc.action';
 import { isNullOrUndefined } from "util";
 
 import { saveAs } from 'file-saver';
@@ -50,7 +50,8 @@ export class ComparisonComponent {
         if (isNullOrUndefined(state)) {
             return [];
         }
-        return state.state.currentSearch.get(crit.name);
+        const active = state.state.currentSearch.get(crit.name);
+        return active;
     }
 
     public showDetails(index: number) {
@@ -79,5 +80,9 @@ export class ComparisonComponent {
         if (!isNullOrUndefined(change)) {
             this.store.dispatch(new UCTableOrderAction(change.index, change.ctrl));
         }
+    }
+
+    public criteriaClicked(val: {event: MouseEvent, key: Label, index: number}) {
+        this.store.dispatch(new UCClickAction(val.key.name, val.index));
     }
 }
