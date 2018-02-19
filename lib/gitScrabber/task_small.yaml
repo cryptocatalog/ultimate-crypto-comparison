@@ -1,0 +1,68 @@
+# The MIT License (MIT)
+#
+# Copyright (c) 2017 Andreas Poppele
+# Copyright (c) 2017 Kai Mindermann
+# Copyright (c) 2017 Rebecca Eichler
+# Copyright (c) 2017 Roland Jaeger
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+
+
+# Projects to analyse
+projects:
+# git urls that will be cloned / pulled
+# - git: https://github.com/torvalds/linux
+- git: https://github.com/Eyenseo/ABI
+- git: https://github.com/pyca/cryptography
+- git: https://github.com/openssl/openssl
+- git: https://github.com/ZewoGraveyard/OpenSSL
+# archive urls that will be downloaded and analysed
+#- archive: ftp://ftp.franken.de/pub/crypt/cryptlib/cl3431.zip
+# manual data for projects that do not provide a git repo or archive
+# but should be analysed by the reportScrabber
+
+# Tasks that should be run for the projects in parallel
+# (sequentially for each project - the order matters!)
+project_tasks:
+  - AuthorContributorCounter
+  - MetaDataCollector
+  - LanguageDetector
+  - ProjectDates
+  - ProjectMetrics
+  - LicenceDetector
+
+# Tasks that should run over the previously generated report,
+# sequentially after the project tasks
+report_tasks:
+#- ImpactCalculator
+#- ProjectSizeCalculator
+#- EaseOfUseEstimation
+#- NumericID
+- GenerateLaTeXOverviewTable:
+    primitivCategorieses:
+    - block ciphers
+    - stream ciphers
+    - encryption modes
+    - message authentication codes
+    - hashes
+    highlevelCategories:
+    - public key infrastructure
+    - public key cryptography
+    - protocol
+- GenerateLaTeXDetailTable
