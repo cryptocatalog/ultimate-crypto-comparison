@@ -1,0 +1,1811 @@
+reportVersion: 2
+projects:
+  ABI_ffdf7b5daeadc1e813f4d11f1d0eb357:
+    generalData:
+      type: Wrapper
+      related:
+      documentation:
+        exists:
+          readme: false
+          website: false
+          download: false
+        completeness:
+          apis: false
+          examples: false
+          explanations: false
+      interfaceLevel:
+        high: true
+        low: true
+      interfaceLanguage:
+      - C
+      - C++
+      licences:
+      - MIT
+      - JSON
+    url: https://github.com/Eyenseo/ABI
+    name: ABI
+    AuthorContributorCounter:
+      author#: 1
+      contributor#: 1
+    MetaDataCollector:
+      stars: 2
+      languages:
+      - C
+      - CMake
+      main_language: C
+      forks: 0
+      licence:
+        name:
+        abb:
+    ProjectDates:
+      first_change: '2016-08-27T23:05:41+02:00'
+      last_change: '2016-08-28T17:54:12+02:00'
+    LanguageDetector:
+      main_language: C
+      languages:
+      - C
+    ProjectMetrics:
+      files:
+        total: 1
+        source: 1
+      loc:
+        source: 163
+        cleaned: 76
+    LicenceDetector:
+      LICENSE:
+      - licence: MIT License
+        confidence: 99.58
+        short: MIT
+      - licence: JSON License
+        confidence: 98.84
+        short: JSON
+      - licence: feh License
+        confidence: 97.2
+        short: MIT-feh
+    FeatureDetector:
+      block ciphers:
+        AES: 0
+        AES-128: 0
+        AES-192: 0
+        AES-256: 0
+        Blowfish: 0
+        DES: 0
+        Triple DES: 0
+        Serpent: 0
+        Twofish: 0
+        Camellia: 0
+        CAST: 0
+        CAST-128: 0
+        CAST-256: 0
+        IDEA: 0
+        RC: 0
+        SEED: 0
+        ARIA: 0
+        ARIA-128: 0
+        ARIA-192: 0
+        ARIA-256: 0
+        Skipjack: 0
+        TEA: 0
+        XTEA: 0
+      stream ciphers:
+        RC: 0
+        ChaCha: 0
+        Salsa: 0
+      hash:
+        MD5: 0
+        SHA: 0
+        SHA-1: 0
+        SHA-2: 0
+        SHA-3: 0
+        SHA-256: 0
+        SHA-512: 0
+        SHAKE: 0
+        BLAKE2: 0
+        PBKDF2: 0
+        RIPEMD: 0
+        Whirlpool: 0
+        scrypt: 0
+        brcypt: 0
+      encryption modes:
+        CCM: 0
+        CWC: 0
+        EAX: 0
+        GCM: 0
+        IAPM: 0
+        OCB: 0
+        ECB: 0
+        CBC: 0
+        CFB: 0
+        OFB: 0
+        CTR: 0
+      message authentication codes:
+        CBC-MAC: 0
+        HMAC: 0
+        Poly1305: 0
+      public key cryptography:
+        RSA: 0
+        DH: 0
+        DSA: 0
+        ECDH: 0
+        ECDSA: 0
+        ElGamal: 0
+      public key infrastructure:
+        X.509(v1-3): 0
+        PKIX: 0
+        SET: 0
+        MicroSoft AuthentiCode: 0
+        Identrus: 0
+        RPKI: 0
+        SigG: 0
+        PKCS: 0
+        CMP: 0
+        SCEP: 0
+        RTCS: 0
+        OCSP: 0
+        LDAP: 0
+        RDBMS: 0
+        PKCS#7: 0
+      protocol:
+        TLS: 0
+        SSL: 0
+        S/MIME: 0
+        PGP: 0
+        SSH: 0
+    impact: 11.88
+    ProjectSizeCalculator:
+      C: small
+      C++: small
+      total: small
+    EaseOfUseEstimation: difficult
+    NumericID: 3
+  cryptography_db22c346ca2e2d4a7bdd8c288f87f5e2:
+    generalData:
+      type: Wrapper
+      related:
+      documentation:
+        exists:
+          readme: false
+          website: false
+          download: false
+        completeness:
+          apis: false
+          examples: false
+          explanations: false
+      interfaceLevel:
+        high: true
+        low: true
+      interfaceLanguage:
+      - C
+    url: https://github.com/pyca/cryptography
+    name: cryptography
+    AuthorContributorCounter:
+      author#: 2
+      contributor#: 150
+    MetaDataCollector:
+      stars: 1645
+      languages:
+      - Python
+      - C
+      - Shell
+      - Roff
+      main_language: Python
+      forks: 390
+      licence:
+        name:
+        abb:
+    ProjectDates:
+      first_change: '2013-08-06T19:30:47-07:00'
+      last_change: '2017-08-04T12:45:11-05:00'
+    LanguageDetector:
+      main_language: Python
+      languages:
+      - Python
+      - C
+      - C++
+      - Go
+      - Java
+    ProjectMetrics:
+      files:
+        total: 199
+        source: 199
+      loc:
+        source: 49643
+        cleaned: 47435
+    LicenceDetector:
+      LICENSE.APACHE:
+      - licence: Apache License 2.0
+        confidence: 100.0
+        short: Apache-2.0
+      - licence: Educational Community License v2.0
+        confidence: 99.64
+        short: ECL-2.0
+      - licence: ImageMagick License
+        confidence: 98.46
+        short: ImageMagick
+      LICENSE.BSD:
+      - licence: BSD 3-clause "New" or "Revised" License
+        confidence: 99.43
+        short: BSD-3-Clause
+      - licence: Net-SNMP License
+        confidence: 98.62
+        short: Net-SNMP
+      - licence: BSD 2-clause "Simplified" License
+        confidence: 98.15
+        short: BSD-2-Clause
+      vectors/LICENSE.APACHE:
+      - licence: Apache License 2.0
+        confidence: 100.0
+        short: Apache-2.0
+      - licence: Educational Community License v2.0
+        confidence: 99.64
+        short: ECL-2.0
+      - licence: ImageMagick License
+        confidence: 98.46
+        short: ImageMagick
+      vectors/LICENSE.BSD:
+      - licence: BSD 3-clause "New" or "Revised" License
+        confidence: 99.43
+        short: BSD-3-Clause
+      - licence: Net-SNMP License
+        confidence: 98.62
+        short: Net-SNMP
+      - licence: BSD 2-clause "Simplified" License
+        confidence: 98.15
+        short: BSD-2-Clause
+    FeatureDetector:
+      block ciphers:
+        AES: 142
+        AES-128: 5
+        AES-192: 4
+        AES-256: 6
+        Blowfish: 0
+        DES: 3
+        Triple DES: 94
+        Serpent: 0
+        Twofish: 0
+        Camellia: 13
+        CAST: 20
+        CAST-128: 0
+        CAST-256: 0
+        IDEA: 24
+        RC: 2
+        SEED: 346
+        ARIA: 0
+        ARIA-128: 0
+        ARIA-192: 0
+        ARIA-256: 0
+        Skipjack: 0
+        TEA: 0
+        XTEA: 0
+      stream ciphers:
+        RC: 3
+        ChaCha: 29
+        Salsa: 0
+      hash:
+        MD5: 18
+        SHA: 3257
+        SHA-1: 540
+        SHA-2: 2717
+        SHA-3: 2686
+        SHA-256: 851
+        SHA-512: 613
+        SHAKE: 0
+        BLAKE2: 15
+        PBKDF2: 25
+        RIPEMD: 8
+        Whirlpool: 1
+        scrypt: 39
+        brcypt: 0
+      encryption modes:
+        CCM: 16
+        CWC: 0
+        EAX: 0
+        GCM: 33
+        IAPM: 0
+        OCB: 0
+        ECB: 7
+        CBC: 20
+        CFB: 23
+        OFB: 22
+        CTR: 93
+      message authentication codes:
+        CBC-MAC: 0
+        HMAC: 119
+        Poly1305: 3
+      public key cryptography:
+        RSA: 648
+        DH: 454
+        DSA: 534
+        ECDH: 22
+        ECDSA: 88
+        ElGamal: 0
+      public key infrastructure:
+        X.509(v1-3): 0
+        PKIX: 1
+        SET: 457
+        MicroSoft AuthentiCode: 0
+        Identrus: 0
+        RPKI: 0
+        SigG: 0
+        PKCS: 21
+        CMP: 18
+        SCEP: 0
+        RTCS: 0
+        OCSP: 41
+        LDAP: 3
+        RDBMS: 0
+        PKCS#7: 0
+      protocol:
+        TLS: 16
+        SSL: 66
+        S/MIME: 0
+        PGP: 2
+        SSH: 156
+    impact: 36.91
+    ProjectSizeCalculator:
+      C: big
+      total: normal
+    EaseOfUseEstimation: difficult
+    NumericID: 4
+  openssl_9f9847c5cf87fbb5f2018434e3743998:
+    generalData:
+      type: Wrapper
+      related:
+      documentation:
+        exists:
+          readme: false
+          website: false
+          download: false
+        completeness:
+          apis: false
+          examples: false
+          explanations: false
+      interfaceLevel:
+        high: true
+        low: true
+      interfaceLanguage:
+      - Java
+    url: https://github.com/openssl/openssl
+    name: openssl
+    AuthorContributorCounter:
+      author#: 4
+      contributor#: 369
+    MetaDataCollector:
+      stars: 5294
+      languages:
+      - C
+      - Perl 6
+      - Perl
+      - Prolog
+      - Objective-C
+      - C++
+      - Assembly
+      - Shell
+      - M4
+      - eC
+      - DIGITAL Command Language
+      - Python
+      main_language: C
+      forks: 2724
+      licence:
+        name:
+        abb:
+    ProjectDates:
+      first_change: '1998-12-21T10:52:45+00:00'
+      last_change: '2017-08-09T13:37:06+10:00'
+    LanguageDetector:
+      main_language: C
+      languages:
+      - C
+      - C++
+      - Python
+    ProjectMetrics:
+      files:
+        total: 1142
+        source: 1142
+      loc:
+        source: 396540
+        cleaned: 360831
+    LicenceDetector:
+      LICENSE:
+      - licence: OpenSSL License
+        confidence: 99.67
+        short: OpenSSL
+      external/perl/Text-Template-1.46/COPYING:
+      - licence: GNU General Public License v2.0 only
+        confidence: 99.93
+        short: GPL-2.0
+      - licence: GNU General Public License v2.0 or later
+        confidence: 99.93
+        short: GPL-2.0+
+      - licence: Affero General Public License v1.0
+        confidence: 99.42
+        short: AGPL-1.0
+    FeatureDetector:
+      block ciphers:
+        AES: 3889
+        AES-128: 678
+        AES-192: 380
+        AES-256: 472
+        Blowfish: 18
+        DES: 882
+        Triple DES: 9
+        Serpent: 0
+        Twofish: 0
+        Camellia: 852
+        CAST: 127
+        CAST-128: 0
+        CAST-256: 0
+        IDEA: 202
+        RC: 390
+        SEED: 722
+        ARIA: 809
+        ARIA-128: 125
+        ARIA-192: 125
+        ARIA-256: 125
+        Skipjack: 0
+        TEA: 0
+        XTEA: 0
+      stream ciphers:
+        RC: 309
+        ChaCha: 227
+        Salsa: 2
+      hash:
+        MD5: 457
+        SHA: 2948
+        SHA-1: 1096
+        SHA-2: 1459
+        SHA-3: 1785
+        SHA-256: 797
+        SHA-512: 389
+        SHAKE: 34
+        BLAKE2: 245
+        PBKDF2: 45
+        RIPEMD: 140
+        Whirlpool: 57
+        scrypt: 198
+        brcypt: 0
+      encryption modes:
+        CCM: 177
+        CWC: 1
+        EAX: 1856
+        GCM: 693
+        IAPM: 0
+        OCB: 318
+        ECB: 713
+        CBC: 2313
+        CFB: 416
+        OFB: 346
+        CTR: 981
+      message authentication codes:
+        CBC-MAC: 0
+        HMAC: 668
+        Poly1305: 656
+      public key cryptography:
+        RSA: 2864
+        DH: 1633
+        DSA: 1759
+        ECDH: 568
+        ECDSA: 417
+        ElGamal: 0
+      public key infrastructure:
+        X.509(v1-3): 0
+        PKIX: 240
+        SET: 12290
+        MicroSoft AuthentiCode: 0
+        Identrus: 0
+        RPKI: 0
+        SigG: 0
+        PKCS: 34
+        CMP: 2052
+        SCEP: 0
+        RTCS: 0
+        OCSP: 507
+        LDAP: 165
+        RDBMS: 0
+        PKCS#7: 0
+      protocol:
+        TLS: 1140
+        SSL: 7633
+        S/MIME: 0
+        PGP: 0
+        SSH: 18
+    impact: 39.37
+    ProjectSizeCalculator:
+      Java: normal
+      total: big
+    EaseOfUseEstimation: difficult
+    NumericID: 6
+  OpenSSL_bce1e2ed6d9420311df0264f8f3867f0:
+    generalData:
+      type: Wrapper
+      related:
+      documentation:
+        exists:
+          readme: false
+          website: false
+          download: false
+        completeness:
+          apis: false
+          examples: false
+          explanations: false
+      interfaceLevel:
+        high: true
+        low: true
+      interfaceLanguage:
+      - C
+    url: https://github.com/ZewoGraveyard/OpenSSL
+    name: OpenSSL
+    AuthorContributorCounter:
+      author#: 2
+      contributor#: 14
+    MetaDataCollector:
+      stars: 35
+      languages:
+      - Swift
+      main_language: Swift
+      forks: 19
+      licence:
+        name:
+        abb:
+    ProjectDates:
+      first_change: '2015-12-08T01:19:44+01:00'
+      last_change: '2017-08-08T15:05:10+02:00'
+    LanguageDetector:
+      main_language: Swift
+      languages:
+      - Swift
+    ProjectMetrics:
+      files:
+        total: 16
+        source: 16
+      loc:
+        source: 1068
+        cleaned: 1042
+    LicenceDetector:
+      LICENSE:
+      - licence: MIT License
+        confidence: 99.53
+        short: MIT
+      - licence: JSON License
+        confidence: 98.72
+        short: JSON
+      - licence: feh License
+        confidence: 97.08
+        short: MIT-feh
+    FeatureDetector:
+      block ciphers:
+        AES: 0
+        AES-128: 0
+        AES-192: 0
+        AES-256: 0
+        Blowfish: 0
+        DES: 0
+        Triple DES: 0
+        Serpent: 0
+        Twofish: 0
+        Camellia: 0
+        CAST: 0
+        CAST-128: 0
+        CAST-256: 0
+        IDEA: 0
+        RC: 0
+        SEED: 0
+        ARIA: 0
+        ARIA-128: 0
+        ARIA-192: 0
+        ARIA-256: 0
+        Skipjack: 0
+        TEA: 0
+        XTEA: 0
+      stream ciphers:
+        RC: 0
+        ChaCha: 0
+        Salsa: 0
+      hash:
+        MD5: 5
+        SHA: 27
+        SHA-1: 5
+        SHA-2: 22
+        SHA-3: 22
+        SHA-256: 7
+        SHA-512: 5
+        SHAKE: 0
+        BLAKE2: 0
+        PBKDF2: 1
+        RIPEMD: 0
+        Whirlpool: 0
+        scrypt: 0
+        brcypt: 0
+      encryption modes:
+        CCM: 0
+        CWC: 0
+        EAX: 0
+        GCM: 0
+        IAPM: 0
+        OCB: 0
+        ECB: 0
+        CBC: 0
+        CFB: 0
+        OFB: 0
+        CTR: 0
+      message authentication codes:
+        CBC-MAC: 0
+        HMAC: 1
+        Poly1305: 0
+      public key cryptography:
+        RSA: 4
+        DH: 0
+        DSA: 0
+        ECDH: 0
+        ECDSA: 0
+        ElGamal: 0
+      public key infrastructure:
+        X.509(v1-3): 0
+        PKIX: 0
+        SET: 26
+        MicroSoft AuthentiCode: 0
+        Identrus: 0
+        RPKI: 0
+        SigG: 0
+        PKCS: 0
+        CMP: 0
+        SCEP: 0
+        RTCS: 0
+        OCSP: 0
+        LDAP: 0
+        RDBMS: 0
+        PKCS#7: 0
+      protocol:
+        TLS: 0
+        SSL: 20
+        S/MIME: 0
+        PGP: 0
+        SSH: 0
+    impact: 30.72
+    ProjectSizeCalculator:
+      C: normal
+      total: normal
+    EaseOfUseEstimation: difficult
+    NumericID: 5
+  cl3431zip_b67153c1f415b8cae4e60cdb8e0fedb4:
+    generalData:
+      type: Wrapper
+      related:
+      documentation:
+        exists:
+          readme: false
+          website: false
+          download: false
+        completeness:
+          apis: false
+          examples: false
+          explanations: false
+      interfaceLevel:
+        high: true
+        low: true
+      interfaceLanguage:
+      - C++
+    url: ftp://ftp.franken.de/pub/crypt/cryptlib/cl3431.zip
+    name: cl3431.zip
+    LanguageDetector:
+      main_language: C
+      languages:
+      - C
+      - C++
+      - Python
+      - C#
+    ProjectMetrics:
+      files:
+        total: 447
+        source: 447
+      loc:
+        source: 387656
+        cleaned: 319678
+    FeatureDetector:
+      block ciphers:
+        AES: 795
+        AES-128: 32
+        AES-192: 20
+        AES-256: 28
+        Blowfish: 97
+        DES: 3001
+        Triple DES: 29
+        Serpent: 13
+        Twofish: 0
+        Camellia: 0
+        CAST: 113
+        CAST-128: 0
+        CAST-256: 0
+        IDEA: 219
+        RC: 237
+        SEED: 233
+        ARIA: 33
+        ARIA-128: 11
+        ARIA-192: 11
+        ARIA-256: 11
+        Skipjack: 2
+        TEA: 0
+        XTEA: 0
+      stream ciphers:
+        RC: 108
+        ChaCha: 0
+        Salsa: 0
+      hash:
+        MD5: 222
+        SHA: 481
+        SHA-1: 49
+        SHA-2: 432
+        SHA-3: 168
+        SHA-256: 68
+        SHA-512: 41
+        SHAKE: 0
+        BLAKE2: 0
+        PBKDF2: 2
+        RIPEMD: 186
+        Whirlpool: 1
+        scrypt: 23
+        brcypt: 0
+      encryption modes:
+        CCM: 3
+        CWC: 0
+        EAX: 2684
+        GCM: 112
+        IAPM: 0
+        OCB: 0
+        ECB: 50
+        CBC: 94
+        CFB: 19
+        OFB: 14
+        CTR: 126
+      message authentication codes:
+        CBC-MAC: 0
+        HMAC: 73
+        Poly1305: 0
+      public key cryptography:
+        RSA: 917
+        DH: 778
+        DSA: 182
+        ECDH: 32
+        ECDSA: 113
+        ElGamal: 29
+      public key infrastructure:
+        X.509(v1-3): 0
+        PKIX: 8
+        SET: 3566
+        MicroSoft AuthentiCode: 0
+        Identrus: 3
+        RPKI: 22
+        SigG: 40
+        PKCS: 52
+        CMP: 774
+        SCEP: 189
+        RTCS: 101
+        OCSP: 228
+        LDAP: 418
+        RDBMS: 0
+        PKCS#7: 0
+      protocol:
+        TLS: 75
+        SSL: 596
+        S/MIME: 0
+        PGP: 1416
+        SSH: 653
+    impact:
+    ProjectSizeCalculator:
+      C++: big
+      total: normal
+    EaseOfUseEstimation: difficult
+    NumericID: 1
+  foobar_588f2f5155d889d5022e5a1c144cf9c8:
+    generalData:
+      type: Wrapper
+      related:
+      documentation:
+        exists:
+          readme: false
+          website: false
+          download: false
+        completeness:
+          apis: false
+          examples: false
+          explanations: false
+      interfaceLevel:
+        high: true
+        low: true
+      interfaceLanguage:
+      - C++
+    url:
+    name: foo://bar
+    impact:
+    EaseOfUseEstimation: difficult
+    NumericID: 2
+project_tasks:
+  AuthorContributorCounter:
+    version: 1.1.0
+    parameter: 99914b932bd37a50b983c5e7c90ae93b
+  MetaDataCollector:
+    version: 1.1.0
+    parameter: 99914b932bd37a50b983c5e7c90ae93b
+  LanguageDetector:
+    version: 1.1.1
+    parameter: 99914b932bd37a50b983c5e7c90ae93b
+  ProjectDates:
+    version: 1.1.0
+    parameter: 99914b932bd37a50b983c5e7c90ae93b
+  ProjectMetrics:
+    version: 1.0.1
+    parameter: 99914b932bd37a50b983c5e7c90ae93b
+  LicenceDetector:
+    version: 1.0.3
+    parameter: 99914b932bd37a50b983c5e7c90ae93b
+  FeatureDetector:
+    version: 2.0.1
+    parameter: 1d897461d631d2e3bddf9ec517d33dfb
+GenerateLaTeXOverviewTable:
+  C++: |-
+    {
+      \centering
+      \tabulinesep=4pt
+      \setlength{\tabcolsep}{.3em}
+      \tabulinesep=.3em
+      \begin{longtabu}{lYrccrrcY}
+        \taburowcolors1{white!95!LightGray..white!95!LightGray}
+        \rowfont[c]{}
+        {}
+          & {}
+            & {}
+              & \multicolumn{2}{c}{Size}
+                  & \multicolumn{2}{c}{Features}
+                      &{}
+                        & {}\\
+        \rowfont[c]{}
+        ID
+          & Name
+            & Impact
+              & In
+                & Ov
+                  & Pri
+                    & Hi
+                      & EoU
+                        & Licence\\
+        \taburowcolors2{white!80!LightGray..white!95!LightGray}
+        003
+          & \myTextBreaker{ABI}
+            & 11.88
+              & \myDownDing
+                & \myDownDing
+                  & 0
+                    & 0
+                      & \myDownDing
+                        & MIT\myTextBreaker{JSON}\\
+        001
+          & \myTextBreaker{cl3431.zip}
+            & -
+              & \myUpDing
+                & \myNormalDing
+                  & 27
+                    & 21
+                      & \myDownDing
+                        & -\\
+        002
+          & \myTextBreaker{foo://bar}
+            & -
+              & -
+                & -
+                  & 1
+                    & 1
+                      & \myDownDing
+                        & -\\
+      \taburowcolors1{white..white}
+      \caption{C++-interface library overview}
+      \label{tab:c++-interface-overview}\\
+      \end{longtabu}
+    }
+  C: |-
+    {
+      \centering
+      \tabulinesep=4pt
+      \setlength{\tabcolsep}{.3em}
+      \tabulinesep=.3em
+      \begin{longtabu}{lYrccrrcY}
+        \taburowcolors1{white!95!LightGray..white!95!LightGray}
+        \rowfont[c]{}
+        {}
+          & {}
+            & {}
+              & \multicolumn{2}{c}{Size}
+                  & \multicolumn{2}{c}{Features}
+                      &{}
+                        & {}\\
+        \rowfont[c]{}
+        ID
+          & Name
+            & Impact
+              & In
+                & Ov
+                  & Pri
+                    & Hi
+                      & EoU
+                        & Licence\\
+        \taburowcolors2{white!80!LightGray..white!95!LightGray}
+        003
+          & \myTextBreaker{ABI}
+            & 11.88
+              & \myDownDing
+                & \myDownDing
+                  & 0
+                    & 0
+                      & \myDownDing
+                        & MIT\myTextBreaker{JSON}\\
+        004
+          & \myTextBreaker{cryptography}
+            & 36.91
+              & \myUpDing
+                & \myNormalDing
+                  & 22
+                    & 15
+                      & \myDownDing
+                        & -\\
+        005
+          & \myTextBreaker{OpenSSL}
+            & 30.72
+              & \myNormalDing
+                & \myNormalDing
+                  & 1
+                    & 3
+                      & \myDownDing
+                        & -\\
+      \taburowcolors1{white..white}
+      \caption{C-interface library overview}
+      \label{tab:c-interface-overview}\\
+      \end{longtabu}
+    }
+  Rust: |-
+    {
+      \centering
+      \tabulinesep=4pt
+      \setlength{\tabcolsep}{.3em}
+      \tabulinesep=.3em
+      \begin{longtabu}{lYrccrrcY}
+        \taburowcolors1{white!95!LightGray..white!95!LightGray}
+        \rowfont[c]{}
+        {}
+          & {}
+            & {}
+              & \multicolumn{2}{c}{Size}
+                  & \multicolumn{2}{c}{Features}
+                      &{}
+                        & {}\\
+        \rowfont[c]{}
+        ID
+          & Name
+            & Impact
+              & In
+                & Ov
+                  & Pri
+                    & Hi
+                      & EoU
+                        & Licence\\
+        \taburowcolors2{white!80!LightGray..white!95!LightGray}
+      \taburowcolors1{white..white}
+      \caption{Rust-interface library overview}
+      \label{tab:rust-interface-overview}\\
+      \end{longtabu}
+    }
+  Ruby: |-
+    {
+      \centering
+      \tabulinesep=4pt
+      \setlength{\tabcolsep}{.3em}
+      \tabulinesep=.3em
+      \begin{longtabu}{lYrccrrcY}
+        \taburowcolors1{white!95!LightGray..white!95!LightGray}
+        \rowfont[c]{}
+        {}
+          & {}
+            & {}
+              & \multicolumn{2}{c}{Size}
+                  & \multicolumn{2}{c}{Features}
+                      &{}
+                        & {}\\
+        \rowfont[c]{}
+        ID
+          & Name
+            & Impact
+              & In
+                & Ov
+                  & Pri
+                    & Hi
+                      & EoU
+                        & Licence\\
+        \taburowcolors2{white!80!LightGray..white!95!LightGray}
+      \taburowcolors1{white..white}
+      \caption{Ruby-interface library overview}
+      \label{tab:ruby-interface-overview}\\
+      \end{longtabu}
+    }
+  Java: |-
+    {
+      \centering
+      \tabulinesep=4pt
+      \setlength{\tabcolsep}{.3em}
+      \tabulinesep=.3em
+      \begin{longtabu}{lYrccrrcY}
+        \taburowcolors1{white!95!LightGray..white!95!LightGray}
+        \rowfont[c]{}
+        {}
+          & {}
+            & {}
+              & \multicolumn{2}{c}{Size}
+                  & \multicolumn{2}{c}{Features}
+                      &{}
+                        & {}\\
+        \rowfont[c]{}
+        ID
+          & Name
+            & Impact
+              & In
+                & Ov
+                  & Pri
+                    & Hi
+                      & EoU
+                        & Licence\\
+        \taburowcolors2{white!80!LightGray..white!95!LightGray}
+        006
+          & \myTextBreaker{openssl}
+            & 39.37
+              & \myNormalDing
+                & \myUpDing
+                  & 31
+                    & 14
+                      & \myDownDing
+                        & -\\
+      \taburowcolors1{white..white}
+      \caption{Java-interface library overview}
+      \label{tab:java-interface-overview}\\
+      \end{longtabu}
+    }
+  Go: |-
+    {
+      \centering
+      \tabulinesep=4pt
+      \setlength{\tabcolsep}{.3em}
+      \tabulinesep=.3em
+      \begin{longtabu}{lYrccrrcY}
+        \taburowcolors1{white!95!LightGray..white!95!LightGray}
+        \rowfont[c]{}
+        {}
+          & {}
+            & {}
+              & \multicolumn{2}{c}{Size}
+                  & \multicolumn{2}{c}{Features}
+                      &{}
+                        & {}\\
+        \rowfont[c]{}
+        ID
+          & Name
+            & Impact
+              & In
+                & Ov
+                  & Pri
+                    & Hi
+                      & EoU
+                        & Licence\\
+        \taburowcolors2{white!80!LightGray..white!95!LightGray}
+      \taburowcolors1{white..white}
+      \caption{Go-interface library overview}
+      \label{tab:go-interface-overview}\\
+      \end{longtabu}
+    }
+  PHP: |-
+    {
+      \centering
+      \tabulinesep=4pt
+      \setlength{\tabcolsep}{.3em}
+      \tabulinesep=.3em
+      \begin{longtabu}{lYrccrrcY}
+        \taburowcolors1{white!95!LightGray..white!95!LightGray}
+        \rowfont[c]{}
+        {}
+          & {}
+            & {}
+              & \multicolumn{2}{c}{Size}
+                  & \multicolumn{2}{c}{Features}
+                      &{}
+                        & {}\\
+        \rowfont[c]{}
+        ID
+          & Name
+            & Impact
+              & In
+                & Ov
+                  & Pri
+                    & Hi
+                      & EoU
+                        & Licence\\
+        \taburowcolors2{white!80!LightGray..white!95!LightGray}
+      \taburowcolors1{white..white}
+      \caption{PHP-interface library overview}
+      \label{tab:php-interface-overview}\\
+      \end{longtabu}
+    }
+  JavaScript: |-
+    {
+      \centering
+      \tabulinesep=4pt
+      \setlength{\tabcolsep}{.3em}
+      \tabulinesep=.3em
+      \begin{longtabu}{lYrccrrcY}
+        \taburowcolors1{white!95!LightGray..white!95!LightGray}
+        \rowfont[c]{}
+        {}
+          & {}
+            & {}
+              & \multicolumn{2}{c}{Size}
+                  & \multicolumn{2}{c}{Features}
+                      &{}
+                        & {}\\
+        \rowfont[c]{}
+        ID
+          & Name
+            & Impact
+              & In
+                & Ov
+                  & Pri
+                    & Hi
+                      & EoU
+                        & Licence\\
+        \taburowcolors2{white!80!LightGray..white!95!LightGray}
+      \taburowcolors1{white..white}
+      \caption{JavaScript-interface library overview}
+      \label{tab:javascript-interface-overview}\\
+      \end{longtabu}
+    }
+  Objective-C: |-
+    {
+      \centering
+      \tabulinesep=4pt
+      \setlength{\tabcolsep}{.3em}
+      \tabulinesep=.3em
+      \begin{longtabu}{lYrccrrcY}
+        \taburowcolors1{white!95!LightGray..white!95!LightGray}
+        \rowfont[c]{}
+        {}
+          & {}
+            & {}
+              & \multicolumn{2}{c}{Size}
+                  & \multicolumn{2}{c}{Features}
+                      &{}
+                        & {}\\
+        \rowfont[c]{}
+        ID
+          & Name
+            & Impact
+              & In
+                & Ov
+                  & Pri
+                    & Hi
+                      & EoU
+                        & Licence\\
+        \taburowcolors2{white!80!LightGray..white!95!LightGray}
+      \taburowcolors1{white..white}
+      \caption{Objective-C-interface library overview}
+      \label{tab:objective-c-interface-overview}\\
+      \end{longtabu}
+    }
+  Swift: |-
+    {
+      \centering
+      \tabulinesep=4pt
+      \setlength{\tabcolsep}{.3em}
+      \tabulinesep=.3em
+      \begin{longtabu}{lYrccrrcY}
+        \taburowcolors1{white!95!LightGray..white!95!LightGray}
+        \rowfont[c]{}
+        {}
+          & {}
+            & {}
+              & \multicolumn{2}{c}{Size}
+                  & \multicolumn{2}{c}{Features}
+                      &{}
+                        & {}\\
+        \rowfont[c]{}
+        ID
+          & Name
+            & Impact
+              & In
+                & Ov
+                  & Pri
+                    & Hi
+                      & EoU
+                        & Licence\\
+        \taburowcolors2{white!80!LightGray..white!95!LightGray}
+      \taburowcolors1{white..white}
+      \caption{Swift-interface library overview}
+      \label{tab:swift-interface-overview}\\
+      \end{longtabu}
+    }
+  C#: |-
+    {
+      \centering
+      \tabulinesep=4pt
+      \setlength{\tabcolsep}{.3em}
+      \tabulinesep=.3em
+      \begin{longtabu}{lYrccrrcY}
+        \taburowcolors1{white!95!LightGray..white!95!LightGray}
+        \rowfont[c]{}
+        {}
+          & {}
+            & {}
+              & \multicolumn{2}{c}{Size}
+                  & \multicolumn{2}{c}{Features}
+                      &{}
+                        & {}\\
+        \rowfont[c]{}
+        ID
+          & Name
+            & Impact
+              & In
+                & Ov
+                  & Pri
+                    & Hi
+                      & EoU
+                        & Licence\\
+        \taburowcolors2{white!80!LightGray..white!95!LightGray}
+      \taburowcolors1{white..white}
+      \caption{C\#-interface library overview}
+      \label{tab:c\#-interface-overview}\\
+      \end{longtabu}
+    }
+  Python: |-
+    {
+      \centering
+      \tabulinesep=4pt
+      \setlength{\tabcolsep}{.3em}
+      \tabulinesep=.3em
+      \begin{longtabu}{lYrccrrcY}
+        \taburowcolors1{white!95!LightGray..white!95!LightGray}
+        \rowfont[c]{}
+        {}
+          & {}
+            & {}
+              & \multicolumn{2}{c}{Size}
+                  & \multicolumn{2}{c}{Features}
+                      &{}
+                        & {}\\
+        \rowfont[c]{}
+        ID
+          & Name
+            & Impact
+              & In
+                & Ov
+                  & Pri
+                    & Hi
+                      & EoU
+                        & Licence\\
+        \taburowcolors2{white!80!LightGray..white!95!LightGray}
+      \taburowcolors1{white..white}
+      \caption{Python-interface library overview}
+      \label{tab:python-interface-overview}\\
+      \end{longtabu}
+    }
+  preamble: |
+    \usepackage{hyperref} % hyper ref "addon"
+    \usepackage[svgnames,table]{xcolor} % svg colors
+    \usepackage{pifont} % Symbols and co
+    \usepackage{longtable} % base for tabu (longtabu)
+    \usepackage{tabu} % Good table environment - best?
+    \usepackage{graphicx}
+    \usepackage{array}
+
+    \newcommand\myTextBreaker[1]{\tbhelp#1\relax\relax\relax}
+    \def\tbhelp#1#2\relax{{#1}\penalty0\ifx\relax#2\else\tbhelp#2\relax\fi}
+
+    \newcolumntype{Y}{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}X}
+
+    \newcommand{\specialcell}[2][l]{%
+      \setlength{\extrarowheight}{0pt}%
+      \def\arraystretch{1}%
+      \tabulinesep=.025em%
+      \begin{tabular}[t]{@{}#1@{}}#2\end{tabular}%
+    }
+
+    \newcommand{\myscaleding}[2][1]{\scalebox{#1}{\ding{#2}}}
+
+    \newcommand{\myUpDing}{\myscaleding[.6]{115}}
+    \newcommand{\myNormalDing}{\myscaleding[.6]{108}}
+    \newcommand{\myDownDing}{\myscaleding[.6]{116}}
+GenerateLaTeXDetailTable:
+  table: |-
+    {
+      \tiny
+      \centering
+      \tabulinesep=4pt
+      \setlength{\tabcolsep}{.3em}
+      \tabulinesep=.3em%
+      \taburulecolor{gray}
+
+      \begin{landscape}
+        \begin{longtabu}{lYllllY[.7]Y[.7]rrrlllYY[1.5]}
+          \taburowcolors2{white!95!LightGray..white!80!LightGray}
+          \rowfont[c]{\bfseries}
+          ID
+            & \cellcolor{white!87!LightGray}Name
+              & I.L.
+                & \cellcolor{white!87!LightGray}M.L.
+                  & I.Lvl.
+                    & \cellcolor{white!87!LightGray}Type
+                      & Related
+                        & \cellcolor{white!87!LightGray}Depen.
+                          & Impact
+                            & \cellcolor{white!87!LightGray}kLOC
+                              & People
+                                & \cellcolor{white!87!LightGray}Doc. Kind
+                                  & Doc. Com.
+                                    & \cellcolor{white!87!LightGray}Dates
+                                      & Licence
+                                        & \cellcolor{white!87!LightGray}URL\\
+          003
+            & \cellcolor{white!75!LightGray}\myTextBreaker{ABI}
+              & \specialcell{C,\\C++}
+                & \cellcolor{white!75!LightGray}C
+                  & \specialcell{High,\\Low}
+                    & \cellcolor{white!75!LightGray}Wrap
+                      & -
+                        & \cellcolor{white!75!LightGray}-
+                          & 11.88
+                            & \cellcolor{white!75!LightGray}0.16
+                              & \specialcell[l>{\raggedleft}p{\widthof{0000}}]{A&1\\C&1}
+                                & \cellcolor{white!75!LightGray}-
+                                  & -
+                                    & \cellcolor{white!75!LightGray}\specialcell{2016-08-27\\2016-08-28}
+                                      & MIT\myTextBreaker{JSON}
+                                        & \cellcolor{white!75!LightGray}\myURLBreaker{https://github.com/Eyenseo/ABI}\\
+        \end{longtabu}
+        \vskip-\lastskip\vspace*{-2\baselineskip}
+        \addtocounter{table}{-1}
+        \begin{longtabu}{lYY[2]YY[2]YYYY}
+          \rowfont[c]{\bfseries}\taburowcolors2{white!95!LightGray..white!80!LightGray}
+          {}
+            & \cellcolor{white!87!LightGray}EAM
+              & Block Cipher
+                & \cellcolor{white!87!LightGray}Stream Ci.
+                  & Hash
+                    & \cellcolor{white!87!LightGray}MAC
+                      & PKC
+                        & \cellcolor{white!87!LightGray}PKI
+                          & Protocol\\
+          \hphantom{000}
+            & \cellcolor{white!75!LightGray}-
+              & -
+                & \cellcolor{white!75!LightGray}-
+                  & -
+                    & \cellcolor{white!75!LightGray}-
+                      & -
+                        & \cellcolor{white!75!LightGray}-
+                          & -\\
+        \end{longtabu}
+        \vskip-\lastskip\vspace*{-2\baselineskip}
+        \addtocounter{table}{-1}
+        \begin{longtabu}{lYllllY[.7]Y[.7]rrrlllYY[1.5]}
+          \taburowcolors2{white!95!LightGray..white!80!LightGray}
+          \rowfont[c]{\bfseries}
+          \firsthline
+          ID
+            & \cellcolor{white!87!LightGray}Name
+              & I.L.
+                & \cellcolor{white!87!LightGray}M.L.
+                  & I.Lvl.
+                    & \cellcolor{white!87!LightGray}Type
+                      & Related
+                        & \cellcolor{white!87!LightGray}Depen.
+                          & Impact
+                            & \cellcolor{white!87!LightGray}kLOC
+                              & People
+                                & \cellcolor{white!87!LightGray}Doc. Kind
+                                  & Doc. Com.
+                                    & \cellcolor{white!87!LightGray}Dates
+                                      & Licence
+                                        & \cellcolor{white!87!LightGray}URL\\
+          001
+            & \cellcolor{white!75!LightGray}\myTextBreaker{cl3431.zip}
+              & \specialcell{C++}
+                & \cellcolor{white!75!LightGray}C
+                  & \specialcell{High,\\Low}
+                    & \cellcolor{white!75!LightGray}Wrap
+                      & -
+                        & \cellcolor{white!75!LightGray}-
+                          & -
+                            & \cellcolor{white!75!LightGray}387
+                              & \specialcell[l>{\raggedleft}p{\widthof{0000}}]{A&-\\C&-}
+                                & \cellcolor{white!75!LightGray}-
+                                  & -
+                                    & \cellcolor{white!75!LightGray}\specialcell{-\\-}
+                                      & -
+                                        & \cellcolor{white!75!LightGray}\myURLBreaker{ftp://ftp.franken.de/pub/crypt/cryptlib/cl3431.zip}\\
+        \end{longtabu}
+        \vskip-\lastskip\vspace*{-2\baselineskip}
+        \addtocounter{table}{-1}
+        \begin{longtabu}{lYY[2]YY[2]YYYY}
+          \rowfont[c]{\bfseries}\taburowcolors2{white!95!LightGray..white!80!LightGray}
+          {}
+            & \cellcolor{white!87!LightGray}EAM
+              & Block Cipher
+                & \cellcolor{white!87!LightGray}Stream Ci.
+                  & Hash
+                    & \cellcolor{white!87!LightGray}MAC
+                      & PKC
+                        & \cellcolor{white!87!LightGray}PKI
+                          & Protocol\\
+          \hphantom{000}
+            & \cellcolor{white!75!LightGray}HMAC
+              & AES, AES-128, AES-192, AES-256, Blowfish, DES, Triple DES, Serpent, CAST, IDEA, RC, SEED, ARIA, ARIA-128, ARIA-192, ARIA-256, Skipjack
+                & \cellcolor{white!75!LightGray}RC
+                  & MD5, SHA, SHA-1, SHA-2, SHA-3, SHA-256, SHA-512, PBKDF2, RIPEMD, Whirlpool, scrypt
+                    & \cellcolor{white!75!LightGray}HMAC
+                      & RSA, DH, DSA, ECDH, ECDSA, ElGamal
+                        & \cellcolor{white!75!LightGray}PKIX, SET, Identrus, RPKI, SigG, PKCS, CMP, SCEP, RTCS, OCSP, LDAP
+                          & TLS, SSL, PGP, SSH\\
+        \end{longtabu}
+        \vskip-\lastskip\vspace*{-2\baselineskip}
+        \addtocounter{table}{-1}
+        \begin{longtabu}{lYllllY[.7]Y[.7]rrrlllYY[1.5]}
+          \taburowcolors2{white!95!LightGray..white!80!LightGray}
+          \rowfont[c]{\bfseries}
+          \firsthline
+          ID
+            & \cellcolor{white!87!LightGray}Name
+              & I.L.
+                & \cellcolor{white!87!LightGray}M.L.
+                  & I.Lvl.
+                    & \cellcolor{white!87!LightGray}Type
+                      & Related
+                        & \cellcolor{white!87!LightGray}Depen.
+                          & Impact
+                            & \cellcolor{white!87!LightGray}kLOC
+                              & People
+                                & \cellcolor{white!87!LightGray}Doc. Kind
+                                  & Doc. Com.
+                                    & \cellcolor{white!87!LightGray}Dates
+                                      & Licence
+                                        & \cellcolor{white!87!LightGray}URL\\
+          002
+            & \cellcolor{white!75!LightGray}\myTextBreaker{foo://bar}
+              & \specialcell{C++}
+                & \cellcolor{white!75!LightGray}-
+                  & \specialcell{High,\\Low}
+                    & \cellcolor{white!75!LightGray}Wrap
+                      & -
+                        & \cellcolor{white!75!LightGray}-
+                          & -
+                            & \cellcolor{white!75!LightGray}-
+                              & \specialcell[l>{\raggedleft}p{\widthof{0000}}]{A&-\\C&-}
+                                & \cellcolor{white!75!LightGray}-
+                                  & -
+                                    & \cellcolor{white!75!LightGray}\specialcell{-\\-}
+                                      & -
+                                        & \cellcolor{white!75!LightGray}-\\
+        \end{longtabu}
+        \vskip-\lastskip\vspace*{-2\baselineskip}
+        \addtocounter{table}{-1}
+        \begin{longtabu}{lYY[2]YY[2]YYYY}
+          \rowfont[c]{\bfseries}\taburowcolors2{white!95!LightGray..white!80!LightGray}
+          {}
+            & \cellcolor{white!87!LightGray}EAM
+              & Block Cipher
+                & \cellcolor{white!87!LightGray}Stream Ci.
+                  & Hash
+                    & \cellcolor{white!87!LightGray}MAC
+                      & PKC
+                        & \cellcolor{white!87!LightGray}PKI
+                          & Protocol\\
+          \hphantom{000}
+            & \cellcolor{white!75!LightGray}-
+              & -
+                & \cellcolor{white!75!LightGray}-
+                  & -
+                    & \cellcolor{white!75!LightGray}-
+                      & -
+                        & \cellcolor{white!75!LightGray}-
+                          & -\\
+        \end{longtabu}
+        \vskip-\lastskip\vspace*{-2\baselineskip}
+        \addtocounter{table}{-1}
+        \begin{longtabu}{lYllllY[.7]Y[.7]rrrlllYY[1.5]}
+          \taburowcolors2{white!95!LightGray..white!80!LightGray}
+          \rowfont[c]{\bfseries}
+          \firsthline\firsthline\firsthline
+          ID
+            & \cellcolor{white!87!LightGray}Name
+              & I.L.
+                & \cellcolor{white!87!LightGray}M.L.
+                  & I.Lvl.
+                    & \cellcolor{white!87!LightGray}Type
+                      & Related
+                        & \cellcolor{white!87!LightGray}Depen.
+                          & Impact
+                            & \cellcolor{white!87!LightGray}kLOC
+                              & People
+                                & \cellcolor{white!87!LightGray}Doc. Kind
+                                  & Doc. Com.
+                                    & \cellcolor{white!87!LightGray}Dates
+                                      & Licence
+                                        & \cellcolor{white!87!LightGray}URL\\
+          004
+            & \cellcolor{white!75!LightGray}\myTextBreaker{cryptography}
+              & \specialcell{C}
+                & \cellcolor{white!75!LightGray}Py
+                  & \specialcell{High,\\Low}
+                    & \cellcolor{white!75!LightGray}Wrap
+                      & -
+                        & \cellcolor{white!75!LightGray}-
+                          & 36.91
+                            & \cellcolor{white!75!LightGray}49
+                              & \specialcell[l>{\raggedleft}p{\widthof{0000}}]{A&2\\C&150}
+                                & \cellcolor{white!75!LightGray}-
+                                  & -
+                                    & \cellcolor{white!75!LightGray}\specialcell{2013-08-06\\2017-08-04}
+                                      & -
+                                        & \cellcolor{white!75!LightGray}\myURLBreaker{https://github.com/pyca/cryptography}\\
+        \end{longtabu}
+        \vskip-\lastskip\vspace*{-2\baselineskip}
+        \addtocounter{table}{-1}
+        \begin{longtabu}{lYY[2]YY[2]YYYY}
+          \rowfont[c]{\bfseries}\taburowcolors2{white!95!LightGray..white!80!LightGray}
+          {}
+            & \cellcolor{white!87!LightGray}EAM
+              & Block Cipher
+                & \cellcolor{white!87!LightGray}Stream Ci.
+                  & Hash
+                    & \cellcolor{white!87!LightGray}MAC
+                      & PKC
+                        & \cellcolor{white!87!LightGray}PKI
+                          & Protocol\\
+          \hphantom{000}
+            & \cellcolor{white!75!LightGray}HMAC, Poly1305
+              & AES, AES-128, AES-192, AES-256, DES, Triple DES, Camellia, CAST, IDEA, RC, SEED
+                & \cellcolor{white!75!LightGray}RC, ChaCha
+                  & MD5, SHA, SHA-1, SHA-2, SHA-3, SHA-256, SHA-512, BLAKE2, PBKDF2, RIPEMD, Whirlpool, scrypt
+                    & \cellcolor{white!75!LightGray}HMAC, Poly1305
+                      & RSA, DH, DSA, ECDH, ECDSA
+                        & \cellcolor{white!75!LightGray}PKIX, SET, PKCS, CMP, OCSP, LDAP
+                          & TLS, SSL, PGP, SSH\\
+        \end{longtabu}
+        \vskip-\lastskip\vspace*{-2\baselineskip}
+        \addtocounter{table}{-1}
+        \begin{longtabu}{lYllllY[.7]Y[.7]rrrlllYY[1.5]}
+          \taburowcolors2{white!95!LightGray..white!80!LightGray}
+          \rowfont[c]{\bfseries}
+          \firsthline
+          ID
+            & \cellcolor{white!87!LightGray}Name
+              & I.L.
+                & \cellcolor{white!87!LightGray}M.L.
+                  & I.Lvl.
+                    & \cellcolor{white!87!LightGray}Type
+                      & Related
+                        & \cellcolor{white!87!LightGray}Depen.
+                          & Impact
+                            & \cellcolor{white!87!LightGray}kLOC
+                              & People
+                                & \cellcolor{white!87!LightGray}Doc. Kind
+                                  & Doc. Com.
+                                    & \cellcolor{white!87!LightGray}Dates
+                                      & Licence
+                                        & \cellcolor{white!87!LightGray}URL\\
+          005
+            & \cellcolor{white!75!LightGray}\myTextBreaker{OpenSSL}
+              & \specialcell{C}
+                & \cellcolor{white!75!LightGray}Swift
+                  & \specialcell{High,\\Low}
+                    & \cellcolor{white!75!LightGray}Wrap
+                      & -
+                        & \cellcolor{white!75!LightGray}-
+                          & 30.72
+                            & \cellcolor{white!75!LightGray}1.07
+                              & \specialcell[l>{\raggedleft}p{\widthof{0000}}]{A&2\\C&14}
+                                & \cellcolor{white!75!LightGray}-
+                                  & -
+                                    & \cellcolor{white!75!LightGray}\specialcell{2015-12-08\\2017-08-08}
+                                      & -
+                                        & \cellcolor{white!75!LightGray}\myURLBreaker{https://github.com/ZewoGraveyard/OpenSSL}\\
+        \end{longtabu}
+        \vskip-\lastskip\vspace*{-2\baselineskip}
+        \addtocounter{table}{-1}
+        \begin{longtabu}{lYY[2]YY[2]YYYY}
+          \rowfont[c]{\bfseries}\taburowcolors2{white!95!LightGray..white!80!LightGray}
+          {}
+            & \cellcolor{white!87!LightGray}EAM
+              & Block Cipher
+                & \cellcolor{white!87!LightGray}Stream Ci.
+                  & Hash
+                    & \cellcolor{white!87!LightGray}MAC
+                      & PKC
+                        & \cellcolor{white!87!LightGray}PKI
+                          & Protocol\\
+          \hphantom{000}
+            & \cellcolor{white!75!LightGray}HMAC
+              & -
+                & \cellcolor{white!75!LightGray}-
+                  & MD5, SHA, SHA-1, SHA-2, SHA-3, SHA-256, SHA-512, PBKDF2
+                    & \cellcolor{white!75!LightGray}HMAC
+                      & RSA
+                        & \cellcolor{white!75!LightGray}SET
+                          & SSL\\
+        \end{longtabu}
+        \vskip-\lastskip\vspace*{-2\baselineskip}
+        \addtocounter{table}{-1}
+        \begin{longtabu}{lYllllY[.7]Y[.7]rrrlllYY[1.5]}
+          \taburowcolors2{white!95!LightGray..white!80!LightGray}
+          \rowfont[c]{\bfseries}
+          \firsthline
+          ID
+            & \cellcolor{white!87!LightGray}Name
+              & I.L.
+                & \cellcolor{white!87!LightGray}M.L.
+                  & I.Lvl.
+                    & \cellcolor{white!87!LightGray}Type
+                      & Related
+                        & \cellcolor{white!87!LightGray}Depen.
+                          & Impact
+                            & \cellcolor{white!87!LightGray}kLOC
+                              & People
+                                & \cellcolor{white!87!LightGray}Doc. Kind
+                                  & Doc. Com.
+                                    & \cellcolor{white!87!LightGray}Dates
+                                      & Licence
+                                        & \cellcolor{white!87!LightGray}URL\\
+          003
+            & \cellcolor{white!75!LightGray}\myTextBreaker{ABI}
+              & \specialcell{C,\\C++}
+                & \cellcolor{white!75!LightGray}C
+                  & \specialcell{High,\\Low}
+                    & \cellcolor{white!75!LightGray}Wrap
+                      & -
+                        & \cellcolor{white!75!LightGray}-
+                          & 11.88
+                            & \cellcolor{white!75!LightGray}0.16
+                              & \specialcell[l>{\raggedleft}p{\widthof{0000}}]{A&1\\C&1}
+                                & \cellcolor{white!75!LightGray}-
+                                  & -
+                                    & \cellcolor{white!75!LightGray}\specialcell{2016-08-27\\2016-08-28}
+                                      & MIT\myTextBreaker{JSON}
+                                        & \cellcolor{white!75!LightGray}\myURLBreaker{https://github.com/Eyenseo/ABI}\\
+        \end{longtabu}
+        \vskip-\lastskip\vspace*{-2\baselineskip}
+        \addtocounter{table}{-1}
+        \begin{longtabu}{lYY[2]YY[2]YYYY}
+          \rowfont[c]{\bfseries}\taburowcolors2{white!95!LightGray..white!80!LightGray}
+          {}
+            & \cellcolor{white!87!LightGray}EAM
+              & Block Cipher
+                & \cellcolor{white!87!LightGray}Stream Ci.
+                  & Hash
+                    & \cellcolor{white!87!LightGray}MAC
+                      & PKC
+                        & \cellcolor{white!87!LightGray}PKI
+                          & Protocol\\
+          \hphantom{000}
+            & \cellcolor{white!75!LightGray}-
+              & -
+                & \cellcolor{white!75!LightGray}-
+                  & -
+                    & \cellcolor{white!75!LightGray}-
+                      & -
+                        & \cellcolor{white!75!LightGray}-
+                          & -\\
+        \end{longtabu}
+        \vskip-\lastskip\vspace*{-2\baselineskip}
+        \addtocounter{table}{-1}
+        \begin{longtabu}{lYllllY[.7]Y[.7]rrrlllYY[1.5]}
+          \taburowcolors2{white!95!LightGray..white!80!LightGray}
+          \rowfont[c]{\bfseries}
+          \firsthline\firsthline\firsthline
+          ID
+            & \cellcolor{white!87!LightGray}Name
+              & I.L.
+                & \cellcolor{white!87!LightGray}M.L.
+                  & I.Lvl.
+                    & \cellcolor{white!87!LightGray}Type
+                      & Related
+                        & \cellcolor{white!87!LightGray}Depen.
+                          & Impact
+                            & \cellcolor{white!87!LightGray}kLOC
+                              & People
+                                & \cellcolor{white!87!LightGray}Doc. Kind
+                                  & Doc. Com.
+                                    & \cellcolor{white!87!LightGray}Dates
+                                      & Licence
+                                        & \cellcolor{white!87!LightGray}URL\\
+          006
+            & \cellcolor{white!75!LightGray}\myTextBreaker{openssl}
+              & \specialcell{Java}
+                & \cellcolor{white!75!LightGray}C
+                  & \specialcell{High,\\Low}
+                    & \cellcolor{white!75!LightGray}Wrap
+                      & -
+                        & \cellcolor{white!75!LightGray}-
+                          & 39.37
+                            & \cellcolor{white!75!LightGray}396
+                              & \specialcell[l>{\raggedleft}p{\widthof{0000}}]{A&4\\C&369}
+                                & \cellcolor{white!75!LightGray}-
+                                  & -
+                                    & \cellcolor{white!75!LightGray}\specialcell{1998-12-21\\2017-08-09}
+                                      & -
+                                        & \cellcolor{white!75!LightGray}\myURLBreaker{https://github.com/openssl/openssl}\\
+        \end{longtabu}
+        \vskip-\lastskip\vspace*{-2\baselineskip}
+        \addtocounter{table}{-1}
+        \begin{longtabu}{lYY[2]YY[2]YYYY}
+          \rowfont[c]{\bfseries}\taburowcolors2{white!95!LightGray..white!80!LightGray}
+          {}
+            & \cellcolor{white!87!LightGray}EAM
+              & Block Cipher
+                & \cellcolor{white!87!LightGray}Stream Ci.
+                  & Hash
+                    & \cellcolor{white!87!LightGray}MAC
+                      & PKC
+                        & \cellcolor{white!87!LightGray}PKI
+                          & Protocol\\
+          \hphantom{000}
+            & \cellcolor{white!75!LightGray}HMAC, Poly1305
+              & AES, AES-128, AES-192, AES-256, Blowfish, DES, Triple DES, Camellia, CAST, IDEA, RC, SEED, ARIA, ARIA-128, ARIA-192, ARIA-256
+                & \cellcolor{white!75!LightGray}RC, ChaCha, Salsa
+                  & MD5, SHA, SHA-1, SHA-2, SHA-3, SHA-256, SHA-512, SHAKE, BLAKE2, PBKDF2, RIPEMD, Whirlpool, scrypt
+                    & \cellcolor{white!75!LightGray}HMAC, Poly1305
+                      & RSA, DH, DSA, ECDH, ECDSA
+                        & \cellcolor{white!75!LightGray}PKIX, SET, PKCS, CMP, OCSP, LDAP
+                          & TLS, SSL, SSH\\
+          \taburowcolors1{white..white}
+          \rowfont{\normalsize}
+          \caption{Detailed library overview}
+          \label{tab:detailed-library-overview}\\
+        \end{longtabu}
+      \end{landscape}
+    }
+  preamble: |-
+    \usepackage[hypertexnames=false]{hyperref} % hyper ref "addon"
+    \usepackage[svgnames,table]{xcolor} % svg colors
+    \usepackage{longtable} % base for tabu (longtabu)
+    \usepackage{tabu} % Good table environment - best?
+    \usepackage{array}
+    \usepackage{pdflscape}
+
+    \newcommand\myTextBreaker[1]{\tbhelp#1\relax\relax\relax}
+    \def\tbhelp#1#2\relax{%
+      {#1}\penalty0\ifx\relax#2\else\tbhelp#2\relax\fi}
+
+
+    %%%% THIS IS FUCKING MAGIC!
+    \newcommand\myURLBreaker[1]{\href{#1}{\ubhelp#1\relax\relax\relax}}
+    \def\ubhelp#1#2\relax{%
+      {\path{#1}}\penalty0\ifx\relax#2\else\ubhelp#2\relax\fi}
+
+    \newcolumntype{Y}{>{\let\newline\\\arraybackslash\hspace{0pt}}X}
+
+    \newcommand{\specialcell}[2][l]{%
+      \setlength{\extrarowheight}{0pt}%
+      \def\arraystretch{1}%
+      \tabulinesep=.025em%
+      \begin{tabular}[t]{@{}#1@{}}#2\end{tabular}%
+    }
+report_tasks:
+  ImpactCalculator:
+    version: 1.1.1
+    parameter: 99914b932bd37a50b983c5e7c90ae93b
+  ProjectSizeCalculator:
+    version: 1.0.0
+    parameter: 99914b932bd37a50b983c5e7c90ae93b
+  EaseOfUseEstimation:
+    version: 1.0.0
+    parameter: 99914b932bd37a50b983c5e7c90ae93b
+  NumericID:
+    version: 1.0.0
+    parameter: 99914b932bd37a50b983c5e7c90ae93b
+  GenerateLaTeXOverviewTable:
+    version: 1.0.0
+    parameter: ac625856acd2558bafc15efc08afffed
+  GenerateLaTeXDetailTable:
+    version: 1.0.0
+    parameter: 99914b932bd37a50b983c5e7c90ae93b
