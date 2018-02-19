@@ -47,7 +47,8 @@ const files = {
     mdToJsonGradle: path.join(paths.lib, 'md-to-json/build.gradle'),
     dataJson: path.join(paths.assets, names.data),
     versionInformationExample: path.join(paths.assets, 'VersionInformation.ts.example'),
-    versionInformation: path.join(paths.assets, 'VersionInformation.ts')
+    versionInformation: path.join(paths.assets, 'VersionInformation.ts'),
+    gsTask: path.join(paths.lib, 'gitScrabber/task_small.yaml')
 };
 
 // BUILD / UPDATE data files -------------------------------------<
@@ -444,7 +445,46 @@ gulp.task('criteria', function (done) {
     done();
 });
 
-gulp.task('build-data', gulp.series('markdown', 'criteria', 'determineColors', 'citation', 'assets'));
+gulp.task('gitScrabber', function (done) {
+    // The headline in the markdown under which the url to
+    // a repository is given
+    const urlKey = "Repository";
+    // Load data.json
+    let dataJSON = yaml2json.safeLoad(readFileSync(files.dataJson, "utf8"));
+    let task = yaml2json.safeLoad(readFileSync(files.gsTask, "utf8"));
+    // Add top.level attributes (projects, project_tasks and report_tasks)
+    // to the task
+    task.projects = [];
+    // Add urls of libraries to a new object
+
+    dataJSON.forEach(library => {
+        // TODO Ignore template file
+        // If a repository url was defined
+        if (library[urlKey]) {
+            // The url is somewhere in the childs. Content is needed if
+            // a - is at the beginning of the line in the markdown-file.
+            let url = library[urlKey].childs[0][0][0].content;
+            // TODO If url is still undefined because there is no -
+            // at the beginning of the line in the markdown-file,
+            // look for the url on a higher level of childs
+            let libUrl = JSON.parse('{"git": "' + url + '"}');
+            task.projects.push(libUrl);
+        }
+    });
+    // Save list with urls in task.yaml
+    writeFileSync(files.gsTask, yaml2json.safeDump(task), "utf8");
+
+    // Execute git scrabber with task.yaml
+    // --> Data in report.yaml
+
+    // Load report.yaml as json
+    // Add data from report that is NOT yet in data.json to data.json-list
+    // Save data in data.json
+
+    done();
+});
+
+gulp.task('build-data', gulp.series('markdown', 'criteria', 'determineColors', 'citation', 'assets', 'gitScrabber'));
 // --------------------------------------------------------------->
 
 // DEFAULT and DEV tasks -----------------------------------------<
