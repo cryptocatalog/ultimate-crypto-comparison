@@ -310,36 +310,6 @@ autoCriteria:
       '2018-01-08': {}
       '2016-12-28': {}
       '2017-12-18': {}
-  Block Ciphers:
-    values:
-      CAST-128: {}
-      CAST-256: {}
-      GOST: {}
-      KASUMI: {}
-      Mercy: {}
-      MISTY1: {}
-      NOEKEON: {}
-      SAFER: {}
-      Serpent: {}
-      SHACAL: {}
-      Simon: {}
-      SM4: {}
-      Threefish: {}
-      Twofish: {}
-      XTEA: {}
-      3-Way: {}
-      DFC: {}
-      IDEA NXT: {}
-      MMB: {}
-      TEA: {}
-      3DES: {}
-      UES: {}
-      ARIA-128: {}
-      ARIA-192: {}
-      ARIA-256: {}
-      MAGENTA: {}
-      MESH: {}
-      Skipjack: {}
   Stream Ciphers:
     values:
       Dragon: {}
@@ -399,6 +369,29 @@ autoCriteria:
       SCEP: {}
       SFTP: {}
       WTLS: {}
+  Block Ciphers:
+    values:
+      3-Way: {}
+      DFC: {}
+      GOST: {}
+      IDEA NXT: {}
+      MMB: {}
+      NOEKEON: {}
+      SAFER: {}
+      Serpent: {}
+      SM4: {}
+      Threefish: {}
+      TEA: {}
+      3DES: {}
+      Twofish: {}
+      UES: {}
+      ARIA-128: {}
+      ARIA-192: {}
+      ARIA-256: {}
+      MAGENTA: {}
+      MESH: {}
+      MISTY1: {}
+      Skipjack: {}
   License:
     values:
       Sleepycat (Berkeley Database) License: {}
