@@ -447,19 +447,24 @@ gulp.task('criteria', function (done) {
 });
 
 gulp.task('gitScrabber', function (done) {
+    // --------------------------------------------------------
+    // The git-scrabber searches for additional information for
+    // libraries. These information are e.g. used encryptions
+    // (hash functions, protocols, ...).
+    // --------------------------------------------------------
+
     // The headline in the markdown under which the url to
     // a repository is given
     const urlKey = "Repository";
-    // Load data.json
+    // Load the data.json with the data of the libraries
     let dataJSON = yaml2json.safeLoad(readFileSync(files.dataJson, "utf8"));
+    // Load the task file for the git scrabber
     let task = yaml2json.safeLoad(readFileSync(files.gsTask, "utf8"));
-    // Add top.level attributes (projects, project_tasks and report_tasks)
-    // to the task
+    // Clear projects of the task file
     task.projects = [];
-    // Add urls of libraries to a new object
-
+    // Add urls of libraries to the projects that the git scrabber searches for
     dataJSON.forEach(library => {
-        // If a repository url was defined
+        // Ignore the template library and libraries that have no url defined
         if (!library.tag.startsWith("Template") && library[urlKey]) {
             // The url is somewhere in the childs. Content is needed if
             // a - is at the beginning of the line in the markdown-file.
@@ -478,21 +483,20 @@ gulp.task('gitScrabber', function (done) {
     // Execute git scrabber with task.yaml
     // --> Data in report.yaml
 
+    // ADD DATA FROM THE REPORT OF THE GIT-SCRABBER
+
     // Load report.yaml as json
     let reportJSON = yaml2json.safeLoad(readFileSync(files.gsReport, "utf8"));
 
-    // Add data from report that is NOT yet in data.json to data.json-list
     dataJSON.forEach(library => {
-        // Only look for information of libraries that
-        // have a url
+        // Only look for information of libraries that have a url.
+        // Libraries without a url where not searched by the git-scrabber
         if (library[urlKey]) {
 
             // Get the url of the library
             let url = library[urlKey].childs[0][0][0].content;
             // Get the key of the library in the report.yaml projects
             let projectKey = getLibraryKey(reportJSON.projects, url);
-
-            // ADD ATTRIBUTES FROM THE REPORT.YAML
 
             // If the library exists in the report
             if (reportJSON.projects[projectKey]) {
@@ -514,7 +518,10 @@ gulp.task('gitScrabber', function (done) {
                     },
                 ];
 
+                // Add the values of the attributes to the data.json
                 attributes.forEach(attribute => {
+                    // Only add the attribute from the report if the value was not
+                    // yet defined in the markdown file of the library
                     if (!library[attribute.mdKey]) {
                         // Get the data from the report
                         let atrValue = reportJSON.projects[projectKey][attribute.task][attribute.gsKey];
@@ -555,21 +562,22 @@ gulp.task('gitScrabber', function (done) {
                 ];
 
                 encryptions.forEach(encryption => {
-                    // If the attribute was not yet defined for the library
+                    // Only add the encryption from the report if the encryption was not
+                    // yet defined in the markdown file of the library
                     if (!library[encryption.mdKey]) {
                         let reportCollection = reportJSON.projects[projectKey][encryption.collectionKey][encryption.gsKey];
                         // Create a map to store the values to
                         let colMap = createMapDataJSON();
-                        // For every block cipher, ...
-                        Object.keys(reportCollection).forEach(cipherKey => {
-                            // ... create object with content, plain, plainChilds and []childs
-                            let colItem = createChildDataJSON(cipherKey);
+                        // For every type of encryption (of the "encryptions" list) ...
+                        Object.keys(reportCollection).forEach(encryptionKey => {
+                            // ... create object in the format of data.json
+                            let colItem = createChildDataJSON(encryptionKey);
                             // The OCCURRENCE_THRESHOLD determines how often the
                             // attribute has to be found in the report to be added
                             // to the library
                             const OCCURRENCE_THRESHOLD = 3;
-                            // Push this object to the childs of the block-cipher-map
-                            if (reportCollection[cipherKey] > OCCURRENCE_THRESHOLD) {
+                            // Push the encryption to the list of a specific encryption type
+                            if (reportCollection[encryptionKey] > OCCURRENCE_THRESHOLD) {
                                 addToDataJSONMap(colMap, colItem);
                             }
                         });
@@ -584,6 +592,10 @@ gulp.task('gitScrabber', function (done) {
     writeFileSync(files.dataJson, JSON.stringify(dataJSON), "utf8");
 
     done();
+
+    // ------------------------------------------------------
+    // The following functions (between the lines)
+    // provide and handle data in the format of the data.json.
 
     // Adds the item to the map. The map and the item have to
     // be in the format of the data.json objects
@@ -621,6 +633,8 @@ gulp.task('gitScrabber', function (done) {
             '}'
         );
     }
+
+    // ------------------------------------------------------
 
     // Returns the key to a library of a given url from
     // a list of libraries
