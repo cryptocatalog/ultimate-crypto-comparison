@@ -459,13 +459,13 @@ gulp.task('gitScrabber', function (done) {
     // Add urls of libraries to a new object
 
     dataJSON.forEach(library => {
-        // TODO Ignore template file
         // If a repository url was defined
-        if (library[urlKey]) {
+        if (!library.tag.startsWith("Template") && library[urlKey]) {
             // The url is somewhere in the childs. Content is needed if
             // a - is at the beginning of the line in the markdown-file.
             let url = library[urlKey].childs[0][0][0].content;
-            // TODO If url is still undefined because there is no -
+            // TODO Improve search for url (optional)
+            // If url is still undefined because there is no -
             // at the beginning of the line in the markdown-file,
             // look for the url on a higher level of childs
             let libUrl = JSON.parse('{"git": "' + url + '"}');

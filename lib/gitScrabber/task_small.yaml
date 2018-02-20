@@ -5,7 +5,6 @@ projects:
   - git: 'https://github.com/bcgit/'
   - git: 'https://github.com/bcgit/bc-java'
   - git: 'https://github.com/openssl/openssl'
-  - git: 'https://github.com/SitOPT/SitOPT-Installation-Script'
 project_tasks:
   - AuthorContributorCounter
   - MetaDataCollector
