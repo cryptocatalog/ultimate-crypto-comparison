@@ -497,26 +497,27 @@ gulp.task('gitScrabber', function (done) {
             // If the library exists in the report
             if (reportJSON.projects[projectKey]) {
 
-                // LIST WITH ATTRIBUTES
+                // LIST WITH ATTRIBUTES (SINGLE ATTRIBUTES, NO COLLECTIONS!)
                 // ListItem = {markdownKey : "KEY", gitScrabberKey: "GSKEY", collection: "COLLECTIONNAME"}
+                // markdownKey: The name of the header in the markdown file
+                // gitScrabberKey: The name of the attribute key in the report.yaml of the gitSrabber
+                // collection: The name of the collection (task) of the gitScrabber
                 let attributes = [
-                    {markdownKey : "Stars", gitScrabberKey: "stars", collection: "COLLECTIONNAME"},
+                    {markdownKey : "Stars", gitScrabberKey: "stars", collection: "MetaDataCollector"},
+                    {markdownKey : "Development Language", gitScrabberKey: "main_language", collection: "LanguageDetector"},
                 ];
 
                 attributes.forEach(attribute => {
-
+                    if (!library[attribute.markdownKey]) {
+                        // Get the data from the report
+                        let atrValue = reportJSON.projects[projectKey][attribute.collection][attribute.gitScrabberKey];
+                        // Add the data to the library in data.json
+                        let atrMap = createMapDataJSON();
+                        let atrItem = createChildDataJSON(atrValue);
+                        addToDataJSONMap(atrMap, atrItem);
+                        library[attribute.markdownKey] = atrMap;
+                    }
                 });
-
-                // STARS
-                if (!library["Stars"]) {
-                    // Get the data from the report
-                    let stars = reportJSON.projects[projectKey]["MetaDataCollector"].stars;
-                    // and add the data to the library in data.json
-                    let starMap = createMapDataJSON();
-                    let starItem = createChildDataJSON(stars);
-                    addToDataJSONMap(starMap, starItem);
-                    library["Stars"] = starMap;
-                }
 
                 // BLOCK CIPHERS
                 if (!library["Block Ciphers"]) {
@@ -604,7 +605,7 @@ gulp.task('gitScrabber', function (done) {
     }
 });
 
-gulp.task('build-data', gulp.series('markdown', 'criteria', 'determineColors', 'citation', 'assets', 'gitScrabber'));
+gulp.task('build-data', gulp.series('markdown', 'gitScrabber', 'criteria', 'determineColors', 'citation', 'assets'));
 // --------------------------------------------------------------->
 
 // DEFAULT and DEV tasks -----------------------------------------<

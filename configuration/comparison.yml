@@ -340,6 +340,7 @@ autoCriteria:
       MAGENTA: {}
       MESH: {}
       Skipjack: {}
+      Triple DES: {}
   Stream Ciphers:
     values:
       Dragon: {}
@@ -403,6 +404,16 @@ autoCriteria:
     values:
       Sleepycat (Berkeley Database) License: {}
       Four-clause BSD License: {}
+  Stars:
+    values:
+      '5294': {}
+  Development Language:
+    search: true
+    table: true
+    detail: true
+    type: label
+    values:
+      C: {}
 autoColor:
   Block Cipher:
     AES:
@@ -1258,6 +1269,9 @@ autoColor:
     UES:
       color: '#ffff00'
       backgroundColor: 'hsl(285, 100%, 70%)'
+    Triple DES:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
   Stream Ciphers:
     ChaCha:
       color: '#0d0d0d'
@@ -1473,4 +1487,8 @@ autoColor:
     SCEP:
       color: '#0d0d0d'
       backgroundColor: 'hsl(15, 100%, 70%)'
+  Stars:
+    '5294':
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
 autoCitation: {}
