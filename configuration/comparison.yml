@@ -126,6 +126,10 @@ criteria:
         SHA-256: null
         SHA-512: null
         WHIRLPOOL: null
+  - Encryption Modes:
+      detail: true
+      search: true
+      table: false
   - Message Authentication Codes:
       description: Message Authentication Codes
       detail: true
@@ -362,6 +366,7 @@ autoCriteria:
       FSB: {}
       MD6: {}
       SHAKE: {}
+      Whirlpool: {}
   Public Key Cryptography:
     values:
       McEliece: {}
@@ -407,13 +412,17 @@ autoCriteria:
   Stars:
     values:
       '5294': {}
-  Development Language:
-    search: true
-    table: true
-    detail: true
-    type: label
+  Encryption Modes:
     values:
-      C: {}
+      CCM: {}
+      EAX: {}
+      GCM: {}
+      OCB: {}
+      ECB: {}
+      CBC: {}
+      CFB: {}
+      OFB: {}
+      CTR: {}
 autoColor:
   Block Cipher:
     AES:
@@ -1394,6 +1403,9 @@ autoColor:
     SHAKE:
       color: '#0d0d0d'
       backgroundColor: 'hsl(315, 100%, 70%)'
+    Whirlpool:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
   Message Authentication Codes:
     HMAC:
       color: '#0d0d0d'
@@ -1491,4 +1503,39 @@ autoColor:
     '5294':
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
+  Steam Ciphers:
+    ChaCha:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    RC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+  Encryption Modes:
+    CBC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
+    CCM:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
+    CFB:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
+    CTR:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
+    EAX:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
+    ECB:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
+    GCM:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
+    OCB:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
+    OFB:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
 autoCitation: {}

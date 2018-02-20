@@ -497,52 +497,85 @@ gulp.task('gitScrabber', function (done) {
             // If the library exists in the report
             if (reportJSON.projects[projectKey]) {
 
-                // LIST WITH ATTRIBUTES (SINGLE ATTRIBUTES, NO COLLECTIONS!)
-                // ListItem = {markdownKey : "KEY", gitScrabberKey: "GSKEY", collection: "COLLECTIONNAME"}
-                // markdownKey: The name of the header in the markdown file
-                // gitScrabberKey: The name of the attribute key in the report.yaml of the gitSrabber
-                // collection: The name of the collection (task) of the gitScrabber
+                // LIST WITH ATTRIBUTES
+                // The values of these attributes are to be added to the libraries in data.json
+                // The attributes have to be on the 3rd level in the report.yaml
+                // e.g. projects.MetaDataCollector.stars
+                // TODO Change this algorithm to search for these attributes in the whole report.yaml
+
+                // ListItem = {mdKey : "KEY", gsKey: "GSKEY", task: "COLLECTIONNAME"}
+                // mdKey: The name of the header in the markdown file
+                // gsKey: The name of the attribute key in the report.yaml of the gitSrabber
+                // task: The name of the task (task) of the gitScrabber
                 let attributes = [
-                    {markdownKey : "Stars", gitScrabberKey: "stars", collection: "MetaDataCollector"},
-                    {markdownKey : "Development Language", gitScrabberKey: "main_language", collection: "LanguageDetector"},
+                    {mdKey: "Stars", gsKey: "stars", task: "MetaDataCollector"},
+                    {
+                        mdKey: "Development Languages", gsKey: "main_language", task: "LanguageDetector"
+                    },
                 ];
 
                 attributes.forEach(attribute => {
-                    if (!library[attribute.markdownKey]) {
+                    if (!library[attribute.mdKey]) {
                         // Get the data from the report
-                        let atrValue = reportJSON.projects[projectKey][attribute.collection][attribute.gitScrabberKey];
+                        let atrValue = reportJSON.projects[projectKey][attribute.task][attribute.gsKey];
                         // Add the data to the library in data.json
                         let atrMap = createMapDataJSON();
                         let atrItem = createChildDataJSON(atrValue);
                         addToDataJSONMap(atrMap, atrItem);
-                        library[attribute.markdownKey] = atrMap;
+                        library[attribute.mdKey] = atrMap;
                     }
                 });
 
-                // BLOCK CIPHERS
-                if (!library["Block Ciphers"]) {
-                    let blockCiphers = reportJSON.projects[projectKey]["FeatureDetector"]["block ciphers"];
-                    // Create block-cipher-map with empty plain and empty child
-                    let blockCipherMap = createMapDataJSON("");
-                    // For every block chiper, ...
-                    Object.keys(blockCiphers).forEach(cipherKey => {
-                        // ... create object with content, plain, plainChilds and []childs
-                        let child = createChildDataJSON(cipherKey);
-                        // TODO only push the child to the map if the content is > 0 (or any threshold)
-                        // Push this object to the childs of the block-cipher-map
-                        addToDataJSONMap(blockCipherMap, child);
-                    });
-                    library["Block Ciphers"] = blockCipherMap;
-                }
+                // LIST WITH ENCRYPTION TYPES
+                let encryptions = [
+                    {mdKey: "Block Ciphers", gsKey: "block ciphers", collectionKey: "FeatureDetector"},
+                    {mdKey: "Stream Ciphers", gsKey: "stream ciphers", collectionKey: "FeatureDetector"},
+                    {mdKey: "Hash Functions", gsKey: "hash", collectionKey: "FeatureDetector"},
+                    {
+                        mdKey: "Encryption Modes",
+                        gsKey: "encryption modes",
+                        collectionKey: "FeatureDetector"
+                    },
+                    {
+                        mdKey: "Message Authentication Codes",
+                        gsKey: "message authentication codes",
+                        collectionKey: "FeatureDetector"
+                    },
+                    {
+                        mdKey: "Public Key Cryptography",
+                        gsKey: "public key cryptography",
+                        collectionKey: "FeatureDetector"
+                    },
+                    {
+                        mdKey: "Public Key Infrastructure",
+                        gsKey: "public key infrastructure",
+                        collectionKey: "FeatureDetector"
+                    },
+                    {mdKey: "Protocol", gsKey: "protocol", collectionKey: "FeatureDetector"},
+                ];
 
-                // TODO ContributorData
-                // TODO Metadata
-                // TODO Dates
-                // TODO Languages
-                // TODO Metrics
-                // TODO License
-                // TODO Features
-                // TODO Size
+                encryptions.forEach(encryption => {
+                    // If the attribute was not yet defined for the library
+                    if (!library[encryption.mdKey]) {
+                        let reportCollection = reportJSON.projects[projectKey][encryption.collectionKey][encryption.gsKey];
+                        // Create a map to store the values to
+                        let colMap = createMapDataJSON();
+                        // For every block cipher, ...
+                        Object.keys(reportCollection).forEach(cipherKey => {
+                            // ... create object with content, plain, plainChilds and []childs
+                            let colItem = createChildDataJSON(cipherKey);
+                            // The OCCURRENCE_THRESHOLD determines how often the
+                            // attribute has to be found in the report to be added
+                            // to the library
+                            const OCCURRENCE_THRESHOLD = 3;
+                            // Push this object to the childs of the block-cipher-map
+                            if (reportCollection[cipherKey] > OCCURRENCE_THRESHOLD) {
+                                addToDataJSONMap(colMap, colItem);
+                            }
+                        });
+                        library[encryption.mdKey] = colMap;
+                    }
+                });
             }
         }
     });
