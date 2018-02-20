@@ -10,10 +10,10 @@ Botan's goal is to be the best option for cryptography in new C++ code by offeri
 ## Repository
 - https://github.com/randombit/botan
 
-## Development Language
+## Development Languages
 - C++11
 
-## Interface Language
+## Interface Languages
 - C++11
 
 ## Creation Date
@@ -25,7 +25,7 @@ Botan's goal is to be the best option for cryptography in new C++ code by offeri
 ## Release Date
 - 2018-01-08
 
-## Block Cipher
+## Block Ciphers
 - AES
 - AES-128
 - AES-192
@@ -60,7 +60,7 @@ Botan's goal is to be the best option for cryptography in new C++ code by offeri
 - Twofish
 - XTEA
 
-## Stream Cipher
+## Stream Ciphers
 - ChaCha
 - Dragon
 - eSTREAM
@@ -71,7 +71,7 @@ Botan's goal is to be the best option for cryptography in new C++ code by offeri
 - Salsa
 - Turing
 
-## Hash
+## Hash Functions
 - BLAKE2
 - GOST
 - MD5
@@ -90,11 +90,11 @@ Botan's goal is to be the best option for cryptography in new C++ code by offeri
 - Tiger
 - WHIRLPOOL
 
-## MAC
+## Message Authentication Codes
 - HMAC
 - Poly1305
 
-## PKC
+## Public Key Cryptography
 - DH
 - DSA
 - DSS
@@ -104,7 +104,7 @@ Botan's goal is to be the best option for cryptography in new C++ code by offeri
 - McEliece
 - RSA
 
-## PKI
+## Public Key Infrastructure
 - CMP
 - Identrus
 - OCSP

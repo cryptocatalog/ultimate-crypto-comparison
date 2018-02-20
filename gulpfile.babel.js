@@ -48,7 +48,8 @@ const files = {
     dataJson: path.join(paths.assets, names.data),
     versionInformationExample: path.join(paths.assets, 'VersionInformation.ts.example'),
     versionInformation: path.join(paths.assets, 'VersionInformation.ts'),
-    gsTask: path.join(paths.lib, 'gitScrabber/task_small.yaml')
+    gsTask: path.join(paths.lib, 'gitScrabber/task_small.yaml'),
+    gsReport: path.join(paths.lib, 'gitScrabber/report.yaml')
 };
 
 // BUILD / UPDATE data files -------------------------------------<
@@ -478,10 +479,78 @@ gulp.task('gitScrabber', function (done) {
     // --> Data in report.yaml
 
     // Load report.yaml as json
+    let reportJSON = yaml2json.safeLoad(readFileSync(files.gsReport, "utf8"));
+
     // Add data from report that is NOT yet in data.json to data.json-list
+    dataJSON.forEach(library => {
+        // If the library has a url
+        if (library[urlKey]) {
+            // Get the url of the library
+            let url = library[urlKey].childs[0][0][0].content;
+            // If the library does not have an attribute stars yet
+            if (!library["Stars"]) {
+                let projectKey = getLibraryKey(reportJSON.projects, url);
+                // If the library exists in the report
+                if (reportJSON.projects[projectKey]) {
+                    // Get the data from the report
+                    let stars = reportJSON.projects[projectKey]["MetaDataCollector"].stars;
+                    // and add the data to the library in data.json
+                    addDataToDataJSON(library, stars, "Stars");
+                }
+            }
+            // TODO ContributorData
+            // TODO Metadata
+            // TODO Dates
+            // TODO Languages
+            // TODO Metrics
+            // TODO License
+            // TODO Features
+            // TODO Size
+        }
+    });
+
     // Save data in data.json
+    writeFileSync(files.dataJson, JSON.stringify(dataJSON), "utf8");
 
     done();
+
+    // Adds the given attribute under the attribute to the
+    // library in the data.json object
+    function addDataToDataJSON(library, attribute, attributeName) {
+        library[attributeName] = JSON.parse(
+            '{"plain": "- ' + attribute + '\\n",' +
+            '"childs": {' +
+            '"0": [' +
+            '[' +
+            '{' +
+            '"content": "' + JSON.stringify(attribute) + '",' +
+            '"plain": "' + JSON.stringify(attribute) + '\\n",' +
+            '"plainChilds": "",' +
+            '"childs": [' +
+            '' +
+            ']' +
+            '}' +
+            ']' +
+            ']' +
+            '}' +
+            '}'
+        );
+    }
+
+    // Returns the key to a library of a given url from
+    // a list of libraries
+    function getLibraryKey(list, url) {
+        let key = null;
+        // Look for the correct library in the report and
+        // Add the information to the data.json
+        Object.keys(list).forEach(projectKey => {
+            // The correct library can be identified with the url
+            if (list[projectKey].url === url) {
+                key = projectKey;
+            }
+        });
+        return key;
+    }
 });
 
 gulp.task('build-data', gulp.series('markdown', 'criteria', 'determineColors', 'citation', 'assets', 'gitScrabber'));

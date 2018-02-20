@@ -10,10 +10,10 @@ The Bouncy Castle Crypto package is a C# implementation of cryptographic algorit
 ## Repository
 - https://github.com/bcgit/
 
-## Interface Language
+## Interface Languages
 - Java FIPS
 
-## Development Language
+## Development Languages
 - C#
 - Java
 

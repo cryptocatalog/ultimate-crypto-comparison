@@ -7,7 +7,7 @@ cryptlib is an open source cross-platform software security toolkit library. It 
 ## Description
 The cryptlib Security Software Development Toolkit allows even inexperienced developers to easily add world-class security services to their applications by learning a single API. cryptlib manages all your SSL, SSH, TLS, S/MIME, PGP, OpenPGP, PKI, X.509, CMP, OCSP and SCEP security requirements, and more. cryptlib was designed by security experts, but not exclusively for security experts. It is highly efficient and has been rigorously tested across a wide range of operating systems and platforms over the last 18 years. The cryptlib software has been deployed and proven in many different sectors, and our clients state that it is the only security software development toolkit you’ll ever need.
 
-## Development Language
+## Development Languages
 - C
 
 ## Creation Date
@@ -16,7 +16,7 @@ The cryptlib Security Software Development Toolkit allows even inexperienced dev
 ## Release
 - 3.4.3.1
 
-## Block Cipher
+## Block Ciphers
 - AES
 - AES-128
 - AES-192
@@ -48,7 +48,7 @@ The cryptlib Security Software Development Toolkit allows even inexperienced dev
 - Skipjack
 - 3DES
 
-## Stream Cipher
+## Stream Ciphers
 - Dragon
 - FISH
 - LEX
@@ -58,7 +58,7 @@ The cryptlib Security Software Development Toolkit allows even inexperienced dev
 - Vernam
 - WAKE
 
-## Hash
+## Hash Functions
 - GOST
 - MD2
 - MD5
@@ -75,11 +75,11 @@ The cryptlib Security Software Development Toolkit allows even inexperienced dev
 - Tiger
 - WHIRLPOOL
 
-## MAC
+## Message Authentication Codes
 - HMAC
 - XCBC
 
-## PKC
+## Public Key Cryptography
 - DH
 - DSA
 - DSS
@@ -88,7 +88,7 @@ The cryptlib Security Software Development Toolkit allows even inexperienced dev
 - ElGamal
 - RSA
 
-## PKI
+## Public Key Infrastructure
 - CMP
 - DVCS
 - EJBCA

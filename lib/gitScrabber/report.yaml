@@ -22,7 +22,7 @@ projects:
       licences:
       - MIT
       - JSON
-    url: https://github.com/Eyenseo/ABI
+    url: https://github.com/randombit/botan
     name: ABI
     AuthorContributorCounter:
       author#: 1

@@ -13,6 +13,6 @@ OpenSSL is a software library for applications that secure communications over c
 ## Creation Date
 - 1998
 
-## Development Language
+## Development Languages
 - C
 - Assembly

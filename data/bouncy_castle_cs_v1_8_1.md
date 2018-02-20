@@ -10,17 +10,17 @@ The Bouncy Castle Crypto package is a C# implementation of cryptographic algorit
 ## Repository
 - https://github.com/bcgit/bc-csharp
 
-## Interface Language
+## Interface Languages
 - C#
 
-## Development Language
+## Development Languages
 - C#
 - Java
 
 ## Release
 - 1.8.1
 
-## Block Cipher
+## Block Ciphers
 - 3-Way
 - AES
 - AES-128
@@ -55,7 +55,7 @@ The Bouncy Castle Crypto package is a C# implementation of cryptographic algorit
 - Twofish
 - UES
 
-## Stream Cipher
+## Stream Ciphers
 - ChaCha
 - eSTREAM
 - ISAAC
@@ -66,7 +66,7 @@ The Bouncy Castle Crypto package is a C# implementation of cryptographic algorit
 - Salsa
 - ZUC
 
-## Hash
+## Hash Functions
 - BLAKE2
 - FSB
 - GOST
@@ -85,12 +85,12 @@ The Bouncy Castle Crypto package is a C# implementation of cryptographic algorit
 - Skein
 - WHIRLPOOL
 
-## MAC
+## Message Authentication Codes
 - HMAC
 - OMAC
 - Poly1305
 
-## PKC
+## Public Key Cryptography
 - DH
 - DSA
 - DSS

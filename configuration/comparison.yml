@@ -48,20 +48,20 @@ criteria:
       search: false
       table: false
       type: markdown
-  - Interface Language:
+  - Interface Languages:
       name: Interface language
       description: The language the library is for
       detail: true
       search: true
       table: true
       type: label
-  - Development Language:
-      description: The language the library is written in
+  - Development Languages:
+      description: The languages the library is written in
       detail: true
       search: false
       table: false
       type: label
-  - Block Cipher:
+  - Block Ciphers:
       detail: true
       search: true
       table: false
@@ -90,7 +90,7 @@ criteria:
         RC5: null
         RC6: null
         SEED: null
-  - Stream Cipher:
+  - Stream Ciphers:
       detail: true
       search: true
       table: false
@@ -107,7 +107,7 @@ criteria:
         Turing: null
         Vernam: null
         WAKE: null
-  - Hash:
+  - Hash Functions:
       description: Hash Function
       detail: true
       search: true
@@ -126,8 +126,8 @@ criteria:
         SHA-256: null
         SHA-512: null
         WHIRLPOOL: null
-  - MAC:
-      description: Message Authentication Code
+  - Message Authentication Codes:
+      description: Message Authentication Codes
       detail: true
       search: true
       table: false
@@ -137,7 +137,7 @@ criteria:
         OMAC: null
         Poly1305: null
         XCBC: null
-  - PKC:
+  - Public Key Cryptography:
       description: Public Key Cryptography
       detail: true
       search: true
@@ -154,7 +154,7 @@ criteria:
         Paillier: null
         RSA: null
         YAK: null
-  - PKI:
+  - Public Key Infrastructure:
       description: Public Key Infrastructure
       detail: true
       search: true
@@ -279,14 +279,14 @@ criteria:
       search: false
       table: false
 autoCriteria:
-  Development Language:
+  Development Languages:
     values:
       C++11: {}
       'C#': {}
       Java: {}
       C: {}
       Assembly: {}
-  Interface Language:
+  Interface Languages:
     values:
       C++11: {}
       'C# FIPS': {}
@@ -310,7 +310,7 @@ autoCriteria:
       '2018-01-08': {}
       '2016-12-28': {}
       '2017-12-18': {}
-  Block Cipher:
+  Block Ciphers:
     values:
       CAST-128: {}
       CAST-256: {}
@@ -340,7 +340,7 @@ autoCriteria:
       MAGENTA: {}
       MESH: {}
       Skipjack: {}
-  Stream Cipher:
+  Stream Ciphers:
     values:
       Dragon: {}
       eSTREAM: {}
@@ -350,7 +350,7 @@ autoCriteria:
       ZUC: {}
       Crypto1: {}
       FISH: {}
-  Hash:
+  Hash Functions:
     values:
       BLAKE2: {}
       scrypt: {}
@@ -361,10 +361,10 @@ autoCriteria:
       FSB: {}
       MD6: {}
       SHAKE: {}
-  PKC:
+  Public Key Cryptography:
     values:
       McEliece: {}
-  PKI:
+  Public Key Infrastructure:
     values:
       Identrus: {}
       OCSP: {}
@@ -1072,4 +1072,405 @@ autoColor:
     '300':
       color: '#0d0d0d'
       backgroundColor: 'hsl(195, 100%, 70%)'
+  Development Languages:
+    C++11:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    Assembly:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(210, 100%, 70%)'
+    C:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(210, 100%, 70%)'
+    'C#':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(210, 100%, 70%)'
+    Java:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(210, 100%, 70%)'
+  Interface Languages:
+    C++11:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    'C#':
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
+    'C# FIPS':
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
+    Java:
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
+    Java FIPS:
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
+  Block Ciphers:
+    AES:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    AES-128:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    AES-192:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    AES-256:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    Blowfish:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    Camellia:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    CAST:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    CAST-128:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    CAST-256:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    DEAL:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    DES:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    FPE:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    GOST:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    IDEA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    KASUMI:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    M6:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    M8:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    Mercy:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    MISTY1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    NDS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    NOEKEON:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    PRESENT:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    RC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    RC5:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    SAFER:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    SEED:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    Serpent:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    SHACAL:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    Simon:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    SM4:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    Threefish:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    Twofish:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    XTEA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    ARIA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(180, 100%, 70%)'
+    CDMF:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(180, 100%, 70%)'
+    NXT:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(180, 100%, 70%)'
+    RC2:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(180, 100%, 70%)'
+    RC6:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(180, 100%, 70%)'
+    3-Way:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    3DES:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    ARIA-128:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    ARIA-192:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    ARIA-256:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    DFC:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    IDEA NXT:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    MAGENTA:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    MESH:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    MMB:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    Skipjack:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    TEA:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    UES:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+  Stream Ciphers:
+    ChaCha:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(135, 100%, 70%)'
+    Dragon:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(135, 100%, 70%)'
+    eSTREAM:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(135, 100%, 70%)'
+    LEX:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(135, 100%, 70%)'
+    MAG:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(135, 100%, 70%)'
+    NLS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(135, 100%, 70%)'
+    RC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(135, 100%, 70%)'
+    Salsa:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(135, 100%, 70%)'
+    Turing:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(135, 100%, 70%)'
+    Panama:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(195, 100%, 70%)'
+    Rabbit:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(195, 100%, 70%)'
+    SEAL:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(195, 100%, 70%)'
+    Vernam:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(195, 100%, 70%)'
+    WAKE:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(195, 100%, 70%)'
+    Crypto1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    FISH:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    ISAAC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    Py:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    ZUC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+  Hash Functions:
+    BLAKE2:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    GOST:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    MD5:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    PBKDF2:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    RIPEMD:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    scrypt:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    SHA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    SHA-1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    SHA-2:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    SHA-256:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    SHA-3:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    SHA-512:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    SipHash:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    Skein:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    Streebog:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    Tiger:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    WHIRLPOOL:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
+    MD2:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(210, 100%, 70%)'
+    FSB:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    MD6:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    SHAKE:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+  Message Authentication Codes:
+    HMAC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
+    Poly1305:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
+    OMAC:
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
+    XCBC:
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
+  Public Key Cryptography:
+    DH:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(180, 100%, 70%)'
+    DSA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(180, 100%, 70%)'
+    DSS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(180, 100%, 70%)'
+    ECDH:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(180, 100%, 70%)'
+    ECDSA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(180, 100%, 70%)'
+    ElGamal:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(180, 100%, 70%)'
+    McEliece:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(180, 100%, 70%)'
+    RSA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(180, 100%, 70%)'
+    LUC:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    Paillier:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    YAK:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+  Public Key Infrastructure:
+    CMP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(195, 100%, 70%)'
+    Identrus:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(195, 100%, 70%)'
+    OCSP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(195, 100%, 70%)'
+    PKCS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(195, 100%, 70%)'
+    PKIX:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(195, 100%, 70%)'
+    SET:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(195, 100%, 70%)'
+    X.509:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(195, 100%, 70%)'
+    SigG:
+      color: '#ffff00'
+      backgroundColor: 'hsl(255, 100%, 70%)'
+    DVCS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
+    EJBCA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
+    LDAP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
+    'PKCS#7':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
+    RPKI:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
+    RTCS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
+    SCEP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
 autoCitation: {}
