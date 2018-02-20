@@ -497,26 +497,39 @@ gulp.task('gitScrabber', function (done) {
             // If the library exists in the report
             if (reportJSON.projects[projectKey]) {
 
+                // LIST WITH ATTRIBUTES
+                // ListItem = {markdownKey : "KEY", gitScrabberKey: "GSKEY", collection: "COLLECTIONNAME"}
+                let attributes = [
+                    {markdownKey : "Stars", gitScrabberKey: "stars", collection: "COLLECTIONNAME"},
+                ];
+
+                attributes.forEach(attribute => {
+
+                });
+
                 // STARS
                 if (!library["Stars"]) {
                     // Get the data from the report
                     let stars = reportJSON.projects[projectKey]["MetaDataCollector"].stars;
                     // and add the data to the library in data.json
-                    addSingleDataToDataJSON(library, stars, "Stars");
-
+                    let starMap = createMapDataJSON();
+                    let starItem = createChildDataJSON(stars);
+                    addToDataJSONMap(starMap, starItem);
+                    library["Stars"] = starMap;
                 }
 
                 // BLOCK CIPHERS
                 if (!library["Block Ciphers"]) {
                     let blockCiphers = reportJSON.projects[projectKey]["FeatureDetector"]["block ciphers"];
                     // Create block-cipher-map with empty plain and empty child
-                    let blockCipherMap = createEmtypMapDataJSON();
+                    let blockCipherMap = createMapDataJSON("");
                     // For every block chiper, ...
                     Object.keys(blockCiphers).forEach(cipherKey => {
                         // ... create object with content, plain, plainChilds and []childs
                         let child = createChildDataJSON(cipherKey);
+                        // TODO only push the child to the map if the content is > 0 (or any threshold)
                         // Push this object to the childs of the block-cipher-map
-                        blockCipherMap.childs[0][0].push(child)
+                        addToDataJSONMap(blockCipherMap, child);
                     });
                     library["Block Ciphers"] = blockCipherMap;
                 }
@@ -538,14 +551,20 @@ gulp.task('gitScrabber', function (done) {
 
     done();
 
-    // Creates and returns an empty map in the format of dataJSON
-    function createEmtypMapDataJSON() {
+    // Adds the item to the map. The map and the item have to
+    // be in the format of the data.json objects
+    function addToDataJSONMap(map, item) {
+        map.childs[0][0].push(item);
+    }
+
+    // Adds the given value under the key to the
+    // given map in the format of the object in data.json
+    function createMapDataJSON() {
         return JSON.parse(
             '{"plain": "",' +
             '"childs": {' +
             '"0": [' +
-            '[' +
-            ']' +
+            '[]' +
             ']' +
             '}' +
             '}'
@@ -554,35 +573,17 @@ gulp.task('gitScrabber', function (done) {
 
     // Creates and returns a child in the format of data.json
     function createChildDataJSON(attributeValue) {
+        if (!attributeValue || attributeValue === "") {
+            return ""
+        }
+
+        // Return a child in the format of data.json objects
         return JSON.parse(
             '{' +
             '"content": "' + attributeValue + '",' +
             '"plain": "' + attributeValue + '\\n",' +
             '"plainChilds": "",' +
             '"childs": []' +
-            '}'
-        );
-    }
-
-    // Adds the given value under the key to the
-    // given map in the format of the object in data.json
-    function addSingleDataToDataJSON(attributeMap, attributeValue, attributeKey) {
-        attributeMap[attributeKey] = JSON.parse(
-            '{"plain": "- ' + attributeValue + '\\n",' +
-            '"childs": {' +
-            '"0": [' +
-            '[' +
-            '{' +
-            '"content": "' + JSON.stringify(attributeValue) + '",' +
-            '"plain": "' + JSON.stringify(attributeValue) + '\\n",' +
-            '"plainChilds": "",' +
-            '"childs": [' +
-            '' +
-            ']' +
-            '}' +
-            ']' +
-            ']' +
-            '}' +
             '}'
         );
     }
