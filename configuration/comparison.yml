@@ -32,7 +32,7 @@ criteria:
       table: false
       type: label
   - Repository:
-      detail: false
+      detail: true
       search: false
       table: false
       type: repository
@@ -49,7 +49,7 @@ criteria:
       table: false
       type: markdown
   - Interface Languages:
-      name: Interface language
+      name: Interface Lang
       description: The language the library is for
       detail: true
       search: true
@@ -344,7 +344,6 @@ autoCriteria:
       MAGENTA: {}
       MESH: {}
       Skipjack: {}
-      Triple DES: {}
   Stream Ciphers:
     values:
       Dragon: {}
@@ -366,7 +365,6 @@ autoCriteria:
       FSB: {}
       MD6: {}
       SHAKE: {}
-      Whirlpool: {}
   Public Key Cryptography:
     values:
       McEliece: {}
@@ -377,8 +375,8 @@ autoCriteria:
       PKCS: {}
       PKIX: {}
       X.509: {}
-      DVCS: {}
       LDAP: {}
+      DVCS: {}
       'PKCS#7': {}
       EJBCA: {}
       RPKI: {}
@@ -405,24 +403,32 @@ autoCriteria:
       SCEP: {}
       SFTP: {}
       WTLS: {}
+  Stars:
+    values:
+      '384': {}
+      '609': {}
+      '743': {}
+      '6420': {}
+  Encryption Modes:
+    values:
+      BPS: {}
+      CBC: {}
+      CCM: {}
+      CFB: {}
+      CTR: {}
+      EAX: {}
+      ECB: {}
+      FFX: {}
+      GCM: {}
+      IOC: {}
+      OCB: {}
+      OFB: {}
+      SIV: {}
+      ABC: {}
   License:
     values:
       Sleepycat (Berkeley Database) License: {}
       Four-clause BSD License: {}
-  Stars:
-    values:
-      '5294': {}
-  Encryption Modes:
-    values:
-      CCM: {}
-      EAX: {}
-      GCM: {}
-      OCB: {}
-      ECB: {}
-      CBC: {}
-      CFB: {}
-      OFB: {}
-      CTR: {}
 autoColor:
   Block Cipher:
     AES:
@@ -1500,7 +1506,19 @@ autoColor:
       color: '#0d0d0d'
       backgroundColor: 'hsl(15, 100%, 70%)'
   Stars:
+    '384':
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
+    '609':
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
+    '743':
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
     '5294':
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
+    '6420':
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
   Steam Ciphers:
@@ -1538,4 +1556,19 @@ autoColor:
     OFB:
       color: '#0d0d0d'
       backgroundColor: 'hsl(165, 100%, 70%)'
+    ABC:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    BPS:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    FFX:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    IOC:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    SIV:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
 autoCitation: {}

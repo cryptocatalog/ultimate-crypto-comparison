@@ -474,6 +474,9 @@ gulp.task('gitScrabber', function (done) {
             // at the beginning of the line in the markdown-file,
             // look for the url on a higher level of childs
             let libUrl = JSON.parse('{"git": "' + url + '"}');
+            // TODO Add existing data to generalData in task.yaml
+            // This allows the git scrabber to compute additional values
+            // e.g. The interface languages etc.
             task.projects.push(libUrl);
         }
     });
@@ -505,6 +508,7 @@ gulp.task('gitScrabber', function (done) {
                 // The values of these attributes are to be added to the libraries in data.json
                 // The attributes have to be on the 3rd level in the report.yaml
                 // e.g. projects.MetaDataCollector.stars
+                // The task.yaml of the git-scrabber has to contain the task of the item in this list!
                 // TODO Change this algorithm to search for these attributes in the whole report.yaml
 
                 // ListItem = {mdKey : "KEY", gsKey: "GSKEY", task: "COLLECTIONNAME"}
@@ -514,7 +518,7 @@ gulp.task('gitScrabber', function (done) {
                 let attributes = [
                     {mdKey: "Stars", gsKey: "stars", task: "MetaDataCollector"},
                     {
-                        mdKey: "Development Languages", gsKey: "main_language", task: "LanguageDetector"
+                        mdKey: "Development Languages", gsKey: "main_language", task: "MetaDataCollector"
                     },
                 ];
 
@@ -522,7 +526,8 @@ gulp.task('gitScrabber', function (done) {
                 attributes.forEach(attribute => {
                     // Only add the attribute from the report if the value was not
                     // yet defined in the markdown file of the library
-                    if (!library[attribute.mdKey]) {
+                    // and only if the report.yaml contains the task and the gsKey
+                    if (!library[attribute.mdKey] && attribute.task && attribute.gsKey) {
                         // Get the data from the report
                         let atrValue = reportJSON.projects[projectKey][attribute.task][attribute.gsKey];
                         // Add the data to the library in data.json
@@ -581,7 +586,11 @@ gulp.task('gitScrabber', function (done) {
                                 addToDataJSONMap(colMap, colItem);
                             }
                         });
-                        library[encryption.mdKey] = colMap;
+                        // Only add the encryption type to the library if the report
+                        // found a enryption
+                        if (Object.keys(colMap.childs[0][0]).length > 0) {
+                            library[encryption.mdKey] = colMap;
+                        }
                     }
                 });
             }

@@ -6,12 +6,7 @@ projects:
   - git: 'https://github.com/bcgit/bc-java'
   - git: 'https://github.com/openssl/openssl'
 project_tasks:
-  - AuthorContributorCounter
   - MetaDataCollector
-  - LanguageDetector
-  - ProjectDates
-  - ProjectMetrics
-  - LicenceDetector
   - FeatureDetector:
       block ciphers:
         3-Way:
@@ -1310,16 +1305,4 @@ project_tasks:
           - ZRTP
           - Real-time Transport Protocol
           - Real time Transport Protocol
-report_tasks:
-  - GenerateLaTeXOverviewTable:
-      primitivCategorieses:
-        - block ciphers
-        - stream ciphers
-        - encryption modes
-        - message authentication codes
-        - hashes
-      highlevelCategories:
-        - public key infrastructure
-        - public key cryptography
-        - protocol
-  - GenerateLaTeXDetailTable
+report_tasks: null
