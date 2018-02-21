@@ -16,7 +16,7 @@ export class NumberInputComponent implements InputInterface {
     @Input() criteria: Criteria;
     @Input() tag: string;
     @Input() name: string;
-    @Input() active: Array<string> = [];
+    @Input() active: Array<{ id: string, text: string }> = [];
     @ViewChild('content') content: ElementRef;
     @Output() result: EventEmitter<Array<string>> = new EventEmitter<Array<string>>();
 
@@ -24,8 +24,8 @@ export class NumberInputComponent implements InputInterface {
         NumberInputComponent.components.push(this);
     }
 
-    public criteriaChanged(value: Array<String> | KeyboardEvent | { target: { value: string } }) {
-        this.result.emit([this.content.nativeElement.value]);
+    public criteriaChanged() {
+        this.result.emit(this.content.nativeElement.value);
     }
 
     public getActive(state: IUCAppState, crit: Criteria) {
@@ -55,12 +55,12 @@ export class NumberInputComponent implements InputInterface {
             item = ', ' + item;
         }
         this.content.nativeElement.value += item;
-        this.criteriaChanged({target: {value: this.content.nativeElement.value}});
+        this.criteriaChanged();
     }
 
     public getValue() {
         if (!isNullOrUndefined(this.active) && this.active.length > 0) {
-            return this.active[0];
+            return this.active[0].text;
         }
         return '';
     }

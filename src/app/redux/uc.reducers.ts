@@ -1,6 +1,11 @@
 import { IUCAppState, UcAppState } from './uc.app-state';
 import {
-    UCAction, UCClickAction, UCDataUpdateAction, UCRouterAction, UCSearchUpdateAction, UCSettingsUpdateAction,
+    UCAction,
+    UCClickAction,
+    UCDataUpdateAction,
+    UCRouterAction,
+    UCSearchUpdateAction,
+    UCSettingsUpdateAction,
     UCTableOrderAction
 } from './uc.action';
 import { DataService } from '../components/comparison/data/data.service';
@@ -338,7 +343,7 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
             const criteria = state.criterias.get(columnName);
             if (criteria.rangeSearch) {
                 if (state.currentSearch.get(field).length > 0) {
-                    const queries = state.currentSearch.get(field)[0].trim().replace(' ', '')
+                    const queries = (state.currentSearch.get(field)[0] || '').trim().replace(' ', '')
                         .replace(/,.*[a-zA-Z].*|.*[a-zA-Z].*,|.*[a-zA-Z].*/g, '').split(',');
                     if (queries.length === 0 || queries.map(y => y.length === 0).reduce((p, c) => p && c)) {
                         continue;
@@ -354,7 +359,7 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
                         } else if (splits.length === 2 && splits[0].length === 0) {
                             // only one number in the query and it is negative
                             a = b = -1 * Number.parseInt(splits[1]);
-                        } else if (splits.length === 2 && splits[0].length > 0 && splits[1] .length > 0) {
+                        } else if (splits.length === 2 && splits[0].length > 0 && splits[1].length > 0) {
                             // range search with two positive numbers
                             a = Number.parseInt(splits[0]);
                             b = Number.parseInt(splits[1]);
@@ -366,7 +371,7 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
                         } else if (splits.length === 2 && splits[0].length > 0 && splits[1].length === 0) {
                             // intermittent range search, something like `250-` inbetween entering valid states
                             a = b = Number.parseInt(splits[0]);
-                        } else if (splits.length === 3 && splits[0].length === 0 && splits[2] .length === 0) {
+                        } else if (splits.length === 3 && splits[0].length === 0 && splits[2].length === 0) {
                             // intermittent range search, something like `-250-` inbetween entering valid states
                             a = b = -1 * Number.parseInt(splits[1]);
                         } else if (splits.length === 3 && splits[0].length === 0 && splits[2].length > 0) {
@@ -399,8 +404,9 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
                     includeData = includeData && includeElement;
                 }
             } else {
-                let fulfillsField = criteria.andSearch;
-                for (const query of state.currentSearch.get(columnName)) {
+                const searchArray = state.currentSearch.get(columnName);
+                let fulfillsField = criteria.andSearch || isNullOrUndefined(searchArray) || searchArray.length === 0;
+                for (const query of searchArray) {
                     let fulfillsQuery = false;
                     for (const key of (<Map<string, any>>data[i].criteria.get(criteria.name)).keys()) {
                         fulfillsQuery = fulfillsQuery || (key === query);
@@ -652,10 +658,25 @@ function detailsReducer(state: IUCAppState = new UcAppState(), action: UCAction)
 
 function searchReducer(state: IUCAppState = new UcAppState(), action: UCSearchUpdateAction) {
     for (const [key, value] of action.criterias) {
-        if (value === null || value.length === 0) {
-            state.currentSearch.delete(key);
+        const elements = state.currentSearch.get(key) || [];
+        const index = elements.indexOf(value);
+        const columnKeyIndex = state.columnNames.indexOf(key);
+        const columnKey = state.columnKeys[columnKeyIndex];
+        if (state.criterias.get(columnKey).rangeSearch) {
+            state.currentSearch.set(key, [value]);
         } else {
-            state.currentSearch.set(key, value);
+            if (value !== null && index > -1) {
+                if (index > -1) {
+                    elements.splice(index, 1);
+                }
+            } else if (value !== null) {
+                const elements = state.currentSearch.get(key);
+                if (isNullOrUndefined(elements)) {
+                    state.currentSearch.set(key, [value]);
+                } else {
+                    elements.push(value);
+                }
+            }
         }
     }
     return state;

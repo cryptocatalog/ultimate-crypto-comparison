@@ -1,5 +1,10 @@
 import {
-    ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output,
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    EventEmitter,
+    Input,
+    Output,
     ViewChild
 } from '@angular/core';
 import { isNullOrUndefined } from "util";
@@ -20,27 +25,22 @@ export class Select2Component implements InputInterface {
     @Input() placeholder: string;
     @Input() tag: string;
     @Input() name: string;
-    @Input() active: Array<string>;
+    @Input() active: Array<{ id: string, text: string }>;
+    @Input() change: number;
+
     @ViewChild('selector') ngSelect: any;
     @Output() result: EventEmitter<any> = new EventEmitter();
-    private ops = [{value: 't1', label: 't2'}];
-    private value: Array<string> = [];
 
     public constructor(private cd: ChangeDetectorRef) {
         Select2Component.components.push(this);
     }
 
     public select(item) {
-        this.value.push(item.text);
-        this.result.emit(this.value);
+        this.result.emit(item.text);
     }
 
     public deSelect(item) {
-        const index = this.value.indexOf(item.text);
-        if (index >= -1) {
-            this.value.splice(index, 1);
-        }
-        this.result.emit(this.value);
+        this.result.emit(item.text);
     }
 
     public addToGui(item: string) {

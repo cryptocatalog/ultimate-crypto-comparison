@@ -39,8 +39,8 @@ export class ComparisonComponent {
         return this.versionInformation;
     }
 
-    public criteriaChanged(value: Array<string>, crit: Criteria) {
-        const map = new Map<string, Array<string>>();
+    public criteriaChanged(value: string, crit: Criteria) {
+        const map = new Map<string, string>();
         map.set(crit.name, value || null);
         this.store.dispatch(new UCSearchUpdateAction(map));
         this.cd.markForCheck();
@@ -51,7 +51,17 @@ export class ComparisonComponent {
             return [];
         }
         const active = state.state.currentSearch.get(crit.name);
-        return active;
+
+        if (!isNullOrUndefined(active)) {
+            return active.map(name => {
+                return {
+                    id: name,
+                    text: name
+                }
+            });
+        }
+
+        return [];
     }
 
     public showDetails(index: number) {
@@ -82,7 +92,7 @@ export class ComparisonComponent {
         }
     }
 
-    public criteriaClicked(val: {event: MouseEvent, key: Label, index: number}) {
+    public criteriaClicked(val: { event: MouseEvent, key: Label, index: number }) {
         this.store.dispatch(new UCClickAction(val.key.name, val.index));
     }
 }
