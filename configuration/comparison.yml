@@ -49,8 +49,7 @@ criteria:
       table: false
       type: markdown
   - Interface Languages:
-      name: Interface Lang
-      description: The language the library is for
+      description: The languages the library is for
       detail: true
       search: true
       table: true

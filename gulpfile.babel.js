@@ -9,7 +9,7 @@ import sh from 'sync-exec';
 import yaml2json from 'js-yaml';
 
 import * as path from 'path';
-import {exec as execSimple} from 'child_process';
+import {exec as execSimple, execSync} from 'child_process';
 
 const Cite = require('citation-js');
 const argv = require('minimist')(process.argv.slice(2));
@@ -465,7 +465,7 @@ gulp.task('gitScrabber', function (done) {
     // Add urls of libraries to the projects that the git scrabber searches for
     dataJSON.forEach(library => {
         // Ignore the template library and libraries that have no url defined
-        if (!library.tag.startsWith("Template") && library[urlKey]) {
+        if (!library.tag.startsWith("Template") && library[urlKey] && library[urlKey].childs[0][0]) {
             // The url is somewhere in the childs. Content is needed if
             // a - is at the beginning of the line in the markdown-file.
             let url = library[urlKey].childs[0][0][0].content;
@@ -485,6 +485,17 @@ gulp.task('gitScrabber', function (done) {
 
     // Execute git scrabber with task.yaml
     // --> Data in report.yaml
+    const gitScrabberExec = path.join(paths.lib, 'gitScrabber/gitScrabber/gitScrabber.py');
+    const gitScrabberTask = path.join(paths.lib, 'gitScrabber/task_small.yaml');
+    const gitScrabberReport = path.join(paths.lib, 'gitScrabber/report.yaml');
+    const gitScrabberLibs = path.join(paths.lib, 'gitScrabber/gitScrabber/libs');
+    execSync('python ' + gitScrabberExec + ' -t ' + gitScrabberTask + ' -o ' + gitScrabberReport + ' -d ' + gitScrabberLibs + '',
+
+        function (err, stdout, stderr) {
+            console.log(stdout);
+            console.log(stderr);
+            done(err);
+        });
 
     // ADD DATA FROM THE REPORT OF THE GIT-SCRABBER
 
@@ -494,7 +505,7 @@ gulp.task('gitScrabber', function (done) {
     dataJSON.forEach(library => {
         // Only look for information of libraries that have a url.
         // Libraries without a url where not searched by the git-scrabber
-        if (library[urlKey]) {
+        if (!library.tag.startsWith("Template") && library[urlKey] && library[urlKey].childs[0][0]) {
 
             // Get the url of the library
             let url = library[urlKey].childs[0][0][0].content;

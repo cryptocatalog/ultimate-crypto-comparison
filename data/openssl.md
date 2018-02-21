@@ -2,6 +2,7 @@
 OpenSSL is a software library for applications that secure communications over computer networks against eavesdropping or need to identify the party at the other end. It is widely used in internet web servers, serving a majority of all web sites.
 
 ## Description
+OpenSSL but without much information
 
 ## License
 - Apache-1.0

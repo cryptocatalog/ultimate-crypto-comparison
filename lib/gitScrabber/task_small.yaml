@@ -1,8 +1,6 @@
 projects:
   - git: 'https://github.com/randombit/botan'
-  - git: 'https://github.com/bcgit/'
   - git: 'https://github.com/bcgit/bc-csharp'
-  - git: 'https://github.com/bcgit/'
   - git: 'https://github.com/bcgit/bc-java'
   - git: 'https://github.com/openssl/openssl'
 project_tasks:
