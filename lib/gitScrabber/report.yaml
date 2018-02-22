@@ -4,7 +4,7 @@ projects:
     url: https://github.com/randombit/botan
     name: botan
     MetaDataCollector:
-      stars: 743
+      stars: 744
       languages:
       - C++
       - Python
@@ -408,11 +408,404 @@ projects:
         Yahalom: 0
         "Zimmermann\xE2\u20AC\u201CSassaman": 0
         ZRTP: 0
+  200zip_88f4b9d56f01b711a2f2faed709d9266:
+    url: https://github.com/randombit/botan/archive/2.0.0.zip
+    name: 2.0.0.zip
+    FeatureDetector:
+      block ciphers:
+        3-Way: 0
+        AES: 190
+        AES-128: 10
+        AES-192: 3
+        AES-256: 9
+        Akelarre: 0
+        Anubis: 0
+        ARIA: 0
+        ARIA-128: 0
+        ARIA-192: 0
+        ARIA-256: 0
+        BaseKing: 0
+        BassOmatic: 0
+        BATON: 0
+        Blowfish: 10
+        Camellia: 9
+        CAST: 784
+        CAST-128: 3
+        CAST-256: 3
+        CDMF: 0
+        CMEA: 0
+        Chiasmus: 0
+        CIKS-1: 0
+        Cinavia: 0
+        CIPHERUNICORN-A: 0
+        CIPHERUNICORN-E: 0
+        CLEFIA: 0
+        COBRA: 0
+        COBRA-64: 0
+        COBRA-128: 0
+        COCONUT98: 0
+        Crab: 0
+        Cryptomeria cipher: 0
+        CRYPTON: 0
+        CS-Cipher: 0
+        DES: 30
+        DEAL: 8
+        DFC: 0
+        EnRUPT: 0
+        FEA-M: 0
+        FEAL: 0
+        FPE: 15
+        FROG: 0
+        GDES: 0
+        GOST: 11
+        Grand Cru: 0
+        HPC: 0
+        Hierocrypt: 0
+        ICE: 0
+        IDEA NXT: 0
+        Intel Cascaded Cipher: 0
+        IDEA: 25
+        Kalyna: 0
+        KASUMI: 5
+        KeeLoq: 0
+        KHAZAD: 0
+        Khufu: 0
+        Khafre: 0
+        KN-Cipher: 0
+        Kuznyechik: 0
+        Ladder-DES: 0
+        Libelle: 0
+        LOKI89: 0
+        LOKI91: 0
+        LOKI97: 0
+        Lucifer: 0
+        M6: 6
+        M8: 7
+        MacGuffin: 0
+        MAGENTA: 0
+        MARS: 0
+        Mercy: 2
+        MESH: 0
+        MISTY1: 5
+        MISTY2: 0
+        MMB: 0
+        MULTI2: 0
+        MultiSwap: 0
+        NDS: 2
+        NewDES: 0
+        Nimbus: 0
+        NOEKEON: 8
+        NUSH: 0
+        PC1: 0
+        PRESENT: 243
+        Prince: 0
+        Q: 0
+        RC: 1
+        RC2: 0
+        RC5: 1
+        RC6: 0
+        Red Pike: 0
+        REDOC: 0
+        SAFER: 3
+        SAVILLE: 0
+        SC2000: 0
+        Serpent: 15
+        SEED: 382
+        SHACAL: 0
+        SHARK: 0
+        Simon: 2
+        Skipjack: 0
+        SM4: 0
+        Speck: 0
+        Spectr-H64: 0
+        Square: 0
+        SXAL: 0
+        Threefish: 16
+        TEA: 0
+        Treyfer: 0
+        3DES: 0
+        Twofish: 5
+        UES: 0
+        Xenon: 0
+        XTEA: 5
+        XXTEA: 0
+        Zodiac: 0
+      stream ciphers:
+        Grain: 0
+        A5/1: 0
+        A5/2: 0
+        Achterbahn: 0
+        ChaCha: 87
+        CJCSG: 0
+        CryptMT: 0
+        Crypto1: 0
+        DECIM: 0
+        DICING: 0
+        Dragon: 5
+        Edon80: 0
+        eSTREAM: 1
+        FISH: 0
+        Frogbit: 0
+        HC-256: 0
+        HC-128: 0
+        Hermes8: 0
+        ISAAC: 0
+        LEVIATHAN: 0
+        LEX: 45
+        LILI-128: 0
+        MAG: 1
+        MICKEY: 0
+        Mir-1: 0
+        MULTI-S01: 0
+        NLS: 0
+        ORYX: 0
+        Panama: 0
+        Phelix: 0
+        Pike: 0
+        Polar Bear: 0
+        Py: 0
+        QUAD: 0
+        Rabbit: 0
+        Rambutan: 0
+        RC: 15
+        Salsa: 9
+        Scream: 0
+        SEAL: 0
+        SFINKS: 0
+        SNOW: 0
+        SOBER: 0
+        Solitaire: 0
+        Sosemanuk: 0
+        SSS: 0
+        TRBDK3 YAEA: 0
+        Trivium: 0
+        TSC-3: 0
+        Turing: 8
+        VMPC: 0
+        Vernam: 0
+        VEST: 0
+        "Vigen\xC3\xA8re cipher": 0
+        WAKE: 0
+        WG: 0
+        Yamb: 0
+        ZK-Crypt: 0
+        ZUC: 0
+      hash:
+        BLAKE2: 23
+        brcypt: 0
+        ECOH: 0
+        FSB: 0
+        GOST: 6
+        "Gr\xC3\xB8stl": 0
+        HAS-160: 0
+        HAVAL: 0
+        JH: 0
+        MD2: 0
+        MD5: 19
+        MD6: 0
+        PBKDF2: 15
+        "RadioGat\xC3\xBAn": 0
+        RIPEMD: 2
+        scrypt: 2
+        SHA: 131
+        SHA-1: 48
+        SHA-2: 66
+        SHA-3: 59
+        SHA-256: 20
+        SHA-512: 6
+        SHAKE: 0
+        SipHash: 5
+        Skein: 8
+        Snefru: 0
+        Spectral Hash: 0
+        Streebog: 0
+        SWIFFT: 0
+        Tiger: 5
+        WHIRLPOOL: 2
+      encryption modes:
+        2DEM: 0
+        ABC: 0
+        BPS: 10
+        CBC: 60
+        CCM: 4
+        CFB: 6
+        CTR: 90
+        CSPEM: 0
+        CWC: 0
+        DFF: 0
+        EAX: 193
+        ECB: 13
+        FCEM: 0
+        FFX: 3856018
+        GCM: 16
+        IACBC: 0
+        IAPM: 0
+        IGE: 0
+        IOC: 3745151
+        KFB: 0
+        OCB: 29
+        OFB: 6
+        PCBC: 0
+        PCFB: 0
+        RAC: 0
+        RKC: 0
+        SIV: 4
+        VFPE: 0
+        XBC: 0
+        XCBC: 0
+      message authentication codes:
+        CBC-MAC: 0
+        HMAC: 97
+        OMAC: 0
+        MMH-Badger: 0
+        PMAC: 0
+        Poly1305: 57
+        RMAC: 0
+        TMAC: 0
+        UMAC: 0
+        VMAC: 0
+        XCBC: 0
+        XECB: 0
+      public key cryptography:
+        "Cramer\xE2\u20AC\u201CShoup": 0
+        DH: 102
+        DSA: 67
+        DSS: 30
+        ECDH: 161
+        ECDSA: 174
+        ElGamal: 11
+        LUC: 0
+        McEliece: 50
+        "Merkle\xE2\u20AC\u201CHellman": 0
+        NTRUEncrypt: 0
+        Paillier: 0
+        RSA: 275
+        YAK: 0
+      public key infrastructure:
+        CMP: 55
+        DVCS: 0
+        EJBCA: 0
+        Identrus: 1
+        MicroSoft AuthentiCode: 0
+        LDAP: 0
+        OCSP: 219
+        OpenCA: 0
+        RDBMS: 0
+        PKCS: 11
+        PKIX: 1
+        PKCS#7: 0
+        RPKI: 0
+        RTCS: 0
+        SCEP: 0
+        SET: 1751
+        SigG: 0
+        TinyCA: 0
+        X.509: 275
+        XiPKI: 0
+      protocol:
+        3-D Secure: 0
+        AAG: 0
+        AS1: 0
+        AS2: 1
+        AKA: 4
+        AuthIP: 0
+        ACME: 0
+        Autoroll: 0
+        BKE: 0
+        CAVE: 0
+        CCMP: 0
+        CMC: 0
+        CMP: 55
+        CSR: 2
+        CMS: 1
+        CGA: 0
+        DTLS: 22
+        DPD: 4
+        DPV: 0
+        DCII: 1
+        DK: 0
+        ecash: 0
+        EKE: 0
+        EST: 1700
+        Firefly: 0
+        GSS-TSIG: 0
+        GSI: 0
+        GDOI: 0
+        GPG: 15
+        H.235: 0
+        Hashcash: 0
+        HAIPE: 0
+        HTTPS: 115
+        HTTPsec: 0
+        I2P: 0
+        IES: 0
+        IKE: 11
+        ISAKMP: 0
+        IPsec: 0
+        J-PAKE: 0
+        Kak's protocol: 0
+        KINK: 0
+        KMIP: 0
+        mcTLS: 0
+        MPPE: 0
+        MIKEY: 0
+        MSE: 0
+        "Neuman\xE2\u20AC\u201CStubblebine": 0
+        Oakley: 0
+        OTR: 1
+        OPKP: 0
+        OMEMO: 0
+        OCSP: 219
+        PANA: 0
+        PCT: 0
+        PE: 37
+        PEM: 149
+        PHE: 0
+        PGP: 11
+        PoSE: 0
+        RMA: 0
+        RTD: 0
+        Publius: 0
+        SASL: 0
+        SCEP: 0
+        SCIMP: 0
+        SCRAM: 0
+        SCIP: 0
+        SCP: 0
+        SCVP: 0
+        S-HTTP: 0
+        SEND: 263
+        SFTP: 0
+        Signal Protocol: 0
+        SILC: 0
+        SPNEGO: 0
+        SPORE: 0
+        SRTP: 44
+        SSH: 0
+        SSL: 1
+        S/MIME: 0
+        TACLANE: 0
+        tcpcrypt: 0
+        TKIP: 0
+        TSP: 0
+        TLS: 581
+        VBR: 0
+        WPA: 0
+        WPA2: 0
+        WPS: 0
+        WTLS: 0
+        X.509: 275
+        X.1035: 0
+        X9.95: 0
+        XKMS: 0
+        Yahalom: 0
+        "Zimmermann\xE2\u20AC\u201CSassaman": 0
+        ZRTP: 0
   bc-csharp_dd01f9af6c469a3c393fdd961cc86da3:
     url: https://github.com/bcgit/bc-csharp
     name: bc-csharp
     MetaDataCollector:
-      stars: 384
+      stars: 385
       languages:
       - C#
       - HTML
@@ -815,14 +1208,14 @@ projects:
     url: https://github.com/bcgit/bc-java
     name: bc-java
     MetaDataCollector:
-      stars: 609
+      stars: 611
       languages:
       - Java
       - Shell
       - HTML
       - Batchfile
       main_language: Java
-      forks: 451
+      forks: 453
       licence:
         name:
         abb:
@@ -1220,7 +1613,7 @@ projects:
     url: https://github.com/openssl/openssl
     name: openssl
     MetaDataCollector:
-      stars: 6420
+      stars: 6423
       languages:
       - C
       - Perl 6

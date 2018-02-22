@@ -303,6 +303,7 @@ autoCriteria:
   Release:
     values:
       2.4.0: {}
+      2.0.0: {}
       1.0.1: {}
       1.8.1: {}
       1.0.0: {}
@@ -311,21 +312,23 @@ autoCriteria:
   Release Date:
     values:
       '2018-01-08': {}
+      '2017-01-07': {}
       '2016-12-28': {}
       '2017-12-18': {}
+  Stars:
+    values:
+      '385': {}
+      '611': {}
+      '744': {}
+      '6423': {}
   Block Ciphers:
     values:
-      CAST-128: {}
-      CAST-256: {}
       GOST: {}
       KASUMI: {}
-      Mercy: {}
       MISTY1: {}
       NOEKEON: {}
-      SAFER: {}
       Serpent: {}
       SHACAL: {}
-      Simon: {}
       SM4: {}
       Threefish: {}
       Twofish: {}
@@ -334,6 +337,7 @@ autoCriteria:
       DFC: {}
       IDEA NXT: {}
       MMB: {}
+      SAFER: {}
       TEA: {}
       3DES: {}
       UES: {}
@@ -343,71 +347,17 @@ autoCriteria:
       MAGENTA: {}
       MESH: {}
       Skipjack: {}
-  Stream Ciphers:
-    values:
-      Dragon: {}
-      eSTREAM: {}
-      NLS: {}
-      ISAAC: {}
-      Py: {}
-      ZUC: {}
-      Crypto1: {}
-      FISH: {}
   Hash Functions:
     values:
       BLAKE2: {}
-      scrypt: {}
       SipHash: {}
       Skein: {}
       Streebog: {}
       Tiger: {}
       FSB: {}
       MD6: {}
+      scrypt: {}
       SHAKE: {}
-  Public Key Cryptography:
-    values:
-      McEliece: {}
-  Public Key Infrastructure:
-    values:
-      Identrus: {}
-      OCSP: {}
-      PKCS: {}
-      PKIX: {}
-      X.509: {}
-      LDAP: {}
-      DVCS: {}
-      'PKCS#7': {}
-      EJBCA: {}
-      RPKI: {}
-      RTCS: {}
-      SCEP: {}
-  Protocol:
-    values:
-      DTLS: {}
-      GPG: {}
-      OCSP: {}
-      RTD: {}
-      SRTP: {}
-      X.509: {}
-      DK: {}
-      EKE: {}
-      I2P: {}
-      ISAKMP: {}
-      KMIP: {}
-      RMA: {}
-      SCVP: {}
-      VBR: {}
-      WPS: {}
-      PoSE: {}
-      SCEP: {}
-      SFTP: {}
-      WTLS: {}
-  Stars:
-    values:
-      '384': {}
-      '609': {}
-      '743': {}
-      '6420': {}
   Encryption Modes:
     values:
       BPS: {}
@@ -424,6 +374,51 @@ autoCriteria:
       OFB: {}
       SIV: {}
       ABC: {}
+  Public Key Cryptography:
+    values:
+      McEliece: {}
+  Public Key Infrastructure:
+    values:
+      OCSP: {}
+      PKCS: {}
+      X.509: {}
+      LDAP: {}
+      PKIX: {}
+      DVCS: {}
+      EJBCA: {}
+      Identrus: {}
+      RPKI: {}
+      RTCS: {}
+      SCEP: {}
+  Protocol:
+    values:
+      OCSP: {}
+      RTD: {}
+      X.509: {}
+      DTLS: {}
+      GPG: {}
+      SRTP: {}
+      DK: {}
+      EKE: {}
+      I2P: {}
+      ISAKMP: {}
+      KMIP: {}
+      RMA: {}
+      SCVP: {}
+      VBR: {}
+      WPS: {}
+      PoSE: {}
+      SCEP: {}
+      SFTP: {}
+      WTLS: {}
+  Stream Ciphers:
+    values:
+      Dragon: {}
+      eSTREAM: {}
+      ISAAC: {}
+      Py: {}
+      ZUC: {}
+      FISH: {}
   License:
     values:
       Sleepycat (Berkeley Database) License: {}
@@ -1038,6 +1033,9 @@ autoColor:
     3.4.3.1:
       color: '#0d0d0d'
       backgroundColor: 'hsl(45, 100%, 70%)'
+    2.0.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
   Release Date:
     '2016-12-28':
       color: '#0d0d0d'
@@ -1048,6 +1046,9 @@ autoColor:
     '2018-01-08':
       color: '#0d0d0d'
       backgroundColor: 'hsl(60, 100%, 70%)'
+    '2017-01-07':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(75, 100%, 70%)'
   Performance:
     fast:
       color: '#0d0d0d'
@@ -1508,18 +1509,30 @@ autoColor:
     '384':
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
+    '385':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
     '609':
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
+    '611':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
     '743':
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
+    '744':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
     '5294':
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
     '6420':
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
+    '6423':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
   Steam Ciphers:
     ChaCha:
       color: '#0d0d0d'

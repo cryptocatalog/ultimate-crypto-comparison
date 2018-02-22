@@ -473,7 +473,12 @@ gulp.task('gitScrabber', function (done) {
             // If url is still undefined because there is no -
             // at the beginning of the line in the markdown-file,
             // look for the url on a higher level of childs
-            let libUrl = JSON.parse('{"git": "' + url + '"}');
+            let libUrl;
+            if (url.endsWith(".zip") || url.endsWith(".rar")) {
+                libUrl = JSON.parse('{"archive": "' + url + '"}');
+            } else {
+                libUrl = JSON.parse('{"git": "' + url + '"}');
+            }
             // TODO Add existing data to generalData in task.yaml
             // This allows the git scrabber to compute additional values
             // e.g. The interface languages etc.
@@ -489,7 +494,13 @@ gulp.task('gitScrabber', function (done) {
     const gitScrabberTask = path.join(paths.lib, 'gitScrabber/task_small.yaml');
     const gitScrabberReport = path.join(paths.lib, 'gitScrabber/report.yaml');
     const gitScrabberLibs = path.join(paths.lib, 'gitScrabber/gitScrabber/libs');
-    execSync('python ' + gitScrabberExec + ' -t ' + gitScrabberTask + ' -o ' + gitScrabberReport + ' -d ' + gitScrabberLibs + '',
+    execSync('python ' + gitScrabberExec +
+        // ' -r ' + gitScrabberReport + Commented out because the old report is not complete -> Comment out -f
+        ' -t ' + gitScrabberTask +
+        ' -o ' + gitScrabberReport +
+        ' -d ' + gitScrabberLibs +
+        // ' -f' +
+        ' --github-token 8341094f6dc4944ee22491139c5565c3e6f5e32e',
 
         function (err, stdout, stderr) {
             console.log(stdout);
@@ -505,9 +516,9 @@ gulp.task('gitScrabber', function (done) {
     dataJSON.forEach(library => {
         // Only look for information of libraries that have a url.
         // Libraries without a url where not searched by the git-scrabber
-        if (!library.tag.startsWith("Template") && library[urlKey] && library[urlKey].childs[0][0]) {
+        if (libraryHasUrl(library)) {
 
-            // Get the url of the library
+            // Get the url of the library from data.json
             let url = library[urlKey].childs[0][0][0].content;
             // Get the key of the library in the report.yaml projects
             let projectKey = getLibraryKey(reportJSON.projects, url);
@@ -533,12 +544,17 @@ gulp.task('gitScrabber', function (done) {
                     },
                 ];
 
+                // TODO Get release name if it was not defined in the markdown
+
                 // Add the values of the attributes to the data.json
                 attributes.forEach(attribute => {
                     // Only add the attribute from the report if the value was not
                     // yet defined in the markdown file of the library
                     // and only if the report.yaml contains the task and the gsKey
-                    if (!library[attribute.mdKey] && attribute.task && attribute.gsKey) {
+                    if (!library[attribute.mdKey] &&
+                        reportJSON.projects[projectKey][attribute.task] &&
+                        reportJSON.projects[projectKey][attribute.task][attribute.gsKey]) {
+
                         // Get the data from the report
                         let atrValue = reportJSON.projects[projectKey][attribute.task][attribute.gsKey];
                         // Add the data to the library in data.json
@@ -548,6 +564,10 @@ gulp.task('gitScrabber', function (done) {
                         library[attribute.mdKey] = atrMap;
                     }
                 });
+
+                // |--------------------------------------|
+                // | GET ENCRYPTIONS FROM THE REPORT.YAML |
+                // |--------------------------------------|
 
                 // LIST WITH ENCRYPTION TYPES
                 let encryptions = [
@@ -580,7 +600,11 @@ gulp.task('gitScrabber', function (done) {
                 encryptions.forEach(encryption => {
                     // Only add the encryption from the report if the encryption was not
                     // yet defined in the markdown file of the library
-                    if (!library[encryption.mdKey]) {
+                    // and if the report contains the encryption
+                    if (!library[encryption.mdKey] &&
+                        reportJSON.projects[projectKey][encryption.collectionKey] &&
+                        reportJSON.projects[projectKey][encryption.collectionKey][encryption.gsKey]) {
+
                         let reportCollection = reportJSON.projects[projectKey][encryption.collectionKey][encryption.gsKey];
                         // Create a map to store the values to
                         let colMap = createMapDataJSON();
@@ -614,7 +638,7 @@ gulp.task('gitScrabber', function (done) {
     done();
 
     // ------------------------------------------------------
-    // The following functions (between the lines)
+    // The following functions (between the ---- lines)
     // provide and handle data in the format of the data.json.
 
     // Adds the item to the map. The map and the item have to
@@ -669,6 +693,14 @@ gulp.task('gitScrabber', function (done) {
             }
         });
         return key;
+    }
+
+    // Returns whether the library has a defined url
+    // Returns true if the library has a url.
+    // Returns false if the library is the template library or
+    // if the library does not have a url.
+    function libraryHasUrl(library) {
+        return !library.tag.startsWith("Template") && library[urlKey] && library[urlKey].childs[0][0];
     }
 });
 
