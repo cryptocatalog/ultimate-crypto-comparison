@@ -1613,7 +1613,7 @@ projects:
     url: https://github.com/openssl/openssl
     name: openssl
     MetaDataCollector:
-      stars: 6423
+      stars: 6422
       languages:
       - C
       - Perl 6

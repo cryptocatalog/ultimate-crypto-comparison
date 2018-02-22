@@ -456,6 +456,7 @@ gulp.task('gitScrabber', function (done) {
     // The headline in the markdown under which the url to
     // a repository is given
     const urlKey = "Repository";
+    const releaseKey = "Release";
     // Load the data.json with the data of the libraries
     let dataJSON = yaml2json.safeLoad(readFileSync(files.dataJson, "utf8"));
     // Load the task file for the git scrabber
@@ -630,6 +631,19 @@ gulp.task('gitScrabber', function (done) {
                 });
             }
         }
+
+        // |-----------------------------------------------------------------|
+        // | ADD DATA TO THE DATA.JSON THAT DOES NOT RELY ON THE REPORT.YAML |
+        // |-----------------------------------------------------------------|
+
+        // If no release was specified, add "latest"
+        if (!libraryHasReleaseTag(library)) {
+            let releaseMap = createMapDataJSON();
+            let releaseItem = createChildDataJSON("Latest");
+            addToDataJSONMap(releaseMap, releaseItem);
+            library[releaseKey] = releaseMap;
+        }
+
     });
 
     // Save data in data.json
@@ -695,12 +709,18 @@ gulp.task('gitScrabber', function (done) {
         return key;
     }
 
+    // FUNCTIONS TO CHECK IF THE MARKDOWN CONTAINS A SPECIFIC KEY
+
     // Returns whether the library has a defined url
     // Returns true if the library has a url.
     // Returns false if the library is the template library or
     // if the library does not have a url.
     function libraryHasUrl(library) {
         return !library.tag.startsWith("Template") && library[urlKey] && library[urlKey].childs[0][0];
+    }
+
+    function libraryHasReleaseTag(library) {
+        return !library.tag.startsWith("Template") && library[releaseKey] && library[releaseKey].childs[0][0];
     }
 });
 

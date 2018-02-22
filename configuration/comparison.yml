@@ -309,6 +309,7 @@ autoCriteria:
       1.0.0: {}
       '1.59': {}
       3.4.3.1: {}
+      Latest: {}
   Release Date:
     values:
       '2018-01-08': {}
@@ -320,7 +321,7 @@ autoCriteria:
       '385': {}
       '611': {}
       '744': {}
-      '6423': {}
+      '6422': {}
   Block Ciphers:
     values:
       GOST: {}
@@ -1036,6 +1037,9 @@ autoColor:
     2.0.0:
       color: '#0d0d0d'
       backgroundColor: 'hsl(60, 100%, 70%)'
+    Latest:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
   Release Date:
     '2016-12-28':
       color: '#0d0d0d'
@@ -1530,6 +1534,9 @@ autoColor:
     '6420':
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
+    '6422':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     '6423':
       color: '#0d0d0d'
       backgroundColor: 'hsl(90, 100%, 70%)'
