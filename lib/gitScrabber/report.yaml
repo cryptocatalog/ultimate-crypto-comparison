@@ -18,16 +18,21 @@ projects:
       licence:
         name:
         abb:
+    LanguageDetector:
+      main_language: C++
+      languages:
+      - C++
+      - Python
     FeatureDetector:
       block ciphers:
         3-Way: 0
-        AES: 215
-        AES-128: 15
-        AES-192: 6
-        AES-256: 13
+        AES: 261
+        AES-128: 20
+        AES-192: 8
+        AES-256: 17
         Akelarre: 0
         Anubis: 0
-        ARIA: 5
+        ARIA: 10
         ARIA-128: 0
         ARIA-192: 0
         ARIA-256: 0
@@ -35,8 +40,8 @@ projects:
         BassOmatic: 0
         BATON: 0
         Blowfish: 10
-        Camellia: 8
-        CAST: 797
+        Camellia: 9
+        CAST: 1317
         CAST-128: 3
         CAST-256: 3
         CDMF: 0
@@ -56,22 +61,22 @@ projects:
         CRYPTON: 0
         CS-Cipher: 0
         DES: 30
-        DEAL: 7
+        DEAL: 8
         DFC: 0
         EnRUPT: 0
         FEA-M: 0
         FEAL: 0
-        FPE: 12
+        FPE: 15
         FROG: 0
         GDES: 0
-        GOST: 9
+        GOST: 12
         Grand Cru: 0
         HPC: 0
         Hierocrypt: 0
         ICE: 0
-        IDEA NXT: 0
+        IDEA NXT: 1
         Intel Cascaded Cipher: 0
-        IDEA: 26
+        IDEA: 27
         Kalyna: 0
         KASUMI: 5
         KeeLoq: 0
@@ -86,16 +91,16 @@ projects:
         LOKI91: 0
         LOKI97: 0
         Lucifer: 0
-        M6: 0
-        M8: 2
+        M6: 22
+        M8: 27
         MacGuffin: 0
         MAGENTA: 0
         MARS: 0
-        Mercy: 1
+        Mercy: 2
         MESH: 0
         MISTY1: 5
         MISTY2: 0
-        MMB: 0
+        MMB: 1
         MULTI2: 0
         MultiSwap: 0
         NDS: 2
@@ -104,11 +109,11 @@ projects:
         NOEKEON: 8
         NUSH: 0
         PC1: 0
-        PRESENT: 165
+        PRESENT: 257
         Prince: 0
         Q: 0
-        RC: 1
-        RC2: 0
+        RC: 2
+        RC2: 1
         RC5: 1
         RC6: 0
         Red Pike: 0
@@ -117,7 +122,7 @@ projects:
         SAVILLE: 0
         SC2000: 0
         Serpent: 15
-        SEED: 102
+        SEED: 456
         SHACAL: 24
         SHARK: 0
         Simon: 2
@@ -128,7 +133,7 @@ projects:
         Square: 0
         SXAL: 0
         Threefish: 18
-        TEA: 0
+        TEA: 1
         Treyfer: 0
         3DES: 0
         Twofish: 5
@@ -142,7 +147,7 @@ projects:
         A5/1: 0
         A5/2: 0
         Achterbahn: 0
-        ChaCha: 47
+        ChaCha: 101
         CJCSG: 0
         CryptMT: 0
         Crypto1: 0
@@ -158,7 +163,7 @@ projects:
         Hermes8: 0
         ISAAC: 0
         LEVIATHAN: 0
-        LEX: 142
+        LEX: 145
         LILI-128: 0
         MAG: 0
         MICKEY: 0
@@ -174,8 +179,8 @@ projects:
         QUAD: 0
         Rabbit: 0
         Rambutan: 0
-        RC: 12
-        Salsa: 2
+        RC: 15
+        Salsa: 10
         Scream: 0
         SEAL: 0
         SFINKS: 0
@@ -187,7 +192,7 @@ projects:
         TRBDK3 YAEA: 0
         Trivium: 0
         TSC-3: 0
-        Turing: 3
+        Turing: 8
         VMPC: 0
         Vernam: 0
         VEST: 0
@@ -202,71 +207,71 @@ projects:
         brcypt: 0
         ECOH: 0
         FSB: 0
-        GOST: 7
+        GOST: 8
         "Gr\xC3\xB8stl": 0
         HAS-160: 0
         HAVAL: 0
         JH: 0
-        MD2: 0
-        MD5: 10
-        MD6: 0
-        PBKDF2: 12
+        MD2: 1
+        MD5: 21
+        MD6: 1
+        PBKDF2: 14
         "RadioGat\xC3\xBAn": 0
-        RIPEMD: 2
+        RIPEMD: 4
         scrypt: 3
-        SHA: 221
-        SHA-1: 34
-        SHA-2: 179
-        SHA-3: 158
-        SHA-256: 134
-        SHA-512: 3
+        SHA: 316
+        SHA-1: 69
+        SHA-2: 228
+        SHA-3: 201
+        SHA-256: 161
+        SHA-512: 5
         SHAKE: 0
         SipHash: 5
         Skein: 8
         Snefru: 0
         Spectral Hash: 0
-        Streebog: 6
+        Streebog: 8
         SWIFFT: 0
         Tiger: 5
         WHIRLPOOL: 2
       encryption modes:
         2DEM: 0
-        ABC: 0
-        BPS: 9
-        CBC: 18
+        ABC: 1
+        BPS: 13
+        CBC: 90
         CCM: 4
-        CFB: 9
-        CTR: 59
+        CFB: 27
+        CTR: 147
         CSPEM: 0
         CWC: 0
         DFF: 0
-        EAX: 190
-        ECB: 13
+        EAX: 194
+        ECB: 14
         FCEM: 0
-        FFX: 2533773
-        GCM: 48
+        FFX: 5172243
+        GCM: 59
         IACBC: 0
         IAPM: 0
         IGE: 0
-        IOC: 2461749
+        IOC: 4937779
         KFB: 0
-        OCB: 16
-        OFB: 4
+        OCB: 45
+        OFB: 12
         PCBC: 0
         PCFB: 0
-        RAC: 0
+        RAC: 1
         RKC: 0
-        SIV: 4
+        SIV: 14
         VFPE: 0
         XBC: 0
         XCBC: 0
       message authentication codes:
         CBC-MAC: 0
-        HMAC: 70
+        HMAC: 145
         OMAC: 0
         MMH-Badger: 0
         PMAC: 0
-        Poly1305: 48
+        Poly1305: 55
         RMAC: 0
         TMAC: 0
         UMAC: 0
@@ -275,45 +280,45 @@ projects:
         XECB: 0
       public key cryptography:
         "Cramer\xE2\u20AC\u201CShoup": 0
-        DH: 26
-        DSA: 65
+        DH: 165
+        DSA: 170
         DSS: 30
-        ECDH: 71
-        ECDSA: 74
-        ElGamal: 15
+        ECDH: 168
+        ECDSA: 209
+        ElGamal: 30
         LUC: 0
-        McEliece: 12
+        McEliece: 50
         "Merkle\xE2\u20AC\u201CHellman": 0
         NTRUEncrypt: 0
         Paillier: 0
-        RSA: 170
+        RSA: 391
         YAK: 0
       public key infrastructure:
-        CMP: 52
+        CMP: 106
         DVCS: 0
         EJBCA: 0
-        Identrus: 0
+        Identrus: 1
         MicroSoft AuthentiCode: 0
-        LDAP: 0
-        OCSP: 25
+        LDAP: 1
+        OCSP: 234
         OpenCA: 0
         RDBMS: 0
-        PKCS: 21
-        PKIX: 1
+        PKCS: 34
+        PKIX: 2
         PKCS#7: 0
         RPKI: 0
         RTCS: 0
         SCEP: 0
-        SET: 1263
+        SET: 2236
         SigG: 0
         TinyCA: 0
-        X.509: 157
+        X.509: 419
         XiPKI: 0
       protocol:
         3-D Secure: 0
         AAG: 0
         AS1: 0
-        AS2: 0
+        AS2: 1
         AKA: 4
         AuthIP: 0
         ACME: 0
@@ -322,27 +327,27 @@ projects:
         CAVE: 0
         CCMP: 0
         CMC: 0
-        CMP: 52
-        CSR: 2
+        CMP: 106
+        CSR: 8
         CMS: 1
         CGA: 0
-        DTLS: 2
-        DPD: 0
-        DPV: 0
-        DCII: 0
+        DTLS: 29
+        DPD: 4
+        DPV: 1
+        DCII: 1
         DK: 0
         ecash: 0
         EKE: 0
-        EST: 92
+        EST: 2285
         Firefly: 0
         GSS-TSIG: 0
         GSI: 0
         GDOI: 0
-        GPG: 2
+        GPG: 20
         H.235: 0
         Hashcash: 0
         HAIPE: 0
-        HTTPS: 134
+        HTTPS: 205
         HTTPsec: 0
         I2P: 0
         IES: 0
@@ -356,19 +361,19 @@ projects:
         mcTLS: 0
         MPPE: 0
         MIKEY: 0
-        MSE: 0
+        MSE: 10
         "Neuman\xE2\u20AC\u201CStubblebine": 0
         Oakley: 0
         OTR: 1
         OPKP: 0
         OMEMO: 0
-        OCSP: 25
+        OCSP: 234
         PANA: 0
-        PCT: 0
-        PE: 0
-        PEM: 35
-        PHE: 0
-        PGP: 6
+        PCT: 1
+        PE: 59
+        PEM: 152
+        PHE: 1
+        PGP: 19
         PoSE: 0
         RMA: 0
         RTD: 4
@@ -381,13 +386,13 @@ projects:
         SCP: 0
         SCVP: 0
         S-HTTP: 0
-        SEND: 122
+        SEND: 272
         SFTP: 0
         Signal Protocol: 0
         SILC: 0
         SPNEGO: 0
         SPORE: 0
-        SRTP: 0
+        SRTP: 46
         SSH: 0
         SSL: 1
         S/MIME: 0
@@ -395,13 +400,13 @@ projects:
         tcpcrypt: 0
         TKIP: 0
         TSP: 0
-        TLS: 273
+        TLS: 726
         VBR: 0
         WPA: 0
         WPA2: 0
         WPS: 0
         WTLS: 0
-        X.509: 157
+        X.509: 419
         X.1035: 0
         X9.95: 0
         XKMS: 0
@@ -411,6 +416,12 @@ projects:
   200zip_88f4b9d56f01b711a2f2faed709d9266:
     url: https://github.com/randombit/botan/archive/2.0.0.zip
     name: 2.0.0.zip
+    LanguageDetector:
+      main_language: C++
+      languages:
+      - C++
+      - Python
+      - C
     FeatureDetector:
       block ciphers:
         3-Way: 0
@@ -810,10 +821,14 @@ projects:
       - C#
       - HTML
       main_language: C#
-      forks: 171
+      forks: 172
       licence:
         name:
         abb:
+    LanguageDetector:
+      main_language: C#
+      languages:
+      - C#
     FeatureDetector:
       block ciphers:
         3-Way: 2
@@ -1219,25 +1234,29 @@ projects:
       licence:
         name:
         abb:
+    LanguageDetector:
+      main_language: Java
+      languages:
+      - Java
     FeatureDetector:
       block ciphers:
-        3-Way: 0
-        AES: 264
-        AES-128: 64
-        AES-192: 47
-        AES-256: 47
+        3-Way: 6
+        AES: 580
+        AES-128: 157
+        AES-192: 127
+        AES-256: 148
         Akelarre: 0
         Anubis: 0
-        ARIA: 34
-        ARIA-128: 11
-        ARIA-192: 11
-        ARIA-256: 11
+        ARIA: 118
+        ARIA-128: 39
+        ARIA-192: 39
+        ARIA-256: 39
         BaseKing: 0
         BassOmatic: 0
         BATON: 0
-        Blowfish: 11
-        Camellia: 102
-        CAST: 15
+        Blowfish: 20
+        Camellia: 200
+        CAST: 23
         CAST-128: 0
         CAST-256: 0
         CDMF: 0
@@ -1256,8 +1275,8 @@ projects:
         Cryptomeria cipher: 0
         CRYPTON: 0
         CS-Cipher: 0
-        DES: 82
-        DEAL: 20
+        DES: 240
+        DEAL: 23
         DFC: 3
         EnRUPT: 0
         FEA-M: 0
@@ -1270,9 +1289,9 @@ projects:
         HPC: 0
         Hierocrypt: 0
         ICE: 0
-        IDEA NXT: 5
+        IDEA NXT: 6
         Intel Cascaded Cipher: 0
-        IDEA: 17
+        IDEA: 21
         Kalyna: 0
         KASUMI: 0
         KeeLoq: 0
@@ -1287,8 +1306,8 @@ projects:
         LOKI91: 0
         LOKI97: 0
         Lucifer: 0
-        M6: 140
-        M8: 147
+        M6: 174
+        M8: 225
         MacGuffin: 0
         MAGENTA: 0
         MARS: 0
@@ -1296,7 +1315,7 @@ projects:
         MESH: 0
         MISTY1: 0
         MISTY2: 0
-        MMB: 1
+        MMB: 2
         MULTI2: 0
         MultiSwap: 0
         NDS: 6
@@ -1305,20 +1324,20 @@ projects:
         NOEKEON: 3
         NUSH: 0
         PC1: 0
-        PRESENT: 1168
+        PRESENT: 1555
         Prince: 0
         Q: 0
-        RC: 28
-        RC2: 26
-        RC5: 0
+        RC: 102
+        RC2: 73
+        RC5: 27
         RC6: 2
         Red Pike: 0
         REDOC: 0
-        SAFER: 1
+        SAFER: 2
         SAVILLE: 0
         SC2000: 0
         Serpent: 3
-        SEED: 686
+        SEED: 914
         SHACAL: 0
         SHARK: 0
         Simon: 0
@@ -1331,9 +1350,9 @@ projects:
         Threefish: 12
         TEA: 3
         Treyfer: 0
-        3DES: 10
+        3DES: 29
         Twofish: 19
-        UES: 2
+        UES: 4
         Xenon: 0
         XTEA: 0
         XXTEA: 0
@@ -1359,9 +1378,9 @@ projects:
         Hermes8: 0
         ISAAC: 4
         LEVIATHAN: 0
-        LEX: 10
+        LEX: 22
         LILI-128: 0
-        MAG: 138
+        MAG: 139
         MICKEY: 0
         Mir-1: 0
         MULTI-S01: 0
@@ -1375,10 +1394,10 @@ projects:
         QUAD: 0
         Rabbit: 0
         Rambutan: 0
-        RC: 8
+        RC: 14
         Salsa: 36
         Scream: 0
-        SEAL: 17
+        SEAL: 26
         SFINKS: 0
         SNOW: 0
         SOBER: 0
@@ -1397,31 +1416,31 @@ projects:
         WG: 0
         Yamb: 0
         ZK-Crypt: 0
-        ZUC: 1
+        ZUC: 3
       hash:
-        BLAKE2: 239
+        BLAKE2: 271
         brcypt: 0
         ECOH: 0
-        FSB: 2
+        FSB: 3
         GOST: 9
         "Gr\xC3\xB8stl": 0
         HAS-160: 0
         HAVAL: 0
         JH: 0
-        MD2: 20
-        MD5: 95
+        MD2: 32
+        MD5: 222
         MD6: 5
-        PBKDF2: 1
+        PBKDF2: 43
         "RadioGat\xC3\xBAn": 0
-        RIPEMD: 140
-        scrypt: 17
-        SHA: 935
-        SHA-1: 285
-        SHA-2: 363
-        SHA-3: 642
-        SHA-256: 141
-        SHA-512: 123
-        SHAKE: 4
+        RIPEMD: 340
+        scrypt: 69
+        SHA: 2215
+        SHA-1: 593
+        SHA-2: 1082
+        SHA-3: 1614
+        SHA-256: 414
+        SHA-512: 348
+        SHAKE: 12
         SipHash: 4
         Skein: 11
         Snefru: 0
@@ -1429,33 +1448,33 @@ projects:
         Streebog: 1
         SWIFFT: 0
         Tiger: 0
-        WHIRLPOOL: 3
+        WHIRLPOOL: 4
       encryption modes:
         2DEM: 0
-        ABC: 29
-        BPS: 0
-        CBC: 72
-        CCM: 50
-        CFB: 72
-        CTR: 225
+        ABC: 81
+        BPS: 1
+        CBC: 171
+        CCM: 103
+        CFB: 90
+        CTR: 346
         CSPEM: 0
         CWC: 0
         DFF: 0
-        EAX: 25
-        ECB: 10
+        EAX: 97
+        ECB: 23
         FCEM: 0
-        FFX: 18803247
-        GCM: 36
+        FFX: 29599390
+        GCM: 126
         IACBC: 0
         IAPM: 0
         IGE: 2
-        IOC: 18175760
-        KFB: 0
-        OCB: 16
-        OFB: 62
+        IOC: 28476983
+        KFB: 1
+        OCB: 26
+        OFB: 78
         PCBC: 0
         PCFB: 0
-        RAC: 0
+        RAC: 1
         RKC: 2
         SIV: 4
         VFPE: 0
@@ -1463,8 +1482,8 @@ projects:
         XCBC: 0
       message authentication codes:
         CBC-MAC: 0
-        HMAC: 229
-        OMAC: 2
+        HMAC: 559
+        OMAC: 3
         MMH-Badger: 0
         PMAC: 0
         Poly1305: 19
@@ -1476,65 +1495,65 @@ projects:
         XECB: 0
       public key cryptography:
         "Cramer\xE2\u20AC\u201CShoup": 0
-        DH: 391
-        DSA: 457
-        DSS: 82
-        ECDH: 52
-        ECDSA: 229
-        ElGamal: 0
+        DH: 981
+        DSA: 903
+        DSS: 240
+        ECDH: 87
+        ECDSA: 562
+        ElGamal: 11
         LUC: 1
-        McEliece: 36
+        McEliece: 97
         "Merkle\xE2\u20AC\u201CHellman": 0
         NTRUEncrypt: 0
         Paillier: 0
-        RSA: 471
-        YAK: 5
+        RSA: 874
+        YAK: 10
       public key infrastructure:
-        CMP: 153
-        DVCS: 124
+        CMP: 194
+        DVCS: 164
         EJBCA: 0
         Identrus: 0
         MicroSoft AuthentiCode: 0
-        LDAP: 1
-        OCSP: 224
+        LDAP: 230
+        OCSP: 320
         OpenCA: 0
         RDBMS: 0
-        PKCS: 383
-        PKIX: 153
+        PKCS: 1150
+        PKIX: 369
         PKCS#7: 1
         RPKI: 0
         RTCS: 0
         SCEP: 0
-        SET: 3175
+        SET: 8069
         SigG: 0
         TinyCA: 0
-        X.509: 1313
+        X.509: 3158
         XiPKI: 1
       protocol:
         3-D Secure: 0
         AAG: 0
         AS1: 2
         AS2: 3
-        AKA: 3
+        AKA: 13
         AuthIP: 0
         ACME: 0
         Autoroll: 0
         BKE: 0
         CAVE: 0
         CCMP: 0
-        CMC: 217
-        CMP: 153
-        CSR: 29
-        CMS: 898
+        CMC: 227
+        CMP: 194
+        CSR: 121
+        CMS: 1635
         CGA: 1
-        DTLS: 36
-        DPD: 4
-        DPV: 3
+        DTLS: 72
+        DPD: 12
+        DPV: 6
         DCII: 1
         DK: 1
         ecash: 0
         EKE: 1
-        EST: 8305
+        EST: 14082
         Firefly: 0
         GSS-TSIG: 0
         GSI: 2
@@ -1543,13 +1562,13 @@ projects:
         H.235: 0
         Hashcash: 0
         HAIPE: 0
-        HTTPS: 96
+        HTTPS: 117
         HTTPsec: 0
         I2P: 3
-        IES: 2
-        IKE: 16
+        IES: 7
+        IKE: 17
         ISAKMP: 6
-        IPsec: 13
+        IPsec: 19
         J-PAKE: 0
         Kak's protocol: 0
         KINK: 0
@@ -1557,19 +1576,19 @@ projects:
         mcTLS: 0
         MPPE: 0
         MIKEY: 0
-        MSE: 1
+        MSE: 2
         "Neuman\xE2\u20AC\u201CStubblebine": 0
         Oakley: 0
-        OTR: 114
+        OTR: 115
         OPKP: 0
         OMEMO: 0
-        OCSP: 224
+        OCSP: 320
         PANA: 0
         PCT: 1
-        PE: 204
-        PEM: 161
+        PE: 268
+        PEM: 624
         PHE: 2
-        PGP: 2946
+        PGP: 2947
         PoSE: 0
         RMA: 2
         RTD: 5
@@ -1579,30 +1598,30 @@ projects:
         SCIMP: 0
         SCRAM: 0
         SCIP: 0
-        SCP: 1
+        SCP: 2
         SCVP: 4
         S-HTTP: 0
-        SEND: 216
+        SEND: 432
         SFTP: 0
         Signal Protocol: 0
         SILC: 0
         SPNEGO: 0
         SPORE: 0
-        SRTP: 9
-        SSH: 3
-        SSL: 68
+        SRTP: 18
+        SSH: 4
+        SSL: 508
         S/MIME: 0
         TACLANE: 0
         tcpcrypt: 0
         TKIP: 0
-        TSP: 65
-        TLS: 691
+        TSP: 166
+        TLS: 2179
         VBR: 3
-        WPA: 2
+        WPA: 3
         WPA2: 0
         WPS: 4
         WTLS: 0
-        X.509: 1313
+        X.509: 3158
         X.1035: 0
         X9.95: 0
         XKMS: 0
@@ -1628,10 +1647,13 @@ projects:
       - DIGITAL Command Language
       - Python
       main_language: C
-      forks: 3198
+      forks: 3197
       licence:
         name:
         abb:
+    LanguageDetector:
+      main_language:
+      languages: []
     FeatureDetector:
       block ciphers:
         3-Way: 0
@@ -2025,6 +2047,9 @@ projects:
 project_tasks:
   MetaDataCollector:
     version: 1.1.0
+    parameter: 99914b932bd37a50b983c5e7c90ae93b
+  LanguageDetector:
+    version: 1.1.1
     parameter: 99914b932bd37a50b983c5e7c90ae93b
   FeatureDetector:
     version: 2.0.1

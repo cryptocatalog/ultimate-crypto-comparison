@@ -10,17 +10,8 @@ Botan's goal is to be the best option for cryptography in new C++ code by offeri
 ## Repository
 - https://github.com/randombit/botan
 
-## Development Languages
-- C++11
-
 ## Interface Languages
 - C++11
 
 ## Creation Date
 - 2000
-
-## Release
-- 2.4.0
-
-## Release Date
-- 2018-01-08

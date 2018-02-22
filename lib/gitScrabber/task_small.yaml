@@ -6,6 +6,7 @@ projects:
   - git: 'https://github.com/openssl/openssl'
 project_tasks:
   - MetaDataCollector
+  - LanguageDetector
   - FeatureDetector:
       block ciphers:
         3-Way:

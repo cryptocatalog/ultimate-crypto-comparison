@@ -496,11 +496,11 @@ gulp.task('gitScrabber', function (done) {
     const gitScrabberReport = path.join(paths.lib, 'gitScrabber/report.yaml');
     const gitScrabberLibs = path.join(paths.lib, 'gitScrabber/gitScrabber/libs');
     execSync('python ' + gitScrabberExec +
-        // ' -r ' + gitScrabberReport + Commented out because the old report is not complete -> Comment out -f
+        ' -r ' + gitScrabberReport +
         ' -t ' + gitScrabberTask +
         ' -o ' + gitScrabberReport +
         ' -d ' + gitScrabberLibs +
-        // ' -f' +
+        ' -f' +
         ' --github-token 8341094f6dc4944ee22491139c5565c3e6f5e32e',
 
         function (err, stdout, stderr) {
@@ -540,9 +540,6 @@ gulp.task('gitScrabber', function (done) {
                 // task: The name of the task (task) of the gitScrabber
                 let attributes = [
                     {mdKey: "Stars", gsKey: "stars", task: "MetaDataCollector"},
-                    {
-                        mdKey: "Development Languages", gsKey: "main_language", task: "MetaDataCollector"
-                    },
                 ];
 
                 // TODO Get release name if it was not defined in the markdown
@@ -616,19 +613,37 @@ gulp.task('gitScrabber', function (done) {
                             // The OCCURRENCE_THRESHOLD determines how often the
                             // attribute has to be found in the report to be added
                             // to the library
-                            const OCCURRENCE_THRESHOLD = 3;
+                            const OCCURRENCE_THRESHOLD = 1;
                             // Push the encryption to the list of a specific encryption type
-                            if (reportCollection[encryptionKey] > OCCURRENCE_THRESHOLD) {
+                            if (reportCollection[encryptionKey] >= OCCURRENCE_THRESHOLD) {
                                 addToDataJSONMap(colMap, colItem);
                             }
                         });
                         // Only add the encryption type to the library if the report
-                        // found a enryption
+                        // found a encryption
                         if (Object.keys(colMap.childs[0][0]).length > 0) {
                             library[encryption.mdKey] = colMap;
                         }
                     }
                 });
+
+                // GET DEV LANGUAGES FROM THE REPORT.YAML
+                // Languages are in an array in the report
+                const markdownLanguagesKey = "Development Languages";
+                const languageDetector = "LanguageDetector";
+                const reportLanguagesKey = "languages";
+                if (!library[markdownLanguagesKey] &&
+                    reportJSON.projects[projectKey][languageDetector] &&
+                    reportJSON.projects[projectKey][languageDetector][reportLanguagesKey].length > 0) {
+
+                    let langMap = createMapDataJSON();
+                    reportJSON.projects[projectKey][languageDetector][reportLanguagesKey].forEach(lang => {
+                        let langItem = createChildDataJSON(lang);
+                        addToDataJSONMap(langMap, langItem);
+                    });
+                    library[markdownLanguagesKey] = langMap;
+                }
+
             }
         }
 

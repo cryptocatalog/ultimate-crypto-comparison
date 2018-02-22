@@ -23,7 +23,7 @@ criteria:
       type: url
   - Release:
       description: The version of the library the data is applicable for
-      search: false
+      search: true
       table: true
       type: label
   - Release Date:
@@ -282,13 +282,6 @@ criteria:
       search: false
       table: false
 autoCriteria:
-  Development Languages:
-    values:
-      C++11: {}
-      'C#': {}
-      Java: {}
-      C: {}
-      Assembly: {}
   Interface Languages:
     values:
       C++11: {}
@@ -300,22 +293,6 @@ autoCriteria:
     values:
       '1998': {}
       '2000': {}
-  Release:
-    values:
-      2.4.0: {}
-      2.0.0: {}
-      1.0.1: {}
-      1.8.1: {}
-      1.0.0: {}
-      '1.59': {}
-      3.4.3.1: {}
-      Latest: {}
-  Release Date:
-    values:
-      '2018-01-08': {}
-      '2017-01-07': {}
-      '2016-12-28': {}
-      '2017-12-18': {}
   Stars:
     values:
       '385': {}
@@ -324,22 +301,26 @@ autoCriteria:
       '6422': {}
   Block Ciphers:
     values:
+      CAST-128: {}
+      CAST-256: {}
       GOST: {}
+      IDEA NXT: {}
       KASUMI: {}
+      Mercy: {}
       MISTY1: {}
+      MMB: {}
       NOEKEON: {}
+      SAFER: {}
       Serpent: {}
       SHACAL: {}
+      Simon: {}
       SM4: {}
       Threefish: {}
+      TEA: {}
       Twofish: {}
       XTEA: {}
       3-Way: {}
       DFC: {}
-      IDEA NXT: {}
-      MMB: {}
-      SAFER: {}
-      TEA: {}
       3DES: {}
       UES: {}
       ARIA-128: {}
@@ -348,19 +329,30 @@ autoCriteria:
       MAGENTA: {}
       MESH: {}
       Skipjack: {}
+  Stream Ciphers:
+    values:
+      Dragon: {}
+      eSTREAM: {}
+      ISAAC: {}
+      Py: {}
+      ZUC: {}
+      Crypto1: {}
+      FISH: {}
+      NLS: {}
   Hash Functions:
     values:
       BLAKE2: {}
+      MD6: {}
+      scrypt: {}
       SipHash: {}
       Skein: {}
       Streebog: {}
       Tiger: {}
       FSB: {}
-      MD6: {}
-      scrypt: {}
       SHAKE: {}
   Encryption Modes:
     values:
+      ABC: {}
       BPS: {}
       CBC: {}
       CCM: {}
@@ -373,32 +365,38 @@ autoCriteria:
       IOC: {}
       OCB: {}
       OFB: {}
+      RAC: {}
       SIV: {}
-      ABC: {}
+      IGE: {}
+      RKC: {}
+      KFB: {}
+      XBC: {}
   Public Key Cryptography:
     values:
       McEliece: {}
   Public Key Infrastructure:
     values:
+      Identrus: {}
+      LDAP: {}
       OCSP: {}
       PKCS: {}
-      X.509: {}
-      LDAP: {}
       PKIX: {}
+      X.509: {}
       DVCS: {}
+      'PKCS#7': {}
+      XiPKI: {}
       EJBCA: {}
-      Identrus: {}
       RPKI: {}
       RTCS: {}
       SCEP: {}
   Protocol:
     values:
-      OCSP: {}
-      RTD: {}
-      X.509: {}
       DTLS: {}
       GPG: {}
+      OCSP: {}
+      RTD: {}
       SRTP: {}
+      X.509: {}
       DK: {}
       EKE: {}
       I2P: {}
@@ -412,14 +410,29 @@ autoCriteria:
       SCEP: {}
       SFTP: {}
       WTLS: {}
-  Stream Ciphers:
+  Development Languages:
     values:
-      Dragon: {}
-      eSTREAM: {}
-      ISAAC: {}
-      Py: {}
-      ZUC: {}
-      FISH: {}
+      C++: {}
+      Python: {}
+      C++11: {}
+      'C#': {}
+      Java: {}
+      C: {}
+      Assembly: {}
+  Release:
+    values:
+      Latest: {}
+      2.0.0: {}
+      1.0.1: {}
+      1.8.1: {}
+      1.0.0: {}
+      '1.59': {}
+      3.4.3.1: {}
+  Release Date:
+    values:
+      '2017-01-07': {}
+      '2016-12-28': {}
+      '2017-12-18': {}
   License:
     values:
       Sleepycat (Berkeley Database) License: {}
@@ -992,6 +1005,12 @@ autoColor:
     Java:
       color: '#0d0d0d'
       backgroundColor: 'hsl(330, 100%, 70%)'
+    C++:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    Python:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
   Interface Language:
     'C#':
       color: '#0d0d0d'
@@ -1118,6 +1137,12 @@ autoColor:
     Java:
       color: '#0d0d0d'
       backgroundColor: 'hsl(210, 100%, 70%)'
+    C++:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(135, 100%, 70%)'
+    Python:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(135, 100%, 70%)'
   Interface Languages:
     C++11:
       color: '#0d0d0d'
@@ -1509,6 +1534,9 @@ autoColor:
     SCEP:
       color: '#0d0d0d'
       backgroundColor: 'hsl(15, 100%, 70%)'
+    XiPKI:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(75, 100%, 70%)'
   Stars:
     '384':
       color: '#ffff00'
@@ -1590,4 +1618,19 @@ autoColor:
     SIV:
       color: '#ffff00'
       backgroundColor: 'hsl(240, 100%, 70%)'
+    IGE:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    KFB:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    RAC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    RKC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    XBC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
 autoCitation: {}
