@@ -71,5 +71,34 @@ Global arguments:
 - `regex`
 - `ruamel.yaml`
 - `requests`
+- `patool`
 - Maybe more
 
+# task.yaml
+
+## Values for project_tasks:
+- AuthorContributorCounter
+- MetaDataCollector
+- LanguageDetector
+- ProjectDates
+- ProjectMetrics
+- LicenceDetector
+- FeatureDetector
+
+## Values for report_tasks:
+- ImpactCalculator
+- ProjectSizeCalculator
+- EaseOfUseEstimation
+- NumericID
+- GenerateLaTeXOverviewTable:
+    primitivCategorieses:
+      - block ciphers
+      - stream ciphers
+      - encryption modes
+      - message authentication codes
+      - hashes
+    highlevelCategories:
+      - public key infrastructure
+      - public key cryptography
+      - protocol
+- GenerateLaTeXDetailTable

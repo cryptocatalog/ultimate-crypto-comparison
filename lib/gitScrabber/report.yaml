@@ -1,98 +1,1833 @@
 reportVersion: 2
 projects:
-  ABI_ffdf7b5daeadc1e813f4d11f1d0eb357:
-    generalData:
-      type: Wrapper
-      related:
-      documentation:
-        exists:
-          readme: false
-          website: false
-          download: false
-        completeness:
-          apis: false
-          examples: false
-          explanations: false
-      interfaceLevel:
-        high: true
-        low: true
-      interfaceLanguage:
-      - C
-      - C++
-      licences:
-      - MIT
-      - JSON
-    url: https://github.com/Eyenseo/ABI
-    name: ABI
-    AuthorContributorCounter:
-      author#: 1
-      contributor#: 1
+  botan_85f127772d0a2958181c5a76eda655bc:
+    url: https://github.com/randombit/botan
+    name: botan
     MetaDataCollector:
-      stars: 2
+      stars: 744
       languages:
+      - C++
+      - Python
       - C
-      - CMake
-      main_language: C
-      forks: 0
+      - Shell
+      - Emacs Lisp
+      - Batchfile
+      - HTML
+      main_language: C++
+      forks: 212
       licence:
         name:
         abb:
-    ProjectDates:
-      first_change: '2016-08-27T23:05:41+02:00'
-      last_change: '2016-08-28T17:54:12+02:00'
-    LanguageDetector:
-      main_language: C
-      languages:
-      - C
-    ProjectMetrics:
-      files:
-        total: 1
-        source: 1
-      loc:
-        source: 163
-        cleaned: 76
-    LicenceDetector:
-      LICENSE:
-      - licence: MIT License
-        confidence: 99.58
-        short: MIT
-      - licence: JSON License
-        confidence: 98.84
-        short: JSON
-      - licence: feh License
-        confidence: 97.2
-        short: MIT-feh
     FeatureDetector:
       block ciphers:
-        AES: 0
-        AES-128: 0
-        AES-192: 0
-        AES-256: 0
-        Blowfish: 0
-        DES: 0
-        Triple DES: 0
-        Serpent: 0
-        Twofish: 0
-        Camellia: 0
-        CAST: 0
-        CAST-128: 0
-        CAST-256: 0
-        IDEA: 0
-        RC: 0
-        SEED: 0
+        3-Way: 0
+        AES: 215
+        AES-128: 15
+        AES-192: 6
+        AES-256: 13
+        Akelarre: 0
+        Anubis: 0
+        ARIA: 5
+        ARIA-128: 0
+        ARIA-192: 0
+        ARIA-256: 0
+        BaseKing: 0
+        BassOmatic: 0
+        BATON: 0
+        Blowfish: 10
+        Camellia: 8
+        CAST: 797
+        CAST-128: 3
+        CAST-256: 3
+        CDMF: 0
+        CMEA: 0
+        Chiasmus: 0
+        CIKS-1: 0
+        Cinavia: 0
+        CIPHERUNICORN-A: 0
+        CIPHERUNICORN-E: 0
+        CLEFIA: 0
+        COBRA: 0
+        COBRA-64: 0
+        COBRA-128: 0
+        COCONUT98: 0
+        Crab: 0
+        Cryptomeria cipher: 0
+        CRYPTON: 0
+        CS-Cipher: 0
+        DES: 30
+        DEAL: 7
+        DFC: 0
+        EnRUPT: 0
+        FEA-M: 0
+        FEAL: 0
+        FPE: 12
+        FROG: 0
+        GDES: 0
+        GOST: 9
+        Grand Cru: 0
+        HPC: 0
+        Hierocrypt: 0
+        ICE: 0
+        IDEA NXT: 0
+        Intel Cascaded Cipher: 0
+        IDEA: 26
+        Kalyna: 0
+        KASUMI: 5
+        KeeLoq: 0
+        KHAZAD: 0
+        Khufu: 0
+        Khafre: 0
+        KN-Cipher: 0
+        Kuznyechik: 0
+        Ladder-DES: 0
+        Libelle: 0
+        LOKI89: 0
+        LOKI91: 0
+        LOKI97: 0
+        Lucifer: 0
+        M6: 0
+        M8: 2
+        MacGuffin: 0
+        MAGENTA: 0
+        MARS: 0
+        Mercy: 1
+        MESH: 0
+        MISTY1: 5
+        MISTY2: 0
+        MMB: 0
+        MULTI2: 0
+        MultiSwap: 0
+        NDS: 2
+        NewDES: 0
+        Nimbus: 0
+        NOEKEON: 8
+        NUSH: 0
+        PC1: 0
+        PRESENT: 165
+        Prince: 0
+        Q: 0
+        RC: 1
+        RC2: 0
+        RC5: 1
+        RC6: 0
+        Red Pike: 0
+        REDOC: 0
+        SAFER: 3
+        SAVILLE: 0
+        SC2000: 0
+        Serpent: 15
+        SEED: 102
+        SHACAL: 24
+        SHARK: 0
+        Simon: 2
+        Skipjack: 0
+        SM4: 4
+        Speck: 0
+        Spectr-H64: 0
+        Square: 0
+        SXAL: 0
+        Threefish: 18
+        TEA: 0
+        Treyfer: 0
+        3DES: 0
+        Twofish: 5
+        UES: 0
+        Xenon: 0
+        XTEA: 5
+        XXTEA: 0
+        Zodiac: 0
+      stream ciphers:
+        Grain: 0
+        A5/1: 0
+        A5/2: 0
+        Achterbahn: 0
+        ChaCha: 47
+        CJCSG: 0
+        CryptMT: 0
+        Crypto1: 0
+        DECIM: 0
+        DICING: 0
+        Dragon: 1
+        Edon80: 0
+        eSTREAM: 1
+        FISH: 0
+        Frogbit: 0
+        HC-256: 0
+        HC-128: 0
+        Hermes8: 0
+        ISAAC: 0
+        LEVIATHAN: 0
+        LEX: 142
+        LILI-128: 0
+        MAG: 0
+        MICKEY: 0
+        Mir-1: 0
+        MULTI-S01: 0
+        NLS: 0
+        ORYX: 0
+        Panama: 0
+        Phelix: 0
+        Pike: 0
+        Polar Bear: 0
+        Py: 0
+        QUAD: 0
+        Rabbit: 0
+        Rambutan: 0
+        RC: 12
+        Salsa: 2
+        Scream: 0
+        SEAL: 0
+        SFINKS: 0
+        SNOW: 0
+        SOBER: 0
+        Solitaire: 0
+        Sosemanuk: 0
+        SSS: 0
+        TRBDK3 YAEA: 0
+        Trivium: 0
+        TSC-3: 0
+        Turing: 3
+        VMPC: 0
+        Vernam: 0
+        VEST: 0
+        "Vigen\xC3\xA8re cipher": 0
+        WAKE: 0
+        WG: 0
+        Yamb: 0
+        ZK-Crypt: 0
+        ZUC: 0
+      hash:
+        BLAKE2: 15
+        brcypt: 0
+        ECOH: 0
+        FSB: 0
+        GOST: 7
+        "Gr\xC3\xB8stl": 0
+        HAS-160: 0
+        HAVAL: 0
+        JH: 0
+        MD2: 0
+        MD5: 10
+        MD6: 0
+        PBKDF2: 12
+        "RadioGat\xC3\xBAn": 0
+        RIPEMD: 2
+        scrypt: 3
+        SHA: 221
+        SHA-1: 34
+        SHA-2: 179
+        SHA-3: 158
+        SHA-256: 134
+        SHA-512: 3
+        SHAKE: 0
+        SipHash: 5
+        Skein: 8
+        Snefru: 0
+        Spectral Hash: 0
+        Streebog: 6
+        SWIFFT: 0
+        Tiger: 5
+        WHIRLPOOL: 2
+      encryption modes:
+        2DEM: 0
+        ABC: 0
+        BPS: 9
+        CBC: 18
+        CCM: 4
+        CFB: 9
+        CTR: 59
+        CSPEM: 0
+        CWC: 0
+        DFF: 0
+        EAX: 190
+        ECB: 13
+        FCEM: 0
+        FFX: 2533773
+        GCM: 48
+        IACBC: 0
+        IAPM: 0
+        IGE: 0
+        IOC: 2461749
+        KFB: 0
+        OCB: 16
+        OFB: 4
+        PCBC: 0
+        PCFB: 0
+        RAC: 0
+        RKC: 0
+        SIV: 4
+        VFPE: 0
+        XBC: 0
+        XCBC: 0
+      message authentication codes:
+        CBC-MAC: 0
+        HMAC: 70
+        OMAC: 0
+        MMH-Badger: 0
+        PMAC: 0
+        Poly1305: 48
+        RMAC: 0
+        TMAC: 0
+        UMAC: 0
+        VMAC: 0
+        XCBC: 0
+        XECB: 0
+      public key cryptography:
+        "Cramer\xE2\u20AC\u201CShoup": 0
+        DH: 26
+        DSA: 65
+        DSS: 30
+        ECDH: 71
+        ECDSA: 74
+        ElGamal: 15
+        LUC: 0
+        McEliece: 12
+        "Merkle\xE2\u20AC\u201CHellman": 0
+        NTRUEncrypt: 0
+        Paillier: 0
+        RSA: 170
+        YAK: 0
+      public key infrastructure:
+        CMP: 52
+        DVCS: 0
+        EJBCA: 0
+        Identrus: 0
+        MicroSoft AuthentiCode: 0
+        LDAP: 0
+        OCSP: 25
+        OpenCA: 0
+        RDBMS: 0
+        PKCS: 21
+        PKIX: 1
+        PKCS#7: 0
+        RPKI: 0
+        RTCS: 0
+        SCEP: 0
+        SET: 1263
+        SigG: 0
+        TinyCA: 0
+        X.509: 157
+        XiPKI: 0
+      protocol:
+        3-D Secure: 0
+        AAG: 0
+        AS1: 0
+        AS2: 0
+        AKA: 4
+        AuthIP: 0
+        ACME: 0
+        Autoroll: 0
+        BKE: 0
+        CAVE: 0
+        CCMP: 0
+        CMC: 0
+        CMP: 52
+        CSR: 2
+        CMS: 1
+        CGA: 0
+        DTLS: 2
+        DPD: 0
+        DPV: 0
+        DCII: 0
+        DK: 0
+        ecash: 0
+        EKE: 0
+        EST: 92
+        Firefly: 0
+        GSS-TSIG: 0
+        GSI: 0
+        GDOI: 0
+        GPG: 2
+        H.235: 0
+        Hashcash: 0
+        HAIPE: 0
+        HTTPS: 134
+        HTTPsec: 0
+        I2P: 0
+        IES: 0
+        IKE: 17
+        ISAKMP: 0
+        IPsec: 0
+        J-PAKE: 0
+        Kak's protocol: 0
+        KINK: 0
+        KMIP: 0
+        mcTLS: 0
+        MPPE: 0
+        MIKEY: 0
+        MSE: 0
+        "Neuman\xE2\u20AC\u201CStubblebine": 0
+        Oakley: 0
+        OTR: 1
+        OPKP: 0
+        OMEMO: 0
+        OCSP: 25
+        PANA: 0
+        PCT: 0
+        PE: 0
+        PEM: 35
+        PHE: 0
+        PGP: 6
+        PoSE: 0
+        RMA: 0
+        RTD: 4
+        Publius: 0
+        SASL: 0
+        SCEP: 0
+        SCIMP: 0
+        SCRAM: 0
+        SCIP: 0
+        SCP: 0
+        SCVP: 0
+        S-HTTP: 0
+        SEND: 122
+        SFTP: 0
+        Signal Protocol: 0
+        SILC: 0
+        SPNEGO: 0
+        SPORE: 0
+        SRTP: 0
+        SSH: 0
+        SSL: 1
+        S/MIME: 0
+        TACLANE: 0
+        tcpcrypt: 0
+        TKIP: 0
+        TSP: 0
+        TLS: 273
+        VBR: 0
+        WPA: 0
+        WPA2: 0
+        WPS: 0
+        WTLS: 0
+        X.509: 157
+        X.1035: 0
+        X9.95: 0
+        XKMS: 0
+        Yahalom: 0
+        "Zimmermann\xE2\u20AC\u201CSassaman": 0
+        ZRTP: 0
+  200zip_88f4b9d56f01b711a2f2faed709d9266:
+    url: https://github.com/randombit/botan/archive/2.0.0.zip
+    name: 2.0.0.zip
+    FeatureDetector:
+      block ciphers:
+        3-Way: 0
+        AES: 190
+        AES-128: 10
+        AES-192: 3
+        AES-256: 9
+        Akelarre: 0
+        Anubis: 0
         ARIA: 0
         ARIA-128: 0
         ARIA-192: 0
         ARIA-256: 0
+        BaseKing: 0
+        BassOmatic: 0
+        BATON: 0
+        Blowfish: 10
+        Camellia: 9
+        CAST: 784
+        CAST-128: 3
+        CAST-256: 3
+        CDMF: 0
+        CMEA: 0
+        Chiasmus: 0
+        CIKS-1: 0
+        Cinavia: 0
+        CIPHERUNICORN-A: 0
+        CIPHERUNICORN-E: 0
+        CLEFIA: 0
+        COBRA: 0
+        COBRA-64: 0
+        COBRA-128: 0
+        COCONUT98: 0
+        Crab: 0
+        Cryptomeria cipher: 0
+        CRYPTON: 0
+        CS-Cipher: 0
+        DES: 30
+        DEAL: 8
+        DFC: 0
+        EnRUPT: 0
+        FEA-M: 0
+        FEAL: 0
+        FPE: 15
+        FROG: 0
+        GDES: 0
+        GOST: 11
+        Grand Cru: 0
+        HPC: 0
+        Hierocrypt: 0
+        ICE: 0
+        IDEA NXT: 0
+        Intel Cascaded Cipher: 0
+        IDEA: 25
+        Kalyna: 0
+        KASUMI: 5
+        KeeLoq: 0
+        KHAZAD: 0
+        Khufu: 0
+        Khafre: 0
+        KN-Cipher: 0
+        Kuznyechik: 0
+        Ladder-DES: 0
+        Libelle: 0
+        LOKI89: 0
+        LOKI91: 0
+        LOKI97: 0
+        Lucifer: 0
+        M6: 6
+        M8: 7
+        MacGuffin: 0
+        MAGENTA: 0
+        MARS: 0
+        Mercy: 2
+        MESH: 0
+        MISTY1: 5
+        MISTY2: 0
+        MMB: 0
+        MULTI2: 0
+        MultiSwap: 0
+        NDS: 2
+        NewDES: 0
+        Nimbus: 0
+        NOEKEON: 8
+        NUSH: 0
+        PC1: 0
+        PRESENT: 243
+        Prince: 0
+        Q: 0
+        RC: 1
+        RC2: 0
+        RC5: 1
+        RC6: 0
+        Red Pike: 0
+        REDOC: 0
+        SAFER: 3
+        SAVILLE: 0
+        SC2000: 0
+        Serpent: 15
+        SEED: 382
+        SHACAL: 0
+        SHARK: 0
+        Simon: 2
         Skipjack: 0
+        SM4: 0
+        Speck: 0
+        Spectr-H64: 0
+        Square: 0
+        SXAL: 0
+        Threefish: 16
         TEA: 0
-        XTEA: 0
+        Treyfer: 0
+        3DES: 0
+        Twofish: 5
+        UES: 0
+        Xenon: 0
+        XTEA: 5
+        XXTEA: 0
+        Zodiac: 0
       stream ciphers:
-        RC: 0
-        ChaCha: 0
-        Salsa: 0
+        Grain: 0
+        A5/1: 0
+        A5/2: 0
+        Achterbahn: 0
+        ChaCha: 87
+        CJCSG: 0
+        CryptMT: 0
+        Crypto1: 0
+        DECIM: 0
+        DICING: 0
+        Dragon: 5
+        Edon80: 0
+        eSTREAM: 1
+        FISH: 0
+        Frogbit: 0
+        HC-256: 0
+        HC-128: 0
+        Hermes8: 0
+        ISAAC: 0
+        LEVIATHAN: 0
+        LEX: 45
+        LILI-128: 0
+        MAG: 1
+        MICKEY: 0
+        Mir-1: 0
+        MULTI-S01: 0
+        NLS: 0
+        ORYX: 0
+        Panama: 0
+        Phelix: 0
+        Pike: 0
+        Polar Bear: 0
+        Py: 0
+        QUAD: 0
+        Rabbit: 0
+        Rambutan: 0
+        RC: 15
+        Salsa: 9
+        Scream: 0
+        SEAL: 0
+        SFINKS: 0
+        SNOW: 0
+        SOBER: 0
+        Solitaire: 0
+        Sosemanuk: 0
+        SSS: 0
+        TRBDK3 YAEA: 0
+        Trivium: 0
+        TSC-3: 0
+        Turing: 8
+        VMPC: 0
+        Vernam: 0
+        VEST: 0
+        "Vigen\xC3\xA8re cipher": 0
+        WAKE: 0
+        WG: 0
+        Yamb: 0
+        ZK-Crypt: 0
+        ZUC: 0
       hash:
+        BLAKE2: 23
+        brcypt: 0
+        ECOH: 0
+        FSB: 0
+        GOST: 6
+        "Gr\xC3\xB8stl": 0
+        HAS-160: 0
+        HAVAL: 0
+        JH: 0
+        MD2: 0
+        MD5: 19
+        MD6: 0
+        PBKDF2: 15
+        "RadioGat\xC3\xBAn": 0
+        RIPEMD: 2
+        scrypt: 2
+        SHA: 131
+        SHA-1: 48
+        SHA-2: 66
+        SHA-3: 59
+        SHA-256: 20
+        SHA-512: 6
+        SHAKE: 0
+        SipHash: 5
+        Skein: 8
+        Snefru: 0
+        Spectral Hash: 0
+        Streebog: 0
+        SWIFFT: 0
+        Tiger: 5
+        WHIRLPOOL: 2
+      encryption modes:
+        2DEM: 0
+        ABC: 0
+        BPS: 10
+        CBC: 60
+        CCM: 4
+        CFB: 6
+        CTR: 90
+        CSPEM: 0
+        CWC: 0
+        DFF: 0
+        EAX: 193
+        ECB: 13
+        FCEM: 0
+        FFX: 3856018
+        GCM: 16
+        IACBC: 0
+        IAPM: 0
+        IGE: 0
+        IOC: 3745151
+        KFB: 0
+        OCB: 29
+        OFB: 6
+        PCBC: 0
+        PCFB: 0
+        RAC: 0
+        RKC: 0
+        SIV: 4
+        VFPE: 0
+        XBC: 0
+        XCBC: 0
+      message authentication codes:
+        CBC-MAC: 0
+        HMAC: 97
+        OMAC: 0
+        MMH-Badger: 0
+        PMAC: 0
+        Poly1305: 57
+        RMAC: 0
+        TMAC: 0
+        UMAC: 0
+        VMAC: 0
+        XCBC: 0
+        XECB: 0
+      public key cryptography:
+        "Cramer\xE2\u20AC\u201CShoup": 0
+        DH: 102
+        DSA: 67
+        DSS: 30
+        ECDH: 161
+        ECDSA: 174
+        ElGamal: 11
+        LUC: 0
+        McEliece: 50
+        "Merkle\xE2\u20AC\u201CHellman": 0
+        NTRUEncrypt: 0
+        Paillier: 0
+        RSA: 275
+        YAK: 0
+      public key infrastructure:
+        CMP: 55
+        DVCS: 0
+        EJBCA: 0
+        Identrus: 1
+        MicroSoft AuthentiCode: 0
+        LDAP: 0
+        OCSP: 219
+        OpenCA: 0
+        RDBMS: 0
+        PKCS: 11
+        PKIX: 1
+        PKCS#7: 0
+        RPKI: 0
+        RTCS: 0
+        SCEP: 0
+        SET: 1751
+        SigG: 0
+        TinyCA: 0
+        X.509: 275
+        XiPKI: 0
+      protocol:
+        3-D Secure: 0
+        AAG: 0
+        AS1: 0
+        AS2: 1
+        AKA: 4
+        AuthIP: 0
+        ACME: 0
+        Autoroll: 0
+        BKE: 0
+        CAVE: 0
+        CCMP: 0
+        CMC: 0
+        CMP: 55
+        CSR: 2
+        CMS: 1
+        CGA: 0
+        DTLS: 22
+        DPD: 4
+        DPV: 0
+        DCII: 1
+        DK: 0
+        ecash: 0
+        EKE: 0
+        EST: 1700
+        Firefly: 0
+        GSS-TSIG: 0
+        GSI: 0
+        GDOI: 0
+        GPG: 15
+        H.235: 0
+        Hashcash: 0
+        HAIPE: 0
+        HTTPS: 115
+        HTTPsec: 0
+        I2P: 0
+        IES: 0
+        IKE: 11
+        ISAKMP: 0
+        IPsec: 0
+        J-PAKE: 0
+        Kak's protocol: 0
+        KINK: 0
+        KMIP: 0
+        mcTLS: 0
+        MPPE: 0
+        MIKEY: 0
+        MSE: 0
+        "Neuman\xE2\u20AC\u201CStubblebine": 0
+        Oakley: 0
+        OTR: 1
+        OPKP: 0
+        OMEMO: 0
+        OCSP: 219
+        PANA: 0
+        PCT: 0
+        PE: 37
+        PEM: 149
+        PHE: 0
+        PGP: 11
+        PoSE: 0
+        RMA: 0
+        RTD: 0
+        Publius: 0
+        SASL: 0
+        SCEP: 0
+        SCIMP: 0
+        SCRAM: 0
+        SCIP: 0
+        SCP: 0
+        SCVP: 0
+        S-HTTP: 0
+        SEND: 263
+        SFTP: 0
+        Signal Protocol: 0
+        SILC: 0
+        SPNEGO: 0
+        SPORE: 0
+        SRTP: 44
+        SSH: 0
+        SSL: 1
+        S/MIME: 0
+        TACLANE: 0
+        tcpcrypt: 0
+        TKIP: 0
+        TSP: 0
+        TLS: 581
+        VBR: 0
+        WPA: 0
+        WPA2: 0
+        WPS: 0
+        WTLS: 0
+        X.509: 275
+        X.1035: 0
+        X9.95: 0
+        XKMS: 0
+        Yahalom: 0
+        "Zimmermann\xE2\u20AC\u201CSassaman": 0
+        ZRTP: 0
+  bc-csharp_dd01f9af6c469a3c393fdd961cc86da3:
+    url: https://github.com/bcgit/bc-csharp
+    name: bc-csharp
+    MetaDataCollector:
+      stars: 385
+      languages:
+      - C#
+      - HTML
+      main_language: C#
+      forks: 171
+      licence:
+        name:
+        abb:
+    FeatureDetector:
+      block ciphers:
+        3-Way: 2
+        AES: 186
+        AES-128: 35
+        AES-192: 39
+        AES-256: 36
+        Akelarre: 0
+        Anubis: 0
+        ARIA: 0
+        ARIA-128: 0
+        ARIA-192: 0
+        ARIA-256: 0
+        BaseKing: 0
+        BassOmatic: 0
+        BATON: 0
+        Blowfish: 25
+        Camellia: 66
+        CAST: 6
+        CAST-128: 0
+        CAST-256: 0
+        CDMF: 0
+        CMEA: 0
+        Chiasmus: 0
+        CIKS-1: 0
+        Cinavia: 0
+        CIPHERUNICORN-A: 0
+        CIPHERUNICORN-E: 0
+        CLEFIA: 0
+        COBRA: 0
+        COBRA-64: 0
+        COBRA-128: 0
+        COCONUT98: 0
+        Crab: 0
+        Cryptomeria cipher: 0
+        CRYPTON: 0
+        CS-Cipher: 0
+        DES: 33
+        DEAL: 6
+        DFC: 1
+        EnRUPT: 0
+        FEA-M: 0
+        FEAL: 0
+        FPE: 0
+        FROG: 0
+        GDES: 0
+        GOST: 5
+        Grand Cru: 0
+        HPC: 0
+        Hierocrypt: 0
+        ICE: 0
+        IDEA NXT: 1
+        Intel Cascaded Cipher: 0
+        IDEA: 7
+        Kalyna: 0
+        KASUMI: 0
+        KeeLoq: 0
+        KHAZAD: 0
+        Khufu: 0
+        Khafre: 0
+        KN-Cipher: 0
+        Kuznyechik: 0
+        Ladder-DES: 0
+        Libelle: 0
+        LOKI89: 0
+        LOKI91: 0
+        LOKI97: 0
+        Lucifer: 0
+        M6: 77
+        M8: 99
+        MacGuffin: 0
+        MAGENTA: 0
+        MARS: 0
+        Mercy: 0
+        MESH: 0
+        MISTY1: 0
+        MISTY2: 0
+        MMB: 1
+        MULTI2: 0
+        MultiSwap: 0
+        NDS: 35
+        NewDES: 0
+        Nimbus: 0
+        NOEKEON: 3
+        NUSH: 0
+        PC1: 0
+        PRESENT: 498
+        Prince: 0
+        Q: 0
+        RC: 61
+        RC2: 53
+        RC5: 7
+        RC6: 1
+        Red Pike: 0
+        REDOC: 0
+        SAFER: 0
+        SAVILLE: 0
+        SC2000: 0
+        Serpent: 3
+        SEED: 367
+        SHACAL: 0
+        SHARK: 0
+        Simon: 0
+        Skipjack: 0
+        SM4: 1
+        Speck: 0
+        Spectr-H64: 0
+        Square: 0
+        SXAL: 0
+        Threefish: 6
+        TEA: 16
+        Treyfer: 0
+        3DES: 19
+        Twofish: 9
+        UES: 3
+        Xenon: 0
+        XTEA: 0
+        XXTEA: 0
+        Zodiac: 0
+      stream ciphers:
+        Grain: 0
+        A5/1: 0
+        A5/2: 0
+        Achterbahn: 0
+        ChaCha: 37
+        CJCSG: 0
+        CryptMT: 0
+        Crypto1: 0
+        DECIM: 0
+        DICING: 0
+        Dragon: 0
+        Edon80: 0
+        eSTREAM: 1
+        FISH: 0
+        Frogbit: 0
+        HC-256: 0
+        HC-128: 0
+        Hermes8: 0
+        ISAAC: 4
+        LEVIATHAN: 0
+        LEX: 7
+        LILI-128: 0
+        MAG: 98
+        MICKEY: 0
+        Mir-1: 0
+        MULTI-S01: 0
+        NLS: 0
+        ORYX: 0
+        Panama: 0
+        Phelix: 0
+        Pike: 0
+        Polar Bear: 0
+        Py: 1
+        QUAD: 0
+        Rabbit: 0
+        Rambutan: 0
+        RC: 3
+        Salsa: 36
+        Scream: 0
+        SEAL: 0
+        SFINKS: 0
+        SNOW: 0
+        SOBER: 0
+        Solitaire: 0
+        Sosemanuk: 0
+        SSS: 0
+        TRBDK3 YAEA: 0
+        Trivium: 0
+        TSC-3: 0
+        Turing: 0
+        VMPC: 0
+        Vernam: 0
+        VEST: 0
+        "Vigen\xC3\xA8re cipher": 0
+        WAKE: 0
+        WG: 0
+        Yamb: 0
+        ZK-Crypt: 0
+        ZUC: 1
+      hash:
+        BLAKE2: 21
+        brcypt: 0
+        ECOH: 0
+        FSB: 3
+        GOST: 1
+        "Gr\xC3\xB8stl": 0
+        HAS-160: 0
+        HAVAL: 0
+        JH: 0
+        MD2: 2
+        MD5: 64
+        MD6: 4
+        PBKDF2: 0
+        "RadioGat\xC3\xBAn": 0
+        RIPEMD: 14
+        scrypt: 11
+        SHA: 287
+        SHA-1: 160
+        SHA-2: 115
+        SHA-3: 127
+        SHA-256: 49
+        SHA-512: 21
+        SHAKE: 0
+        SipHash: 4
+        Skein: 11
+        Snefru: 0
+        Spectral Hash: 0
+        Streebog: 0
+        SWIFFT: 0
+        Tiger: 0
+        WHIRLPOOL: 2
+      encryption modes:
+        2DEM: 0
+        ABC: 72
+        BPS: 0
+        CBC: 110
+        CCM: 49
+        CFB: 97
+        CTR: 361
+        CSPEM: 0
+        CWC: 0
+        DFF: 0
+        EAX: 25
+        ECB: 46
+        FCEM: 0
+        FFX: 12444544
+        GCM: 40
+        IACBC: 0
+        IAPM: 0
+        IGE: 2
+        IOC: 11945718
+        KFB: 0
+        OCB: 13
+        OFB: 102
+        PCBC: 0
+        PCFB: 0
+        RAC: 1
+        RKC: 1
+        SIV: 3
+        VFPE: 0
+        XBC: 0
+        XCBC: 0
+      message authentication codes:
+        CBC-MAC: 0
+        HMAC: 130
+        OMAC: 3
+        MMH-Badger: 0
+        PMAC: 0
+        Poly1305: 19
+        RMAC: 0
+        TMAC: 0
+        UMAC: 0
+        VMAC: 0
+        XCBC: 0
+        XECB: 0
+      public key cryptography:
+        "Cramer\xE2\u20AC\u201CShoup": 0
+        DH: 225
+        DSA: 498
+        DSS: 33
+        ECDH: 11
+        ECDSA: 84
+        ElGamal: 0
+        LUC: 1
+        McEliece: 0
+        "Merkle\xE2\u20AC\u201CHellman": 0
+        NTRUEncrypt: 0
+        Paillier: 0
+        RSA: 467
+        YAK: 4
+      public key infrastructure:
+        CMP: 164
+        DVCS: 0
+        EJBCA: 0
+        Identrus: 0
+        MicroSoft AuthentiCode: 0
+        LDAP: 11
+        OCSP: 239
+        OpenCA: 0
+        RDBMS: 0
+        PKCS: 198
+        PKIX: 192
+        PKCS#7: 0
+        RPKI: 0
+        RTCS: 0
+        SCEP: 0
+        SET: 767
+        SigG: 0
+        TinyCA: 0
+        X.509: 920
+        XiPKI: 0
+      protocol:
+        3-D Secure: 0
+        AAG: 0
+        AS1: 1
+        AS2: 0
+        AKA: 1
+        AuthIP: 0
+        ACME: 0
+        Autoroll: 0
+        BKE: 0
+        CAVE: 0
+        CCMP: 0
+        CMC: 0
+        CMP: 164
+        CSR: 4
+        CMS: 525
+        CGA: 0
+        DTLS: 22
+        DPD: 3
+        DPV: 1
+        DCII: 0
+        DK: 0
+        ecash: 0
+        EKE: 0
+        EST: 9739
+        Firefly: 0
+        GSS-TSIG: 0
+        GSI: 0
+        GDOI: 0
+        GPG: 335
+        H.235: 0
+        Hashcash: 0
+        HAIPE: 0
+        HTTPS: 40
+        HTTPsec: 0
+        I2P: 2
+        IES: 10
+        IKE: 2
+        ISAKMP: 1
+        IPsec: 1
+        J-PAKE: 0
+        Kak's protocol: 0
+        KINK: 0
+        KMIP: 0
+        mcTLS: 0
+        MPPE: 0
+        MIKEY: 0
+        MSE: 1
+        "Neuman\xE2\u20AC\u201CStubblebine": 0
+        Oakley: 0
+        OTR: 113
+        OPKP: 0
+        OMEMO: 0
+        OCSP: 239
+        PANA: 0
+        PCT: 0
+        PE: 108
+        PEM: 396
+        PHE: 1
+        PGP: 860
+        PoSE: 0
+        RMA: 0
+        RTD: 12
+        Publius: 0
+        SASL: 0
+        SCEP: 0
+        SCIMP: 0
+        SCRAM: 0
+        SCIP: 0
+        SCP: 0
+        SCVP: 1
+        S-HTTP: 0
+        SEND: 113
+        SFTP: 0
+        Signal Protocol: 0
+        SILC: 0
+        SPNEGO: 0
+        SPORE: 0
+        SRTP: 7
+        SSH: 2
+        SSL: 8
+        S/MIME: 0
+        TACLANE: 0
+        tcpcrypt: 0
+        TKIP: 0
+        TSP: 80
+        TLS: 1046
+        VBR: 3
+        WPA: 1
+        WPA2: 0
+        WPS: 2
+        WTLS: 0
+        X.509: 920
+        X.1035: 0
+        X9.95: 0
+        XKMS: 0
+        Yahalom: 0
+        "Zimmermann\xE2\u20AC\u201CSassaman": 0
+        ZRTP: 0
+  bc-java_322119c0491fa5d6b4f4f17326150f5a:
+    url: https://github.com/bcgit/bc-java
+    name: bc-java
+    MetaDataCollector:
+      stars: 611
+      languages:
+      - Java
+      - Shell
+      - HTML
+      - Batchfile
+      main_language: Java
+      forks: 453
+      licence:
+        name:
+        abb:
+    FeatureDetector:
+      block ciphers:
+        3-Way: 0
+        AES: 264
+        AES-128: 64
+        AES-192: 47
+        AES-256: 47
+        Akelarre: 0
+        Anubis: 0
+        ARIA: 34
+        ARIA-128: 11
+        ARIA-192: 11
+        ARIA-256: 11
+        BaseKing: 0
+        BassOmatic: 0
+        BATON: 0
+        Blowfish: 11
+        Camellia: 102
+        CAST: 15
+        CAST-128: 0
+        CAST-256: 0
+        CDMF: 0
+        CMEA: 0
+        Chiasmus: 0
+        CIKS-1: 0
+        Cinavia: 0
+        CIPHERUNICORN-A: 0
+        CIPHERUNICORN-E: 0
+        CLEFIA: 0
+        COBRA: 0
+        COBRA-64: 0
+        COBRA-128: 0
+        COCONUT98: 0
+        Crab: 0
+        Cryptomeria cipher: 0
+        CRYPTON: 0
+        CS-Cipher: 0
+        DES: 82
+        DEAL: 20
+        DFC: 3
+        EnRUPT: 0
+        FEA-M: 0
+        FEAL: 0
+        FPE: 1
+        FROG: 0
+        GDES: 0
+        GOST: 18
+        Grand Cru: 0
+        HPC: 0
+        Hierocrypt: 0
+        ICE: 0
+        IDEA NXT: 5
+        Intel Cascaded Cipher: 0
+        IDEA: 17
+        Kalyna: 0
+        KASUMI: 0
+        KeeLoq: 0
+        KHAZAD: 0
+        Khufu: 0
+        Khafre: 0
+        KN-Cipher: 0
+        Kuznyechik: 0
+        Ladder-DES: 0
+        Libelle: 0
+        LOKI89: 0
+        LOKI91: 0
+        LOKI97: 0
+        Lucifer: 0
+        M6: 140
+        M8: 147
+        MacGuffin: 0
+        MAGENTA: 0
+        MARS: 0
+        Mercy: 0
+        MESH: 0
+        MISTY1: 0
+        MISTY2: 0
+        MMB: 1
+        MULTI2: 0
+        MultiSwap: 0
+        NDS: 6
+        NewDES: 0
+        Nimbus: 0
+        NOEKEON: 3
+        NUSH: 0
+        PC1: 0
+        PRESENT: 1168
+        Prince: 0
+        Q: 0
+        RC: 28
+        RC2: 26
+        RC5: 0
+        RC6: 2
+        Red Pike: 0
+        REDOC: 0
+        SAFER: 1
+        SAVILLE: 0
+        SC2000: 0
+        Serpent: 3
+        SEED: 686
+        SHACAL: 0
+        SHARK: 0
+        Simon: 0
+        Skipjack: 0
+        SM4: 3
+        Speck: 0
+        Spectr-H64: 0
+        Square: 0
+        SXAL: 0
+        Threefish: 12
+        TEA: 3
+        Treyfer: 0
+        3DES: 10
+        Twofish: 19
+        UES: 2
+        Xenon: 0
+        XTEA: 0
+        XXTEA: 0
+        Zodiac: 0
+      stream ciphers:
+        Grain: 0
+        A5/1: 0
+        A5/2: 0
+        Achterbahn: 0
+        ChaCha: 42
+        CJCSG: 0
+        CryptMT: 0
+        Crypto1: 3
+        DECIM: 0
+        DICING: 0
+        Dragon: 0
+        Edon80: 0
+        eSTREAM: 1
+        FISH: 5
+        Frogbit: 0
+        HC-256: 0
+        HC-128: 0
+        Hermes8: 0
+        ISAAC: 4
+        LEVIATHAN: 0
+        LEX: 10
+        LILI-128: 0
+        MAG: 138
+        MICKEY: 0
+        Mir-1: 0
+        MULTI-S01: 0
+        NLS: 1
+        ORYX: 0
+        Panama: 0
+        Phelix: 0
+        Pike: 0
+        Polar Bear: 0
+        Py: 1
+        QUAD: 0
+        Rabbit: 0
+        Rambutan: 0
+        RC: 8
+        Salsa: 36
+        Scream: 0
+        SEAL: 17
+        SFINKS: 0
+        SNOW: 0
+        SOBER: 0
+        Solitaire: 0
+        Sosemanuk: 0
+        SSS: 0
+        TRBDK3 YAEA: 0
+        Trivium: 0
+        TSC-3: 0
+        Turing: 1
+        VMPC: 0
+        Vernam: 0
+        VEST: 0
+        "Vigen\xC3\xA8re cipher": 0
+        WAKE: 0
+        WG: 0
+        Yamb: 0
+        ZK-Crypt: 0
+        ZUC: 1
+      hash:
+        BLAKE2: 239
+        brcypt: 0
+        ECOH: 0
+        FSB: 2
+        GOST: 9
+        "Gr\xC3\xB8stl": 0
+        HAS-160: 0
+        HAVAL: 0
+        JH: 0
+        MD2: 20
+        MD5: 95
+        MD6: 5
+        PBKDF2: 1
+        "RadioGat\xC3\xBAn": 0
+        RIPEMD: 140
+        scrypt: 17
+        SHA: 935
+        SHA-1: 285
+        SHA-2: 363
+        SHA-3: 642
+        SHA-256: 141
+        SHA-512: 123
+        SHAKE: 4
+        SipHash: 4
+        Skein: 11
+        Snefru: 0
+        Spectral Hash: 0
+        Streebog: 1
+        SWIFFT: 0
+        Tiger: 0
+        WHIRLPOOL: 3
+      encryption modes:
+        2DEM: 0
+        ABC: 29
+        BPS: 0
+        CBC: 72
+        CCM: 50
+        CFB: 72
+        CTR: 225
+        CSPEM: 0
+        CWC: 0
+        DFF: 0
+        EAX: 25
+        ECB: 10
+        FCEM: 0
+        FFX: 18803247
+        GCM: 36
+        IACBC: 0
+        IAPM: 0
+        IGE: 2
+        IOC: 18175760
+        KFB: 0
+        OCB: 16
+        OFB: 62
+        PCBC: 0
+        PCFB: 0
+        RAC: 0
+        RKC: 2
+        SIV: 4
+        VFPE: 0
+        XBC: 2
+        XCBC: 0
+      message authentication codes:
+        CBC-MAC: 0
+        HMAC: 229
+        OMAC: 2
+        MMH-Badger: 0
+        PMAC: 0
+        Poly1305: 19
+        RMAC: 0
+        TMAC: 0
+        UMAC: 0
+        VMAC: 0
+        XCBC: 0
+        XECB: 0
+      public key cryptography:
+        "Cramer\xE2\u20AC\u201CShoup": 0
+        DH: 391
+        DSA: 457
+        DSS: 82
+        ECDH: 52
+        ECDSA: 229
+        ElGamal: 0
+        LUC: 1
+        McEliece: 36
+        "Merkle\xE2\u20AC\u201CHellman": 0
+        NTRUEncrypt: 0
+        Paillier: 0
+        RSA: 471
+        YAK: 5
+      public key infrastructure:
+        CMP: 153
+        DVCS: 124
+        EJBCA: 0
+        Identrus: 0
+        MicroSoft AuthentiCode: 0
+        LDAP: 1
+        OCSP: 224
+        OpenCA: 0
+        RDBMS: 0
+        PKCS: 383
+        PKIX: 153
+        PKCS#7: 1
+        RPKI: 0
+        RTCS: 0
+        SCEP: 0
+        SET: 3175
+        SigG: 0
+        TinyCA: 0
+        X.509: 1313
+        XiPKI: 1
+      protocol:
+        3-D Secure: 0
+        AAG: 0
+        AS1: 2
+        AS2: 3
+        AKA: 3
+        AuthIP: 0
+        ACME: 0
+        Autoroll: 0
+        BKE: 0
+        CAVE: 0
+        CCMP: 0
+        CMC: 217
+        CMP: 153
+        CSR: 29
+        CMS: 898
+        CGA: 1
+        DTLS: 36
+        DPD: 4
+        DPV: 3
+        DCII: 1
+        DK: 1
+        ecash: 0
+        EKE: 1
+        EST: 8305
+        Firefly: 0
+        GSS-TSIG: 0
+        GSI: 2
+        GDOI: 0
+        GPG: 1498
+        H.235: 0
+        Hashcash: 0
+        HAIPE: 0
+        HTTPS: 96
+        HTTPsec: 0
+        I2P: 3
+        IES: 2
+        IKE: 16
+        ISAKMP: 6
+        IPsec: 13
+        J-PAKE: 0
+        Kak's protocol: 0
+        KINK: 0
+        KMIP: 35
+        mcTLS: 0
+        MPPE: 0
+        MIKEY: 0
+        MSE: 1
+        "Neuman\xE2\u20AC\u201CStubblebine": 0
+        Oakley: 0
+        OTR: 114
+        OPKP: 0
+        OMEMO: 0
+        OCSP: 224
+        PANA: 0
+        PCT: 1
+        PE: 204
+        PEM: 161
+        PHE: 2
+        PGP: 2946
+        PoSE: 0
+        RMA: 2
+        RTD: 5
+        Publius: 0
+        SASL: 0
+        SCEP: 0
+        SCIMP: 0
+        SCRAM: 0
+        SCIP: 0
+        SCP: 1
+        SCVP: 4
+        S-HTTP: 0
+        SEND: 216
+        SFTP: 0
+        Signal Protocol: 0
+        SILC: 0
+        SPNEGO: 0
+        SPORE: 0
+        SRTP: 9
+        SSH: 3
+        SSL: 68
+        S/MIME: 0
+        TACLANE: 0
+        tcpcrypt: 0
+        TKIP: 0
+        TSP: 65
+        TLS: 691
+        VBR: 3
+        WPA: 2
+        WPA2: 0
+        WPS: 4
+        WTLS: 0
+        X.509: 1313
+        X.1035: 0
+        X9.95: 0
+        XKMS: 0
+        Yahalom: 0
+        "Zimmermann\xE2\u20AC\u201CSassaman": 0
+        ZRTP: 0
+  openssl_9f9847c5cf87fbb5f2018434e3743998:
+    url: https://github.com/openssl/openssl
+    name: openssl
+    MetaDataCollector:
+      stars: 6422
+      languages:
+      - C
+      - Perl 6
+      - Perl
+      - Prolog
+      - C++
+      - Assembly
+      - Objective-C
+      - Shell
+      - M4
+      - eC
+      - DIGITAL Command Language
+      - Python
+      main_language: C
+      forks: 3198
+      licence:
+        name:
+        abb:
+    FeatureDetector:
+      block ciphers:
+        3-Way: 0
+        AES: 0
+        AES-128: 0
+        AES-192: 0
+        AES-256: 0
+        Akelarre: 0
+        Anubis: 0
+        ARIA: 0
+        ARIA-128: 0
+        ARIA-192: 0
+        ARIA-256: 0
+        BaseKing: 0
+        BassOmatic: 0
+        BATON: 0
+        Blowfish: 0
+        Camellia: 0
+        CAST: 0
+        CAST-128: 0
+        CAST-256: 0
+        CDMF: 0
+        CMEA: 0
+        Chiasmus: 0
+        CIKS-1: 0
+        Cinavia: 0
+        CIPHERUNICORN-A: 0
+        CIPHERUNICORN-E: 0
+        CLEFIA: 0
+        COBRA: 0
+        COBRA-64: 0
+        COBRA-128: 0
+        COCONUT98: 0
+        Crab: 0
+        Cryptomeria cipher: 0
+        CRYPTON: 0
+        CS-Cipher: 0
+        DES: 0
+        DEAL: 0
+        DFC: 0
+        EnRUPT: 0
+        FEA-M: 0
+        FEAL: 0
+        FPE: 0
+        FROG: 0
+        GDES: 0
+        GOST: 0
+        Grand Cru: 0
+        HPC: 0
+        Hierocrypt: 0
+        ICE: 0
+        IDEA NXT: 0
+        Intel Cascaded Cipher: 0
+        IDEA: 0
+        Kalyna: 0
+        KASUMI: 0
+        KeeLoq: 0
+        KHAZAD: 0
+        Khufu: 0
+        Khafre: 0
+        KN-Cipher: 0
+        Kuznyechik: 0
+        Ladder-DES: 0
+        Libelle: 0
+        LOKI89: 0
+        LOKI91: 0
+        LOKI97: 0
+        Lucifer: 0
+        M6: 0
+        M8: 0
+        MacGuffin: 0
+        MAGENTA: 0
+        MARS: 0
+        Mercy: 0
+        MESH: 0
+        MISTY1: 0
+        MISTY2: 0
+        MMB: 0
+        MULTI2: 0
+        MultiSwap: 0
+        NDS: 0
+        NewDES: 0
+        Nimbus: 0
+        NOEKEON: 0
+        NUSH: 0
+        PC1: 0
+        PRESENT: 0
+        Prince: 0
+        Q: 0
+        RC: 0
+        RC2: 0
+        RC5: 0
+        RC6: 0
+        Red Pike: 0
+        REDOC: 0
+        SAFER: 0
+        SAVILLE: 0
+        SC2000: 0
+        Serpent: 0
+        SEED: 0
+        SHACAL: 0
+        SHARK: 0
+        Simon: 0
+        Skipjack: 0
+        SM4: 0
+        Speck: 0
+        Spectr-H64: 0
+        Square: 0
+        SXAL: 0
+        Threefish: 0
+        TEA: 0
+        Treyfer: 0
+        3DES: 0
+        Twofish: 0
+        UES: 0
+        Xenon: 0
+        XTEA: 0
+        XXTEA: 0
+        Zodiac: 0
+      stream ciphers:
+        Grain: 0
+        A5/1: 0
+        A5/2: 0
+        Achterbahn: 0
+        ChaCha: 0
+        CJCSG: 0
+        CryptMT: 0
+        Crypto1: 0
+        DECIM: 0
+        DICING: 0
+        Dragon: 0
+        Edon80: 0
+        eSTREAM: 0
+        FISH: 0
+        Frogbit: 0
+        HC-256: 0
+        HC-128: 0
+        Hermes8: 0
+        ISAAC: 0
+        LEVIATHAN: 0
+        LEX: 0
+        LILI-128: 0
+        MAG: 0
+        MICKEY: 0
+        Mir-1: 0
+        MULTI-S01: 0
+        NLS: 0
+        ORYX: 0
+        Panama: 0
+        Phelix: 0
+        Pike: 0
+        Polar Bear: 0
+        Py: 0
+        QUAD: 0
+        Rabbit: 0
+        Rambutan: 0
+        RC: 0
+        Salsa: 0
+        Scream: 0
+        SEAL: 0
+        SFINKS: 0
+        SNOW: 0
+        SOBER: 0
+        Solitaire: 0
+        Sosemanuk: 0
+        SSS: 0
+        TRBDK3 YAEA: 0
+        Trivium: 0
+        TSC-3: 0
+        Turing: 0
+        VMPC: 0
+        Vernam: 0
+        VEST: 0
+        "Vigen\xC3\xA8re cipher": 0
+        WAKE: 0
+        WG: 0
+        Yamb: 0
+        ZK-Crypt: 0
+        ZUC: 0
+      hash:
+        BLAKE2: 0
+        brcypt: 0
+        ECOH: 0
+        FSB: 0
+        GOST: 0
+        "Gr\xC3\xB8stl": 0
+        HAS-160: 0
+        HAVAL: 0
+        JH: 0
+        MD2: 0
         MD5: 0
+        MD6: 0
+        PBKDF2: 0
+        "RadioGat\xC3\xBAn": 0
+        RIPEMD: 0
+        scrypt: 0
         SHA: 0
         SHA-1: 0
         SHA-2: 0
@@ -100,1712 +1835,198 @@ projects:
         SHA-256: 0
         SHA-512: 0
         SHAKE: 0
-        BLAKE2: 0
-        PBKDF2: 0
-        RIPEMD: 0
-        Whirlpool: 0
-        scrypt: 0
-        brcypt: 0
+        SipHash: 0
+        Skein: 0
+        Snefru: 0
+        Spectral Hash: 0
+        Streebog: 0
+        SWIFFT: 0
+        Tiger: 0
+        WHIRLPOOL: 0
       encryption modes:
-        CCM: 0
-        CWC: 0
-        EAX: 0
-        GCM: 0
-        IAPM: 0
-        OCB: 0
-        ECB: 0
+        2DEM: 0
+        ABC: 0
+        BPS: 0
         CBC: 0
+        CCM: 0
         CFB: 0
-        OFB: 0
         CTR: 0
+        CSPEM: 0
+        CWC: 0
+        DFF: 0
+        EAX: 0
+        ECB: 0
+        FCEM: 0
+        FFX: 0
+        GCM: 0
+        IACBC: 0
+        IAPM: 0
+        IGE: 0
+        IOC: 0
+        KFB: 0
+        OCB: 0
+        OFB: 0
+        PCBC: 0
+        PCFB: 0
+        RAC: 0
+        RKC: 0
+        SIV: 0
+        VFPE: 0
+        XBC: 0
+        XCBC: 0
       message authentication codes:
         CBC-MAC: 0
         HMAC: 0
+        OMAC: 0
+        MMH-Badger: 0
+        PMAC: 0
         Poly1305: 0
+        RMAC: 0
+        TMAC: 0
+        UMAC: 0
+        VMAC: 0
+        XCBC: 0
+        XECB: 0
       public key cryptography:
-        RSA: 0
+        "Cramer\xE2\u20AC\u201CShoup": 0
         DH: 0
         DSA: 0
+        DSS: 0
         ECDH: 0
         ECDSA: 0
         ElGamal: 0
+        LUC: 0
+        McEliece: 0
+        "Merkle\xE2\u20AC\u201CHellman": 0
+        NTRUEncrypt: 0
+        Paillier: 0
+        RSA: 0
+        YAK: 0
       public key infrastructure:
-        X.509(v1-3): 0
-        PKIX: 0
-        SET: 0
-        MicroSoft AuthentiCode: 0
-        Identrus: 0
-        RPKI: 0
-        SigG: 0
-        PKCS: 0
         CMP: 0
-        SCEP: 0
-        RTCS: 0
-        OCSP: 0
+        DVCS: 0
+        EJBCA: 0
+        Identrus: 0
+        MicroSoft AuthentiCode: 0
         LDAP: 0
+        OCSP: 0
+        OpenCA: 0
         RDBMS: 0
+        PKCS: 0
+        PKIX: 0
         PKCS#7: 0
+        RPKI: 0
+        RTCS: 0
+        SCEP: 0
+        SET: 0
+        SigG: 0
+        TinyCA: 0
+        X.509: 0
+        XiPKI: 0
       protocol:
-        TLS: 0
+        3-D Secure: 0
+        AAG: 0
+        AS1: 0
+        AS2: 0
+        AKA: 0
+        AuthIP: 0
+        ACME: 0
+        Autoroll: 0
+        BKE: 0
+        CAVE: 0
+        CCMP: 0
+        CMC: 0
+        CMP: 0
+        CSR: 0
+        CMS: 0
+        CGA: 0
+        DTLS: 0
+        DPD: 0
+        DPV: 0
+        DCII: 0
+        DK: 0
+        ecash: 0
+        EKE: 0
+        EST: 0
+        Firefly: 0
+        GSS-TSIG: 0
+        GSI: 0
+        GDOI: 0
+        GPG: 0
+        H.235: 0
+        Hashcash: 0
+        HAIPE: 0
+        HTTPS: 0
+        HTTPsec: 0
+        I2P: 0
+        IES: 0
+        IKE: 0
+        ISAKMP: 0
+        IPsec: 0
+        J-PAKE: 0
+        Kak's protocol: 0
+        KINK: 0
+        KMIP: 0
+        mcTLS: 0
+        MPPE: 0
+        MIKEY: 0
+        MSE: 0
+        "Neuman\xE2\u20AC\u201CStubblebine": 0
+        Oakley: 0
+        OTR: 0
+        OPKP: 0
+        OMEMO: 0
+        OCSP: 0
+        PANA: 0
+        PCT: 0
+        PE: 0
+        PEM: 0
+        PHE: 0
+        PGP: 0
+        PoSE: 0
+        RMA: 0
+        RTD: 0
+        Publius: 0
+        SASL: 0
+        SCEP: 0
+        SCIMP: 0
+        SCRAM: 0
+        SCIP: 0
+        SCP: 0
+        SCVP: 0
+        S-HTTP: 0
+        SEND: 0
+        SFTP: 0
+        Signal Protocol: 0
+        SILC: 0
+        SPNEGO: 0
+        SPORE: 0
+        SRTP: 0
+        SSH: 0
         SSL: 0
         S/MIME: 0
-        PGP: 0
-        SSH: 0
-    impact: 11.88
-    ProjectSizeCalculator:
-      C: small
-      C++: small
-      total: small
-    EaseOfUseEstimation: difficult
-    NumericID: 3
-  cryptography_db22c346ca2e2d4a7bdd8c288f87f5e2:
-    generalData:
-      type: Wrapper
-      related:
-      documentation:
-        exists:
-          readme: false
-          website: false
-          download: false
-        completeness:
-          apis: false
-          examples: false
-          explanations: false
-      interfaceLevel:
-        high: true
-        low: true
-      interfaceLanguage:
-      - C
-    url: https://github.com/pyca/cryptography
-    name: cryptography
-    AuthorContributorCounter:
-      author#: 2
-      contributor#: 150
-    MetaDataCollector:
-      stars: 1645
-      languages:
-      - Python
-      - C
-      - Shell
-      - Roff
-      main_language: Python
-      forks: 390
-      licence:
-        name:
-        abb:
-    ProjectDates:
-      first_change: '2013-08-06T19:30:47-07:00'
-      last_change: '2017-08-04T12:45:11-05:00'
-    LanguageDetector:
-      main_language: Python
-      languages:
-      - Python
-      - C
-      - C++
-      - Go
-      - Java
-    ProjectMetrics:
-      files:
-        total: 199
-        source: 199
-      loc:
-        source: 49643
-        cleaned: 47435
-    LicenceDetector:
-      LICENSE.APACHE:
-      - licence: Apache License 2.0
-        confidence: 100.0
-        short: Apache-2.0
-      - licence: Educational Community License v2.0
-        confidence: 99.64
-        short: ECL-2.0
-      - licence: ImageMagick License
-        confidence: 98.46
-        short: ImageMagick
-      LICENSE.BSD:
-      - licence: BSD 3-clause "New" or "Revised" License
-        confidence: 99.43
-        short: BSD-3-Clause
-      - licence: Net-SNMP License
-        confidence: 98.62
-        short: Net-SNMP
-      - licence: BSD 2-clause "Simplified" License
-        confidence: 98.15
-        short: BSD-2-Clause
-      vectors/LICENSE.APACHE:
-      - licence: Apache License 2.0
-        confidence: 100.0
-        short: Apache-2.0
-      - licence: Educational Community License v2.0
-        confidence: 99.64
-        short: ECL-2.0
-      - licence: ImageMagick License
-        confidence: 98.46
-        short: ImageMagick
-      vectors/LICENSE.BSD:
-      - licence: BSD 3-clause "New" or "Revised" License
-        confidence: 99.43
-        short: BSD-3-Clause
-      - licence: Net-SNMP License
-        confidence: 98.62
-        short: Net-SNMP
-      - licence: BSD 2-clause "Simplified" License
-        confidence: 98.15
-        short: BSD-2-Clause
-    FeatureDetector:
-      block ciphers:
-        AES: 142
-        AES-128: 5
-        AES-192: 4
-        AES-256: 6
-        Blowfish: 0
-        DES: 3
-        Triple DES: 94
-        Serpent: 0
-        Twofish: 0
-        Camellia: 13
-        CAST: 20
-        CAST-128: 0
-        CAST-256: 0
-        IDEA: 24
-        RC: 2
-        SEED: 346
-        ARIA: 0
-        ARIA-128: 0
-        ARIA-192: 0
-        ARIA-256: 0
-        Skipjack: 0
-        TEA: 0
-        XTEA: 0
-      stream ciphers:
-        RC: 3
-        ChaCha: 29
-        Salsa: 0
-      hash:
-        MD5: 18
-        SHA: 3257
-        SHA-1: 540
-        SHA-2: 2717
-        SHA-3: 2686
-        SHA-256: 851
-        SHA-512: 613
-        SHAKE: 0
-        BLAKE2: 15
-        PBKDF2: 25
-        RIPEMD: 8
-        Whirlpool: 1
-        scrypt: 39
-        brcypt: 0
-      encryption modes:
-        CCM: 16
-        CWC: 0
-        EAX: 0
-        GCM: 33
-        IAPM: 0
-        OCB: 0
-        ECB: 7
-        CBC: 20
-        CFB: 23
-        OFB: 22
-        CTR: 93
-      message authentication codes:
-        CBC-MAC: 0
-        HMAC: 119
-        Poly1305: 3
-      public key cryptography:
-        RSA: 648
-        DH: 454
-        DSA: 534
-        ECDH: 22
-        ECDSA: 88
-        ElGamal: 0
-      public key infrastructure:
-        X.509(v1-3): 0
-        PKIX: 1
-        SET: 457
-        MicroSoft AuthentiCode: 0
-        Identrus: 0
-        RPKI: 0
-        SigG: 0
-        PKCS: 21
-        CMP: 18
-        SCEP: 0
-        RTCS: 0
-        OCSP: 41
-        LDAP: 3
-        RDBMS: 0
-        PKCS#7: 0
-      protocol:
-        TLS: 16
-        SSL: 66
-        S/MIME: 0
-        PGP: 2
-        SSH: 156
-    impact: 36.91
-    ProjectSizeCalculator:
-      C: big
-      total: normal
-    EaseOfUseEstimation: difficult
-    NumericID: 4
-  openssl_9f9847c5cf87fbb5f2018434e3743998:
-    generalData:
-      type: Wrapper
-      related:
-      documentation:
-        exists:
-          readme: false
-          website: false
-          download: false
-        completeness:
-          apis: false
-          examples: false
-          explanations: false
-      interfaceLevel:
-        high: true
-        low: true
-      interfaceLanguage:
-      - Java
-    url: https://github.com/openssl/openssl
-    name: openssl
-    AuthorContributorCounter:
-      author#: 4
-      contributor#: 369
-    MetaDataCollector:
-      stars: 5294
-      languages:
-      - C
-      - Perl 6
-      - Perl
-      - Prolog
-      - Objective-C
-      - C++
-      - Assembly
-      - Shell
-      - M4
-      - eC
-      - DIGITAL Command Language
-      - Python
-      main_language: C
-      forks: 2724
-      licence:
-        name:
-        abb:
-    ProjectDates:
-      first_change: '1998-12-21T10:52:45+00:00'
-      last_change: '2017-08-09T13:37:06+10:00'
-    LanguageDetector:
-      main_language: C
-      languages:
-      - C
-      - C++
-      - Python
-    ProjectMetrics:
-      files:
-        total: 1142
-        source: 1142
-      loc:
-        source: 396540
-        cleaned: 360831
-    LicenceDetector:
-      LICENSE:
-      - licence: OpenSSL License
-        confidence: 99.67
-        short: OpenSSL
-      external/perl/Text-Template-1.46/COPYING:
-      - licence: GNU General Public License v2.0 only
-        confidence: 99.93
-        short: GPL-2.0
-      - licence: GNU General Public License v2.0 or later
-        confidence: 99.93
-        short: GPL-2.0+
-      - licence: Affero General Public License v1.0
-        confidence: 99.42
-        short: AGPL-1.0
-    FeatureDetector:
-      block ciphers:
-        AES: 3889
-        AES-128: 678
-        AES-192: 380
-        AES-256: 472
-        Blowfish: 18
-        DES: 882
-        Triple DES: 9
-        Serpent: 0
-        Twofish: 0
-        Camellia: 852
-        CAST: 127
-        CAST-128: 0
-        CAST-256: 0
-        IDEA: 202
-        RC: 390
-        SEED: 722
-        ARIA: 809
-        ARIA-128: 125
-        ARIA-192: 125
-        ARIA-256: 125
-        Skipjack: 0
-        TEA: 0
-        XTEA: 0
-      stream ciphers:
-        RC: 309
-        ChaCha: 227
-        Salsa: 2
-      hash:
-        MD5: 457
-        SHA: 2948
-        SHA-1: 1096
-        SHA-2: 1459
-        SHA-3: 1785
-        SHA-256: 797
-        SHA-512: 389
-        SHAKE: 34
-        BLAKE2: 245
-        PBKDF2: 45
-        RIPEMD: 140
-        Whirlpool: 57
-        scrypt: 198
-        brcypt: 0
-      encryption modes:
-        CCM: 177
-        CWC: 1
-        EAX: 1856
-        GCM: 693
-        IAPM: 0
-        OCB: 318
-        ECB: 713
-        CBC: 2313
-        CFB: 416
-        OFB: 346
-        CTR: 981
-      message authentication codes:
-        CBC-MAC: 0
-        HMAC: 668
-        Poly1305: 656
-      public key cryptography:
-        RSA: 2864
-        DH: 1633
-        DSA: 1759
-        ECDH: 568
-        ECDSA: 417
-        ElGamal: 0
-      public key infrastructure:
-        X.509(v1-3): 0
-        PKIX: 240
-        SET: 12290
-        MicroSoft AuthentiCode: 0
-        Identrus: 0
-        RPKI: 0
-        SigG: 0
-        PKCS: 34
-        CMP: 2052
-        SCEP: 0
-        RTCS: 0
-        OCSP: 507
-        LDAP: 165
-        RDBMS: 0
-        PKCS#7: 0
-      protocol:
-        TLS: 1140
-        SSL: 7633
-        S/MIME: 0
-        PGP: 0
-        SSH: 18
-    impact: 39.37
-    ProjectSizeCalculator:
-      Java: normal
-      total: big
-    EaseOfUseEstimation: difficult
-    NumericID: 6
-  OpenSSL_bce1e2ed6d9420311df0264f8f3867f0:
-    generalData:
-      type: Wrapper
-      related:
-      documentation:
-        exists:
-          readme: false
-          website: false
-          download: false
-        completeness:
-          apis: false
-          examples: false
-          explanations: false
-      interfaceLevel:
-        high: true
-        low: true
-      interfaceLanguage:
-      - C
-    url: https://github.com/ZewoGraveyard/OpenSSL
-    name: OpenSSL
-    AuthorContributorCounter:
-      author#: 2
-      contributor#: 14
-    MetaDataCollector:
-      stars: 35
-      languages:
-      - Swift
-      main_language: Swift
-      forks: 19
-      licence:
-        name:
-        abb:
-    ProjectDates:
-      first_change: '2015-12-08T01:19:44+01:00'
-      last_change: '2017-08-08T15:05:10+02:00'
-    LanguageDetector:
-      main_language: Swift
-      languages:
-      - Swift
-    ProjectMetrics:
-      files:
-        total: 16
-        source: 16
-      loc:
-        source: 1068
-        cleaned: 1042
-    LicenceDetector:
-      LICENSE:
-      - licence: MIT License
-        confidence: 99.53
-        short: MIT
-      - licence: JSON License
-        confidence: 98.72
-        short: JSON
-      - licence: feh License
-        confidence: 97.08
-        short: MIT-feh
-    FeatureDetector:
-      block ciphers:
-        AES: 0
-        AES-128: 0
-        AES-192: 0
-        AES-256: 0
-        Blowfish: 0
-        DES: 0
-        Triple DES: 0
-        Serpent: 0
-        Twofish: 0
-        Camellia: 0
-        CAST: 0
-        CAST-128: 0
-        CAST-256: 0
-        IDEA: 0
-        RC: 0
-        SEED: 0
-        ARIA: 0
-        ARIA-128: 0
-        ARIA-192: 0
-        ARIA-256: 0
-        Skipjack: 0
-        TEA: 0
-        XTEA: 0
-      stream ciphers:
-        RC: 0
-        ChaCha: 0
-        Salsa: 0
-      hash:
-        MD5: 5
-        SHA: 27
-        SHA-1: 5
-        SHA-2: 22
-        SHA-3: 22
-        SHA-256: 7
-        SHA-512: 5
-        SHAKE: 0
-        BLAKE2: 0
-        PBKDF2: 1
-        RIPEMD: 0
-        Whirlpool: 0
-        scrypt: 0
-        brcypt: 0
-      encryption modes:
-        CCM: 0
-        CWC: 0
-        EAX: 0
-        GCM: 0
-        IAPM: 0
-        OCB: 0
-        ECB: 0
-        CBC: 0
-        CFB: 0
-        OFB: 0
-        CTR: 0
-      message authentication codes:
-        CBC-MAC: 0
-        HMAC: 1
-        Poly1305: 0
-      public key cryptography:
-        RSA: 4
-        DH: 0
-        DSA: 0
-        ECDH: 0
-        ECDSA: 0
-        ElGamal: 0
-      public key infrastructure:
-        X.509(v1-3): 0
-        PKIX: 0
-        SET: 26
-        MicroSoft AuthentiCode: 0
-        Identrus: 0
-        RPKI: 0
-        SigG: 0
-        PKCS: 0
-        CMP: 0
-        SCEP: 0
-        RTCS: 0
-        OCSP: 0
-        LDAP: 0
-        RDBMS: 0
-        PKCS#7: 0
-      protocol:
+        TACLANE: 0
+        tcpcrypt: 0
+        TKIP: 0
+        TSP: 0
         TLS: 0
-        SSL: 20
-        S/MIME: 0
-        PGP: 0
-        SSH: 0
-    impact: 30.72
-    ProjectSizeCalculator:
-      C: normal
-      total: normal
-    EaseOfUseEstimation: difficult
-    NumericID: 5
-  cl3431zip_b67153c1f415b8cae4e60cdb8e0fedb4:
-    generalData:
-      type: Wrapper
-      related:
-      documentation:
-        exists:
-          readme: false
-          website: false
-          download: false
-        completeness:
-          apis: false
-          examples: false
-          explanations: false
-      interfaceLevel:
-        high: true
-        low: true
-      interfaceLanguage:
-      - C++
-    url: ftp://ftp.franken.de/pub/crypt/cryptlib/cl3431.zip
-    name: cl3431.zip
-    LanguageDetector:
-      main_language: C
-      languages:
-      - C
-      - C++
-      - Python
-      - C#
-    ProjectMetrics:
-      files:
-        total: 447
-        source: 447
-      loc:
-        source: 387656
-        cleaned: 319678
-    FeatureDetector:
-      block ciphers:
-        AES: 795
-        AES-128: 32
-        AES-192: 20
-        AES-256: 28
-        Blowfish: 97
-        DES: 3001
-        Triple DES: 29
-        Serpent: 13
-        Twofish: 0
-        Camellia: 0
-        CAST: 113
-        CAST-128: 0
-        CAST-256: 0
-        IDEA: 219
-        RC: 237
-        SEED: 233
-        ARIA: 33
-        ARIA-128: 11
-        ARIA-192: 11
-        ARIA-256: 11
-        Skipjack: 2
-        TEA: 0
-        XTEA: 0
-      stream ciphers:
-        RC: 108
-        ChaCha: 0
-        Salsa: 0
-      hash:
-        MD5: 222
-        SHA: 481
-        SHA-1: 49
-        SHA-2: 432
-        SHA-3: 168
-        SHA-256: 68
-        SHA-512: 41
-        SHAKE: 0
-        BLAKE2: 0
-        PBKDF2: 2
-        RIPEMD: 186
-        Whirlpool: 1
-        scrypt: 23
-        brcypt: 0
-      encryption modes:
-        CCM: 3
-        CWC: 0
-        EAX: 2684
-        GCM: 112
-        IAPM: 0
-        OCB: 0
-        ECB: 50
-        CBC: 94
-        CFB: 19
-        OFB: 14
-        CTR: 126
-      message authentication codes:
-        CBC-MAC: 0
-        HMAC: 73
-        Poly1305: 0
-      public key cryptography:
-        RSA: 917
-        DH: 778
-        DSA: 182
-        ECDH: 32
-        ECDSA: 113
-        ElGamal: 29
-      public key infrastructure:
-        X.509(v1-3): 0
-        PKIX: 8
-        SET: 3566
-        MicroSoft AuthentiCode: 0
-        Identrus: 3
-        RPKI: 22
-        SigG: 40
-        PKCS: 52
-        CMP: 774
-        SCEP: 189
-        RTCS: 101
-        OCSP: 228
-        LDAP: 418
-        RDBMS: 0
-        PKCS#7: 0
-      protocol:
-        TLS: 75
-        SSL: 596
-        S/MIME: 0
-        PGP: 1416
-        SSH: 653
-    impact:
-    ProjectSizeCalculator:
-      C++: big
-      total: normal
-    EaseOfUseEstimation: difficult
-    NumericID: 1
-  foobar_588f2f5155d889d5022e5a1c144cf9c8:
-    generalData:
-      type: Wrapper
-      related:
-      documentation:
-        exists:
-          readme: false
-          website: false
-          download: false
-        completeness:
-          apis: false
-          examples: false
-          explanations: false
-      interfaceLevel:
-        high: true
-        low: true
-      interfaceLanguage:
-      - C++
-    url:
-    name: foo://bar
-    impact:
-    EaseOfUseEstimation: difficult
-    NumericID: 2
+        VBR: 0
+        WPA: 0
+        WPA2: 0
+        WPS: 0
+        WTLS: 0
+        X.509: 0
+        X.1035: 0
+        X9.95: 0
+        XKMS: 0
+        Yahalom: 0
+        "Zimmermann\xE2\u20AC\u201CSassaman": 0
+        ZRTP: 0
 project_tasks:
-  AuthorContributorCounter:
-    version: 1.1.0
-    parameter: 99914b932bd37a50b983c5e7c90ae93b
   MetaDataCollector:
     version: 1.1.0
     parameter: 99914b932bd37a50b983c5e7c90ae93b
-  LanguageDetector:
-    version: 1.1.1
-    parameter: 99914b932bd37a50b983c5e7c90ae93b
-  ProjectDates:
-    version: 1.1.0
-    parameter: 99914b932bd37a50b983c5e7c90ae93b
-  ProjectMetrics:
-    version: 1.0.1
-    parameter: 99914b932bd37a50b983c5e7c90ae93b
-  LicenceDetector:
-    version: 1.0.3
-    parameter: 99914b932bd37a50b983c5e7c90ae93b
   FeatureDetector:
     version: 2.0.1
-    parameter: 1d897461d631d2e3bddf9ec517d33dfb
-GenerateLaTeXOverviewTable:
-  C++: |-
-    {
-      \centering
-      \tabulinesep=4pt
-      \setlength{\tabcolsep}{.3em}
-      \tabulinesep=.3em
-      \begin{longtabu}{lYrccrrcY}
-        \taburowcolors1{white!95!LightGray..white!95!LightGray}
-        \rowfont[c]{}
-        {}
-          & {}
-            & {}
-              & \multicolumn{2}{c}{Size}
-                  & \multicolumn{2}{c}{Features}
-                      &{}
-                        & {}\\
-        \rowfont[c]{}
-        ID
-          & Name
-            & Impact
-              & In
-                & Ov
-                  & Pri
-                    & Hi
-                      & EoU
-                        & Licence\\
-        \taburowcolors2{white!80!LightGray..white!95!LightGray}
-        003
-          & \myTextBreaker{ABI}
-            & 11.88
-              & \myDownDing
-                & \myDownDing
-                  & 0
-                    & 0
-                      & \myDownDing
-                        & MIT\myTextBreaker{JSON}\\
-        001
-          & \myTextBreaker{cl3431.zip}
-            & -
-              & \myUpDing
-                & \myNormalDing
-                  & 27
-                    & 21
-                      & \myDownDing
-                        & -\\
-        002
-          & \myTextBreaker{foo://bar}
-            & -
-              & -
-                & -
-                  & 1
-                    & 1
-                      & \myDownDing
-                        & -\\
-      \taburowcolors1{white..white}
-      \caption{C++-interface library overview}
-      \label{tab:c++-interface-overview}\\
-      \end{longtabu}
-    }
-  C: |-
-    {
-      \centering
-      \tabulinesep=4pt
-      \setlength{\tabcolsep}{.3em}
-      \tabulinesep=.3em
-      \begin{longtabu}{lYrccrrcY}
-        \taburowcolors1{white!95!LightGray..white!95!LightGray}
-        \rowfont[c]{}
-        {}
-          & {}
-            & {}
-              & \multicolumn{2}{c}{Size}
-                  & \multicolumn{2}{c}{Features}
-                      &{}
-                        & {}\\
-        \rowfont[c]{}
-        ID
-          & Name
-            & Impact
-              & In
-                & Ov
-                  & Pri
-                    & Hi
-                      & EoU
-                        & Licence\\
-        \taburowcolors2{white!80!LightGray..white!95!LightGray}
-        003
-          & \myTextBreaker{ABI}
-            & 11.88
-              & \myDownDing
-                & \myDownDing
-                  & 0
-                    & 0
-                      & \myDownDing
-                        & MIT\myTextBreaker{JSON}\\
-        004
-          & \myTextBreaker{cryptography}
-            & 36.91
-              & \myUpDing
-                & \myNormalDing
-                  & 22
-                    & 15
-                      & \myDownDing
-                        & -\\
-        005
-          & \myTextBreaker{OpenSSL}
-            & 30.72
-              & \myNormalDing
-                & \myNormalDing
-                  & 1
-                    & 3
-                      & \myDownDing
-                        & -\\
-      \taburowcolors1{white..white}
-      \caption{C-interface library overview}
-      \label{tab:c-interface-overview}\\
-      \end{longtabu}
-    }
-  Rust: |-
-    {
-      \centering
-      \tabulinesep=4pt
-      \setlength{\tabcolsep}{.3em}
-      \tabulinesep=.3em
-      \begin{longtabu}{lYrccrrcY}
-        \taburowcolors1{white!95!LightGray..white!95!LightGray}
-        \rowfont[c]{}
-        {}
-          & {}
-            & {}
-              & \multicolumn{2}{c}{Size}
-                  & \multicolumn{2}{c}{Features}
-                      &{}
-                        & {}\\
-        \rowfont[c]{}
-        ID
-          & Name
-            & Impact
-              & In
-                & Ov
-                  & Pri
-                    & Hi
-                      & EoU
-                        & Licence\\
-        \taburowcolors2{white!80!LightGray..white!95!LightGray}
-      \taburowcolors1{white..white}
-      \caption{Rust-interface library overview}
-      \label{tab:rust-interface-overview}\\
-      \end{longtabu}
-    }
-  Ruby: |-
-    {
-      \centering
-      \tabulinesep=4pt
-      \setlength{\tabcolsep}{.3em}
-      \tabulinesep=.3em
-      \begin{longtabu}{lYrccrrcY}
-        \taburowcolors1{white!95!LightGray..white!95!LightGray}
-        \rowfont[c]{}
-        {}
-          & {}
-            & {}
-              & \multicolumn{2}{c}{Size}
-                  & \multicolumn{2}{c}{Features}
-                      &{}
-                        & {}\\
-        \rowfont[c]{}
-        ID
-          & Name
-            & Impact
-              & In
-                & Ov
-                  & Pri
-                    & Hi
-                      & EoU
-                        & Licence\\
-        \taburowcolors2{white!80!LightGray..white!95!LightGray}
-      \taburowcolors1{white..white}
-      \caption{Ruby-interface library overview}
-      \label{tab:ruby-interface-overview}\\
-      \end{longtabu}
-    }
-  Java: |-
-    {
-      \centering
-      \tabulinesep=4pt
-      \setlength{\tabcolsep}{.3em}
-      \tabulinesep=.3em
-      \begin{longtabu}{lYrccrrcY}
-        \taburowcolors1{white!95!LightGray..white!95!LightGray}
-        \rowfont[c]{}
-        {}
-          & {}
-            & {}
-              & \multicolumn{2}{c}{Size}
-                  & \multicolumn{2}{c}{Features}
-                      &{}
-                        & {}\\
-        \rowfont[c]{}
-        ID
-          & Name
-            & Impact
-              & In
-                & Ov
-                  & Pri
-                    & Hi
-                      & EoU
-                        & Licence\\
-        \taburowcolors2{white!80!LightGray..white!95!LightGray}
-        006
-          & \myTextBreaker{openssl}
-            & 39.37
-              & \myNormalDing
-                & \myUpDing
-                  & 31
-                    & 14
-                      & \myDownDing
-                        & -\\
-      \taburowcolors1{white..white}
-      \caption{Java-interface library overview}
-      \label{tab:java-interface-overview}\\
-      \end{longtabu}
-    }
-  Go: |-
-    {
-      \centering
-      \tabulinesep=4pt
-      \setlength{\tabcolsep}{.3em}
-      \tabulinesep=.3em
-      \begin{longtabu}{lYrccrrcY}
-        \taburowcolors1{white!95!LightGray..white!95!LightGray}
-        \rowfont[c]{}
-        {}
-          & {}
-            & {}
-              & \multicolumn{2}{c}{Size}
-                  & \multicolumn{2}{c}{Features}
-                      &{}
-                        & {}\\
-        \rowfont[c]{}
-        ID
-          & Name
-            & Impact
-              & In
-                & Ov
-                  & Pri
-                    & Hi
-                      & EoU
-                        & Licence\\
-        \taburowcolors2{white!80!LightGray..white!95!LightGray}
-      \taburowcolors1{white..white}
-      \caption{Go-interface library overview}
-      \label{tab:go-interface-overview}\\
-      \end{longtabu}
-    }
-  PHP: |-
-    {
-      \centering
-      \tabulinesep=4pt
-      \setlength{\tabcolsep}{.3em}
-      \tabulinesep=.3em
-      \begin{longtabu}{lYrccrrcY}
-        \taburowcolors1{white!95!LightGray..white!95!LightGray}
-        \rowfont[c]{}
-        {}
-          & {}
-            & {}
-              & \multicolumn{2}{c}{Size}
-                  & \multicolumn{2}{c}{Features}
-                      &{}
-                        & {}\\
-        \rowfont[c]{}
-        ID
-          & Name
-            & Impact
-              & In
-                & Ov
-                  & Pri
-                    & Hi
-                      & EoU
-                        & Licence\\
-        \taburowcolors2{white!80!LightGray..white!95!LightGray}
-      \taburowcolors1{white..white}
-      \caption{PHP-interface library overview}
-      \label{tab:php-interface-overview}\\
-      \end{longtabu}
-    }
-  JavaScript: |-
-    {
-      \centering
-      \tabulinesep=4pt
-      \setlength{\tabcolsep}{.3em}
-      \tabulinesep=.3em
-      \begin{longtabu}{lYrccrrcY}
-        \taburowcolors1{white!95!LightGray..white!95!LightGray}
-        \rowfont[c]{}
-        {}
-          & {}
-            & {}
-              & \multicolumn{2}{c}{Size}
-                  & \multicolumn{2}{c}{Features}
-                      &{}
-                        & {}\\
-        \rowfont[c]{}
-        ID
-          & Name
-            & Impact
-              & In
-                & Ov
-                  & Pri
-                    & Hi
-                      & EoU
-                        & Licence\\
-        \taburowcolors2{white!80!LightGray..white!95!LightGray}
-      \taburowcolors1{white..white}
-      \caption{JavaScript-interface library overview}
-      \label{tab:javascript-interface-overview}\\
-      \end{longtabu}
-    }
-  Objective-C: |-
-    {
-      \centering
-      \tabulinesep=4pt
-      \setlength{\tabcolsep}{.3em}
-      \tabulinesep=.3em
-      \begin{longtabu}{lYrccrrcY}
-        \taburowcolors1{white!95!LightGray..white!95!LightGray}
-        \rowfont[c]{}
-        {}
-          & {}
-            & {}
-              & \multicolumn{2}{c}{Size}
-                  & \multicolumn{2}{c}{Features}
-                      &{}
-                        & {}\\
-        \rowfont[c]{}
-        ID
-          & Name
-            & Impact
-              & In
-                & Ov
-                  & Pri
-                    & Hi
-                      & EoU
-                        & Licence\\
-        \taburowcolors2{white!80!LightGray..white!95!LightGray}
-      \taburowcolors1{white..white}
-      \caption{Objective-C-interface library overview}
-      \label{tab:objective-c-interface-overview}\\
-      \end{longtabu}
-    }
-  Swift: |-
-    {
-      \centering
-      \tabulinesep=4pt
-      \setlength{\tabcolsep}{.3em}
-      \tabulinesep=.3em
-      \begin{longtabu}{lYrccrrcY}
-        \taburowcolors1{white!95!LightGray..white!95!LightGray}
-        \rowfont[c]{}
-        {}
-          & {}
-            & {}
-              & \multicolumn{2}{c}{Size}
-                  & \multicolumn{2}{c}{Features}
-                      &{}
-                        & {}\\
-        \rowfont[c]{}
-        ID
-          & Name
-            & Impact
-              & In
-                & Ov
-                  & Pri
-                    & Hi
-                      & EoU
-                        & Licence\\
-        \taburowcolors2{white!80!LightGray..white!95!LightGray}
-      \taburowcolors1{white..white}
-      \caption{Swift-interface library overview}
-      \label{tab:swift-interface-overview}\\
-      \end{longtabu}
-    }
-  C#: |-
-    {
-      \centering
-      \tabulinesep=4pt
-      \setlength{\tabcolsep}{.3em}
-      \tabulinesep=.3em
-      \begin{longtabu}{lYrccrrcY}
-        \taburowcolors1{white!95!LightGray..white!95!LightGray}
-        \rowfont[c]{}
-        {}
-          & {}
-            & {}
-              & \multicolumn{2}{c}{Size}
-                  & \multicolumn{2}{c}{Features}
-                      &{}
-                        & {}\\
-        \rowfont[c]{}
-        ID
-          & Name
-            & Impact
-              & In
-                & Ov
-                  & Pri
-                    & Hi
-                      & EoU
-                        & Licence\\
-        \taburowcolors2{white!80!LightGray..white!95!LightGray}
-      \taburowcolors1{white..white}
-      \caption{C\#-interface library overview}
-      \label{tab:c\#-interface-overview}\\
-      \end{longtabu}
-    }
-  Python: |-
-    {
-      \centering
-      \tabulinesep=4pt
-      \setlength{\tabcolsep}{.3em}
-      \tabulinesep=.3em
-      \begin{longtabu}{lYrccrrcY}
-        \taburowcolors1{white!95!LightGray..white!95!LightGray}
-        \rowfont[c]{}
-        {}
-          & {}
-            & {}
-              & \multicolumn{2}{c}{Size}
-                  & \multicolumn{2}{c}{Features}
-                      &{}
-                        & {}\\
-        \rowfont[c]{}
-        ID
-          & Name
-            & Impact
-              & In
-                & Ov
-                  & Pri
-                    & Hi
-                      & EoU
-                        & Licence\\
-        \taburowcolors2{white!80!LightGray..white!95!LightGray}
-      \taburowcolors1{white..white}
-      \caption{Python-interface library overview}
-      \label{tab:python-interface-overview}\\
-      \end{longtabu}
-    }
-  preamble: |
-    \usepackage{hyperref} % hyper ref "addon"
-    \usepackage[svgnames,table]{xcolor} % svg colors
-    \usepackage{pifont} % Symbols and co
-    \usepackage{longtable} % base for tabu (longtabu)
-    \usepackage{tabu} % Good table environment - best?
-    \usepackage{graphicx}
-    \usepackage{array}
-
-    \newcommand\myTextBreaker[1]{\tbhelp#1\relax\relax\relax}
-    \def\tbhelp#1#2\relax{{#1}\penalty0\ifx\relax#2\else\tbhelp#2\relax\fi}
-
-    \newcolumntype{Y}{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}X}
-
-    \newcommand{\specialcell}[2][l]{%
-      \setlength{\extrarowheight}{0pt}%
-      \def\arraystretch{1}%
-      \tabulinesep=.025em%
-      \begin{tabular}[t]{@{}#1@{}}#2\end{tabular}%
-    }
-
-    \newcommand{\myscaleding}[2][1]{\scalebox{#1}{\ding{#2}}}
-
-    \newcommand{\myUpDing}{\myscaleding[.6]{115}}
-    \newcommand{\myNormalDing}{\myscaleding[.6]{108}}
-    \newcommand{\myDownDing}{\myscaleding[.6]{116}}
-GenerateLaTeXDetailTable:
-  table: |-
-    {
-      \tiny
-      \centering
-      \tabulinesep=4pt
-      \setlength{\tabcolsep}{.3em}
-      \tabulinesep=.3em%
-      \taburulecolor{gray}
-
-      \begin{landscape}
-        \begin{longtabu}{lYllllY[.7]Y[.7]rrrlllYY[1.5]}
-          \taburowcolors2{white!95!LightGray..white!80!LightGray}
-          \rowfont[c]{\bfseries}
-          ID
-            & \cellcolor{white!87!LightGray}Name
-              & I.L.
-                & \cellcolor{white!87!LightGray}M.L.
-                  & I.Lvl.
-                    & \cellcolor{white!87!LightGray}Type
-                      & Related
-                        & \cellcolor{white!87!LightGray}Depen.
-                          & Impact
-                            & \cellcolor{white!87!LightGray}kLOC
-                              & People
-                                & \cellcolor{white!87!LightGray}Doc. Kind
-                                  & Doc. Com.
-                                    & \cellcolor{white!87!LightGray}Dates
-                                      & Licence
-                                        & \cellcolor{white!87!LightGray}URL\\
-          003
-            & \cellcolor{white!75!LightGray}\myTextBreaker{ABI}
-              & \specialcell{C,\\C++}
-                & \cellcolor{white!75!LightGray}C
-                  & \specialcell{High,\\Low}
-                    & \cellcolor{white!75!LightGray}Wrap
-                      & -
-                        & \cellcolor{white!75!LightGray}-
-                          & 11.88
-                            & \cellcolor{white!75!LightGray}0.16
-                              & \specialcell[l>{\raggedleft}p{\widthof{0000}}]{A&1\\C&1}
-                                & \cellcolor{white!75!LightGray}-
-                                  & -
-                                    & \cellcolor{white!75!LightGray}\specialcell{2016-08-27\\2016-08-28}
-                                      & MIT\myTextBreaker{JSON}
-                                        & \cellcolor{white!75!LightGray}\myURLBreaker{https://github.com/Eyenseo/ABI}\\
-        \end{longtabu}
-        \vskip-\lastskip\vspace*{-2\baselineskip}
-        \addtocounter{table}{-1}
-        \begin{longtabu}{lYY[2]YY[2]YYYY}
-          \rowfont[c]{\bfseries}\taburowcolors2{white!95!LightGray..white!80!LightGray}
-          {}
-            & \cellcolor{white!87!LightGray}EAM
-              & Block Cipher
-                & \cellcolor{white!87!LightGray}Stream Ci.
-                  & Hash
-                    & \cellcolor{white!87!LightGray}MAC
-                      & PKC
-                        & \cellcolor{white!87!LightGray}PKI
-                          & Protocol\\
-          \hphantom{000}
-            & \cellcolor{white!75!LightGray}-
-              & -
-                & \cellcolor{white!75!LightGray}-
-                  & -
-                    & \cellcolor{white!75!LightGray}-
-                      & -
-                        & \cellcolor{white!75!LightGray}-
-                          & -\\
-        \end{longtabu}
-        \vskip-\lastskip\vspace*{-2\baselineskip}
-        \addtocounter{table}{-1}
-        \begin{longtabu}{lYllllY[.7]Y[.7]rrrlllYY[1.5]}
-          \taburowcolors2{white!95!LightGray..white!80!LightGray}
-          \rowfont[c]{\bfseries}
-          \firsthline
-          ID
-            & \cellcolor{white!87!LightGray}Name
-              & I.L.
-                & \cellcolor{white!87!LightGray}M.L.
-                  & I.Lvl.
-                    & \cellcolor{white!87!LightGray}Type
-                      & Related
-                        & \cellcolor{white!87!LightGray}Depen.
-                          & Impact
-                            & \cellcolor{white!87!LightGray}kLOC
-                              & People
-                                & \cellcolor{white!87!LightGray}Doc. Kind
-                                  & Doc. Com.
-                                    & \cellcolor{white!87!LightGray}Dates
-                                      & Licence
-                                        & \cellcolor{white!87!LightGray}URL\\
-          001
-            & \cellcolor{white!75!LightGray}\myTextBreaker{cl3431.zip}
-              & \specialcell{C++}
-                & \cellcolor{white!75!LightGray}C
-                  & \specialcell{High,\\Low}
-                    & \cellcolor{white!75!LightGray}Wrap
-                      & -
-                        & \cellcolor{white!75!LightGray}-
-                          & -
-                            & \cellcolor{white!75!LightGray}387
-                              & \specialcell[l>{\raggedleft}p{\widthof{0000}}]{A&-\\C&-}
-                                & \cellcolor{white!75!LightGray}-
-                                  & -
-                                    & \cellcolor{white!75!LightGray}\specialcell{-\\-}
-                                      & -
-                                        & \cellcolor{white!75!LightGray}\myURLBreaker{ftp://ftp.franken.de/pub/crypt/cryptlib/cl3431.zip}\\
-        \end{longtabu}
-        \vskip-\lastskip\vspace*{-2\baselineskip}
-        \addtocounter{table}{-1}
-        \begin{longtabu}{lYY[2]YY[2]YYYY}
-          \rowfont[c]{\bfseries}\taburowcolors2{white!95!LightGray..white!80!LightGray}
-          {}
-            & \cellcolor{white!87!LightGray}EAM
-              & Block Cipher
-                & \cellcolor{white!87!LightGray}Stream Ci.
-                  & Hash
-                    & \cellcolor{white!87!LightGray}MAC
-                      & PKC
-                        & \cellcolor{white!87!LightGray}PKI
-                          & Protocol\\
-          \hphantom{000}
-            & \cellcolor{white!75!LightGray}HMAC
-              & AES, AES-128, AES-192, AES-256, Blowfish, DES, Triple DES, Serpent, CAST, IDEA, RC, SEED, ARIA, ARIA-128, ARIA-192, ARIA-256, Skipjack
-                & \cellcolor{white!75!LightGray}RC
-                  & MD5, SHA, SHA-1, SHA-2, SHA-3, SHA-256, SHA-512, PBKDF2, RIPEMD, Whirlpool, scrypt
-                    & \cellcolor{white!75!LightGray}HMAC
-                      & RSA, DH, DSA, ECDH, ECDSA, ElGamal
-                        & \cellcolor{white!75!LightGray}PKIX, SET, Identrus, RPKI, SigG, PKCS, CMP, SCEP, RTCS, OCSP, LDAP
-                          & TLS, SSL, PGP, SSH\\
-        \end{longtabu}
-        \vskip-\lastskip\vspace*{-2\baselineskip}
-        \addtocounter{table}{-1}
-        \begin{longtabu}{lYllllY[.7]Y[.7]rrrlllYY[1.5]}
-          \taburowcolors2{white!95!LightGray..white!80!LightGray}
-          \rowfont[c]{\bfseries}
-          \firsthline
-          ID
-            & \cellcolor{white!87!LightGray}Name
-              & I.L.
-                & \cellcolor{white!87!LightGray}M.L.
-                  & I.Lvl.
-                    & \cellcolor{white!87!LightGray}Type
-                      & Related
-                        & \cellcolor{white!87!LightGray}Depen.
-                          & Impact
-                            & \cellcolor{white!87!LightGray}kLOC
-                              & People
-                                & \cellcolor{white!87!LightGray}Doc. Kind
-                                  & Doc. Com.
-                                    & \cellcolor{white!87!LightGray}Dates
-                                      & Licence
-                                        & \cellcolor{white!87!LightGray}URL\\
-          002
-            & \cellcolor{white!75!LightGray}\myTextBreaker{foo://bar}
-              & \specialcell{C++}
-                & \cellcolor{white!75!LightGray}-
-                  & \specialcell{High,\\Low}
-                    & \cellcolor{white!75!LightGray}Wrap
-                      & -
-                        & \cellcolor{white!75!LightGray}-
-                          & -
-                            & \cellcolor{white!75!LightGray}-
-                              & \specialcell[l>{\raggedleft}p{\widthof{0000}}]{A&-\\C&-}
-                                & \cellcolor{white!75!LightGray}-
-                                  & -
-                                    & \cellcolor{white!75!LightGray}\specialcell{-\\-}
-                                      & -
-                                        & \cellcolor{white!75!LightGray}-\\
-        \end{longtabu}
-        \vskip-\lastskip\vspace*{-2\baselineskip}
-        \addtocounter{table}{-1}
-        \begin{longtabu}{lYY[2]YY[2]YYYY}
-          \rowfont[c]{\bfseries}\taburowcolors2{white!95!LightGray..white!80!LightGray}
-          {}
-            & \cellcolor{white!87!LightGray}EAM
-              & Block Cipher
-                & \cellcolor{white!87!LightGray}Stream Ci.
-                  & Hash
-                    & \cellcolor{white!87!LightGray}MAC
-                      & PKC
-                        & \cellcolor{white!87!LightGray}PKI
-                          & Protocol\\
-          \hphantom{000}
-            & \cellcolor{white!75!LightGray}-
-              & -
-                & \cellcolor{white!75!LightGray}-
-                  & -
-                    & \cellcolor{white!75!LightGray}-
-                      & -
-                        & \cellcolor{white!75!LightGray}-
-                          & -\\
-        \end{longtabu}
-        \vskip-\lastskip\vspace*{-2\baselineskip}
-        \addtocounter{table}{-1}
-        \begin{longtabu}{lYllllY[.7]Y[.7]rrrlllYY[1.5]}
-          \taburowcolors2{white!95!LightGray..white!80!LightGray}
-          \rowfont[c]{\bfseries}
-          \firsthline\firsthline\firsthline
-          ID
-            & \cellcolor{white!87!LightGray}Name
-              & I.L.
-                & \cellcolor{white!87!LightGray}M.L.
-                  & I.Lvl.
-                    & \cellcolor{white!87!LightGray}Type
-                      & Related
-                        & \cellcolor{white!87!LightGray}Depen.
-                          & Impact
-                            & \cellcolor{white!87!LightGray}kLOC
-                              & People
-                                & \cellcolor{white!87!LightGray}Doc. Kind
-                                  & Doc. Com.
-                                    & \cellcolor{white!87!LightGray}Dates
-                                      & Licence
-                                        & \cellcolor{white!87!LightGray}URL\\
-          004
-            & \cellcolor{white!75!LightGray}\myTextBreaker{cryptography}
-              & \specialcell{C}
-                & \cellcolor{white!75!LightGray}Py
-                  & \specialcell{High,\\Low}
-                    & \cellcolor{white!75!LightGray}Wrap
-                      & -
-                        & \cellcolor{white!75!LightGray}-
-                          & 36.91
-                            & \cellcolor{white!75!LightGray}49
-                              & \specialcell[l>{\raggedleft}p{\widthof{0000}}]{A&2\\C&150}
-                                & \cellcolor{white!75!LightGray}-
-                                  & -
-                                    & \cellcolor{white!75!LightGray}\specialcell{2013-08-06\\2017-08-04}
-                                      & -
-                                        & \cellcolor{white!75!LightGray}\myURLBreaker{https://github.com/pyca/cryptography}\\
-        \end{longtabu}
-        \vskip-\lastskip\vspace*{-2\baselineskip}
-        \addtocounter{table}{-1}
-        \begin{longtabu}{lYY[2]YY[2]YYYY}
-          \rowfont[c]{\bfseries}\taburowcolors2{white!95!LightGray..white!80!LightGray}
-          {}
-            & \cellcolor{white!87!LightGray}EAM
-              & Block Cipher
-                & \cellcolor{white!87!LightGray}Stream Ci.
-                  & Hash
-                    & \cellcolor{white!87!LightGray}MAC
-                      & PKC
-                        & \cellcolor{white!87!LightGray}PKI
-                          & Protocol\\
-          \hphantom{000}
-            & \cellcolor{white!75!LightGray}HMAC, Poly1305
-              & AES, AES-128, AES-192, AES-256, DES, Triple DES, Camellia, CAST, IDEA, RC, SEED
-                & \cellcolor{white!75!LightGray}RC, ChaCha
-                  & MD5, SHA, SHA-1, SHA-2, SHA-3, SHA-256, SHA-512, BLAKE2, PBKDF2, RIPEMD, Whirlpool, scrypt
-                    & \cellcolor{white!75!LightGray}HMAC, Poly1305
-                      & RSA, DH, DSA, ECDH, ECDSA
-                        & \cellcolor{white!75!LightGray}PKIX, SET, PKCS, CMP, OCSP, LDAP
-                          & TLS, SSL, PGP, SSH\\
-        \end{longtabu}
-        \vskip-\lastskip\vspace*{-2\baselineskip}
-        \addtocounter{table}{-1}
-        \begin{longtabu}{lYllllY[.7]Y[.7]rrrlllYY[1.5]}
-          \taburowcolors2{white!95!LightGray..white!80!LightGray}
-          \rowfont[c]{\bfseries}
-          \firsthline
-          ID
-            & \cellcolor{white!87!LightGray}Name
-              & I.L.
-                & \cellcolor{white!87!LightGray}M.L.
-                  & I.Lvl.
-                    & \cellcolor{white!87!LightGray}Type
-                      & Related
-                        & \cellcolor{white!87!LightGray}Depen.
-                          & Impact
-                            & \cellcolor{white!87!LightGray}kLOC
-                              & People
-                                & \cellcolor{white!87!LightGray}Doc. Kind
-                                  & Doc. Com.
-                                    & \cellcolor{white!87!LightGray}Dates
-                                      & Licence
-                                        & \cellcolor{white!87!LightGray}URL\\
-          005
-            & \cellcolor{white!75!LightGray}\myTextBreaker{OpenSSL}
-              & \specialcell{C}
-                & \cellcolor{white!75!LightGray}Swift
-                  & \specialcell{High,\\Low}
-                    & \cellcolor{white!75!LightGray}Wrap
-                      & -
-                        & \cellcolor{white!75!LightGray}-
-                          & 30.72
-                            & \cellcolor{white!75!LightGray}1.07
-                              & \specialcell[l>{\raggedleft}p{\widthof{0000}}]{A&2\\C&14}
-                                & \cellcolor{white!75!LightGray}-
-                                  & -
-                                    & \cellcolor{white!75!LightGray}\specialcell{2015-12-08\\2017-08-08}
-                                      & -
-                                        & \cellcolor{white!75!LightGray}\myURLBreaker{https://github.com/ZewoGraveyard/OpenSSL}\\
-        \end{longtabu}
-        \vskip-\lastskip\vspace*{-2\baselineskip}
-        \addtocounter{table}{-1}
-        \begin{longtabu}{lYY[2]YY[2]YYYY}
-          \rowfont[c]{\bfseries}\taburowcolors2{white!95!LightGray..white!80!LightGray}
-          {}
-            & \cellcolor{white!87!LightGray}EAM
-              & Block Cipher
-                & \cellcolor{white!87!LightGray}Stream Ci.
-                  & Hash
-                    & \cellcolor{white!87!LightGray}MAC
-                      & PKC
-                        & \cellcolor{white!87!LightGray}PKI
-                          & Protocol\\
-          \hphantom{000}
-            & \cellcolor{white!75!LightGray}HMAC
-              & -
-                & \cellcolor{white!75!LightGray}-
-                  & MD5, SHA, SHA-1, SHA-2, SHA-3, SHA-256, SHA-512, PBKDF2
-                    & \cellcolor{white!75!LightGray}HMAC
-                      & RSA
-                        & \cellcolor{white!75!LightGray}SET
-                          & SSL\\
-        \end{longtabu}
-        \vskip-\lastskip\vspace*{-2\baselineskip}
-        \addtocounter{table}{-1}
-        \begin{longtabu}{lYllllY[.7]Y[.7]rrrlllYY[1.5]}
-          \taburowcolors2{white!95!LightGray..white!80!LightGray}
-          \rowfont[c]{\bfseries}
-          \firsthline
-          ID
-            & \cellcolor{white!87!LightGray}Name
-              & I.L.
-                & \cellcolor{white!87!LightGray}M.L.
-                  & I.Lvl.
-                    & \cellcolor{white!87!LightGray}Type
-                      & Related
-                        & \cellcolor{white!87!LightGray}Depen.
-                          & Impact
-                            & \cellcolor{white!87!LightGray}kLOC
-                              & People
-                                & \cellcolor{white!87!LightGray}Doc. Kind
-                                  & Doc. Com.
-                                    & \cellcolor{white!87!LightGray}Dates
-                                      & Licence
-                                        & \cellcolor{white!87!LightGray}URL\\
-          003
-            & \cellcolor{white!75!LightGray}\myTextBreaker{ABI}
-              & \specialcell{C,\\C++}
-                & \cellcolor{white!75!LightGray}C
-                  & \specialcell{High,\\Low}
-                    & \cellcolor{white!75!LightGray}Wrap
-                      & -
-                        & \cellcolor{white!75!LightGray}-
-                          & 11.88
-                            & \cellcolor{white!75!LightGray}0.16
-                              & \specialcell[l>{\raggedleft}p{\widthof{0000}}]{A&1\\C&1}
-                                & \cellcolor{white!75!LightGray}-
-                                  & -
-                                    & \cellcolor{white!75!LightGray}\specialcell{2016-08-27\\2016-08-28}
-                                      & MIT\myTextBreaker{JSON}
-                                        & \cellcolor{white!75!LightGray}\myURLBreaker{https://github.com/Eyenseo/ABI}\\
-        \end{longtabu}
-        \vskip-\lastskip\vspace*{-2\baselineskip}
-        \addtocounter{table}{-1}
-        \begin{longtabu}{lYY[2]YY[2]YYYY}
-          \rowfont[c]{\bfseries}\taburowcolors2{white!95!LightGray..white!80!LightGray}
-          {}
-            & \cellcolor{white!87!LightGray}EAM
-              & Block Cipher
-                & \cellcolor{white!87!LightGray}Stream Ci.
-                  & Hash
-                    & \cellcolor{white!87!LightGray}MAC
-                      & PKC
-                        & \cellcolor{white!87!LightGray}PKI
-                          & Protocol\\
-          \hphantom{000}
-            & \cellcolor{white!75!LightGray}-
-              & -
-                & \cellcolor{white!75!LightGray}-
-                  & -
-                    & \cellcolor{white!75!LightGray}-
-                      & -
-                        & \cellcolor{white!75!LightGray}-
-                          & -\\
-        \end{longtabu}
-        \vskip-\lastskip\vspace*{-2\baselineskip}
-        \addtocounter{table}{-1}
-        \begin{longtabu}{lYllllY[.7]Y[.7]rrrlllYY[1.5]}
-          \taburowcolors2{white!95!LightGray..white!80!LightGray}
-          \rowfont[c]{\bfseries}
-          \firsthline\firsthline\firsthline
-          ID
-            & \cellcolor{white!87!LightGray}Name
-              & I.L.
-                & \cellcolor{white!87!LightGray}M.L.
-                  & I.Lvl.
-                    & \cellcolor{white!87!LightGray}Type
-                      & Related
-                        & \cellcolor{white!87!LightGray}Depen.
-                          & Impact
-                            & \cellcolor{white!87!LightGray}kLOC
-                              & People
-                                & \cellcolor{white!87!LightGray}Doc. Kind
-                                  & Doc. Com.
-                                    & \cellcolor{white!87!LightGray}Dates
-                                      & Licence
-                                        & \cellcolor{white!87!LightGray}URL\\
-          006
-            & \cellcolor{white!75!LightGray}\myTextBreaker{openssl}
-              & \specialcell{Java}
-                & \cellcolor{white!75!LightGray}C
-                  & \specialcell{High,\\Low}
-                    & \cellcolor{white!75!LightGray}Wrap
-                      & -
-                        & \cellcolor{white!75!LightGray}-
-                          & 39.37
-                            & \cellcolor{white!75!LightGray}396
-                              & \specialcell[l>{\raggedleft}p{\widthof{0000}}]{A&4\\C&369}
-                                & \cellcolor{white!75!LightGray}-
-                                  & -
-                                    & \cellcolor{white!75!LightGray}\specialcell{1998-12-21\\2017-08-09}
-                                      & -
-                                        & \cellcolor{white!75!LightGray}\myURLBreaker{https://github.com/openssl/openssl}\\
-        \end{longtabu}
-        \vskip-\lastskip\vspace*{-2\baselineskip}
-        \addtocounter{table}{-1}
-        \begin{longtabu}{lYY[2]YY[2]YYYY}
-          \rowfont[c]{\bfseries}\taburowcolors2{white!95!LightGray..white!80!LightGray}
-          {}
-            & \cellcolor{white!87!LightGray}EAM
-              & Block Cipher
-                & \cellcolor{white!87!LightGray}Stream Ci.
-                  & Hash
-                    & \cellcolor{white!87!LightGray}MAC
-                      & PKC
-                        & \cellcolor{white!87!LightGray}PKI
-                          & Protocol\\
-          \hphantom{000}
-            & \cellcolor{white!75!LightGray}HMAC, Poly1305
-              & AES, AES-128, AES-192, AES-256, Blowfish, DES, Triple DES, Camellia, CAST, IDEA, RC, SEED, ARIA, ARIA-128, ARIA-192, ARIA-256
-                & \cellcolor{white!75!LightGray}RC, ChaCha, Salsa
-                  & MD5, SHA, SHA-1, SHA-2, SHA-3, SHA-256, SHA-512, SHAKE, BLAKE2, PBKDF2, RIPEMD, Whirlpool, scrypt
-                    & \cellcolor{white!75!LightGray}HMAC, Poly1305
-                      & RSA, DH, DSA, ECDH, ECDSA
-                        & \cellcolor{white!75!LightGray}PKIX, SET, PKCS, CMP, OCSP, LDAP
-                          & TLS, SSL, SSH\\
-          \taburowcolors1{white..white}
-          \rowfont{\normalsize}
-          \caption{Detailed library overview}
-          \label{tab:detailed-library-overview}\\
-        \end{longtabu}
-      \end{landscape}
-    }
-  preamble: |-
-    \usepackage[hypertexnames=false]{hyperref} % hyper ref "addon"
-    \usepackage[svgnames,table]{xcolor} % svg colors
-    \usepackage{longtable} % base for tabu (longtabu)
-    \usepackage{tabu} % Good table environment - best?
-    \usepackage{array}
-    \usepackage{pdflscape}
-
-    \newcommand\myTextBreaker[1]{\tbhelp#1\relax\relax\relax}
-    \def\tbhelp#1#2\relax{%
-      {#1}\penalty0\ifx\relax#2\else\tbhelp#2\relax\fi}
-
-
-    %%%% THIS IS FUCKING MAGIC!
-    \newcommand\myURLBreaker[1]{\href{#1}{\ubhelp#1\relax\relax\relax}}
-    \def\ubhelp#1#2\relax{%
-      {\path{#1}}\penalty0\ifx\relax#2\else\ubhelp#2\relax\fi}
-
-    \newcolumntype{Y}{>{\let\newline\\\arraybackslash\hspace{0pt}}X}
-
-    \newcommand{\specialcell}[2][l]{%
-      \setlength{\extrarowheight}{0pt}%
-      \def\arraystretch{1}%
-      \tabulinesep=.025em%
-      \begin{tabular}[t]{@{}#1@{}}#2\end{tabular}%
-    }
-report_tasks:
-  ImpactCalculator:
-    version: 1.1.1
-    parameter: 99914b932bd37a50b983c5e7c90ae93b
-  ProjectSizeCalculator:
-    version: 1.0.0
-    parameter: 99914b932bd37a50b983c5e7c90ae93b
-  EaseOfUseEstimation:
-    version: 1.0.0
-    parameter: 99914b932bd37a50b983c5e7c90ae93b
-  NumericID:
-    version: 1.0.0
-    parameter: 99914b932bd37a50b983c5e7c90ae93b
-  GenerateLaTeXOverviewTable:
-    version: 1.0.0
-    parameter: ac625856acd2558bafc15efc08afffed
-  GenerateLaTeXDetailTable:
-    version: 1.0.0
-    parameter: 99914b932bd37a50b983c5e7c90ae93b
+    parameter: 5605d3834ce38f16b82f98743eaac2fd
+report_tasks: {}
