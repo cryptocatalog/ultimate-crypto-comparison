@@ -64,7 +64,7 @@ Global arguments:
 - If not already installed:
     - `python3-pip`
     - `python3-setuptools`
-- `dateutil`
+- `python-dateutil`
 - `numpy`
 - `packaging`
 - `pyunpack`
@@ -90,15 +90,60 @@ Global arguments:
 - ProjectSizeCalculator
 - EaseOfUseEstimation
 - NumericID
-- GenerateLaTeXOverviewTable:
-    primitivCategorieses:
-      - block ciphers
-      - stream ciphers
-      - encryption modes
-      - message authentication codes
-      - hashes
-    highlevelCategories:
-      - public key infrastructure
-      - public key cryptography
-      - protocol
-- GenerateLaTeXDetailTable
+- GenerateLaTeXOverviewTable:  
+    primitivCategorieses:  
+      - block ciphers  
+      - stream ciphers  
+      - encryption modes  
+      - message authentication codes  
+      - hashes  
+    highlevelCategories:  
+      - public key infrastructure  
+      - public key cryptography  
+      - protocol  
+- GenerateLaTeXDetailTable  
+
+# Analyzing libraries
+There are 3 different types of libraries the git-scrabber can analyze.
+
+### Git-repositories
+The url to a git-repository has to be a url in the format of  
+```https://github.com/CryptoCatalog/ultimate-crypto-comparison```  
+without any additional content at the end. The git-scrabber uses the latest version of the repository to collect the information. If you want to specify a specific release of a library, use [archives](#archives) instead.
+
+### Archives
+Archives are zip-archives. The git-scrabber downloads these archives and analyzes them. The url has to be a valid download-path of the archive.
+
+They are added to the task.yaml with the prefix  
+```- archive:```
+
+### Manual data
+!!! THIS DOES NOT WORK YET !!!
+
+Manual data are libraries that do not provide a git repository or an archive but should be analyzed by the git-scrabber. They can be added to the gitScrabber/libs folder and can be added to the task.yaml in the following format.
+
+```
+- meta:
+  # The id is given for identification
+  id: gitScrabber/libs/LIBRARY_NAME
+  # The following data is optional and does not have to be provided
+  manual:
+    generalData:
+      type: Wrapper
+      related:
+        - some-releated-library
+      documentation:
+        exists:
+          readme: false
+          website: false
+          download: false
+        completeness:
+          apis: false
+          examples: false
+          explanations: false
+      interfaceLevel:
+        high: true
+        low: true
+      interfaceLanguage:
+      - C++
+```
