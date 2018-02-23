@@ -2,6 +2,7 @@ projects:
   - git: 'https://github.com/randombit/botan'
   - archive: 'https://github.com/randombit/botan/archive/2.0.0.zip'
   - git: 'https://github.com/bcgit/bc-csharp'
+  - archive: 'https://github.com/bcgit/bc-csharp/archive/release-1.8.1.zip'
   - git: 'https://github.com/bcgit/bc-java'
   - git: 'https://github.com/openssl/openssl'
 project_tasks:

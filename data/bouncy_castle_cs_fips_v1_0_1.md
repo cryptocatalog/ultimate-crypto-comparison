@@ -15,9 +15,3 @@ The Bouncy Castle Crypto package is a C# implementation of cryptographic algorit
 ## Development Languages
 - C#
 - Java
-
-## Release
-- 1.0.1
-
-## Release Date
-- 2016-12-28

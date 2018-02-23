@@ -285,14 +285,31 @@ autoCriteria:
   Interface Languages:
     values:
       C++11: {}
-      'C# FIPS': {}
       'C#': {}
+      'C# FIPS': {}
       Java FIPS: {}
       Java: {}
   Creation Date:
     values:
       '1998': {}
       '2000': {}
+  Release:
+    values:
+      Latest: {}
+      2.0.0: {}
+      Unknown: {}
+      1.0.0: {}
+      '1.59': {}
+      3.4.3.1: {}
+  Development Languages:
+    values:
+      C++: {}
+      Python: {}
+      C++11: {}
+      'C#': {}
+      Java: {}
+      C: {}
+      Assembly: {}
   Stars:
     values:
       '385': {}
@@ -397,41 +414,22 @@ autoCriteria:
       RTD: {}
       SRTP: {}
       X.509: {}
-      DK: {}
-      EKE: {}
       I2P: {}
       ISAKMP: {}
-      KMIP: {}
-      RMA: {}
       SCVP: {}
       VBR: {}
       WPS: {}
+      DK: {}
+      EKE: {}
+      KMIP: {}
+      RMA: {}
       PoSE: {}
       SCEP: {}
       SFTP: {}
       WTLS: {}
-  Development Languages:
-    values:
-      C++: {}
-      Python: {}
-      C++11: {}
-      'C#': {}
-      Java: {}
-      C: {}
-      Assembly: {}
-  Release:
-    values:
-      Latest: {}
-      2.0.0: {}
-      1.0.1: {}
-      1.8.1: {}
-      1.0.0: {}
-      '1.59': {}
-      3.4.3.1: {}
   Release Date:
     values:
       '2017-01-07': {}
-      '2016-12-28': {}
       '2017-12-18': {}
   License:
     values:
@@ -1059,6 +1057,9 @@ autoColor:
     Latest:
       color: '#0d0d0d'
       backgroundColor: 'hsl(300, 100%, 70%)'
+    Unknown:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
   Release Date:
     '2016-12-28':
       color: '#0d0d0d'

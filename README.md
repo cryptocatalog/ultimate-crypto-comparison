@@ -1,23 +1,11 @@
-# Ultimate Comparison BASE
+# crypto-catalog
 
-[![Build Status](https://travis-ci.org/ultimate-comparisons/ultimate-comparison-BASE.svg?branch=master)](https://travis-ci.org/ultimate-comparisons/ultimate-comparison-BASE)
-[![Issue Count](https://codeclimate.com/github/ultimate-comparisons/ultimate-comparison-BASE/badges/issue_count.svg)](https://codeclimate.com/github/ultimate-comparisons/ultimate-comparison-BASE)
-[![Code Triagers Badge](https://www.codetriage.com/ultimate-comparisons/ultimate-comparison-base/badges/users.svg)](https://www.codetriage.com/ultimate-comparisons/ultimate-comparison-base)
+TODO describe catalog 
 
-This is an ultimate comparison framework written in [Angular](https://angular.io/).
-It is released on [npm](https://www.npmjs.com/package/ultimate-comparison) under **ultimate-comparison**.
+## Contributing
 
-## Create your own ultimate comparison 
-1. Install the **ultimate-comparison**-package globally on your system via `npm install --global ultimate-comparison`
-2. Create the directory which should contain the comparison and change into it, e. g. with `mkdir MY_COMPARISON && cd MY_COMPARISON`
-3. Set up your comparison with `uc setup`
-    1. Enter the name of your comparison press enter
-    2. Enter the [semantic version](https://semver.org/) of your comparison and press enter
-    3. Enter a short description of your comparison and press enter (not required)
-4. Make sure a `node_modules` directory exists in your current one.
-    - If it doesn't exist look at the error message and run `npm install` afterwards
-    - The error is most likely a malformed name or version of your comparison
-5. Run `uc start` to start the comparison.
+TODO describe process and important stuff for contributors
+(mandatory files, what they can ommit, release tag for a specific release)
 
 ### Configuration
 
@@ -80,7 +68,7 @@ For each thing, create a markdown file in comparison-elements.
 You can base it on template.md.
 If one column depends on a repository (repo-attribute in **comparison.yml** true), you have to define a `repo` section (## section title) and add the repository as first list item, eg:
 
-    ## Repo
+    ## Repository
     - https://github.com/ultimate-comparisons/ultimate-comparison-BASE
 
 ## Update your comparison

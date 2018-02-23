@@ -466,7 +466,7 @@ gulp.task('gitScrabber', function (done) {
     // Add urls of libraries to the projects that the git scrabber searches for
     dataJSON.forEach(library => {
         // Ignore the template library and libraries that have no url defined
-        if (!library.tag.startsWith("Template") && library[urlKey] && library[urlKey].childs[0][0]) {
+        if (libraryHasUrl(library)) {
             // The url is somewhere in the childs. Content is needed if
             // a - is at the beginning of the line in the markdown-file.
             let url = library[urlKey].childs[0][0][0].content;
@@ -475,14 +475,14 @@ gulp.task('gitScrabber', function (done) {
             // at the beginning of the line in the markdown-file,
             // look for the url on a higher level of childs
             let libUrl;
-            if (url.endsWith(".zip") || url.endsWith(".rar")) {
+            if (isArchive(url)) {
                 libUrl = JSON.parse('{"archive": "' + url + '"}');
             } else {
                 libUrl = JSON.parse('{"git": "' + url + '"}');
             }
-            // TODO Add existing data to generalData in task.yaml
+            // TODO Add existing data to generalData in task.yaml (optional)
             // This allows the git scrabber to compute additional values
-            // e.g. The interface languages etc.
+            // e.g. the impact
             task.projects.push(libUrl);
         }
     });
@@ -515,6 +515,41 @@ gulp.task('gitScrabber', function (done) {
     let reportJSON = yaml2json.safeLoad(readFileSync(files.gsReport, "utf8"));
 
     dataJSON.forEach(library => {
+
+        // |-----------------------------------------------------------------|
+        // | ADD DATA TO THE DATA.JSON THAT DOES NOT RELY ON THE REPORT.YAML |
+        // |-----------------------------------------------------------------|
+
+        // Add release tag
+        if (!applicableLibraryHasReleaseTag(library)) {
+            let releaseMap = createMapDataJSON();
+            let tag = getReleaseTag(library);
+            let releaseItem = createChildDataJSON(tag);
+            addToDataJSONMap(releaseMap, releaseItem);
+            library[releaseKey] = releaseMap;
+        }
+
+        function getReleaseTag(library) {
+            const tagUnknown = "Unknown";
+            const tagLatest = "Latest";
+
+            const hasUrl = libraryHasUrl(library);
+            const url = hasUrl ? library[urlKey].childs[0][0][0].content: null;
+
+            if (hasUrl && !isArchive(url)) {
+                return tagLatest;
+            }
+
+            return tagUnknown;
+        }
+
+        // TODO Get release name if it was not defined in the markdown
+        // TODO Add link to issue/pull request page if a header does not contain any content
+
+        // |-----------------------------------------------------------------|
+        // | ADD DATA TO THE DATA.JSON THAT RELIES ON THE REPORT.YAML |
+        // |-----------------------------------------------------------------|
+
         // Only look for information of libraries that have a url.
         // Libraries without a url where not searched by the git-scrabber
         if (libraryHasUrl(library)) {
@@ -527,138 +562,91 @@ gulp.task('gitScrabber', function (done) {
             // If the library exists in the report
             if (reportJSON.projects[projectKey]) {
 
-                // LIST WITH ATTRIBUTES
-                // The values of these attributes are to be added to the libraries in data.json
-                // The attributes have to be on the 3rd level in the report.yaml
-                // e.g. projects.MetaDataCollector.stars
-                // The task.yaml of the git-scrabber has to contain the task of the item in this list!
-                // TODO Change this algorithm to search for these attributes in the whole report.yaml
 
-                // ListItem = {mdKey : "KEY", gsKey: "GSKEY", task: "COLLECTIONNAME"}
-                // mdKey: The name of the header in the markdown file
-                // gsKey: The name of the attribute key in the report.yaml of the gitSrabber
-                // task: The name of the task (task) of the gitScrabber
+                // List with attributes to search for in the report
+                // (mdKey, gsKey, task)
                 let attributes = [
+                    {mdKey: "Development Languages", gsKey: "languages", task: "LanguageDetector"},
                     {mdKey: "Stars", gsKey: "stars", task: "MetaDataCollector"},
-                ];
-
-                // TODO Get release name if it was not defined in the markdown
-
-                // Add the values of the attributes to the data.json
-                attributes.forEach(attribute => {
-                    // Only add the attribute from the report if the value was not
-                    // yet defined in the markdown file of the library
-                    // and only if the report.yaml contains the task and the gsKey
-                    if (!library[attribute.mdKey] &&
-                        reportJSON.projects[projectKey][attribute.task] &&
-                        reportJSON.projects[projectKey][attribute.task][attribute.gsKey]) {
-
-                        // Get the data from the report
-                        let atrValue = reportJSON.projects[projectKey][attribute.task][attribute.gsKey];
-                        // Add the data to the library in data.json
-                        let atrMap = createMapDataJSON();
-                        let atrItem = createChildDataJSON(atrValue);
-                        addToDataJSONMap(atrMap, atrItem);
-                        library[attribute.mdKey] = atrMap;
-                    }
-                });
-
-                // |--------------------------------------|
-                // | GET ENCRYPTIONS FROM THE REPORT.YAML |
-                // |--------------------------------------|
-
-                // LIST WITH ENCRYPTION TYPES
-                let encryptions = [
-                    {mdKey: "Block Ciphers", gsKey: "block ciphers", collectionKey: "FeatureDetector"},
-                    {mdKey: "Stream Ciphers", gsKey: "stream ciphers", collectionKey: "FeatureDetector"},
-                    {mdKey: "Hash Functions", gsKey: "hash", collectionKey: "FeatureDetector"},
+                    {mdKey: "Block Ciphers", gsKey: "block ciphers", task: "FeatureDetector"},
+                    {mdKey: "Stream Ciphers", gsKey: "stream ciphers", task: "FeatureDetector"},
+                    {mdKey: "Hash Functions", gsKey: "hash", task: "FeatureDetector"},
                     {
                         mdKey: "Encryption Modes",
                         gsKey: "encryption modes",
-                        collectionKey: "FeatureDetector"
+                        task: "FeatureDetector"
                     },
                     {
                         mdKey: "Message Authentication Codes",
                         gsKey: "message authentication codes",
-                        collectionKey: "FeatureDetector"
+                        task: "FeatureDetector"
                     },
                     {
                         mdKey: "Public Key Cryptography",
                         gsKey: "public key cryptography",
-                        collectionKey: "FeatureDetector"
+                        task: "FeatureDetector"
                     },
                     {
                         mdKey: "Public Key Infrastructure",
                         gsKey: "public key infrastructure",
-                        collectionKey: "FeatureDetector"
+                        task: "FeatureDetector"
                     },
-                    {mdKey: "Protocol", gsKey: "protocol", collectionKey: "FeatureDetector"},
+                    {mdKey: "Protocol", gsKey: "protocol", task: "FeatureDetector"},
                 ];
 
-                encryptions.forEach(encryption => {
-                    // Only add the encryption from the report if the encryption was not
-                    // yet defined in the markdown file of the library
-                    // and if the report contains the encryption
-                    if (!library[encryption.mdKey] &&
-                        reportJSON.projects[projectKey][encryption.collectionKey] &&
-                        reportJSON.projects[projectKey][encryption.collectionKey][encryption.gsKey]) {
+                attributes.forEach(attribute => {
 
-                        let reportCollection = reportJSON.projects[projectKey][encryption.collectionKey][encryption.gsKey];
-                        // Create a map to store the values to
-                        let colMap = createMapDataJSON();
-                        // For every type of encryption (of the "encryptions" list) ...
-                        Object.keys(reportCollection).forEach(encryptionKey => {
-                            // ... create object in the format of data.json
-                            let colItem = createChildDataJSON(encryptionKey);
-                            // The OCCURRENCE_THRESHOLD determines how often the
-                            // attribute has to be found in the report to be added
-                            // to the library
-                            const OCCURRENCE_THRESHOLD = 1;
-                            // Push the encryption to the list of a specific encryption type
-                            if (reportCollection[encryptionKey] >= OCCURRENCE_THRESHOLD) {
-                                addToDataJSONMap(colMap, colItem);
+                    let reportTask = reportJSON.projects[projectKey][attribute.task];
+
+                    if (!library[attribute.mdKey] && reportTask) {
+
+                        let reportAttr = reportJSON.projects[projectKey][attribute.task][attribute.gsKey];
+
+                        if (reportAttr) {
+
+                            let attrMapDataJSON = createMapDataJSON();
+
+                            switch (reportAttr.constructor) {
+                                case (Number || String):      // Number or String type in report (e.g. stars)
+
+                                    let attrItem = createChildDataJSON(reportAttr);
+                                    addToDataJSONMap(attrMapDataJSON, attrItem);
+                                    //library[attribute.mdKey] = attrMapDataJSON;
+                                    break;
+                                case (Array):       // Array type in report (e.g. languages)
+
+                                    Object.keys(reportAttr).forEach(attrElement => {
+                                        let attrItem = createChildDataJSON(reportAttr[attrElement]);
+                                        addToDataJSONMap(attrMapDataJSON, attrItem);
+                                    });
+                                    //library[attribute.mdKey] = attrMapDataJSON;
+                                    break;
+                                case (Object):    // JSON Object (Used for encryptions)
+
+                                    const OCCURRENCE_THRESHOLD = 1;
+                                    Object.keys(reportAttr).forEach(attrElement => {
+                                        let attrItem = createChildDataJSON(attrElement);
+                                        if (reportAttr[attrElement] >= OCCURRENCE_THRESHOLD) {
+                                            addToDataJSONMap(attrMapDataJSON, attrItem);
+                                        }
+                                    });
+                                    break;
+                                default:
+                                    console.log("No valid type of element");
                             }
-                        });
-                        // Only add the encryption type to the library if the report
-                        // found a encryption
-                        if (Object.keys(colMap.childs[0][0]).length > 0) {
-                            library[encryption.mdKey] = colMap;
+
+                            // Only add the map to the data.json if the
+                            // report really contained information about
+                            // the attribute
+                            if (Object.keys(attrMapDataJSON.childs[0][0]).length > 0) {
+                                library[attribute.mdKey] = attrMapDataJSON;
+                            }
                         }
+
                     }
                 });
-
-                // GET DEV LANGUAGES FROM THE REPORT.YAML
-                // Languages are in an array in the report
-                const markdownLanguagesKey = "Development Languages";
-                const languageDetector = "LanguageDetector";
-                const reportLanguagesKey = "languages";
-                if (!library[markdownLanguagesKey] &&
-                    reportJSON.projects[projectKey][languageDetector] &&
-                    reportJSON.projects[projectKey][languageDetector][reportLanguagesKey].length > 0) {
-
-                    let langMap = createMapDataJSON();
-                    reportJSON.projects[projectKey][languageDetector][reportLanguagesKey].forEach(lang => {
-                        let langItem = createChildDataJSON(lang);
-                        addToDataJSONMap(langMap, langItem);
-                    });
-                    library[markdownLanguagesKey] = langMap;
-                }
-
             }
         }
-
-        // |-----------------------------------------------------------------|
-        // | ADD DATA TO THE DATA.JSON THAT DOES NOT RELY ON THE REPORT.YAML |
-        // |-----------------------------------------------------------------|
-
-        // If no release was specified, add "latest"
-        if (!libraryHasReleaseTag(library)) {
-            let releaseMap = createMapDataJSON();
-            let releaseItem = createChildDataJSON("Latest");
-            addToDataJSONMap(releaseMap, releaseItem);
-            library[releaseKey] = releaseMap;
-        }
-
     });
 
     // Save data in data.json
@@ -734,8 +722,12 @@ gulp.task('gitScrabber', function (done) {
         return !library.tag.startsWith("Template") && library[urlKey] && library[urlKey].childs[0][0];
     }
 
-    function libraryHasReleaseTag(library) {
+    function applicableLibraryHasReleaseTag(library) {
         return !library.tag.startsWith("Template") && library[releaseKey] && library[releaseKey].childs[0][0];
+    }
+
+    function isArchive(url) {
+        return url.endsWith(".zip") || url.endsWith(".rar");
     }
 });
 
