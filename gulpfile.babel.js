@@ -453,205 +453,15 @@ gulp.task('gitScrabber', function (done) {
     // (hash functions, protocols, ...).
     // --------------------------------------------------------
 
-    // The headline in the markdown under which the url to
-    // a repository is given
     const urlKey = "Repository";
     const releaseKey = "Release";
+
     // Load the data.json with the data of the libraries
     let dataJSON = yaml2json.safeLoad(readFileSync(files.dataJson, "utf8"));
-    // Load the task file for the git scrabber
-    let task = yaml2json.safeLoad(readFileSync(files.gsTask, "utf8"));
-    // Clear projects of the task file
-    task.projects = [];
-    // Add urls of libraries to the projects that the git scrabber searches for
-    dataJSON.forEach(library => {
-        // Ignore the template library and libraries that have no url defined
-        if (libraryHasUrl(library)) {
-            // The url is somewhere in the childs. Content is needed if
-            // a - is at the beginning of the line in the markdown-file.
-            let url = library[urlKey].childs[0][0][0].content;
-            // TODO Improve search for url (optional)
-            // If url is still undefined because there is no -
-            // at the beginning of the line in the markdown-file,
-            // look for the url on a higher level of childs
-            let libUrl;
-            if (isArchive(url)) {
-                libUrl = JSON.parse('{"archive": "' + url + '"}');
-            } else {
-                libUrl = JSON.parse('{"git": "' + url + '"}');
-            }
-            // TODO Add existing data to generalData in task.yaml (optional)
-            // This allows the git scrabber to compute additional values
-            // e.g. the impact
-            task.projects.push(libUrl);
-        }
-    });
-    // Save list with urls in task.yaml
-    writeFileSync(files.gsTask, yaml2json.safeDump(task), "utf8");
 
-    // Execute git scrabber with task.yaml
-    // --> Data in report.yaml
-    const gitScrabberExec = path.join(paths.lib, 'gitScrabber/gitScrabber/gitScrabber.py');
-    const gitScrabberTask = path.join(paths.lib, 'gitScrabber/task_small.yaml');
-    const gitScrabberReport = path.join(paths.lib, 'gitScrabber/report.yaml');
-    const gitScrabberLibs = path.join(paths.lib, 'gitScrabber/gitScrabber/libs');
-    execSync('python ' + gitScrabberExec +
-        ' -r ' + gitScrabberReport +
-        ' -t ' + gitScrabberTask +
-        ' -o ' + gitScrabberReport +
-        ' -d ' + gitScrabberLibs +
-        ' -f' +
-        ' --github-token 8341094f6dc4944ee22491139c5565c3e6f5e32e',
-
-        function (err, stdout, stderr) {
-            console.log(stdout);
-            console.log(stderr);
-            done(err);
-        });
-
-    // ADD DATA FROM THE REPORT OF THE GIT-SCRABBER
-
-    // Load report.yaml as json
-    let reportJSON = yaml2json.safeLoad(readFileSync(files.gsReport, "utf8"));
-
-    dataJSON.forEach(library => {
-
-        // |-----------------------------------------------------------------|
-        // | ADD DATA TO THE DATA.JSON THAT DOES NOT RELY ON THE REPORT.YAML |
-        // |-----------------------------------------------------------------|
-
-        // Add release tag
-        if (!applicableLibraryHasReleaseTag(library)) {
-            let releaseMap = createMapDataJSON();
-            let tag = getReleaseTag(library);
-            let releaseItem = createChildDataJSON(tag);
-            addToDataJSONMap(releaseMap, releaseItem);
-            library[releaseKey] = releaseMap;
-        }
-
-        function getReleaseTag(library) {
-            const tagUnknown = "Unknown";
-            const tagLatest = "Latest";
-
-            const hasUrl = libraryHasUrl(library);
-            const url = hasUrl ? library[urlKey].childs[0][0][0].content: null;
-
-            if (hasUrl && !isArchive(url)) {
-                return tagLatest;
-            }
-
-            return tagUnknown;
-        }
-
-        // TODO Get release name if it was not defined in the markdown
-        // TODO Add link to issue/pull request page if a header does not contain any content
-
-        // |-----------------------------------------------------------------|
-        // | ADD DATA TO THE DATA.JSON THAT RELIES ON THE REPORT.YAML |
-        // |-----------------------------------------------------------------|
-
-        // Only look for information of libraries that have a url.
-        // Libraries without a url where not searched by the git-scrabber
-        if (libraryHasUrl(library)) {
-
-            // Get the url of the library from data.json
-            let url = library[urlKey].childs[0][0][0].content;
-            // Get the key of the library in the report.yaml projects
-            let projectKey = getLibraryKey(reportJSON.projects, url);
-
-            // If the library exists in the report
-            if (reportJSON.projects[projectKey]) {
-
-
-                // List with attributes to search for in the report
-                // (mdKey, gsKey, task)
-                let attributes = [
-                    {mdKey: "Development Languages", gsKey: "languages", task: "LanguageDetector"},
-                    {mdKey: "Stars", gsKey: "stars", task: "MetaDataCollector"},
-                    {mdKey: "Block Ciphers", gsKey: "block ciphers", task: "FeatureDetector"},
-                    {mdKey: "Stream Ciphers", gsKey: "stream ciphers", task: "FeatureDetector"},
-                    {mdKey: "Hash Functions", gsKey: "hash", task: "FeatureDetector"},
-                    {
-                        mdKey: "Encryption Modes",
-                        gsKey: "encryption modes",
-                        task: "FeatureDetector"
-                    },
-                    {
-                        mdKey: "Message Authentication Codes",
-                        gsKey: "message authentication codes",
-                        task: "FeatureDetector"
-                    },
-                    {
-                        mdKey: "Public Key Cryptography",
-                        gsKey: "public key cryptography",
-                        task: "FeatureDetector"
-                    },
-                    {
-                        mdKey: "Public Key Infrastructure",
-                        gsKey: "public key infrastructure",
-                        task: "FeatureDetector"
-                    },
-                    {mdKey: "Protocol", gsKey: "protocol", task: "FeatureDetector"},
-                ];
-
-                attributes.forEach(attribute => {
-
-                    let reportTask = reportJSON.projects[projectKey][attribute.task];
-
-                    if (!library[attribute.mdKey] && reportTask) {
-
-                        let reportAttr = reportJSON.projects[projectKey][attribute.task][attribute.gsKey];
-
-                        if (reportAttr) {
-
-                            let attrMapDataJSON = createMapDataJSON();
-
-                            switch (reportAttr.constructor) {
-                                case (Number || String):      // Number or String type in report (e.g. stars)
-
-                                    let attrItem = createChildDataJSON(reportAttr);
-                                    addToDataJSONMap(attrMapDataJSON, attrItem);
-                                    //library[attribute.mdKey] = attrMapDataJSON;
-                                    break;
-                                case (Array):       // Array type in report (e.g. languages)
-
-                                    Object.keys(reportAttr).forEach(attrElement => {
-                                        let attrItem = createChildDataJSON(reportAttr[attrElement]);
-                                        addToDataJSONMap(attrMapDataJSON, attrItem);
-                                    });
-                                    //library[attribute.mdKey] = attrMapDataJSON;
-                                    break;
-                                case (Object):    // JSON Object (Used for encryptions)
-
-                                    const OCCURRENCE_THRESHOLD = 1;
-                                    Object.keys(reportAttr).forEach(attrElement => {
-                                        let attrItem = createChildDataJSON(attrElement);
-                                        if (reportAttr[attrElement] >= OCCURRENCE_THRESHOLD) {
-                                            addToDataJSONMap(attrMapDataJSON, attrItem);
-                                        }
-                                    });
-                                    break;
-                                default:
-                                    console.log("No valid type of element");
-                            }
-
-                            // Only add the map to the data.json if the
-                            // report really contained information about
-                            // the attribute
-                            if (Object.keys(attrMapDataJSON.childs[0][0]).length > 0) {
-                                library[attribute.mdKey] = attrMapDataJSON;
-                            }
-                        }
-
-                    }
-                });
-            }
-        }
-    });
-
-    // Save data in data.json
-    writeFileSync(files.dataJson, JSON.stringify(dataJSON), "utf8");
-
+    addLibrariesToTask();
+    executeGitScrabber();
+    addDataToLibraries();
     done();
 
     // ------------------------------------------------------
@@ -728,6 +538,203 @@ gulp.task('gitScrabber', function (done) {
 
     function isArchive(url) {
         return url.endsWith(".zip") || url.endsWith(".rar");
+    }
+
+    function addLibrariesToTask() {
+        // Load the task file for the git scrabber
+        let task = yaml2json.safeLoad(readFileSync(files.gsTask, "utf8"));
+        // Clear projects of the task file
+        task.projects = [];
+        // Add urls of libraries to the projects that the git scrabber searches for
+        dataJSON.forEach(library => {
+            // Ignore the template library and libraries that have no url defined
+            if (libraryHasUrl(library)) {
+                // The url is somewhere in the childs. Content is needed if
+                // a - is at the beginning of the line in the markdown-file.
+                let url = library[urlKey].childs[0][0][0].content;
+                // TODO Improve search for url (optional)
+                // If url is still undefined because there is no -
+                // at the beginning of the line in the markdown-file,
+                // look for the url on a higher level of childs
+                let libUrl;
+                if (isArchive(url)) {
+                    libUrl = JSON.parse('{"archive": "' + url + '"}');
+                } else {
+                    libUrl = JSON.parse('{"git": "' + url + '"}');
+                }
+                // TODO Add existing data to generalData in task.yaml (optional)
+                // This allows the git scrabber to compute additional values
+                // e.g. the impact
+                task.projects.push(libUrl);
+            }
+        });
+        // Save list with urls in task.yaml
+        writeFileSync(files.gsTask, yaml2json.safeDump(task), "utf8");
+
+    }
+
+    // EXECUTE GIT SCRABBER
+    function executeGitScrabber() {
+        const gitScrabberExec = path.join(paths.lib, 'gitScrabber/gitScrabber/gitScrabber.py');
+        const gitScrabberTask = path.join(paths.lib, 'gitScrabber/task_small.yaml');
+        const gitScrabberReport = path.join(paths.lib, 'gitScrabber/report.yaml');
+        const gitScrabberLibs = path.join(paths.lib, 'gitScrabber/gitScrabber/libs');
+
+        execSync('python ' + gitScrabberExec +
+            ' -r ' + gitScrabberReport +
+            ' -t ' + gitScrabberTask +
+            ' -o ' + gitScrabberReport +
+            ' -d ' + gitScrabberLibs +
+            ' -f' +
+            ' --github-token 8341094f6dc4944ee22491139c5565c3e6f5e32e',
+
+            function (err, stdout, stderr) {
+                console.log(stdout);
+                console.log(stderr);
+                done(err);
+            });
+
+    }
+
+    // ADD ADDITIONAL DATA TO THE LIBRARIES THAT WAS NOT SPECIFIED IN THE MARKDOWN FILES
+    function addDataToLibraries() {
+
+        dataJSON.forEach(library => {
+
+            // |-----------------------------------------------------------------|
+            // | ADD DATA TO THE DATA.JSON THAT DOES NOT RELY ON THE REPORT.YAML |
+            // |-----------------------------------------------------------------|
+
+            // Add release tag
+            if (!applicableLibraryHasReleaseTag(library)) {
+                let releaseMap = createMapDataJSON();
+                let tag = getReleaseTag(library);
+                let releaseItem = createChildDataJSON(tag);
+                addToDataJSONMap(releaseMap, releaseItem);
+                library[releaseKey] = releaseMap;
+            }
+
+            function getReleaseTag(library) {
+                const tagUnknown = "Unknown";
+                const tagLatest = "Latest";
+
+                const hasUrl = libraryHasUrl(library);
+                const url = hasUrl ? library[urlKey].childs[0][0][0].content: null;
+
+                if (hasUrl && !isArchive(url)) {
+                    return tagLatest;
+                }
+
+                return tagUnknown;
+            }
+
+            // TODO Get release name if it was not defined in the markdown
+            // TODO Add link to issue/pull request page if a header does not contain any content
+
+            // |-----------------------------------------------------------------|
+            // | ADD DATA TO THE DATA.JSON THAT RELIES ON THE REPORT.YAML |
+            // |-----------------------------------------------------------------|
+
+            // Load report.yaml as json
+            let reportJSON = yaml2json.safeLoad(readFileSync(files.gsReport, "utf8"));
+
+            // Only look for information of libraries that have a url.
+            // Libraries without a url where not searched by the git-scrabber
+            if (libraryHasUrl(library)) {
+
+                // Get the url of the library from data.json
+                let url = library[urlKey].childs[0][0][0].content;
+                // Get the key of the library in the report.yaml projects
+                let projectKey = getLibraryKey(reportJSON.projects, url);
+                // If the library exists in the report
+                if (reportJSON.projects[projectKey]) {
+
+                    // List with attributes to search for in the report
+                    // (mdKey, gsKey, task)
+                    // The order defines the order in the details view of a library
+                    let attributes = [
+                        {mdKey: "Development Languages", gsKey: "languages", task: "LanguageDetector"},
+                        {mdKey: "Stars", gsKey: "stars", task: "MetaDataCollector"},
+                        {mdKey: "Block Ciphers", gsKey: "block ciphers", task: "FeatureDetector"},
+                        {mdKey: "Stream Ciphers", gsKey: "stream ciphers", task: "FeatureDetector"},
+                        {mdKey: "Hash Functions", gsKey: "hash", task: "FeatureDetector"},
+                        {
+                            mdKey: "Encryption Modes",
+                            gsKey: "encryption modes",
+                            task: "FeatureDetector"
+                        },
+                        {
+                            mdKey: "Message Authentication Codes",
+                            gsKey: "message authentication codes",
+                            task: "FeatureDetector"
+                        },
+                        {
+                            mdKey: "Public Key Cryptography",
+                            gsKey: "public key cryptography",
+                            task: "FeatureDetector"
+                        },
+                        {
+                            mdKey: "Public Key Infrastructure",
+                            gsKey: "public key infrastructure",
+                            task: "FeatureDetector"
+                        },
+                        {mdKey: "Protocol", gsKey: "protocol", task: "FeatureDetector"},
+                    ];
+
+                    attributes.forEach(attribute => {
+
+                        let reportTask = reportJSON.projects[projectKey][attribute.task];
+                        if (!library[attribute.mdKey] && reportTask) {
+
+                            let reportAttr = reportJSON.projects[projectKey][attribute.task][attribute.gsKey];
+                            if (reportAttr) {
+
+                                let attrMapDataJSON = createMapDataJSON();
+                                switch (reportAttr.constructor) {
+                                    case (Number || String):      // Number or String type in report (e.g. stars)
+
+                                        let attrItem = createChildDataJSON(reportAttr);
+                                        addToDataJSONMap(attrMapDataJSON, attrItem);
+                                        break;
+
+                                    case (Array):       // Array type in report (e.g. languages)
+
+                                        Object.keys(reportAttr).forEach(attrElement => {
+                                            let attrItem = createChildDataJSON(reportAttr[attrElement]);
+                                            addToDataJSONMap(attrMapDataJSON, attrItem);
+                                        });
+                                        break;
+
+                                    case (Object):    // JSON Object (Used for encryptions)
+
+                                        const OCCURRENCE_THRESHOLD = 1;
+                                        Object.keys(reportAttr).forEach(attrElement => {
+                                            let attrItem = createChildDataJSON(attrElement);
+                                            if (reportAttr[attrElement] >= OCCURRENCE_THRESHOLD) {
+                                                addToDataJSONMap(attrMapDataJSON, attrItem);
+                                            }
+                                        });
+                                        break;
+
+                                    default:
+                                        console.log("Attribute has no valid type");
+                                }
+
+                                // Only add the map to the data.json if the
+                                // report really contained information about
+                                // the attribute
+                                if (Object.keys(attrMapDataJSON.childs[0][0]).length > 0) {
+                                    library[attribute.mdKey] = attrMapDataJSON;
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+        });
+
+        // Save data in data.json
+        writeFileSync(files.dataJson, JSON.stringify(dataJSON), "utf8");
     }
 });
 

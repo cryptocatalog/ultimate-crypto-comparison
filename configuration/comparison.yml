@@ -24,6 +24,7 @@ criteria:
   - Release:
       description: The version of the library the data is applicable for
       search: true
+      andSearch: false
       table: true
       type: label
   - Release Date:
