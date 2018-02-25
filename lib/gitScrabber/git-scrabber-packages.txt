@@ -1,0 +1,8 @@
+python-dateutil
+numpy
+packaging
+pyunpack
+regex
+ruamel.yaml
+requests
+patool
