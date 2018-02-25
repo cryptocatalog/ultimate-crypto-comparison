@@ -314,9 +314,9 @@ autoCriteria:
   Stars:
     values:
       '385': {}
-      '611': {}
+      '612': {}
       '744': {}
-      '6422': {}
+      '6447': {}
   Block Ciphers:
     values:
       CAST-128: {}
@@ -347,6 +347,7 @@ autoCriteria:
       MAGENTA: {}
       MESH: {}
       Skipjack: {}
+      FEAL: {}
   Stream Ciphers:
     values:
       Dragon: {}
@@ -357,6 +358,7 @@ autoCriteria:
       Crypto1: {}
       FISH: {}
       NLS: {}
+      VEST: {}
   Hash Functions:
     values:
       BLAKE2: {}
@@ -389,6 +391,9 @@ autoCriteria:
       RKC: {}
       KFB: {}
       XBC: {}
+      CWC: {}
+      PCBC: {}
+      XCBC: {}
   Public Key Cryptography:
     values:
       McEliece: {}
@@ -407,6 +412,7 @@ autoCriteria:
       RPKI: {}
       RTCS: {}
       SCEP: {}
+      OpenCA: {}
   Protocol:
     values:
       DTLS: {}
@@ -436,6 +442,9 @@ autoCriteria:
     values:
       Sleepycat (Berkeley Database) License: {}
       Four-clause BSD License: {}
+  Message Authentication Codes:
+    values:
+      TMAC: {}
 autoColor:
   Block Cipher:
     AES:
@@ -1318,6 +1327,9 @@ autoColor:
     Triple DES:
       color: '#0d0d0d'
       backgroundColor: 'hsl(120, 100%, 70%)'
+    FEAL:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
   Stream Ciphers:
     ChaCha:
       color: '#0d0d0d'
@@ -1376,6 +1388,9 @@ autoColor:
     ZUC:
       color: '#0d0d0d'
       backgroundColor: 'hsl(300, 100%, 70%)'
+    VEST:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(180, 100%, 70%)'
   Hash Functions:
     BLAKE2:
       color: '#0d0d0d'
@@ -1456,6 +1471,9 @@ autoColor:
     XCBC:
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
+    TMAC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
   Public Key Cryptography:
     DH:
       color: '#0d0d0d'
@@ -1539,6 +1557,9 @@ autoColor:
     XiPKI:
       color: '#0d0d0d'
       backgroundColor: 'hsl(75, 100%, 70%)'
+    OpenCA:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
   Stars:
     '384':
       color: '#ffff00'
@@ -1552,6 +1573,9 @@ autoColor:
     '611':
       color: '#0d0d0d'
       backgroundColor: 'hsl(90, 100%, 70%)'
+    '612':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     '743':
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
@@ -1570,6 +1594,9 @@ autoColor:
     '6423':
       color: '#0d0d0d'
       backgroundColor: 'hsl(90, 100%, 70%)'
+    '6447':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(150, 100%, 70%)'
   Steam Ciphers:
     ChaCha:
       color: '#0d0d0d'
@@ -1635,4 +1662,13 @@ autoColor:
     XBC:
       color: '#0d0d0d'
       backgroundColor: 'hsl(45, 100%, 70%)'
+    CWC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(210, 100%, 70%)'
+    PCBC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(210, 100%, 70%)'
+    XCBC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(210, 100%, 70%)'
 autoCitation: {}

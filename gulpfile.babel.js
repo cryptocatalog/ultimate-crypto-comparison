@@ -580,6 +580,8 @@ gulp.task('gitScrabber', function (done) {
         const gitScrabberReport = path.join(paths.lib, 'gitScrabber/report.yaml');
         const gitScrabberLibs = path.join(paths.lib, 'gitScrabber/gitScrabber/libs');
 
+        execSync('mkdir -p ' + gitScrabberLibs);
+
         execSync('python ' + gitScrabberExec +
             ' -r ' + gitScrabberReport +
             ' -t ' + gitScrabberTask +

@@ -1,6 +1,9 @@
 language: python
-python: "3.6"
-script: npm run build
+python:
+  - "3.6"
+script: travis_wait 60 npm run build
+env:
+- GIT_DEPLOY_DIR: dist
 after_success:
 - git remote set-url origin git@github.com:CryptoCatalog/ultimate-crypto-comparison.git
 - openssl aes-256-cbc -K $encrypted_e7cc94ff2647_key -iv $encrypted_e7cc94ff2647_iv -in ./lib/travis/github_deploy_key.enc -out id_rsa -d
@@ -13,9 +16,8 @@ after_success:
 - echo $TRAVIS_PULL_REQUEST
 - ./lib/travis/deploy.sh
 before_install:
-- nvm install 6
-- node --version
 - npm install -g npm
+- npm install gulp
 - java -version
 - npm -version
 install:
