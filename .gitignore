@@ -5,10 +5,6 @@ id_rsa.pub
 
 # Created by https://www.gitignore.io/api/eclipse,gradle,intellij+iml,node,grunt,typings,visualstudiocode,windows,linux,macos,vim,jabref
 
-# Ultimate Crypto Comparison
-lib/gitScrabber/gitScrabber/libs/
-lib/gitScrabber/venv/
-
 ### Eclipse ###
 
 .metadata
