@@ -48,7 +48,7 @@ const files = {
     dataJson: path.join(paths.assets, names.data),
     versionInformationExample: path.join(paths.assets, 'VersionInformation.ts.example'),
     versionInformation: path.join(paths.assets, 'VersionInformation.ts'),
-    gsTask: path.join(paths.lib, 'gitScrabber/task_small.yaml'),
+    gsTask: path.join(paths.lib, 'gitScrabber/task_cryptocatalog.yaml'),
     gsReport: path.join(paths.lib, 'gitScrabber/report.yaml')
 };
 
@@ -575,10 +575,10 @@ gulp.task('gitScrabber', function (done) {
 
     // EXECUTE GIT SCRABBER
     function executeGitScrabber() {
-        const gitScrabberExec = path.join(paths.lib, 'gitScrabber/gitScrabber/gitScrabber.py');
-        const gitScrabberTask = path.join(paths.lib, 'gitScrabber/task_small.yaml');
+        const gitScrabberExec = path.join(paths.lib, 'gitScrabber/gitScrabber/gitScrabber/gitScrabber.py');
+        const gitScrabberTask = path.join(paths.lib, 'gitScrabber/task_cryptocatalog.yaml');
         const gitScrabberReport = path.join(paths.lib, 'gitScrabber/report.yaml');
-        const gitScrabberLibs = path.join(paths.lib, 'gitScrabber/gitScrabber/libs');
+        const gitScrabberLibs = path.join(paths.lib, 'gitScrabber/libs');
 
         execSync('mkdir -p ' + gitScrabberLibs);
 
