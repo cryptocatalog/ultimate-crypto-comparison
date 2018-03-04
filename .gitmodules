@@ -1,6 +1,3 @@
-[submodule "lib/git-scrabber"]
-	path = lib/git-scrabber
-	url = git@github.com:Eyenseo/gitScrabber.git
 [submodule "lib/gitScrabber/gitScrabber"]
 	path = lib/gitScrabber/gitScrabber
 	url = https://github.com/Eyenseo/gitScrabber
