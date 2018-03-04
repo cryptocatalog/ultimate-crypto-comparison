@@ -1569,7 +1569,7 @@ autoColor:
       backgroundColor: 'hsl(90, 100%, 70%)'
     '386':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(210, 100%, 70%)'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     '609':
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
@@ -1581,7 +1581,7 @@ autoColor:
       backgroundColor: 'hsl(150, 100%, 70%)'
     '620':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(210, 100%, 70%)'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     '743':
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
@@ -1590,7 +1590,7 @@ autoColor:
       backgroundColor: 'hsl(90, 100%, 70%)'
     '750':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(210, 100%, 70%)'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     '5294':
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
@@ -1608,7 +1608,7 @@ autoColor:
       backgroundColor: 'hsl(150, 100%, 70%)'
     '6503':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(210, 100%, 70%)'
+      backgroundColor: 'hsl(330, 100%, 70%)'
   Steam Ciphers:
     ChaCha:
       color: '#0d0d0d'
