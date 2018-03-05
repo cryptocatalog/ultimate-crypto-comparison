@@ -17,3 +17,5 @@ install:
 - pip install -r ./lib/gitScrabber/git-scrabber-packages.txt
 sudo: required
 dist: trusty
+notifications:
+  email: false
