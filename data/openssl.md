@@ -6,7 +6,7 @@ OpenSSL is a software library for applications that secure communications over c
 
 ## License
 - Apache-1.0
-- Four-clause BSD License
+- BSD-4-Clause
 
 ## Repository
 - https://github.com/openssl/openssl
