@@ -105,23 +105,342 @@ criteria:
       table: true
       andSearch: false
       values:
+        0BSD:
+          description: '[BSD Zero Clause License](https://spdx.org/licenses/0BSD.html)'
+        AAL:
+          description: '[Attribution Assurance License](https://spdx.org/licenses/AAL.html)'
+        Abstyles:
+          description: '[Abstyles License](https://spdx.org/licenses/Abstyles.html)'
+        Adobe-2006:
+          description: >-
+            [Adobe Systems Incorporated Source Code License
+            Agreement](https://spdx.org/licenses/Adobe-2006.html)
+        Adobe-Glyph:
+          description: >-
+            [Adobe Glyph List
+            License](https://spdx.org/licenses/Adobe-Glyph.html)
+        ADSL:
+          description: >-
+            [Amazon Digital Services
+            License](https://spdx.org/licenses/ADSL.html)
+        AFL-1.1:
+          description: '[Academic Free License v1.1](https://spdx.org/licenses/AFL-1.1.html)'
+        AFL-1.2:
+          description: '[Academic Free License v1.2](https://spdx.org/licenses/AFL-1.2.html)'
+        AFL-2.0:
+          description: '[Academic Free License v2.0](https://spdx.org/licenses/AFL-2.0.html)'
+        AFL-2.1:
+          description: '[Academic Free License v2.1](https://spdx.org/licenses/AFL-2.1.html)'
+        AFL-3.0:
+          description: '[Academic Free License v3.0](https://spdx.org/licenses/AFL-3.0.html)'
+        Afmparse:
+          description: '[Afmparse License](https://spdx.org/licenses/Afmparse.html)'
+        AGPL-1.0:
+          description: >-
+            [Affero General Public License
+            v1.0](https://spdx.org/licenses/AGPL-1.0.html)
+        AGPL-3.0-only:
+          description: >-
+            [GNU Affero General Public License v3.0
+            only](https://spdx.org/licenses/AGPL-3.0-only.html)
+        AGPL-3.0-or-later:
+          description: >-
+            GNU Affero General Public License v3.0 or
+            later](https://spdx.org/licenses/AGPL-3.0-or-later.html)
+        Aladdin:
+          description: >-
+            [Alladin Free Public
+            License](https://spdx.org/licenses/Aladdin.html)
+        AMDPLPA:
+          description: '[AMDs plpa_map.c License](https://spdx.org/licenses/AMDPLPA.html)'
+        AML:
+          description: '[Apple MIT License](https://spdx.org/licenses/AML.html)'
+        AMPAS:
+          description: >-
+            [Academy of Motion Picture Arts and Sciences
+            BSD](https://spdx.org/licenses/AMPAS.html)
+        ANTLR-PD:
+          description: >-
+            [ANTLR Software Rights
+            Notice](https://spdx.org/licenses/ANTLR-PD.html)
         Apache-1.0:
-          description: '[Apache-1.0](https://spdx.org/licenses/Apache-1.0.html)'
+          description: '[Apache License 1.0](https://spdx.org/licenses/Apache-1.0.html)'
+        Apache-1.1:
+          description: '[Apache License 1.1](https://spdx.org/licenses/Apache-1.1.html)'
         Apache-2.0:
-          description: '[Apache-2.0](https://spdx.org/licenses/Apache-2.0.html)'
-        MIT:
-          description: '[MIT](https://spdx.org/licenses/MIT.html)'
-        MPL-2.0:
-          description: '[MPL-2.0](https://spdx.org/licenses/MPL-2.0.html)'
+          description: '[Apache License 2.0](https://spdx.org/licenses/Apache-2.0.html)'
+        APAFML:
+          description: >-
+            [Adobe Postscript AFM
+            License](https://spdx.org/licenses/APAFML.html)
+        APL-1.0:
+          description: >-
+            [Adaptive Public License
+            1.0](https://spdx.org/licenses/APL-1.0.html)
+        APSL-1.0:
+          description: >-
+            [Apple Public Source License
+            1.0](https://spdx.org/licenses/APSL-1.0.html)
+        APSL-1.1:
+          description: >-
+            [Apple Public Source License
+            1.1](https://spdx.org/licenses/APSL-1.1.html)
+        APSL-1.2:
+          description: >-
+            [Apple Public Source License
+            1.2](https://spdx.org/licenses/APSL-1.2.html)
+        APSL-2.0:
+          description: >-
+            [Apple Public Source License
+            2.0](https://spdx.org/licenses/APSL-2.0.html)
+        Artistic-1.0:
+          description: '[Artistic License 1.0](https://spdx.org/licenses/Artistic-1.0.html)'
+        Artistic-1.0-Perl:
+          description: >-
+            [Artistic License 1.0
+            (Perl)](https://spdx.org/licenses/Artistic-1.0-Perl.html)
+        Artistic-1.0-cl8:
+          description: >-
+            [Artistic License 1.0 w/ clause
+            8](https://spdx.org/licenses/Artistic-1.0-cl8.html)
+        Artistic-2.0:
+          description: '[Artistic License 2.0](https://spdx.org/licenses/Artistic-2.0.html)'
+        Bahyph:
+          description: '[Bahyph License](https://spdx.org/licenses/Bahyph.html)'
+        Barr:
+          description: '[Barr License](https://spdx.org/licenses/Barr.html)'
+        Beerware:
+          description: '[Beerware License](https://spdx.org/licenses/Beerware.html)'
+        BitTorrent-1.0:
+          description: >-
+            [BitTorrent Open Source License
+            v1.0](https://spdx.org/licenses/BitTorrent-1.0.html)
+        BitTorrent-1.1:
+          description: >-
+            [BitTorrent Open Source License
+            v1.1](https://spdx.org/licenses/BitTorrent-1.1.html)
+        Borceux:
+          description: '[Borceux License](https://spdx.org/licenses/Borceux.html)'
+        BSD-1-Clause:
+          description: '[BSD 1-Clause License](https://spdx.org/licenses/BSD-1-Clause.html)'
         BSD-2-Clause:
-          description: '[BSD-2-Clause](https://spdx.org/licenses/BSD-2-Clause.html)'
+          description: >-
+            [BSD 2-Clause "Simplified"
+            License](https://spdx.org/licenses/BSD-2-Clause.html)
+        BSD-2-Clause-FreeBSD:
+          description: >-
+            [BSD 2-Clause FreeBSD
+            License](https://spdx.org/licenses/BSD-2-Clause-FreeBSD.html)
+        BSD-2-Clause-NetBSD:
+          description: >-
+            [BSD 2-Clause NetBSD
+            License](https://spdx.org/licenses/BSD-2-Clause-NetBSD.html)
         BSD-2-Clause-Patent:
           description: >-
-            [BSD-2-Clause-Patent](https://spdx.org/licenses/BSD-2-Clause-Patent.html)
+            [BSD-2-Clause Plus
+            Patent](https://spdx.org/licenses/BSD-2-Clause-Patent.html)
+        BSD-3-Clause:
+          description: >-
+            [BSD 3-Clause "New" or "Revised"
+            License](https://spdx.org/licenses/BSD-3-Clause.html)
+        BSD-3-Clause-Attribution:
+          description: >-
+            [BSD with
+            attribution](https://spdx.org/licenses/BSD-3-Clause-Attribution.html)
+        BSD-3-Clause-Clear:
+          description: >-
+            [BSD 3-Clause Clear
+            License](https://spdx.org/licenses/BSD-3-Clause-Clear.html)
+        BSD-3-Clause-LBNL:
+          description: >-
+            [Lawrence Berkeley National Labs BSD variant
+            license](https://spdx.org/licenses/BSD-3-Clause-LBNL.html)
+        BSD-3-Clause-No-Nuclear-License:
+          description: "[BSD 3-Clause No Nuclear License\t](https://spdx.org/licenses/BSD-3-Clause-No-Nuclear-License.html)"
+        BSD-3-Clause-No-Nuclear-License-2014:
+          description: >-
+            [BSD 3-Clause No Nuclear License
+            2014](https://spdx.org/licenses/BSD-3-Clause-No-Nuclear-License-2014.html)
+        BSD-3-Clause-No-Nuclear-Warranty:
+          description: >-
+            [BSD 3-Clause No Nuclear
+            Warranty](https://spdx.org/licenses/BSD-3-Clause-No-Nuclear-Warranty.html)
         BSD-4-Clause:
           description: '[BSD-4-Clause](https://spdx.org/licenses/BSD-4-Clause.html)'
+        BSD-4-Clause-UC:
+          description: >-
+            [BSD-4-Clause (University of
+            California-Specific)](https://spdx.org/licenses/BSD-4-Clause-UC.html)
+        BSD-Protection:
+          description: >-
+            [BSD Protection
+            License](https://spdx.org/licenses/BSD-Protection.html)
+        BSD-Source-Code:
+          description: >-
+            [BSD Source Code
+            Attribution](https://spdx.org/licenses/BSD-Source-Code.html)
+        BSL-1.0:
+          description: '[Boost Software License 1.0](https://spdx.org/licenses/BSL-1.0.html)'
+        CC-BY-1.0:
+          description: >-
+            [Creative Commons Attribution
+            1.0](https://spdx.org/licenses/CC-BY-1.0.html)
+        CC-BY-2.0:
+          description: >-
+            [Creative Commons Attribution
+            2.0](https://spdx.org/licenses/CC-BY-2.0.html)
+        CC-BY-2.5:
+          description: >-
+            [Creative Commons Attribution
+            2.5](https://spdx.org/licenses/CC-BY-2.5.html)
+        CC-BY-3.0:
+          description: >-
+            [Creative Commons Attribution
+            3.0](https://spdx.org/licenses/CC-BY-3.0.html)
+        CC-BY-4.0:
+          description: >-
+            [Creative Commons Attribution
+            4.0](https://spdx.org/licenses/CC-BY-4.0.html)
+        CC-BY-NC-1.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial
+            1.0](https://spdx.org/licenses/CC-BY-NC-1.0.html)
+        CC-BY-NC-2.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial
+            2.0](https://spdx.org/licenses/CC-BY-NC-2.0.html)
+        CC-BY-NC-2.5:
+          description: >-
+            [Creative Commons Attribution Non Commercial
+            2.5](https://spdx.org/licenses/CC-BY-NC-2.5.html)
+        CC-BY-NC-3.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial
+            3.0](https://spdx.org/licenses/CC-BY-NC-3.0.html)
+        CC-BY-NC-4.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial
+            4.0](https://spdx.org/licenses/CC-BY-NC-4.0.html)
+        CC-BY-NC-ND-1.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial No Derivatives
+            1.0](https://spdx.org/licenses/CC-BY-NC-ND-1.0.html)
+        CC-BY-NC-ND-2.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial No Derivatives
+            2.0](https://spdx.org/licenses/CC-BY-NC-ND-2.0.html)
+        CC-BY-NC-ND-2.5:
+          description: >-
+            [Creative Commons Attribution Non Commercial No Derivatives
+            2.5](https://spdx.org/licenses/CC-BY-NC-ND-2.5.html)
+        CC-BY-NC-ND-3.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial No Derivatives
+            3.0](https://spdx.org/licenses/CC-BY-NC-ND-3.0.html)
+        CC-BY-NC-ND-4.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial No Derivatives
+            4.0](https://spdx.org/licenses/CC-BY-NC-ND-4.0.html)
+        CC-BY-NC-SA-1.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial Share Alike
+            1.0](https://spdx.org/licenses/CC-BY-NC-SA-1.0.html)
+        CC-BY-NC-SA-2.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial Share Alike
+            2.0](https://spdx.org/licenses/CC-BY-NC-SA-2.0.html)
+        CC-BY-NC-SA-2.5:
+          description: >-
+            [Creative Commons Attribution Non Commercial Share Alike
+            2.5](https://spdx.org/licenses/CC-BY-NC-SA-2.5.html)
+        CC-BY-NC-SA-3.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial Share Alike
+            3.0](https://spdx.org/licenses/CC-BY-NC-SA-3.0.html)
+        CC-BY-NC-SA-4.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial Share Alike
+            4.0](https://spdx.org/licenses/CC-BY-NC-SA-4.0.html)
+        CC-BY-ND-1.0:
+          description: >-
+            [Creative Commons Attribution No Derivatives
+            1.0](https://spdx.org/licenses/CC-BY-ND-1.0.html)
+        CC-BY-ND-2.0:
+          description: >-
+            [Creative Commons Attribution No Derivatives
+            2.0](https://spdx.org/licenses/CC-BY-ND-2.0.html)
+        CC-BY-ND-2.5:
+          description: >-
+            [Creative Commons Attribution No Derivatives
+            2.5](https://spdx.org/licenses/CC-BY-ND-2.5.html)
+        CC-BY-ND-3.0:
+          description: >-
+            [Creative Commons Attribution No Derivatives
+            3.0](https://spdx.org/licenses/CC-BY-ND-3.0.html)
+        CC-BY-ND-4.0:
+          description: >-
+            [Creative Commons Attribution No Derivatives
+            4.0](https://spdx.org/licenses/CC-BY-ND-4.0.html)
+        CC0-1.0:
+          description: >-
+            [Creative Commons Zero v1.0
+            Universal](https://spdx.org/licenses/CC0-1.0.html)
+        EPL-1.0:
+          description: '[Eclipse Public License 1.0](https://spdx.org/licenses/EPL-1.0.html)'
+        EPL-2.0:
+          description: '[Eclipse Public License 2.0](https://spdx.org/licenses/EPL-2.0.html)'
+        Glide:
+          description: '[3dfx Glide License](https://spdx.org/licenses/Glide.html)'
+        GPL-1.0-only:
+          description: >-
+            [GNU General Public License v1.0
+            only](https://spdx.org/licenses/GPL-1.0-only.html)
+        GPL-1.0-or-later:
+          description: >-
+            [GNU General Public License v1.0 or
+            later](https://spdx.org/licenses/GPL-1.0-or-later.html)
+        GPL-2.0-only:
+          description: >-
+            [GNU General Public License v2.0
+            only](https://spdx.org/licenses/GPL-2.0-only.html)
+        GPL-2.0-or-later:
+          description: >-
+            [GNU General Public License v2.0 or
+            later](https://spdx.org/licenses/GPL-2.0-or-later.html)
+        GPL-3.0-only:
+          description: >-
+            [GNU General Public License v3.0
+            only](https://spdx.org/licenses/GPL-3.0-only.html)
+        GPL-3.0-or-later:
+          description: >-
+            [GNU General Public License v3.0 or
+            later](https://spdx.org/licenses/GPL-3.0-or-later.html)
+        IPL-1.0:
+          description: '[IBM Public License v1.0](https://spdx.org/licenses/IPL-1.0.html)'
+        JSON:
+          description: '[JSON License](https://spdx.org/licenses/JSON.html)'
+        MIT:
+          description: '[MIT License](https://spdx.org/licenses/MIT.html)'
+        MPL-1.0:
+          description: '[Mozilla Public License 1.0](https://spdx.org/licenses/MPL-1.0.html)'
+        MPL-1.1:
+          description: '[Mozilla Public License 1.1](https://spdx.org/licenses/MPL-1.1.html)'
+        MPL-2.0:
+          description: '[Mozilla Public License 2.0](https://spdx.org/licenses/MPL-2.0.html)'
+        MPL-2.0-no-copyleft-exception:
+          description: >-
+            [Mozilla Public License 2.0 (no copyleft
+            exception)](https://spdx.org/licenses/MPL-2.0-no-copyleft-exception.html)
+        OpenSSL:
+          description: '[OpenSSL License](https://spdx.org/licenses/OpenSSL.html)'
         Sleepycat:
-          description: '[Sleepycat](https://spdx.org/licenses/Sleepycat.html)'
+          description: '[Sleepycat License](https://spdx.org/licenses/Sleepycat.html)'
+        Unilicense:
+          description: '[The Unlicense](https://spdx.org/licenses/Unlicense.html)'
+        YPL-1.0:
+          description: '[Yahoo! Public License v1.0](https://spdx.org/licenses/YPL-1.0.html)'
+        YPL-1.1:
+          description: '[Yahoo! Public License v1.1](https://spdx.org/licenses/YPL-1.1.html)'
   - Development status:
       description: Is the software in active development?
       placeholder: Select activity state
@@ -397,10 +716,6 @@ autoCriteria:
     values:
       '2017-12-18': {}
       '2017-01-07': {}
-  License:
-    values:
-      Sleepycat (Berkeley Database) License: {}
-      Four-clause BSD License: {}
 autoColor:
   Block Cipher:
     AES:
@@ -953,6 +1268,291 @@ autoColor:
     Sleepycat (Berkeley Database) License:
       color: '#0d0d0d'
       backgroundColor: 'hsl(165, 100%, 70%)'
+    0BSD:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    AAL:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    Abstyles:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    Adobe-2006:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    Adobe-Glyph:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    ADSL:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    AFL-1.1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    AFL-1.2:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    AFL-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    AFL-2.1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    AFL-3.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    Afmparse:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    AGPL-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    AGPL-3.0-only:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    AGPL-3.0-or-later:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    Aladdin:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    AMDPLPA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    AML:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    AMPAS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    ANTLR-PD:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    Apache-1.1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    APAFML:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    APL-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    APSL-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    APSL-1.1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    APSL-1.2:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    APSL-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    Artistic-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    Artistic-1.0-cl8:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    Artistic-1.0-Perl:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    Artistic-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    Bahyph:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    Barr:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    Beerware:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    BitTorrent-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    BitTorrent-1.1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    Borceux:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    BSD-1-Clause:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    BSD-2-Clause-FreeBSD:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    BSD-2-Clause-NetBSD:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    BSD-3-Clause:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    BSD-3-Clause-Attribution:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    BSD-3-Clause-Clear:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    BSD-3-Clause-LBNL:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    BSD-3-Clause-No-Nuclear-License:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    BSD-3-Clause-No-Nuclear-License-2014:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    BSD-3-Clause-No-Nuclear-Warranty:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    BSD-4-Clause-UC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    BSD-Protection:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    BSD-Source-Code:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    BSL-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-2.5:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-3.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-4.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-NC-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-NC-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-NC-2.5:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-NC-3.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-NC-4.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-NC-ND-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-NC-ND-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-NC-ND-2.5:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-NC-ND-3.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-NC-ND-4.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-NC-SA-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-NC-SA-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-NC-SA-2.5:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-NC-SA-3.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-NC-SA-4.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-ND-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-ND-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-ND-2.5:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-ND-3.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC-BY-ND-4.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    CC0-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    EPL-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    EPL-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    Glide:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    GPL-1.0-only:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    GPL-1.0-or-later:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    GPL-2.0-only:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    GPL-2.0-or-later:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    GPL-3.0-only:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    GPL-3.0-or-later:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    IPL-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    JSON:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    MPL-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    MPL-1.1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    MPL-2.0-no-copyleft-exception:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    OpenSSL:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    Unilicense:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    YPL-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    YPL-1.1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
   Development Language:
     Assembly:
       color: '#0d0d0d'
