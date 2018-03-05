@@ -621,9 +621,13 @@ gulp.task('gitScrabber', function (done) {
                 const tagLatest = "Latest";
 
                 const hasUrl = libraryHasUrl(library);
-                const url = hasUrl ? library[urlKey].childs[0][0][0].content: null;
+                const url = hasUrl ? library[urlKey].childs[0][0][0].content : null;
 
-                if (hasUrl && !isArchive(url)) {
+                if (hasUrl && isArchive(url)) { // Archive -> get release name from url
+                    let trimmedUrl = url.slice(0, -4); // Remove .zip/.rar from end of url
+                    let urlParts = trimmedUrl.split("/");
+                    return urlParts[urlParts.length - 1];
+                } else if (hasUrl && !isArchive(url)) { // Repository -> "Latest" -tag
                     return tagLatest;
                 }
 
