@@ -1,8 +1,8 @@
-title: Ultimate-Crypto-Comparison
-subtitle: Ultimate comparison of cryptographic libraries
+title: CryptoCatalog
+subtitle: Automatic catalog of cryptographic libraries
 selectTitle: Criteria
-tableTitle: Comparison of cryptographic libraries
-repository: 'https://github.com/CryptoCatalog/ultimate-crypto-comparison.git'
+tableTitle: Cryptographic libraries
+repository: 'https://github.com/cryptocatalog/ultimate-crypto-comparison.git'
 details:
   header:
     nameRef: id
@@ -66,145 +66,40 @@ criteria:
       search: true
       table: false
       type: label
-      values:
-        AES: null
-        AES-128: null
-        AES-192: null
-        AES-256: null
-        ARIA: null
-        Blowfish: null
-        Camellia: null
-        CAST: null
-        CDMF: null
-        DES: null
-        DEAL: null
-        FPE: null
-        IDEA: null
-        NXT: null
-        M6: null
-        M8: null
-        NDS: null
-        PRESENT: null
-        RC: null
-        RC2: null
-        RC5: null
-        RC6: null
-        SEED: null
   - Stream Ciphers:
       detail: true
       search: true
       table: false
       type: label
-      values:
-        ChaCha: null
-        LEX: null
-        MAG: null
-        Panama: null
-        Rabbit: null
-        RC: null
-        Salsa: null
-        SEAL: null
-        Turing: null
-        Vernam: null
-        WAKE: null
   - Hash Functions:
-      description: Hash Function
       detail: true
       search: true
       table: false
       type: label
-      values:
-        GOST: null
-        MD2: null
-        MD5: null
-        PBKDF2: null
-        RIPEMD: null
-        SHA: null
-        SHA-1: null
-        SHA-2: null
-        SHA-3: null
-        SHA-256: null
-        SHA-512: null
-        WHIRLPOOL: null
   - Encryption Modes:
       detail: true
       search: true
       table: false
   - Message Authentication Codes:
-      description: Message Authentication Codes
       detail: true
       search: true
       table: false
       type: label
-      values:
-        HMAC: null
-        OMAC: null
-        Poly1305: null
-        XCBC: null
   - Public Key Cryptography:
-      description: Public Key Cryptography
       detail: true
       search: true
       table: false
       type: label
-      values:
-        DH: null
-        DSA: null
-        DSS: null
-        ECDH: null
-        ECDSA: null
-        ElGamal: null
-        LUC: null
-        Paillier: null
-        RSA: null
-        YAK: null
   - Public Key Infrastructure:
-      description: Public Key Infrastructure
       detail: true
       search: true
       table: false
       type: label
-      values:
-        CMP: null
-        SET: null
-        SigG: null
   - Protocol:
       detail: true
       search: true
       table: false
       type: label
-      values:
-        AS1: null
-        AS2: null
-        AKA: null
-        CMC: null
-        CMP: null
-        CSR: null
-        CMS: null
-        CGA: null
-        DPD: null
-        DPV: null
-        DCII: null
-        EST: null
-        GSI: null
-        HTTPS: null
-        IES: null
-        IKE: null
-        IPsec: null
-        MSE: null
-        OTR: null
-        PCT: null
-        PE: null
-        PEM: null
-        PHE: null
-        PGP: null
-        SCP: null
-        SEND: null
-        SSH: null
-        SSL: null
-        TSP: null
-        TLS: null
-        WPA: null
   - License:
       description: License of the library
       table: true
@@ -245,12 +140,6 @@ criteria:
           minAge: 1
           maxAge: 6
           class: label-warning
-  - Contributors:
-      description: Contributors of the library
-      detail: true
-      search: false
-      table: false
-      type: markdown
   - Stars:
       description: Number of stars
       detail: true
@@ -258,27 +147,6 @@ criteria:
       table: false
   - Creation Date:
       description: Date of creation
-      detail: true
-      search: false
-      table: false
-  - Downloadlink:
-      description: Link to the download page
-      detail: true
-      search: false
-      table: false
-      type: url
-  - Size:
-      description: Size of the repository
-      detail: true
-      search: false
-      table: false
-  - Forks:
-      description: Number of forks
-      detail: true
-      search: false
-      table: false
-  - Watchers:
-      description: Number of watchers
       detail: true
       search: false
       table: false
@@ -290,40 +158,60 @@ autoCriteria:
       C++11: {}
       Java: {}
       Java FIPS: {}
-  Development Languages:
-    values:
-      'C#': {}
-      Java: {}
-      C++: {}
-      Python: {}
-      C: {}
-      C++11: {}
-      Assembly: {}
   Release:
     values:
+      release-1.8.1: {}
       Unknown: {}
       Latest: {}
-      '1.59': {}
+      r1rv59: {}
       1.0.0: {}
       3.4.3.1: {}
       2.0.0: {}
+  Development Languages:
+    values:
+      'C#': {}
+      C++: {}
+      Python: {}
+      Java: {}
+      C: {}
   Block Ciphers:
     values:
       3-Way: {}
+      AES: {}
+      AES-128: {}
+      AES-192: {}
+      AES-256: {}
+      Blowfish: {}
+      Camellia: {}
+      CAST: {}
+      DES: {}
+      DEAL: {}
       DFC: {}
       GOST: {}
       IDEA NXT: {}
+      IDEA: {}
+      M6: {}
+      M8: {}
       MMB: {}
+      NDS: {}
       NOEKEON: {}
+      PRESENT: {}
+      RC: {}
+      RC2: {}
+      RC5: {}
+      RC6: {}
       Serpent: {}
+      SEED: {}
       SM4: {}
       Threefish: {}
       TEA: {}
       3DES: {}
       Twofish: {}
       UES: {}
+      ARIA: {}
       CAST-128: {}
       CAST-256: {}
+      FPE: {}
       KASUMI: {}
       Mercy: {}
       MISTY1: {}
@@ -337,28 +225,50 @@ autoCriteria:
       MAGENTA: {}
       MESH: {}
       Skipjack: {}
+      CDMF: {}
       FEAL: {}
   Stream Ciphers:
     values:
+      ChaCha: {}
       eSTREAM: {}
       ISAAC: {}
+      LEX: {}
+      MAG: {}
       Py: {}
+      RC: {}
+      Salsa: {}
       ZUC: {}
       Dragon: {}
+      Turing: {}
       Crypto1: {}
       FISH: {}
       NLS: {}
+      SEAL: {}
+      Vernam: {}
+      WAKE: {}
       VEST: {}
   Hash Functions:
     values:
       BLAKE2: {}
       FSB: {}
+      GOST: {}
+      MD2: {}
+      MD5: {}
       MD6: {}
+      RIPEMD: {}
       scrypt: {}
+      SHA: {}
+      SHA-1: {}
+      SHA-2: {}
+      SHA-3: {}
+      SHA-256: {}
+      SHA-512: {}
       SipHash: {}
       Skein: {}
+      PBKDF2: {}
       Streebog: {}
       Tiger: {}
+      WHIRLPOOL: {}
       SHAKE: {}
   Encryption Modes:
     values:
@@ -384,12 +294,33 @@ autoCriteria:
       CWC: {}
       PCBC: {}
       XCBC: {}
+  Message Authentication Codes:
+    values:
+      HMAC: {}
+      OMAC: {}
+      Poly1305: {}
+      XCBC: {}
+      TMAC: {}
+  Public Key Cryptography:
+    values:
+      DH: {}
+      DSA: {}
+      DSS: {}
+      ECDH: {}
+      ECDSA: {}
+      LUC: {}
+      RSA: {}
+      YAK: {}
+      ElGamal: {}
+      McEliece: {}
   Public Key Infrastructure:
     values:
+      CMP: {}
       LDAP: {}
       OCSP: {}
       PKCS: {}
       PKIX: {}
+      SET: {}
       X.509: {}
       Identrus: {}
       DVCS: {}
@@ -399,24 +330,56 @@ autoCriteria:
       RPKI: {}
       RTCS: {}
       SCEP: {}
+      SigG: {}
       OpenCA: {}
   Protocol:
     values:
+      AS1: {}
+      AKA: {}
+      CMP: {}
+      CSR: {}
+      CMS: {}
       DTLS: {}
+      DPD: {}
+      DPV: {}
+      EST: {}
       GPG: {}
+      HTTPS: {}
       I2P: {}
+      IES: {}
+      IKE: {}
       ISAKMP: {}
+      IPsec: {}
+      MSE: {}
+      OTR: {}
       OCSP: {}
+      PE: {}
+      PEM: {}
+      PHE: {}
+      PGP: {}
       RTD: {}
       SCVP: {}
+      SEND: {}
       SRTP: {}
+      SSH: {}
+      SSL: {}
+      TSP: {}
+      TLS: {}
       VBR: {}
+      WPA: {}
       WPS: {}
       X.509: {}
+      AS2: {}
+      DCII: {}
+      PCT: {}
+      CMC: {}
+      CGA: {}
       DK: {}
       EKE: {}
+      GSI: {}
       KMIP: {}
       RMA: {}
+      SCP: {}
       PoSE: {}
       SCEP: {}
       SFTP: {}
@@ -427,13 +390,9 @@ autoCriteria:
       '2000': {}
   Stars:
     values:
-      '386': {}
-      '620': {}
-      '750': {}
-      '6503': {}
-  Public Key Cryptography:
-    values:
-      McEliece: {}
+      '387': {}
+      '751': {}
+      '6509': {}
   Release Date:
     values:
       '2017-12-18': {}
@@ -442,9 +401,6 @@ autoCriteria:
     values:
       Sleepycat (Berkeley Database) License: {}
       Four-clause BSD License: {}
-  Message Authentication Codes:
-    values:
-      TMAC: {}
 autoColor:
   Block Cipher:
     AES:
@@ -1070,6 +1026,12 @@ autoColor:
     Unknown:
       color: '#0d0d0d'
       backgroundColor: 'hsl(15, 100%, 70%)'
+    release-1.8.1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    r1rv59:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
   Release Date:
     '2016-12-28':
       color: '#0d0d0d'
@@ -1567,9 +1529,9 @@ autoColor:
     '385':
       color: '#0d0d0d'
       backgroundColor: 'hsl(90, 100%, 70%)'
-    '386':
+    '387':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(60, 100%, 70%)'
     '609':
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
@@ -1579,18 +1541,18 @@ autoColor:
     '612':
       color: '#0d0d0d'
       backgroundColor: 'hsl(150, 100%, 70%)'
-    '620':
+    '621':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(60, 100%, 70%)'
     '743':
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
     '744':
       color: '#0d0d0d'
       backgroundColor: 'hsl(90, 100%, 70%)'
-    '750':
+    '751':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(60, 100%, 70%)'
     '5294':
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
@@ -1606,9 +1568,9 @@ autoColor:
     '6447':
       color: '#0d0d0d'
       backgroundColor: 'hsl(150, 100%, 70%)'
-    '6503':
+    '6509':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(60, 100%, 70%)'
   Steam Ciphers:
     ChaCha:
       color: '#0d0d0d'
