@@ -4,7 +4,7 @@ projects:
     url: https://github.com/randombit/botan
     name: botan
     MetaDataCollector:
-      stars: 744
+      stars: 751
       languages:
       - C++
       - Python
@@ -14,7 +14,7 @@ projects:
       - Batchfile
       - HTML
       main_language: C++
-      forks: 212
+      forks: 213
       licence:
         name:
         abb:
@@ -66,7 +66,7 @@ projects:
         EnRUPT: 0
         FEA-M: 0
         FEAL: 0
-        FPE: 15
+        FPE: 25
         FROG: 0
         GDES: 0
         GOST: 12
@@ -109,11 +109,11 @@ projects:
         NOEKEON: 8
         NUSH: 0
         PC1: 0
-        PRESENT: 259
+        PRESENT: 263
         Prince: 0
         Q: 0
-        RC: 2
-        RC2: 1
+        RC: 3
+        RC2: 2
         RC5: 1
         RC6: 0
         Red Pike: 0
@@ -122,7 +122,7 @@ projects:
         SAVILLE: 0
         SC2000: 0
         Serpent: 15
-        SEED: 456
+        SEED: 464
         SHACAL: 24
         SHARK: 0
         Simon: 2
@@ -147,7 +147,7 @@ projects:
         A5/1: 0
         A5/2: 0
         Achterbahn: 0
-        ChaCha: 101
+        ChaCha: 111
         CJCSG: 0
         CryptMT: 0
         Crypto1: 0
@@ -219,11 +219,11 @@ projects:
         "RadioGat\xC3\xBAn": 0
         RIPEMD: 4
         scrypt: 3
-        SHA: 316
+        SHA: 314
         SHA-1: 69
-        SHA-2: 228
-        SHA-3: 201
-        SHA-256: 161
+        SHA-2: 226
+        SHA-3: 199
+        SHA-256: 159
         SHA-512: 5
         SHAKE: 0
         SipHash: 5
@@ -248,12 +248,12 @@ projects:
         EAX: 194
         ECB: 14
         FCEM: 0
-        FFX: 5197369
+        FFX: 5223530
         GCM: 59
         IACBC: 0
         IAPM: 0
         IGE: 0
-        IOC: 4962539
+        IOC: 4985361
         KFB: 0
         OCB: 45
         OFB: 12
@@ -271,7 +271,7 @@ projects:
         OMAC: 0
         MMH-Badger: 0
         PMAC: 0
-        Poly1305: 55
+        Poly1305: 60
         RMAC: 0
         TMAC: 0
         UMAC: 0
@@ -283,24 +283,24 @@ projects:
         DH: 165
         DSA: 170
         DSS: 30
-        ECDH: 168
-        ECDSA: 209
+        ECDH: 186
+        ECDSA: 226
         ElGamal: 30
         LUC: 0
         McEliece: 50
         "Merkle\xE2\u20AC\u201CHellman": 0
         NTRUEncrypt: 0
         Paillier: 0
-        RSA: 391
+        RSA: 404
         YAK: 0
       public key infrastructure:
-        CMP: 106
+        CMP: 107
         DVCS: 0
         EJBCA: 0
         Identrus: 1
         MicroSoft AuthentiCode: 0
         LDAP: 1
-        OCSP: 234
+        OCSP: 247
         OpenCA: 0
         RDBMS: 0
         PKCS: 34
@@ -309,10 +309,10 @@ projects:
         RPKI: 0
         RTCS: 0
         SCEP: 0
-        SET: 2242
+        SET: 2250
         SigG: 0
         TinyCA: 0
-        X.509: 419
+        X.509: 425
         XiPKI: 0
       protocol:
         3-D Secure: 0
@@ -327,7 +327,7 @@ projects:
         CAVE: 0
         CCMP: 0
         CMC: 0
-        CMP: 106
+        CMP: 107
         CSR: 8
         CMS: 1
         CGA: 0
@@ -338,7 +338,7 @@ projects:
         DK: 0
         ecash: 0
         EKE: 0
-        EST: 2300
+        EST: 2304
         Firefly: 0
         GSS-TSIG: 0
         GSI: 0
@@ -347,7 +347,7 @@ projects:
         H.235: 0
         Hashcash: 0
         HAIPE: 0
-        HTTPS: 204
+        HTTPS: 207
         HTTPsec: 0
         I2P: 0
         IES: 0
@@ -367,11 +367,11 @@ projects:
         OTR: 1
         OPKP: 0
         OMEMO: 0
-        OCSP: 234
+        OCSP: 247
         PANA: 0
         PCT: 1
         PE: 59
-        PEM: 152
+        PEM: 157
         PHE: 1
         PGP: 19
         PoSE: 0
@@ -400,13 +400,13 @@ projects:
         tcpcrypt: 0
         TKIP: 0
         TSP: 0
-        TLS: 726
+        TLS: 727
         VBR: 0
         WPA: 0
         WPA2: 0
         WPS: 0
         WTLS: 0
-        X.509: 419
+        X.509: 425
         X.1035: 0
         X9.95: 0
         XKMS: 0
@@ -816,7 +816,7 @@ projects:
     url: https://github.com/bcgit/bc-csharp
     name: bc-csharp
     MetaDataCollector:
-      stars: 385
+      stars: 387
       languages:
       - C#
       - HTML
@@ -1616,21 +1616,9 @@ projects:
         Yahalom: 0
         "Zimmermann\xE2\u20AC\u201CSassaman": 0
         ZRTP: 0
-  bc-java_322119c0491fa5d6b4f4f17326150f5a:
-    url: https://github.com/bcgit/bc-java
-    name: bc-java
-    MetaDataCollector:
-      stars: 612
-      languages:
-      - Java
-      - Shell
-      - HTML
-      - Batchfile
-      main_language: Java
-      forks: 454
-      licence:
-        name:
-        abb:
+  r1rv59zip_49bf3cb5b628acd7a16f8446e8aa3909:
+    url: https://github.com/bcgit/bc-java/archive/r1rv59.zip
+    name: r1rv59.zip
     LanguageDetector:
       main_language: Java
       languages:
@@ -1721,7 +1709,7 @@ projects:
         NOEKEON: 3
         NUSH: 0
         PC1: 0
-        PRESENT: 1555
+        PRESENT: 1553
         Prince: 0
         Q: 0
         RC: 102
@@ -1825,18 +1813,18 @@ projects:
         HAVAL: 0
         JH: 0
         MD2: 32
-        MD5: 222
+        MD5: 217
         MD6: 5
         PBKDF2: 43
         "RadioGat\xC3\xBAn": 0
         RIPEMD: 340
         scrypt: 69
-        SHA: 2215
-        SHA-1: 593
-        SHA-2: 1082
-        SHA-3: 1614
-        SHA-256: 414
-        SHA-512: 348
+        SHA: 2171
+        SHA-1: 580
+        SHA-2: 1051
+        SHA-3: 1583
+        SHA-256: 404
+        SHA-512: 341
         SHAKE: 12
         SipHash: 4
         Skein: 11
@@ -1860,12 +1848,12 @@ projects:
         EAX: 97
         ECB: 23
         FCEM: 0
-        FFX: 29599390
+        FFX: 29561679
         GCM: 126
         IACBC: 0
         IAPM: 0
         IGE: 2
-        IOC: 28476983
+        IOC: 28439419
         KFB: 1
         OCB: 26
         OFB: 78
@@ -1893,10 +1881,10 @@ projects:
       public key cryptography:
         "Cramer\xE2\u20AC\u201CShoup": 0
         DH: 981
-        DSA: 903
+        DSA: 897
         DSS: 240
         ECDH: 87
-        ECDSA: 562
+        ECDSA: 552
         ElGamal: 11
         LUC: 1
         McEliece: 97
@@ -1921,7 +1909,7 @@ projects:
         RPKI: 0
         RTCS: 0
         SCEP: 0
-        SET: 8069
+        SET: 8021
         SigG: 0
         TinyCA: 0
         X.509: 3158
@@ -1950,7 +1938,7 @@ projects:
         DK: 1
         ecash: 0
         EKE: 1
-        EST: 14082
+        EST: 14080
         Firefly: 0
         GSS-TSIG: 0
         GSI: 2
@@ -1983,7 +1971,7 @@ projects:
         PANA: 0
         PCT: 1
         PE: 268
-        PEM: 624
+        PEM: 622
         PHE: 2
         PGP: 2947
         PoSE: 0
@@ -1998,7 +1986,7 @@ projects:
         SCP: 2
         SCVP: 4
         S-HTTP: 0
-        SEND: 432
+        SEND: 430
         SFTP: 0
         Signal Protocol: 0
         SILC: 0
@@ -2012,7 +2000,7 @@ projects:
         tcpcrypt: 0
         TKIP: 0
         TSP: 166
-        TLS: 2179
+        TLS: 2135
         VBR: 3
         WPA: 3
         WPA2: 0
@@ -2029,7 +2017,7 @@ projects:
     url: https://github.com/openssl/openssl
     name: openssl
     MetaDataCollector:
-      stars: 6447
+      stars: 6509
       languages:
       - C
       - Perl 6
@@ -2044,7 +2032,7 @@ projects:
       - DIGITAL Command Language
       - Python
       main_language: C
-      forks: 3205
+      forks: 3227
       licence:
         name:
         abb:
@@ -2123,7 +2111,7 @@ projects:
         LOKI97: 0
         Lucifer: 0
         M6: 50
-        M8: 35
+        M8: 36
         MacGuffin: 0
         MAGENTA: 0
         MARS: 0
@@ -2140,7 +2128,7 @@ projects:
         NOEKEON: 1
         NUSH: 0
         PC1: 0
-        PRESENT: 788
+        PRESENT: 790
         Prince: 0
         Q: 0
         RC: 406
@@ -2244,7 +2232,7 @@ projects:
         HAVAL: 0
         JH: 0
         MD2: 129
-        MD5: 460
+        MD5: 461
         MD6: 1
         PBKDF2: 55
         "RadioGat\xC3\xBAn": 0
@@ -2279,12 +2267,12 @@ projects:
         EAX: 1885
         ECB: 774
         FCEM: 0
-        FFX: 17703713
+        FFX: 17751301
         GCM: 811
         IACBC: 0
         IAPM: 0
         IGE: 83
-        IOC: 16577016
+        IOC: 16622892
         KFB: 0
         OCB: 336
         OFB: 383
@@ -2314,18 +2302,18 @@ projects:
         DH: 1727
         DSA: 1778
         DSS: 901
-        ECDH: 574
-        ECDSA: 470
+        ECDH: 575
+        ECDSA: 478
         ElGamal: 0
         LUC: 0
         McEliece: 0
         "Merkle\xE2\u20AC\u201CHellman": 0
         NTRUEncrypt: 0
         Paillier: 0
-        RSA: 3044
+        RSA: 3045
         YAK: 0
       public key infrastructure:
-        CMP: 2078
+        CMP: 2082
         DVCS: 57
         EJBCA: 0
         Identrus: 0
@@ -2340,7 +2328,7 @@ projects:
         RPKI: 0
         RTCS: 0
         SCEP: 0
-        SET: 12827
+        SET: 12845
         SigG: 0
         TinyCA: 0
         X.509: 1281
@@ -2358,7 +2346,7 @@ projects:
         CAVE: 0
         CCMP: 0
         CMC: 374
-        CMP: 2078
+        CMP: 2082
         CSR: 23
         CMS: 1189
         CGA: 0
@@ -2369,7 +2357,7 @@ projects:
         DK: 0
         ecash: 0
         EKE: 0
-        EST: 1324
+        EST: 1332
         Firefly: 0
         GSS-TSIG: 0
         GSI: 1
@@ -2378,11 +2366,11 @@ projects:
         H.235: 0
         Hashcash: 0
         HAIPE: 0
-        HTTPS: 2854
+        HTTPS: 2857
         HTTPsec: 0
         I2P: 0
         IES: 1
-        IKE: 32
+        IKE: 33
         ISAKMP: 0
         IPsec: 59
         J-PAKE: 0
@@ -2401,8 +2389,8 @@ projects:
         OCSP: 503
         PANA: 0
         PCT: 1
-        PE: 180
-        PEM: 5748
+        PE: 181
+        PEM: 5879
         PHE: 2
         PGP: 0
         PoSE: 2
@@ -2417,7 +2405,7 @@ projects:
         SCP: 0
         SCVP: 0
         S-HTTP: 0
-        SEND: 546
+        SEND: 549
         SFTP: 0
         Signal Protocol: 0
         SILC: 0
@@ -2425,13 +2413,13 @@ projects:
         SPORE: 0
         SRTP: 149
         SSH: 20
-        SSL: 8078
+        SSL: 8101
         S/MIME: 0
         TACLANE: 0
         tcpcrypt: 0
         TKIP: 0
         TSP: 2
-        TLS: 1286
+        TLS: 1290
         VBR: 0
         WPA: 1
         WPA2: 0
