@@ -34,9 +34,31 @@ criteria:
       type: label
   - Repository:
       detail: true
+      search: true
+      table: false
+      type: label
+      values:
+        Active:
+          minAge: -1
+          maxAge: 1
+          minAgeUnit: months
+          maxAgeUnit: months
+          class: label-success
+        Inactive:
+          minAge: 6
+          minAgeUnit: months
+          class: label-danger
+        Not Sure:
+          minAge: 1
+          maxAge: 6
+          minAgeUnit: months
+          maxAgeUnit: months
+          class: label-warning
+  - Download:
+      detail: true
       search: false
       table: false
-      type: repository
+      type: url
   - description:
       name: Short description
       detail: false
@@ -441,24 +463,6 @@ criteria:
           description: '[Yahoo! Public License v1.0](https://spdx.org/licenses/YPL-1.0.html)'
         YPL-1.1:
           description: '[Yahoo! Public License v1.1](https://spdx.org/licenses/YPL-1.1.html)'
-  - Development status:
-      description: Is the software in active development?
-      placeholder: Select activity state
-      andSearch: false
-      values:
-        Active:
-          minAge: -1
-          maxAge: 1
-          minAgeUnit: months
-          maxAgeUnit: months
-          class: label-success
-        Inactive:
-          minAge: 6
-          class: label-danger
-        Not Sure:
-          minAge: 1
-          maxAge: 6
-          class: label-warning
   - Stars:
       description: Number of stars
       detail: true
@@ -541,11 +545,9 @@ autoCriteria:
       ARIA-128: {}
       ARIA-192: {}
       ARIA-256: {}
-      MAGENTA: {}
-      MESH: {}
-      Skipjack: {}
       CDMF: {}
       FEAL: {}
+      MESH: {}
   Stream Ciphers:
     values:
       ChaCha: {}
@@ -564,8 +566,8 @@ autoCriteria:
       NLS: {}
       SEAL: {}
       Vernam: {}
-      WAKE: {}
       VEST: {}
+      WAKE: {}
   Hash Functions:
     values:
       BLAKE2: {}
@@ -618,8 +620,8 @@ autoCriteria:
       HMAC: {}
       OMAC: {}
       Poly1305: {}
-      XCBC: {}
       TMAC: {}
+      XCBC: {}
   Public Key Cryptography:
     values:
       DH: {}
@@ -645,11 +647,6 @@ autoCriteria:
       DVCS: {}
       'PKCS#7': {}
       XiPKI: {}
-      EJBCA: {}
-      RPKI: {}
-      RTCS: {}
-      SCEP: {}
-      SigG: {}
       OpenCA: {}
   Protocol:
     values:
@@ -700,8 +697,6 @@ autoCriteria:
       RMA: {}
       SCP: {}
       PoSE: {}
-      SCEP: {}
-      SFTP: {}
       WTLS: {}
   Creation Date:
     values:
@@ -711,7 +706,7 @@ autoCriteria:
     values:
       '387': {}
       '751': {}
-      '6509': {}
+      '6516': {}
   Release Date:
     values:
       '2017-12-18': {}
@@ -2171,6 +2166,9 @@ autoColor:
     '6509':
       color: '#0d0d0d'
       backgroundColor: 'hsl(60, 100%, 70%)'
+    '6516':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
   Steam Ciphers:
     ChaCha:
       color: '#0d0d0d'
@@ -2245,4 +2243,14 @@ autoColor:
     XCBC:
       color: '#0d0d0d'
       backgroundColor: 'hsl(210, 100%, 70%)'
+  Download:
+    'https://github.com/bcgit/bc-csharp/archive/release-1.8.1.zip':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    'https://github.com/bcgit/bc-java/archive/r1rv59.zip':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    'https://github.com/randombit/botan/archive/2.0.0.zip':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
 autoCitation: {}
