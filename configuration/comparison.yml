@@ -117,7 +117,7 @@ criteria:
       search: true
       table: false
       type: label
-  - Protocol:
+  - Protocols:
       detail: true
       search: true
       table: false
