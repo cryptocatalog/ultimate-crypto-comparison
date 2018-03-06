@@ -1,5 +1,4 @@
-# Ultimate-crypto-comparison
-## https://cryptocatalog.github.io/ultimate-crypto-comparison/
+# Ultimate-crypto-comparison - https://cryptocatalog.github.io/ultimate-crypto-comparison/
 
 The ultimate-crypto-comparison is a catalog to compare cryptographic libraries.
 
@@ -20,30 +19,47 @@ Contributing is easy:
 
 ## Defining a library
 
-For each library, create a markdown-file in the data directory. You can base it on template.md. If you do not want to add information to a specific section in the markdown-file, just remove the section. If you want to add additional information, just add a new section with your information
+For each library, create a markdown-file in the `data` -directory. You can base it on template.md. If you do not want to add information to a specific section in the markdown-file, just remove the section. If you want to add additional information, just add a new section with your information
 
-**Url**
+### Releases and repositories
+Every markdown-file in the `data`-directory specifies a specific release (or the "latest" version) of a library.
 
-In order to automatically retrieve additional information, you have to specify a valid url under the `## Repository` section in the markdown-file. 
+**Releases**
+If you specify a release of a library, add the url to the downloadable archive under the `## Download` section in the markdown-file.
 
-The url can be:
-- A link to a repository (e.g. https://github.com/randombit/botan)
+```
+    ## Download
+    - https://github.com/randombit/botan/archive/2.4.0.zip
+```
+
+Additionally, you can add the link to the repository under the `## Repository` section. The automatically gathered data is however applicable to the release.
+
+**"Latest" version**
+If you want to generally add a library without specifying a release, you can just add the link to the repository under the `## Repository`section in the markdown-file.  
 
 ```
     ## Repository
     - https://github.com/randombit/botan
 ```
 
-- A link to a downloadable archive (e.g. https://github.com/randombit/botan/archive/2.4.0.zip)
+## Automatically added information
+If applicable information about a library can be found, it will be shown in the catalog.  
+If you specify the information in the markdown-file, the manually added data will be preferred.  
+The following information will be searched for:
+- Release
+- Development Language
+- Stars
+- Block Ciphers
+- Stream Ciphers
+- Hash Functions
+- Encryption Modes
+- Message Authentication Codes
+- Public Key Cryptography
+- Public Key Infrastructure
+- Protocols
 
-```
-    ## Repository
-    - https://github.com/randombit/botan/archive/2.4.0.zip
-```
-
-**Release Tag**
-
-If you provide the name of the release of a library, this name will be shown in the catalog. If you do not provide a release name, it will either be "Latest" for libraries with a link to a repository or "Unknown" for libraries without a url or  with a link to an archive.
+## Known Issues
+This catalog is mainly tested with libraries from GitHub. Libraries from other hosters (GitLab, BitBucket...), due different urls, may lead to problems.
 
 ## License
 
