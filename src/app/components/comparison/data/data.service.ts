@@ -169,7 +169,10 @@ export class DataService {
                                             let htmlTooltip = "";
                                             let latexTooltip = "";
                                             if (tooltipArray.length == 1) {
-                                                htmlTooltip = isNullOrUndefined(tooltipArray[0].plain) ? "" : tooltipArray[0].plain.trim();
+                                                htmlTooltip = labelObject.plainChilds.replace(/^[\s]{3}/gm, '').replace(/^[\s]{3}/gm, '').trim();
+                                                if (htmlTooltip.startsWith('-') || htmlTooltip.startsWith('*')) {
+                                                    htmlTooltip = htmlTooltip.substring(1).trim();
+                                                }
                                                 latexTooltip = htmlTooltip.trim();
                                                 if (latexTooltip.startsWith('-') || latexTooltip.startsWith('*')) {
                                                     latexTooltip = latexTooltip.substring(1).trim();
@@ -202,8 +205,6 @@ export class DataService {
                                     }
 
                                     criteria.set(criteriaKey, labels);
-                                    break;
-                                case CriteriaType.repository:
                                     break;
                                 default:
                                     console.error("Could not resolve second level header CriteriaType: '".concat(criteriaKey, "'!"));

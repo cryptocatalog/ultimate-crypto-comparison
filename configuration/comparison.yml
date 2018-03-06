@@ -37,6 +37,23 @@ criteria:
       search: false
       table: false
       type: repository
+      values:
+        Active:
+          minAge: -1
+          maxAge: 1
+          minAgeUnit: months
+          maxAgeUnit: months
+          class: label-success
+        Inactive:
+          minAge: 6
+          minAgeUnit: months
+          class: label-danger
+        Not Sure:
+          minAge: 1
+          maxAge: 6
+          minAgeUnit: months
+          maxAgeUnit: months
+          class: label-warning
   - description:
       name: Short description
       detail: false
