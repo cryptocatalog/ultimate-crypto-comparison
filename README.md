@@ -59,7 +59,8 @@ The following information will be searched for:
 - Protocols
 
 ## Known Issues
-This catalog is mainly tested with libraries from GitHub. Libraries from other hosters (GitLab, BitBucket...), due different urls, may lead to problems.
+- This catalog is mainly tested with libraries from GitHub. Libraries from other hosters (GitLab, BitBucket...), due different urls, may lead to problems
+- Searching for "match all" attributes if one library does not have this attribute specified
 
 ## License
 
