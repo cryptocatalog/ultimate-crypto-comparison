@@ -117,7 +117,7 @@ criteria:
       search: true
       table: false
       type: label
-  - Protocol:
+  - Protocols:
       detail: true
       search: true
       table: false
@@ -649,10 +649,6 @@ autoCriteria:
       XiPKI: {}
       OpenCA: {}
   Protocols:
-    search: true
-    table: true
-    detail: true
-    type: label
     values:
       AS1: {}
       AKA: {}
@@ -2171,8 +2167,8 @@ autoColor:
       color: '#0d0d0d'
       backgroundColor: 'hsl(60, 100%, 70%)'
     '6516':
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(30, 100%, 70%)'
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
   Steam Ciphers:
     ChaCha:
       color: '#0d0d0d'
@@ -2260,146 +2256,146 @@ autoColor:
   Protocols:
     AKA:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     AS1:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     AS2:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     CGA:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     CMC:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     CMP:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     CMS:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     CSR:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     DCII:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     DK:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     DPD:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     DPV:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     DTLS:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     EKE:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     EST:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     GPG:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     GSI:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     HTTPS:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     I2P:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     IES:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     IKE:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     IPsec:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     ISAKMP:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     KMIP:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     MSE:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     OCSP:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     OTR:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     PCT:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     PE:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     PEM:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     PGP:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     PHE:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     PoSE:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     RMA:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     RTD:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     SCP:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     SCVP:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     SEND:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     SRTP:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     SSH:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     SSL:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     TLS:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     TSP:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     VBR:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     WPA:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     WPS:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     WTLS:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
     X.509:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(330, 100%, 70%)'
+      backgroundColor: 'hsl(195, 100%, 70%)'
 autoCitation: {}
