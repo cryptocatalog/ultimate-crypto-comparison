@@ -58,7 +58,7 @@ criteria:
       detail: true
       search: false
       table: false
-      type: url
+      type: text
   - description:
       name: Short description
       detail: false
