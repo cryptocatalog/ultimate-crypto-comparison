@@ -24,7 +24,7 @@ For each library, create a markdown-file in the `data` -directory. You can base 
 ### Releases and repositories
 Every markdown-file in the `data`-directory specifies a specific release (or the "latest" version) of a library.
 
-**Releases**
+**Releases**  
 If you specify a release of a library, add the url to the downloadable archive under the `## Download` section in the markdown-file.
 
 ```
@@ -34,7 +34,7 @@ If you specify a release of a library, add the url to the downloadable archive u
 
 Additionally, you can add the link to the repository under the `## Repository` section. The automatically gathered data is however applicable to the release.
 
-**"Latest" version**
+**"Latest" version**  
 If you want to generally add a library without specifying a release, you can just add the link to the repository under the `## Repository`section in the markdown-file.  
 
 ```
@@ -61,6 +61,10 @@ The following information will be searched for:
 ## Known Issues
 - This catalog is mainly tested with libraries from GitHub. Libraries from other hosters (GitLab, BitBucket...), due different urls, may lead to problems
 - Searching for "match all" attributes if one library does not have this attribute specified
+- Markdown-files need to have a `Repository` -section. If they don't have one, the build fails.
+
+## Acknowledgements
+Thanks to the [Ultimate-Comparison-Framework](https://github.com/ultimate-comparisons/ultimate-comparison-BASE) for providing a great base to work with.
 
 ## License
 
