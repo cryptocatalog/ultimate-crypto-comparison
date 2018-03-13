@@ -706,7 +706,7 @@ autoCriteria:
     values:
       '394': {}
       '753': {}
-      '6553': {}
+      '6563': {}
   Release Date:
     values:
       '2017-12-18': {}
@@ -2172,7 +2172,7 @@ autoColor:
     '6509':
       color: '#0d0d0d'
       backgroundColor: 'hsl(60, 100%, 70%)'
-    '6553':
+    '6563':
       color: '#0d0d0d'
       backgroundColor: 'hsl(45, 100%, 70%)'
   Steam Ciphers:
