@@ -11,6 +11,7 @@ deploy:
 before_install:
 - npm install -g npm
 - npm install gulp
+- npm install xmlhttprequest
 - java -version
 - npm -version
 install:
