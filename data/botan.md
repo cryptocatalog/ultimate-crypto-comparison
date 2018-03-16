@@ -15,3 +15,9 @@ Botan's goal is to be the best option for cryptography in new C++ code by offeri
 
 ## Creation Date
 - 2000
+
+## CVE Vendor
+- botan_project
+
+## CVE Product
+- botan

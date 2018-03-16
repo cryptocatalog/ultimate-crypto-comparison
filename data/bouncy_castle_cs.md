@@ -16,3 +16,9 @@ The Bouncy Castle Crypto package is a C# implementation of cryptographic algorit
 ## Development Languages
 - C#
 - Java
+
+## CVE Vendor
+- bouncycastle
+
+## CVE Product
+- legion-of-the-bouncy-castle-java-crytography-api
