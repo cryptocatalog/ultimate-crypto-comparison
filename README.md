@@ -58,6 +58,14 @@ The following information will be searched for:
 - Public Key Infrastructure
 - Protocols
 
+## Automatically added CVE Information
+If the library contains a CVE Vendor and a CVE product the catalog automatically adds information about Common Vulnerabilities and Exposures.
+Therefor it uses the API of https://www.circl.lu/services/cve-search/, so you have do find the vendor and product name from their page.
+If you want to try whether you have the correct vendor and product name you can use the API in the Browser to test it.
+Just put in your found vendor and product in the following link: http://cve.circl.lu/api/search/YourVendor/YourProduct
+If you get a JSON file with some Text in it, it works!
+
+
 ## Known Issues
 - This catalog is mainly tested with libraries from GitHub. Libraries from other hosters (GitLab, BitBucket...), due different urls, may lead to problems
 - Searching for "match all" attributes if one library does not have this attribute specified
