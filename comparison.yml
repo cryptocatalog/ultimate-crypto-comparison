@@ -58,7 +58,7 @@ criteria:
       detail: true
       search: false
       table: false
-      type: text
+      type: url
   - description:
       name: Short description
       detail: false
@@ -117,7 +117,7 @@ criteria:
       search: true
       table: false
       type: label
-  - Protocols:
+  - Protocol:
       detail: true
       search: true
       table: false
@@ -473,64 +473,62 @@ criteria:
       detail: true
       search: false
       table: false
-  - CVE Vendor:
-      description: vendor which is needed for the CVE API
-      detail: true
-      search: false
-      table: false
-  - CVE Product:
-      description: Product Name which is needed for the CVE API
-      detail: true
-      search: false
-      table: false
-  - CVE Details:
-      description: the summary of the CVE API
-      detail: true
-      search: false
-      table: false
-      type: text
 autoCriteria:
   Interface Languages:
     values:
+      C++11: {}
       'C#': {}
       'C# FIPS': {}
-      C++11: {}
-      Java: {}
       Java FIPS: {}
+      Java: {}
+  Creation Date:
+    values:
+      '1998': {}
+      '2000': {}
   Release:
     values:
-      release-1.8.1: {}
-      Unknown: {}
       Latest: {}
-      r1rv59: {}
-      1.0.0: {}
-      3.4.3.1: {}
       2.0.0: {}
+      Unknown: {}
+      release-1.8.1: {}
+      1.0.0: {}
+      r1rv59: {}
+      3.4.3.1: {}
   Development Languages:
     values:
-      'C#': {}
       C++: {}
       Python: {}
-      Java: {}
       C: {}
+      'C#': {}
+      Java: {}
+  Stars:
+    values:
+      '387': {}
+      '751': {}
+      '6509': {}
   Block Ciphers:
     values:
-      3-Way: {}
       AES: {}
       AES-128: {}
       AES-192: {}
       AES-256: {}
+      ARIA: {}
       Blowfish: {}
       Camellia: {}
       CAST: {}
+      CAST-128: {}
+      CAST-256: {}
       DES: {}
       DEAL: {}
-      DFC: {}
+      FPE: {}
       GOST: {}
       IDEA NXT: {}
       IDEA: {}
+      KASUMI: {}
       M6: {}
       M8: {}
+      Mercy: {}
+      MISTY1: {}
       MMB: {}
       NDS: {}
       NOEKEON: {}
@@ -538,26 +536,21 @@ autoCriteria:
       RC: {}
       RC2: {}
       RC5: {}
-      RC6: {}
+      SAFER: {}
       Serpent: {}
       SEED: {}
+      SHACAL: {}
+      Simon: {}
       SM4: {}
       Threefish: {}
       TEA: {}
-      3DES: {}
       Twofish: {}
-      UES: {}
-      ARIA: {}
-      CAST-128: {}
-      CAST-256: {}
-      FPE: {}
-      KASUMI: {}
-      Mercy: {}
-      MISTY1: {}
-      SAFER: {}
-      SHACAL: {}
-      Simon: {}
       XTEA: {}
+      3-Way: {}
+      DFC: {}
+      RC6: {}
+      3DES: {}
+      UES: {}
       ARIA-128: {}
       ARIA-192: {}
       ARIA-256: {}
@@ -567,16 +560,16 @@ autoCriteria:
   Stream Ciphers:
     values:
       ChaCha: {}
+      Dragon: {}
       eSTREAM: {}
-      ISAAC: {}
       LEX: {}
-      MAG: {}
-      Py: {}
       RC: {}
       Salsa: {}
-      ZUC: {}
-      Dragon: {}
       Turing: {}
+      MAG: {}
+      ISAAC: {}
+      Py: {}
+      ZUC: {}
       Crypto1: {}
       FISH: {}
       NLS: {}
@@ -587,11 +580,11 @@ autoCriteria:
   Hash Functions:
     values:
       BLAKE2: {}
-      FSB: {}
       GOST: {}
       MD2: {}
       MD5: {}
       MD6: {}
+      PBKDF2: {}
       RIPEMD: {}
       scrypt: {}
       SHA: {}
@@ -602,14 +595,15 @@ autoCriteria:
       SHA-512: {}
       SipHash: {}
       Skein: {}
-      PBKDF2: {}
       Streebog: {}
       Tiger: {}
       WHIRLPOOL: {}
+      FSB: {}
       SHAKE: {}
   Encryption Modes:
     values:
       ABC: {}
+      BPS: {}
       CBC: {}
       CCM: {}
       CFB: {}
@@ -618,14 +612,13 @@ autoCriteria:
       ECB: {}
       FFX: {}
       GCM: {}
-      IGE: {}
       IOC: {}
       OCB: {}
       OFB: {}
       RAC: {}
-      RKC: {}
       SIV: {}
-      BPS: {}
+      IGE: {}
+      RKC: {}
       KFB: {}
       XBC: {}
       CWC: {}
@@ -634,8 +627,8 @@ autoCriteria:
   Message Authentication Codes:
     values:
       HMAC: {}
-      OMAC: {}
       Poly1305: {}
+      OMAC: {}
       TMAC: {}
       XCBC: {}
   Public Key Cryptography:
@@ -645,28 +638,28 @@ autoCriteria:
       DSS: {}
       ECDH: {}
       ECDSA: {}
-      LUC: {}
-      RSA: {}
-      YAK: {}
       ElGamal: {}
       McEliece: {}
+      RSA: {}
+      LUC: {}
+      YAK: {}
   Public Key Infrastructure:
     values:
       CMP: {}
+      Identrus: {}
       LDAP: {}
       OCSP: {}
       PKCS: {}
       PKIX: {}
       SET: {}
       X.509: {}
-      Identrus: {}
       DVCS: {}
       'PKCS#7': {}
       XiPKI: {}
       OpenCA: {}
-  Protocols:
+  Protocol:
     values:
-      AS1: {}
+      AS2: {}
       AKA: {}
       CMP: {}
       CSR: {}
@@ -674,36 +667,36 @@ autoCriteria:
       DTLS: {}
       DPD: {}
       DPV: {}
+      DCII: {}
       EST: {}
       GPG: {}
       HTTPS: {}
-      I2P: {}
-      IES: {}
       IKE: {}
-      ISAKMP: {}
-      IPsec: {}
       MSE: {}
       OTR: {}
       OCSP: {}
+      PCT: {}
       PE: {}
       PEM: {}
       PHE: {}
       PGP: {}
       RTD: {}
-      SCVP: {}
       SEND: {}
       SRTP: {}
-      SSH: {}
       SSL: {}
-      TSP: {}
       TLS: {}
+      X.509: {}
+      AS1: {}
+      I2P: {}
+      IES: {}
+      ISAKMP: {}
+      IPsec: {}
+      SCVP: {}
+      SSH: {}
+      TSP: {}
       VBR: {}
       WPA: {}
       WPS: {}
-      X.509: {}
-      AS2: {}
-      DCII: {}
-      PCT: {}
       CMC: {}
       CGA: {}
       DK: {}
@@ -714,27 +707,10 @@ autoCriteria:
       SCP: {}
       PoSE: {}
       WTLS: {}
-  Creation Date:
-    values:
-      '1998': {}
-      '2000': {}
-  CVE Vendor:
-    values:
-      botan_project: {}
-      bouncycastle: {}
-  CVE Product:
-    values:
-      botan: {}
-      legion-of-the-bouncy-castle-java-crytography-api: {}
-  Stars:
-    values:
-      '396': {}
-      '753': {}
-      '6579': {}
   Release Date:
     values:
-      '2017-12-18': {}
       '2017-01-07': {}
+      '2017-12-18': {}
 autoColor:
   Block Cipher:
     AES:
@@ -2151,12 +2127,6 @@ autoColor:
     '387':
       color: '#0d0d0d'
       backgroundColor: 'hsl(60, 100%, 70%)'
-    '394':
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(30, 100%, 70%)'
-    '396':
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(90, 100%, 70%)'
     '609':
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
@@ -2178,12 +2148,6 @@ autoColor:
     '751':
       color: '#0d0d0d'
       backgroundColor: 'hsl(60, 100%, 70%)'
-    '753':
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(90, 100%, 70%)'
-    '754':
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(30, 100%, 70%)'
     '5294':
       color: '#ffff00'
       backgroundColor: 'hsl(225, 100%, 70%)'
@@ -2202,12 +2166,6 @@ autoColor:
     '6509':
       color: '#0d0d0d'
       backgroundColor: 'hsl(60, 100%, 70%)'
-    '6556':
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(30, 100%, 70%)'
-    '6579':
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(90, 100%, 70%)'
   Steam Ciphers:
     ChaCha:
       color: '#0d0d0d'
@@ -2292,170 +2250,4 @@ autoColor:
     'https://github.com/randombit/botan/archive/2.0.0.zip':
       color: '#0d0d0d'
       backgroundColor: 'hsl(30, 100%, 70%)'
-  Protocols:
-    AKA:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    AS1:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    AS2:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    CMC:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    CMP:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    CMS:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    CSR:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    DCII:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    DPD:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    DPV:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    DTLS:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    EST:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    GPG:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    GSI:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    HTTPS:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    I2P:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    IES:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    IKE:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    IPsec:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    ISAKMP:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    MSE:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    OCSP:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    OTR:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    PCT:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    PE:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    PEM:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    PGP:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    PHE:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    PoSE:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    RTD:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    SCVP:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    SEND:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    SRTP:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    SSH:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    SSL:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    TLS:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    TSP:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    VBR:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    WPA:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    WPS:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    WTLS:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    X.509:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    CGA:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(30, 100%, 70%)'
-    DK:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(30, 100%, 70%)'
-    EKE:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(30, 100%, 70%)'
-    KMIP:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(30, 100%, 70%)'
-    RMA:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(30, 100%, 70%)'
-    SCP:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(30, 100%, 70%)'
-  CVE Vendor:
-    botan_project:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(150, 100%, 70%)'
-    bouncycastle:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(120, 100%, 70%)'
-  CVE Product:
-    botan:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
-    legion-of-the-bouncy-castle-java-crytography-api:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
-  CVE Details:
-    '** DISPUTED ** The AES-GCM specification in RFC 5084, as used in Android 5.x and 6.x, recommends 12 octets for the aes-ICVlen parameter field, which might make it easier for attackers to defeat a cryptographic protection mechanism and discover an authentication key via a crafted application, aka internal bug 26234568.  NOTE: The vendor disputes the existence of this potential issue in Android, stating This CVE was raised in error: it referred to the authentication tag size in GCM, whose default according to ASN.1 encoding (12 bytes) can lead to vulnerabilities. After careful consideration, it was decided that the insecure default value of 12 bytes was a default only for the encoding and not default anywhere else in Android, and hence no vulnerability existed.':
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(300, 100%, 70%)'
-    'A cryptographic cache-based side channel in the RSA implementation in Botan before 1.10.17, and 1.11.x and 2.x before 2.3.0, allows a local attacker to recover information about RSA secret keys, as demonstrated by CacheD. This occurs because an array is indexed with bits derived from a secret key.':
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(300, 100%, 70%)'
 autoCitation: {}

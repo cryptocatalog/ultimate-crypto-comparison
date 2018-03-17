@@ -1,0 +1,1716 @@
+title: CryptoCatalog
+subtitle: Automatic catalog of cryptographic libraries
+selectTitle: Criteria
+tableTitle: Cryptographic libraries
+repository: 'https://github.com/cryptocatalog/ultimate-crypto-comparison.git'
+details:
+  header:
+    nameRef: id
+    labelRef: Release
+    urlRef: inline
+  body:
+    title: Description
+    bodyRef: Description
+citation:
+  csl: acm-siggraph.csl
+  bib: literature.bib
+criteria:
+  - id:
+      name: Name
+      detail: false
+      search: false
+      table: true
+      type: url
+  - Release:
+      description: The version of the library the data is applicable for
+      search: true
+      andSearch: false
+      table: true
+      type: label
+  - Release Date:
+      description: The date of the release
+      search: false
+      table: false
+      type: label
+  - Repository:
+      detail: true
+      search: false
+      table: false
+      type: label
+      values:
+        Active:
+          minAge: -1
+          maxAge: 1
+          minAgeUnit: months
+          maxAgeUnit: months
+          class: label-success
+          description: The state of the repository is active.
+        Inactive:
+          minAge: 6
+          minAgeUnit: months
+          class: label-danger
+          description: The state of the repository is inactive.
+        Not Sure:
+          minAge: 1
+          maxAge: 6
+          minAgeUnit: months
+          maxAgeUnit: months
+          class: label-warning
+          description: The state of the repository is not sure.
+  - Download:
+      detail: true
+      search: false
+      table: false
+      type: text
+  - description:
+      name: Short description
+      detail: false
+      search: false
+      table: true
+      type: markdown
+  - Description:
+      name: Description of the library
+      detail: true
+      search: false
+      table: false
+      type: markdown
+  - Interface Languages:
+      description: The languages the library is for
+      detail: true
+      search: true
+      table: true
+      type: label
+  - Development Languages:
+      description: The languages the library is written in
+      detail: true
+      search: false
+      table: false
+      type: label
+  - Block Ciphers:
+      detail: true
+      search: true
+      table: false
+      type: label
+  - Stream Ciphers:
+      detail: true
+      search: true
+      table: false
+      type: label
+  - Hash Functions:
+      detail: true
+      search: true
+      table: false
+      type: label
+  - Encryption Modes:
+      detail: true
+      search: true
+      table: false
+  - Message Authentication Codes:
+      detail: true
+      search: true
+      table: false
+      type: label
+  - Public Key Cryptography:
+      detail: true
+      search: true
+      table: false
+      type: label
+  - Public Key Infrastructure:
+      detail: true
+      search: true
+      table: false
+      type: label
+  - Protocols:
+      detail: true
+      search: true
+      table: false
+      type: label
+  - License:
+      description: License of the library
+      table: true
+      andSearch: false
+      values:
+        0BSD:
+          description: '[BSD Zero Clause License](https://spdx.org/licenses/0BSD.html)'
+        AAL:
+          description: '[Attribution Assurance License](https://spdx.org/licenses/AAL.html)'
+        Abstyles:
+          description: '[Abstyles License](https://spdx.org/licenses/Abstyles.html)'
+        Adobe-2006:
+          description: >-
+            [Adobe Systems Incorporated Source Code License
+            Agreement](https://spdx.org/licenses/Adobe-2006.html)
+        Adobe-Glyph:
+          description: >-
+            [Adobe Glyph List
+            License](https://spdx.org/licenses/Adobe-Glyph.html)
+        ADSL:
+          description: >-
+            [Amazon Digital Services
+            License](https://spdx.org/licenses/ADSL.html)
+        AFL-1.1:
+          description: '[Academic Free License v1.1](https://spdx.org/licenses/AFL-1.1.html)'
+        AFL-1.2:
+          description: '[Academic Free License v1.2](https://spdx.org/licenses/AFL-1.2.html)'
+        AFL-2.0:
+          description: '[Academic Free License v2.0](https://spdx.org/licenses/AFL-2.0.html)'
+        AFL-2.1:
+          description: '[Academic Free License v2.1](https://spdx.org/licenses/AFL-2.1.html)'
+        AFL-3.0:
+          description: '[Academic Free License v3.0](https://spdx.org/licenses/AFL-3.0.html)'
+        Afmparse:
+          description: '[Afmparse License](https://spdx.org/licenses/Afmparse.html)'
+        AGPL-1.0:
+          description: >-
+            [Affero General Public License
+            v1.0](https://spdx.org/licenses/AGPL-1.0.html)
+        AGPL-3.0-only:
+          description: >-
+            [GNU Affero General Public License v3.0
+            only](https://spdx.org/licenses/AGPL-3.0-only.html)
+        AGPL-3.0-or-later:
+          description: >-
+            GNU Affero General Public License v3.0 or
+            later](https://spdx.org/licenses/AGPL-3.0-or-later.html)
+        Aladdin:
+          description: >-
+            [Alladin Free Public
+            License](https://spdx.org/licenses/Aladdin.html)
+        AMDPLPA:
+          description: '[AMDs plpa_map.c License](https://spdx.org/licenses/AMDPLPA.html)'
+        AML:
+          description: '[Apple MIT License](https://spdx.org/licenses/AML.html)'
+        AMPAS:
+          description: >-
+            [Academy of Motion Picture Arts and Sciences
+            BSD](https://spdx.org/licenses/AMPAS.html)
+        ANTLR-PD:
+          description: >-
+            [ANTLR Software Rights
+            Notice](https://spdx.org/licenses/ANTLR-PD.html)
+        Apache-1.0:
+          description: '[Apache License 1.0](https://spdx.org/licenses/Apache-1.0.html)'
+        Apache-1.1:
+          description: '[Apache License 1.1](https://spdx.org/licenses/Apache-1.1.html)'
+        Apache-2.0:
+          description: '[Apache License 2.0](https://spdx.org/licenses/Apache-2.0.html)'
+        APAFML:
+          description: >-
+            [Adobe Postscript AFM
+            License](https://spdx.org/licenses/APAFML.html)
+        APL-1.0:
+          description: >-
+            [Adaptive Public License
+            1.0](https://spdx.org/licenses/APL-1.0.html)
+        APSL-1.0:
+          description: >-
+            [Apple Public Source License
+            1.0](https://spdx.org/licenses/APSL-1.0.html)
+        APSL-1.1:
+          description: >-
+            [Apple Public Source License
+            1.1](https://spdx.org/licenses/APSL-1.1.html)
+        APSL-1.2:
+          description: >-
+            [Apple Public Source License
+            1.2](https://spdx.org/licenses/APSL-1.2.html)
+        APSL-2.0:
+          description: >-
+            [Apple Public Source License
+            2.0](https://spdx.org/licenses/APSL-2.0.html)
+        Artistic-1.0:
+          description: '[Artistic License 1.0](https://spdx.org/licenses/Artistic-1.0.html)'
+        Artistic-1.0-Perl:
+          description: >-
+            [Artistic License 1.0
+            (Perl)](https://spdx.org/licenses/Artistic-1.0-Perl.html)
+        Artistic-1.0-cl8:
+          description: >-
+            [Artistic License 1.0 w/ clause
+            8](https://spdx.org/licenses/Artistic-1.0-cl8.html)
+        Artistic-2.0:
+          description: '[Artistic License 2.0](https://spdx.org/licenses/Artistic-2.0.html)'
+        Bahyph:
+          description: '[Bahyph License](https://spdx.org/licenses/Bahyph.html)'
+        Barr:
+          description: '[Barr License](https://spdx.org/licenses/Barr.html)'
+        Beerware:
+          description: '[Beerware License](https://spdx.org/licenses/Beerware.html)'
+        BitTorrent-1.0:
+          description: >-
+            [BitTorrent Open Source License
+            v1.0](https://spdx.org/licenses/BitTorrent-1.0.html)
+        BitTorrent-1.1:
+          description: >-
+            [BitTorrent Open Source License
+            v1.1](https://spdx.org/licenses/BitTorrent-1.1.html)
+        Borceux:
+          description: '[Borceux License](https://spdx.org/licenses/Borceux.html)'
+        BSD-1-Clause:
+          description: '[BSD 1-Clause License](https://spdx.org/licenses/BSD-1-Clause.html)'
+        BSD-2-Clause:
+          description: >-
+            [BSD 2-Clause "Simplified"
+            License](https://spdx.org/licenses/BSD-2-Clause.html)
+        BSD-2-Clause-FreeBSD:
+          description: >-
+            [BSD 2-Clause FreeBSD
+            License](https://spdx.org/licenses/BSD-2-Clause-FreeBSD.html)
+        BSD-2-Clause-NetBSD:
+          description: >-
+            [BSD 2-Clause NetBSD
+            License](https://spdx.org/licenses/BSD-2-Clause-NetBSD.html)
+        BSD-2-Clause-Patent:
+          description: >-
+            [BSD-2-Clause Plus
+            Patent](https://spdx.org/licenses/BSD-2-Clause-Patent.html)
+        BSD-3-Clause:
+          description: >-
+            [BSD 3-Clause "New" or "Revised"
+            License](https://spdx.org/licenses/BSD-3-Clause.html)
+        BSD-3-Clause-Attribution:
+          description: >-
+            [BSD with
+            attribution](https://spdx.org/licenses/BSD-3-Clause-Attribution.html)
+        BSD-3-Clause-Clear:
+          description: >-
+            [BSD 3-Clause Clear
+            License](https://spdx.org/licenses/BSD-3-Clause-Clear.html)
+        BSD-3-Clause-LBNL:
+          description: >-
+            [Lawrence Berkeley National Labs BSD variant
+            license](https://spdx.org/licenses/BSD-3-Clause-LBNL.html)
+        BSD-3-Clause-No-Nuclear-License:
+          description: "[BSD 3-Clause No Nuclear License\t](https://spdx.org/licenses/BSD-3-Clause-No-Nuclear-License.html)"
+        BSD-3-Clause-No-Nuclear-License-2014:
+          description: >-
+            [BSD 3-Clause No Nuclear License
+            2014](https://spdx.org/licenses/BSD-3-Clause-No-Nuclear-License-2014.html)
+        BSD-3-Clause-No-Nuclear-Warranty:
+          description: >-
+            [BSD 3-Clause No Nuclear
+            Warranty](https://spdx.org/licenses/BSD-3-Clause-No-Nuclear-Warranty.html)
+        BSD-4-Clause:
+          description: '[BSD-4-Clause](https://spdx.org/licenses/BSD-4-Clause.html)'
+        BSD-4-Clause-UC:
+          description: >-
+            [BSD-4-Clause (University of
+            California-Specific)](https://spdx.org/licenses/BSD-4-Clause-UC.html)
+        BSD-Protection:
+          description: >-
+            [BSD Protection
+            License](https://spdx.org/licenses/BSD-Protection.html)
+        BSD-Source-Code:
+          description: >-
+            [BSD Source Code
+            Attribution](https://spdx.org/licenses/BSD-Source-Code.html)
+        BSL-1.0:
+          description: '[Boost Software License 1.0](https://spdx.org/licenses/BSL-1.0.html)'
+        CC-BY-1.0:
+          description: >-
+            [Creative Commons Attribution
+            1.0](https://spdx.org/licenses/CC-BY-1.0.html)
+        CC-BY-2.0:
+          description: >-
+            [Creative Commons Attribution
+            2.0](https://spdx.org/licenses/CC-BY-2.0.html)
+        CC-BY-2.5:
+          description: >-
+            [Creative Commons Attribution
+            2.5](https://spdx.org/licenses/CC-BY-2.5.html)
+        CC-BY-3.0:
+          description: >-
+            [Creative Commons Attribution
+            3.0](https://spdx.org/licenses/CC-BY-3.0.html)
+        CC-BY-4.0:
+          description: >-
+            [Creative Commons Attribution
+            4.0](https://spdx.org/licenses/CC-BY-4.0.html)
+        CC-BY-NC-1.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial
+            1.0](https://spdx.org/licenses/CC-BY-NC-1.0.html)
+        CC-BY-NC-2.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial
+            2.0](https://spdx.org/licenses/CC-BY-NC-2.0.html)
+        CC-BY-NC-2.5:
+          description: >-
+            [Creative Commons Attribution Non Commercial
+            2.5](https://spdx.org/licenses/CC-BY-NC-2.5.html)
+        CC-BY-NC-3.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial
+            3.0](https://spdx.org/licenses/CC-BY-NC-3.0.html)
+        CC-BY-NC-4.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial
+            4.0](https://spdx.org/licenses/CC-BY-NC-4.0.html)
+        CC-BY-NC-ND-1.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial No Derivatives
+            1.0](https://spdx.org/licenses/CC-BY-NC-ND-1.0.html)
+        CC-BY-NC-ND-2.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial No Derivatives
+            2.0](https://spdx.org/licenses/CC-BY-NC-ND-2.0.html)
+        CC-BY-NC-ND-2.5:
+          description: >-
+            [Creative Commons Attribution Non Commercial No Derivatives
+            2.5](https://spdx.org/licenses/CC-BY-NC-ND-2.5.html)
+        CC-BY-NC-ND-3.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial No Derivatives
+            3.0](https://spdx.org/licenses/CC-BY-NC-ND-3.0.html)
+        CC-BY-NC-ND-4.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial No Derivatives
+            4.0](https://spdx.org/licenses/CC-BY-NC-ND-4.0.html)
+        CC-BY-NC-SA-1.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial Share Alike
+            1.0](https://spdx.org/licenses/CC-BY-NC-SA-1.0.html)
+        CC-BY-NC-SA-2.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial Share Alike
+            2.0](https://spdx.org/licenses/CC-BY-NC-SA-2.0.html)
+        CC-BY-NC-SA-2.5:
+          description: >-
+            [Creative Commons Attribution Non Commercial Share Alike
+            2.5](https://spdx.org/licenses/CC-BY-NC-SA-2.5.html)
+        CC-BY-NC-SA-3.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial Share Alike
+            3.0](https://spdx.org/licenses/CC-BY-NC-SA-3.0.html)
+        CC-BY-NC-SA-4.0:
+          description: >-
+            [Creative Commons Attribution Non Commercial Share Alike
+            4.0](https://spdx.org/licenses/CC-BY-NC-SA-4.0.html)
+        CC-BY-ND-1.0:
+          description: >-
+            [Creative Commons Attribution No Derivatives
+            1.0](https://spdx.org/licenses/CC-BY-ND-1.0.html)
+        CC-BY-ND-2.0:
+          description: >-
+            [Creative Commons Attribution No Derivatives
+            2.0](https://spdx.org/licenses/CC-BY-ND-2.0.html)
+        CC-BY-ND-2.5:
+          description: >-
+            [Creative Commons Attribution No Derivatives
+            2.5](https://spdx.org/licenses/CC-BY-ND-2.5.html)
+        CC-BY-ND-3.0:
+          description: >-
+            [Creative Commons Attribution No Derivatives
+            3.0](https://spdx.org/licenses/CC-BY-ND-3.0.html)
+        CC-BY-ND-4.0:
+          description: >-
+            [Creative Commons Attribution No Derivatives
+            4.0](https://spdx.org/licenses/CC-BY-ND-4.0.html)
+        CC0-1.0:
+          description: >-
+            [Creative Commons Zero v1.0
+            Universal](https://spdx.org/licenses/CC0-1.0.html)
+        EPL-1.0:
+          description: '[Eclipse Public License 1.0](https://spdx.org/licenses/EPL-1.0.html)'
+        EPL-2.0:
+          description: '[Eclipse Public License 2.0](https://spdx.org/licenses/EPL-2.0.html)'
+        Glide:
+          description: '[3dfx Glide License](https://spdx.org/licenses/Glide.html)'
+        GPL-1.0-only:
+          description: >-
+            [GNU General Public License v1.0
+            only](https://spdx.org/licenses/GPL-1.0-only.html)
+        GPL-1.0-or-later:
+          description: >-
+            [GNU General Public License v1.0 or
+            later](https://spdx.org/licenses/GPL-1.0-or-later.html)
+        GPL-2.0-only:
+          description: >-
+            [GNU General Public License v2.0
+            only](https://spdx.org/licenses/GPL-2.0-only.html)
+        GPL-2.0-or-later:
+          description: >-
+            [GNU General Public License v2.0 or
+            later](https://spdx.org/licenses/GPL-2.0-or-later.html)
+        GPL-3.0-only:
+          description: >-
+            [GNU General Public License v3.0
+            only](https://spdx.org/licenses/GPL-3.0-only.html)
+        GPL-3.0-or-later:
+          description: >-
+            [GNU General Public License v3.0 or
+            later](https://spdx.org/licenses/GPL-3.0-or-later.html)
+        IPL-1.0:
+          description: '[IBM Public License v1.0](https://spdx.org/licenses/IPL-1.0.html)'
+        JSON:
+          description: '[JSON License](https://spdx.org/licenses/JSON.html)'
+        MIT:
+          description: '[MIT License](https://spdx.org/licenses/MIT.html)'
+        MPL-1.0:
+          description: '[Mozilla Public License 1.0](https://spdx.org/licenses/MPL-1.0.html)'
+        MPL-1.1:
+          description: '[Mozilla Public License 1.1](https://spdx.org/licenses/MPL-1.1.html)'
+        MPL-2.0:
+          description: '[Mozilla Public License 2.0](https://spdx.org/licenses/MPL-2.0.html)'
+        MPL-2.0-no-copyleft-exception:
+          description: >-
+            [Mozilla Public License 2.0 (no copyleft
+            exception)](https://spdx.org/licenses/MPL-2.0-no-copyleft-exception.html)
+        OpenSSL:
+          description: '[OpenSSL License](https://spdx.org/licenses/OpenSSL.html)'
+        Sleepycat:
+          description: '[Sleepycat License](https://spdx.org/licenses/Sleepycat.html)'
+        Unilicense:
+          description: '[The Unlicense](https://spdx.org/licenses/Unlicense.html)'
+        YPL-1.0:
+          description: '[Yahoo! Public License v1.0](https://spdx.org/licenses/YPL-1.0.html)'
+        YPL-1.1:
+          description: '[Yahoo! Public License v1.1](https://spdx.org/licenses/YPL-1.1.html)'
+  - Stars:
+      description: Number of stars
+      detail: true
+      search: false
+      table: false
+  - Creation Date:
+      description: Date of creation
+      detail: true
+      search: false
+      table: false
+  - CVE Vendor:
+      description: vendor which is needed for the CVE API
+      detail: true
+      search: false
+      table: false
+  - CVE Product:
+      description: Product Name which is needed for the CVE API
+      detail: true
+      search: false
+      table: false
+  - CVE Details:
+      description: the summary of the CVE API
+      detail: true
+      search: false
+      table: false
+      type: text
+autoCriteria:
+  Interface Languages:
+    values:
+      'C#': {}
+      'C# FIPS': {}
+      C++11: {}
+      Java: {}
+      Java FIPS: {}
+  Release:
+    values:
+      release-1.8.1: {}
+      Unknown: {}
+      Latest: {}
+      r1rv59: {}
+      1.0.0: {}
+      3.4.3.1: {}
+      2.0.0: {}
+  Development Languages:
+    values:
+      'C#': {}
+      C++: {}
+      Python: {}
+      Java: {}
+      C: {}
+  Block Ciphers:
+    values:
+      3-Way: {}
+      AES: {}
+      AES-128: {}
+      AES-192: {}
+      AES-256: {}
+      Blowfish: {}
+      Camellia: {}
+      CAST: {}
+      DES: {}
+      DEAL: {}
+      DFC: {}
+      GOST: {}
+      IDEA NXT: {}
+      IDEA: {}
+      M6: {}
+      M8: {}
+      MMB: {}
+      NDS: {}
+      NOEKEON: {}
+      PRESENT: {}
+      RC: {}
+      RC2: {}
+      RC5: {}
+      RC6: {}
+      Serpent: {}
+      SEED: {}
+      SM4: {}
+      Threefish: {}
+      TEA: {}
+      3DES: {}
+      Twofish: {}
+      UES: {}
+      ARIA: {}
+      CAST-128: {}
+      CAST-256: {}
+      FPE: {}
+      KASUMI: {}
+      Mercy: {}
+      MISTY1: {}
+      SAFER: {}
+      SHACAL: {}
+      Simon: {}
+      XTEA: {}
+      ARIA-128: {}
+      ARIA-192: {}
+      ARIA-256: {}
+      CDMF: {}
+      FEAL: {}
+      MESH: {}
+  Stream Ciphers:
+    values:
+      ChaCha: {}
+      eSTREAM: {}
+      ISAAC: {}
+      LEX: {}
+      MAG: {}
+      Py: {}
+      RC: {}
+      Salsa: {}
+      ZUC: {}
+      Dragon: {}
+      Turing: {}
+      Crypto1: {}
+      FISH: {}
+      NLS: {}
+      SEAL: {}
+      Vernam: {}
+      VEST: {}
+      WAKE: {}
+  Hash Functions:
+    values:
+      BLAKE2: {}
+      FSB: {}
+      GOST: {}
+      MD2: {}
+      MD5: {}
+      MD6: {}
+      RIPEMD: {}
+      scrypt: {}
+      SHA: {}
+      SHA-1: {}
+      SHA-2: {}
+      SHA-3: {}
+      SHA-256: {}
+      SHA-512: {}
+      SipHash: {}
+      Skein: {}
+      PBKDF2: {}
+      Streebog: {}
+      Tiger: {}
+      WHIRLPOOL: {}
+      SHAKE: {}
+  Encryption Modes:
+    values:
+      ABC: {}
+      CBC: {}
+      CCM: {}
+      CFB: {}
+      CTR: {}
+      EAX: {}
+      ECB: {}
+      FFX: {}
+      GCM: {}
+      IGE: {}
+      IOC: {}
+      OCB: {}
+      OFB: {}
+      RAC: {}
+      RKC: {}
+      SIV: {}
+      BPS: {}
+      KFB: {}
+      XBC: {}
+      CWC: {}
+      PCBC: {}
+      XCBC: {}
+  Message Authentication Codes:
+    values:
+      HMAC: {}
+      OMAC: {}
+      Poly1305: {}
+      TMAC: {}
+      XCBC: {}
+  Public Key Cryptography:
+    values:
+      DH: {}
+      DSA: {}
+      DSS: {}
+      ECDH: {}
+      ECDSA: {}
+      LUC: {}
+      RSA: {}
+      YAK: {}
+      ElGamal: {}
+      McEliece: {}
+  Public Key Infrastructure:
+    values:
+      CMP: {}
+      LDAP: {}
+      OCSP: {}
+      PKCS: {}
+      PKIX: {}
+      SET: {}
+      X.509: {}
+      Identrus: {}
+      DVCS: {}
+      'PKCS#7': {}
+      XiPKI: {}
+      OpenCA: {}
+  Protocols:
+    values:
+      AS1: {}
+      AKA: {}
+      CMP: {}
+      CSR: {}
+      CMS: {}
+      DTLS: {}
+      DPD: {}
+      DPV: {}
+      EST: {}
+      GPG: {}
+      HTTPS: {}
+      I2P: {}
+      IES: {}
+      IKE: {}
+      ISAKMP: {}
+      IPsec: {}
+      MSE: {}
+      OTR: {}
+      OCSP: {}
+      PE: {}
+      PEM: {}
+      PHE: {}
+      PGP: {}
+      RTD: {}
+      SCVP: {}
+      SEND: {}
+      SRTP: {}
+      SSH: {}
+      SSL: {}
+      TSP: {}
+      TLS: {}
+      VBR: {}
+      WPA: {}
+      WPS: {}
+      X.509: {}
+      AS2: {}
+      DCII: {}
+      PCT: {}
+      CMC: {}
+      CGA: {}
+      DK: {}
+      EKE: {}
+      GSI: {}
+      KMIP: {}
+      RMA: {}
+      SCP: {}
+      PoSE: {}
+      WTLS: {}
+  Creation Date:
+    values:
+      '1998': {}
+      '2000': {}
+  CVE Vendor:
+    values:
+      botan_project: {}
+      bouncycastle: {}
+  CVE Product:
+    values:
+      botan: {}
+      legion-of-the-bouncy-castle-java-crytography-api: {}
+  Stars:
+    values:
+      '396': {}
+      '754': {}
+      '6582': {}
+  Release Date:
+    values:
+      '2017-12-18': {}
+      '2017-01-07': {}
+autoColor:
+  License:
+    0BSD:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    AAL:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Abstyles:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Adobe-2006:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Adobe-Glyph:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    ADSL:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    AFL-1.1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    AFL-1.2:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    AFL-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    AFL-2.1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    AFL-3.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Afmparse:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    AGPL-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    AGPL-3.0-only:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    AGPL-3.0-or-later:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Aladdin:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    AMDPLPA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    AML:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    AMPAS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    ANTLR-PD:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Apache-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Apache-1.1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Apache-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    APAFML:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    APL-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    APSL-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    APSL-1.1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    APSL-1.2:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    APSL-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Artistic-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Artistic-1.0-cl8:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Artistic-1.0-Perl:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Artistic-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Bahyph:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Barr:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Beerware:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BitTorrent-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BitTorrent-1.1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Borceux:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BSD-1-Clause:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BSD-2-Clause:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BSD-2-Clause-FreeBSD:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BSD-2-Clause-NetBSD:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BSD-2-Clause-Patent:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BSD-3-Clause:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BSD-3-Clause-Attribution:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BSD-3-Clause-Clear:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BSD-3-Clause-LBNL:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BSD-3-Clause-No-Nuclear-License:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BSD-3-Clause-No-Nuclear-License-2014:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BSD-3-Clause-No-Nuclear-Warranty:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BSD-4-Clause:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BSD-4-Clause-UC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BSD-Protection:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BSD-Source-Code:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    BSL-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-2.5:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-3.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-4.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-NC-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-NC-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-NC-2.5:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-NC-3.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-NC-4.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-NC-ND-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-NC-ND-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-NC-ND-2.5:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-NC-ND-3.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-NC-ND-4.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-NC-SA-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-NC-SA-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-NC-SA-2.5:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-NC-SA-3.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-NC-SA-4.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-ND-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-ND-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-ND-2.5:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-ND-3.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC-BY-ND-4.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    CC0-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    EPL-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    EPL-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Glide:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    GPL-1.0-only:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    GPL-1.0-or-later:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    GPL-2.0-only:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    GPL-2.0-or-later:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    GPL-3.0-only:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    GPL-3.0-or-later:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    IPL-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    JSON:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    MIT:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    MPL-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    MPL-1.1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    MPL-2.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    MPL-2.0-no-copyleft-exception:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    OpenSSL:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Sleepycat:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    Unilicense:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    YPL-1.0:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    YPL-1.1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+  Interface Languages:
+    'C#':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
+    'C# FIPS':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
+    C++11:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
+    Java:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
+    Java FIPS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(165, 100%, 70%)'
+  Creation Date:
+    '1998':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(180, 100%, 70%)'
+    '2000':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(180, 100%, 70%)'
+  CVE Vendor:
+    botan_project:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(195, 100%, 70%)'
+    bouncycastle:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(195, 100%, 70%)'
+  CVE Product:
+    botan:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(210, 100%, 70%)'
+    legion-of-the-bouncy-castle-java-crytography-api:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(210, 100%, 70%)'
+  Release:
+    1.0.0:
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
+    2.0.0:
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
+    3.4.3.1:
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
+    Latest:
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
+    r1rv59:
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
+    release-1.8.1:
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
+    Unknown:
+      color: '#ffff00'
+      backgroundColor: 'hsl(225, 100%, 70%)'
+  Development Languages:
+    C:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    'C#':
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    C++:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    Java:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    Python:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+  Stars:
+    '387':
+      color: '#ffff00'
+      backgroundColor: 'hsl(255, 100%, 70%)'
+    '396':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    '751':
+      color: '#ffff00'
+      backgroundColor: 'hsl(255, 100%, 70%)'
+    '754':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    '6509':
+      color: '#ffff00'
+      backgroundColor: 'hsl(255, 100%, 70%)'
+    '6582':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+  Block Ciphers:
+    3-Way:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    3DES:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    AES:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    AES-128:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    AES-192:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    AES-256:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    ARIA:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    ARIA-128:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    ARIA-192:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    ARIA-256:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    Blowfish:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    Camellia:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    CAST:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    CAST-128:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    CAST-256:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    CDMF:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    DEAL:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    DES:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    DFC:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    FEAL:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    FPE:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    GOST:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    IDEA:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    IDEA NXT:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    KASUMI:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    M6:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    M8:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    Mercy:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    MESH:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    MISTY1:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    MMB:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    NDS:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    NOEKEON:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    PRESENT:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    RC:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    RC2:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    RC5:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    RC6:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    SAFER:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    SEED:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    Serpent:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    SHACAL:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    Simon:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    SM4:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    TEA:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    Threefish:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    Twofish:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    UES:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    XTEA:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+  Stream Ciphers:
+    ChaCha:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    Crypto1:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    Dragon:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    eSTREAM:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    FISH:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    ISAAC:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    LEX:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    MAG:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    NLS:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    Py:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    RC:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    Salsa:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    SEAL:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    Turing:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    Vernam:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    VEST:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    WAKE:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+    ZUC:
+      color: '#ffff00'
+      backgroundColor: 'hsl(285, 100%, 70%)'
+  Hash Functions:
+    BLAKE2:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    FSB:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    GOST:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    MD2:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    MD5:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    MD6:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    PBKDF2:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    RIPEMD:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    scrypt:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    SHA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    SHA-1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    SHA-2:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    SHA-256:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    SHA-3:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    SHA-512:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    SHAKE:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    SipHash:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    Skein:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    Streebog:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    Tiger:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+    WHIRLPOOL:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
+  Encryption Modes:
+    ABC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    BPS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    CBC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    CCM:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    CFB:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    CTR:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    CWC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    EAX:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    ECB:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    FFX:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    GCM:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    IGE:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    IOC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    KFB:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    OCB:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    OFB:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    PCBC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    RAC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    RKC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    SIV:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    XBC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+    XCBC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(315, 100%, 70%)'
+  Message Authentication Codes:
+    HMAC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
+    OMAC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
+    Poly1305:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
+    TMAC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
+    XCBC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
+  Public Key Cryptography:
+    DH:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
+    DSA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
+    DSS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
+    ECDH:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
+    ECDSA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
+    ElGamal:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
+    LUC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
+    McEliece:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
+    RSA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
+    YAK:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(15, 100%, 70%)'
+  Public Key Infrastructure:
+    CMP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    DVCS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    Identrus:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    LDAP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    OCSP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    OpenCA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    PKCS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    'PKCS#7':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    PKIX:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    SET:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    X.509:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    XiPKI:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+  Protocols:
+    AKA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    AS1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    AS2:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    CGA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    CMC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    CMP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    CMS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    CSR:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    DCII:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    DK:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    DPD:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    DPV:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    DTLS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    EKE:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    EST:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    GPG:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    GSI:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    HTTPS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    I2P:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    IES:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    IKE:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    IPsec:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    ISAKMP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    KMIP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    MSE:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    OCSP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    OTR:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    PCT:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    PE:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    PEM:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    PGP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    PHE:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    PoSE:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    RMA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    RTD:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    SCP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    SCVP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    SEND:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    SRTP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    SSH:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    SSL:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    TLS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    TSP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    VBR:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    WPA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    WPS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    WTLS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+    X.509:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(45, 100%, 70%)'
+  Release Date:
+    '2017-01-07':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    '2017-12-18':
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+autoCitation: {}
