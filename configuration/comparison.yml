@@ -23,15 +23,14 @@ criteria:
       type: url
   - Release:
       description: The version of the library the data is applicable for
-      search: true
-      andSearch: false
+      search: false
       table: true
-      type: label
+      type: text
   - Release Date:
       description: The date of the release
       search: false
       table: false
-      type: label
+      type: text
   - Repository:
       detail: true
       search: false
@@ -90,17 +89,14 @@ criteria:
       detail: true
       search: true
       table: false
-      type: label
   - Stream Ciphers:
       detail: true
       search: true
       table: false
-      type: label
   - Hash Functions:
       detail: true
       search: true
       table: false
-      type: label
   - Encryption Modes:
       detail: true
       search: true
@@ -109,22 +105,18 @@ criteria:
       detail: true
       search: true
       table: false
-      type: label
   - Public Key Cryptography:
       detail: true
       search: true
       table: false
-      type: label
   - Public Key Infrastructure:
       detail: true
       search: true
       table: false
-      type: label
   - Protocols:
       detail: true
       search: true
       table: false
-      type: label
   - License:
       description: License of the library
       table: true
@@ -471,23 +463,27 @@ criteria:
       detail: true
       search: false
       table: false
+      type: text
   - Creation Date:
       description: Date of creation
       detail: true
       search: false
       table: false
+      type: text
   - CVE Vendor:
-      description: vendor which is needed for the CVE API
-      detail: true
+      description: Vendor name which is needed for fetching CVE details
+      detail: false
       search: false
       table: false
+      type: text
   - CVE Product:
-      description: Product Name which is needed for the CVE API
-      detail: true
+      description: Product name which is needed for fetching CVE details
+      detail: false
       search: false
       table: false
+      type: text
   - CVE Details:
-      description: the summary of the CVE API
+      description: The summary of the CVE report
       detail: true
       search: false
       table: false

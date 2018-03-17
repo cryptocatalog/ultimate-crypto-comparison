@@ -14,7 +14,7 @@ The cryptlib Security Software Development Toolkit allows even inexperienced dev
 - C
 
 ## Creation Date
-- 2000
+2000
 
 ## Release
-- 3.4.3.1
+3.4.3.1

@@ -17,4 +17,4 @@ Botan's goal is to be the best option for cryptography in new C++ code by offeri
 - C++11
 
 ## Release Date
-- 2017-01-07
+2017-01-07

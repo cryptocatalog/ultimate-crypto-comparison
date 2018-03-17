@@ -12,6 +12,6 @@ OpenSSL is a software library for applications that secure communications over c
 - https://github.com/openssl/openssl
 
 ## Creation Date
-- 1998
+1998
 
 ## Interface Languages
