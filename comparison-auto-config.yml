@@ -1130,19 +1130,19 @@ autoColor:
       backgroundColor: 'hsl(255, 100%, 70%)'
     '396':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(30, 100%, 70%)'
+      backgroundColor: 'hsl(105, 100%, 70%)'
     '751':
       color: '#ffff00'
       backgroundColor: 'hsl(255, 100%, 70%)'
     '754':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(30, 100%, 70%)'
+      backgroundColor: 'hsl(105, 100%, 70%)'
     '6509':
       color: '#ffff00'
       backgroundColor: 'hsl(255, 100%, 70%)'
     '6582':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(30, 100%, 70%)'
+      backgroundColor: 'hsl(105, 100%, 70%)'
   Block Ciphers:
     3-Way:
       color: '#ffff00'
