@@ -7,15 +7,18 @@ The ultimate-crypto-comparison is a catalog to compare cryptographic libraries.
 This catalog collects additional information about the libraries specified in the data directory. This information includes e.g.:
 - Used encryptions (hash functions, stream-/block-ciphers, protocols...)
 - State of development
-- Security issues of the libraries
+- CVEs of the libraries
 
 ## Adding a new library
 
 Adding a new library is easy:
 
-1. Open a pull-request
+1. Fork this repository
 2. Define a library
-3. An authorized person will review your proposal
+3. Open a pull-request
+
+or [open a new issue](https://github.com/cryptocatalog/ultimate-crypto-comparison/issues/new) and specify the library to add.  
+An authorized person will review your proposal!
 
 ## Defining a library
 
@@ -59,14 +62,14 @@ The following information will be searched for:
 - Protocols
 
 ## Automatically added CVE information
-If the library contains a CVE Vendor and a CVE product the catalog automatically adds information about Common Vulnerabilities and Exposures. If no CVE vendor and CVE product ist specified in the markdown-file, you can [search for the respective product- and vendor-name](https://cve.circl.lu/browse) and add it to the markdown-file of the library. The catalog uses the API of https://www.circl.lu/services/cve-search/.
-If you want to try whether you have the correct vendor and product name you can use the API in the browser to test it.
+If the library contains a CVE Vendor and a CVE product the catalog automatically adds information about Common Vulnerabilities and Exposures. If no CVE vendor and CVE product ist specified in the markdown-file, you can [search for the respective product- and vendor-name](https://cve.circl.lu/browse) and add it to the markdown-file of the library. The catalog uses the API of https://www.circl.lu/services/cve-search/.  
+If you want to try whether you have the correct vendor and product name you can use the API in the browser to test it.  
 Just put in your found vendor and product in the following link: http://cve.circl.lu/api/search/"YourVendor"/"YourProduct"
 If you get a response with some text in JSON, it works!
 
 
 ## Known Issues
-- This catalog is only tested with libraries from GitHub. Libraries from other hosters (GitLab, BitBucket...) may lead to problems due different urls schemes.
+- This catalog is only tested with libraries from GitHub. Libraries from other hosters (GitLab, BitBucket...) may lead to problems due to different url schemes.
 - Markdown-files need to have a `Repository` -section. If they don't have one, the build fails.
 
 ## Acknowledgements
