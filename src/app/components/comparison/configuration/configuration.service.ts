@@ -52,7 +52,7 @@ export class ConfigurationService {
 
 
     public loadComparison(cd: ChangeDetectorRef) {
-        this.http.get('comparison.yml', {responseType: 'text'})
+        this.http.get('comparison-auto-config.yml', {responseType: 'text'})
             .subscribe(res => {
                 const comparisonObject: any = yaml.safeLoad(res) || {};
                 const detailsObject: any = comparisonObject.details || {};
@@ -94,7 +94,7 @@ export class ConfigurationService {
                 );
 
                 /**
-                 * Construct map of criteria from 'comparison.yml'.criteria
+                 * Construct map of criteria from 'comparison-auto-config.yml'.criteria
                  */
                 const criteria: Map<string, Criteria> = new Map<string, Criteria>();
                 criteriaArray.forEach((obj) => Object.keys(obj).forEach((key) => {
@@ -144,6 +144,7 @@ export class ConfigurationService {
                     });
 
                     criteria.set(key, new Criteria.Builder()
+                        .setKey(key)
                         .setName(value.name || key)
                         .setSearch(value.search)
                         .setTable(value.table)
@@ -159,7 +160,7 @@ export class ConfigurationService {
                 }));
 
                 /**
-                 * Complete map of criteria with 'comparison.yml'.autoCriteria
+                 * Complete map of criteria with 'comparison-auto-config.yml'.autoCriteria
                  */
                 Object.keys(autoCriteria).forEach((key) => {
                     const autoCriteriaObject = autoCriteria[key];
@@ -167,7 +168,7 @@ export class ConfigurationService {
                     const autoColorCriteria = isNullOrUndefined(autoColor[key]) ? {} : autoColor[key];
 
                     /**
-                     * If criteria is already defined by 'comparison.yml'.criteria
+                     * If criteria is already defined by 'comparison-auto-config.yml'.criteria
                      * complete criteria fields
                      */
                     if (criteria.get(key)) {
@@ -175,9 +176,9 @@ export class ConfigurationService {
                         let values: Map<string, CriteriaValue> = old.values;
                         /**
                          * Check each element CriteriaValue
-                         * oldValue from 'comparison.yml'.criteria
-                         * value from 'comparison.yml'.autoCriteria
-                         * color information from 'comparison.yml'.autoColorCriteria
+                         * oldValue from 'comparison-auto-config.yml'.criteria
+                         * value from 'comparison-auto-config.yml'.autoCriteria
+                         * color information from 'comparison-auto-config.yml'.autoColorCriteria
                          */
                         Object.keys(valuesObject).forEach(valueKey => {
                             const oldValue: CriteriaValue = old.values.get(valueKey);
@@ -214,6 +215,7 @@ export class ConfigurationService {
                         });
 
                         criteria.set(key, new Criteria.Builder()
+                            .setKey(key)
                             .setName(old.name)
                             .setSearch(old.search)
                             .setTable(old.table)
@@ -226,7 +228,7 @@ export class ConfigurationService {
                             .setValues(values)
                             .build());
                         /**
-                         * If criteria is not defined by 'comparison.yml'.criteria use 'comparison.yml'.autoCriteria
+                         * If criteria is not defined by 'comparison-auto-config.yml'.criteria use 'comparison-auto-config.yml'.autoCriteria
                          */
                     } else {
                         let values: Map<string, CriteriaValue> = new Map<string, CriteriaValue>();
@@ -253,6 +255,7 @@ export class ConfigurationService {
                         });
 
                         criteria.set(key, new Criteria.Builder()
+                            .setKey(key)
                             .setName(isNullOrUndefined(autoCriteriaObject.name) ? key : autoCriteriaObject.name)
                             .setSearch(autoCriteriaObject.search)
                             .setTable(autoCriteriaObject.table)
