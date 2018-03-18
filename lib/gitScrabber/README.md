@@ -1,4 +1,4 @@
-# About
+# GitScrabber
 
 This is a framework to gather information from various sources (git, svn and archives).
 The name _gitScrabber_ is a phun on datamining and huge frameworks like hadoop for 'big data' as this tool will only scratch the surface (which 'might' be enough).
