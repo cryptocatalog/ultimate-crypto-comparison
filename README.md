@@ -28,10 +28,10 @@ For each library create a markdown-file in the `data` -directory. You can base i
 Every markdown-file in the `data`-directory specifies a specific release (or the "latest" version) of a library.
 
 **Releases**  
-If you specify a release of a library, add the url to the downloadable archive under the `## Download` section in the markdown-file.
+If you specify a release of a library, add the url to the downloadable archive under the `## Archive` section in the markdown-file.
 
 ```
-    ## Download
+    ## Archive
     - https://github.com/randombit/botan/archive/2.4.0.zip
 ```
 

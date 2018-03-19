@@ -6,7 +6,7 @@ repository: 'https://github.com/cryptocatalog/ultimate-crypto-comparison.git'
 details:
   header:
     nameRef: id
-    labelRef: Release
+    labelRef: Repository
     urlRef: inline
   body:
     title: Description
@@ -56,11 +56,11 @@ criteria:
           maxAgeUnit: months
           class: label-warning
           description: The state of the repository is not sure.
-  - Download:
-      detail: true
+  - Archive:
+      detail: false
       search: false
       table: false
-      type: text
+      type: markdown
   - description:
       name: Short description
       detail: false
@@ -460,12 +460,6 @@ criteria:
           description: '[Yahoo! Public License v1.1](https://spdx.org/licenses/YPL-1.1.html)'
   - Stars:
       description: Number of stars
-      detail: true
-      search: false
-      table: false
-      type: text
-  - Creation Date:
-      description: Date of creation
       detail: true
       search: false
       table: false
