@@ -7,3 +7,9 @@ OpenSSL is a software library for applications that secure communications over c
 
 ## Repository
 - https://github.com/openssl/openssl
+
+## CVE Vendor
+openssl
+
+## CVE Product
+openssl
