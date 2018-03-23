@@ -481,4 +481,4 @@ criteria:
       detail: true
       search: false
       table: false
-      type: text
+      type: markdown
