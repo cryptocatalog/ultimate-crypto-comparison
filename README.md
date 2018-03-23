@@ -1,4 +1,4 @@
-# Ultimate-crypto-comparison - https://cryptocatalog.github.io/ultimate-crypto-comparison/
+# [Ultimate-crypto-comparison](https://cryptocatalog.github.io/ultimate-crypto-comparison/)
 
 The ultimate-crypto-comparison is a catalog to compare cryptographic libraries.
 
@@ -9,7 +9,7 @@ This catalog collects additional information about the libraries specified in th
 - State of development
 - CVEs of the libraries
 
-## Adding a new library
+## :heavy_plus_sign: Adding a new library
 
 Adding a new library is easy:
 
@@ -20,7 +20,7 @@ Adding a new library is easy:
 or [open a new issue](https://github.com/cryptocatalog/ultimate-crypto-comparison/issues/new) and specify the library to add.  
 An authorized person will review your proposal!
 
-## Defining a library
+## :pencil2: Defining a library
 
 For each library create a markdown-file in the `data` -directory. You can base it on template.md. If you do not want to add information to a specific section in the markdown-file, just remove the section. If you want to add additional information, just add a new section with your information.
 
@@ -45,7 +45,7 @@ If you want to generally add a library without specifying a release, you can jus
     - https://github.com/randombit/botan
 ```
 
-## Automatically added information
+## :books: Automatically added information
 If applicable information about a library can be found, it will be shown in the catalog.  
 If you specify the information in the markdown-file, the manually added data will be preferred.  
 The following information will be searched for:
@@ -61,20 +61,19 @@ The following information will be searched for:
 - Public Key Infrastructure
 - Protocols
 
-## Automatically added CVE information
+## :fire: Automatically added CVE information
 If the library contains a CVE Vendor and a CVE product the catalog automatically adds information about Common Vulnerabilities and Exposures. If no CVE vendor and CVE product ist specified in the markdown-file, you can [search for the respective product- and vendor-name](https://cve.circl.lu/browse) and add it to the markdown-file of the library. The catalog uses the API of https://www.circl.lu/services/cve-search/.  
 If you want to try whether you have the correct vendor and product name you can use the API in the browser to test it.  
 Just put in your found vendor and product in the following link: http://cve.circl.lu/api/search/"YourVendor"/"YourProduct"
 If you get a response with some text in JSON, it works!
 
 
-## Known Issues
-- This catalog is only tested with libraries from GitHub. Libraries from other hosters (GitLab, BitBucket...) may lead to problems due to different url schemes.
+## :warning: Known Issues
 - Markdown-files need to have a `Repository` -section. If they don't have one, the build fails.
 
-## Acknowledgements
-Thanks to the [Ultimate-Comparison-Framework](https://github.com/ultimate-comparisons/ultimate-comparison-BASE) for providing a great base to work with.  
-Thanks to the [gitScrabber](https://github.com/Eyenseo/gitScrabber) for collecting additional information about the libraries.
+## :crown: Acknowledgements
+- Thanks to the [Ultimate-Comparison-Framework](https://github.com/ultimate-comparisons/ultimate-comparison-BASE) for providing a great base to work with.  
+- Thanks to the [gitScrabber](https://github.com/Eyenseo/gitScrabber) for collecting additional information about the libraries.
 
 ## License
 
