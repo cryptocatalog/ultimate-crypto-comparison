@@ -21,16 +21,6 @@ criteria:
       search: false
       table: true
       type: url
-  - Release:
-      description: The version of the library the data is applicable for
-      search: false
-      table: true
-      type: text
-  - Release Date:
-      description: The date of the release
-      search: false
-      table: false
-      type: text
   - Repository:
       detail: true
       search: false
@@ -56,6 +46,12 @@ criteria:
           maxAgeUnit: months
           class: label-warning
           description: The state of the repository is not sure.
+  - Metadata:
+      description: Futher information about the library
+      detail: true
+      search: false
+      table: false
+      type: markdown
   - Archive:
       detail: false
       search: false
@@ -82,8 +78,8 @@ criteria:
   - Development Languages:
       description: The languages the library is written in
       detail: true
-      search: false
-      table: false
+      search: true
+      table: true
       type: label
   - Block Ciphers:
       detail: true
@@ -458,12 +454,6 @@ criteria:
           description: '[Yahoo! Public License v1.0](https://spdx.org/licenses/YPL-1.0.html)'
         YPL-1.1:
           description: '[Yahoo! Public License v1.1](https://spdx.org/licenses/YPL-1.1.html)'
-  - Stars:
-      description: Number of stars
-      detail: true
-      search: false
-      table: false
-      type: text
   - CVE Vendor:
       description: Vendor name which is needed for fetching CVE details
       detail: false

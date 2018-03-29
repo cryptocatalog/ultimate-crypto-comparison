@@ -12,5 +12,5 @@ The cryptlib Security Software Development Toolkit allows even inexperienced dev
 ## Development Languages
 - C
 
-## Release
-3.4.3.1
+## Metadata
+- Release: 3.4.3.1

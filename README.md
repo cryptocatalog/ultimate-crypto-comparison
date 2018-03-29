@@ -5,7 +5,7 @@ The ultimate-crypto-comparison is a catalog to compare cryptographic libraries.
 **What makes this catalog special?**
 
 This catalog collects additional information about the libraries specified in the data directory. This information includes e.g.:
-- Used encryptions (hash functions, stream-/block-ciphers, protocols...)
+- Used encryption (hash functions, stream-/block-ciphers, protocols...)
 - State of development
 - CVEs of the libraries
 
@@ -22,7 +22,20 @@ An authorized person will review your proposal!
 
 ## :pencil2: Defining a library
 
-For each library create a markdown-file in the `data` -directory. You can base it on template.md. If you do not want to add information to a specific section in the markdown-file, just remove the section. If you want to add additional information, just add a new section with your information.
+For each library create a markdown-file in the `data` -directory. You can base it on template.md. 
+If you do not want to add information to a specific section in the markdown-file, just remove the section. 
+You can add additional information under the `## Metadata`-section. For example:
+
+```
+    ## Metadata
+    - Stars: 750
+    - Release: 1.0.0
+    - Release Date: 12/10/17 
+    - ...
+```
+
+The following metadata will be automatically added if available and not yet defined:
+- Stars
 
 ### Releases and repositories
 Every markdown-file in the `data`-directory specifies a specific release (or the "latest" version) of a library.
@@ -38,7 +51,7 @@ If you specify a release of a library, add the url to the downloadable archive u
 Additionally, you can add the link to the repository under the `## Repository` section. The automatically gathered data is however applicable to the release.
 
 **"Latest" version**  
-If you want to generally add a library without specifying a release, you can just add the link to the repository under the `## Repository`section in the markdown-file.  
+If you just want to add a library without specifying a release, you can just add the link to the repository under the `## Repository`-section in the markdown-file and delete the `## Archive`-section.  
 
 ```
     ## Repository
@@ -49,9 +62,7 @@ If you want to generally add a library without specifying a release, you can jus
 If applicable information about a library can be found, it will be shown in the catalog.  
 If you specify the information in the markdown-file, the manually added data will be preferred.  
 The following information will be searched for:
-- Release
 - Development Language
-- Stars
 - Block Ciphers
 - Stream Ciphers
 - Hash Functions
@@ -66,7 +77,6 @@ If the library contains a CVE Vendor and a CVE product the catalog automatically
 If you want to try whether you have the correct vendor and product name you can use the API in the browser to test it.  
 Just put in your found vendor and product in the following link: http://cve.circl.lu/api/search/"YourVendor"/"YourProduct"
 If you get a response with some text in JSON, it works!
-
 
 ## :warning: Known Issues
 - Markdown-files need to have a `Repository` -section. If they don't have one, the build fails.

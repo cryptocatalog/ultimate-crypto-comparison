@@ -16,8 +16,9 @@ Botan's goal is to be the best option for cryptography in new C++ code by offeri
 ## Interface Languages
 - C++11
 
-## Release Date
-2017-01-07
+## Metadata
+- Release: 2.0.0
+- Release Date: 2017-01-07
 
 ## CVE Vendor
 botan_project
