@@ -15,8 +15,10 @@ Default long description in __markdown__.
 ## Archive
 - https://github.com/example/example/archive/1.0.0.zip (link to downloadable archive)
 
-## Release Date
-- 2000/01/01
+## Metadata
+- Release: 1.0.0
+- Release Date: 2000/01/01
+- ...
 
 ## Interface Languages
 - Java
