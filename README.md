@@ -36,6 +36,7 @@ You can add additional information under the `## Metadata`-section. For example:
 
 The following metadata will be automatically added if available and not yet defined:
 - Stars
+- Release
 
 ### Releases and repositories
 Every markdown-file in the `data`-directory specifies a specific release (or the "latest" version) of a library.
