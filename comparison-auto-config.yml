@@ -692,910 +692,910 @@ autoCriteria:
 autoColor:
   License:
     0BSD:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     AAL:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Abstyles:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Adobe-2006:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Adobe-Glyph:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     ADSL:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     AFL-1.1:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     AFL-1.2:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     AFL-2.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     AFL-2.1:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     AFL-3.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Afmparse:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     AGPL-1.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     AGPL-3.0-only:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     AGPL-3.0-or-later:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Aladdin:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     AMDPLPA:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     AML:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     AMPAS:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     ANTLR-PD:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Apache-1.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Apache-1.1:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Apache-2.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     APAFML:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     APL-1.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     APSL-1.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     APSL-1.1:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     APSL-1.2:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     APSL-2.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Artistic-1.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Artistic-1.0-cl8:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Artistic-1.0-Perl:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Artistic-2.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Bahyph:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Barr:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Beerware:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BitTorrent-1.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BitTorrent-1.1:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Borceux:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BSD-1-Clause:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BSD-2-Clause:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BSD-2-Clause-FreeBSD:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BSD-2-Clause-NetBSD:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BSD-2-Clause-Patent:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BSD-3-Clause:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BSD-3-Clause-Attribution:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BSD-3-Clause-Clear:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BSD-3-Clause-LBNL:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BSD-3-Clause-No-Nuclear-License:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BSD-3-Clause-No-Nuclear-License-2014:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BSD-3-Clause-No-Nuclear-Warranty:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BSD-4-Clause:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BSD-4-Clause-UC:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BSD-Protection:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BSD-Source-Code:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     BSL-1.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-1.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-2.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-2.5:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-3.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-4.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-NC-1.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-NC-2.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-NC-2.5:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-NC-3.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-NC-4.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-NC-ND-1.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-NC-ND-2.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-NC-ND-2.5:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-NC-ND-3.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-NC-ND-4.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-NC-SA-1.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-NC-SA-2.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-NC-SA-2.5:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-NC-SA-3.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-NC-SA-4.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-ND-1.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-ND-2.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-ND-2.5:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-ND-3.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC-BY-ND-4.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     CC0-1.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     EPL-1.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     EPL-2.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Glide:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     GPL-1.0-only:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     GPL-1.0-or-later:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     GPL-2.0-only:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     GPL-2.0-or-later:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     GPL-3.0-only:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     GPL-3.0-or-later:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     IPL-1.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     JSON:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     MIT:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     MPL-1.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     MPL-1.1:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     MPL-2.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     MPL-2.0-no-copyleft-exception:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     OpenSSL:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Sleepycat:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     Unilicense:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     YPL-1.0:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     YPL-1.1:
-      color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
   Interface Languages:
     'C#':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(315, 100%, 70%)'
+      backgroundColor: 'hsl(60, 100%, 70%)'
     'C# FIPS':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(315, 100%, 70%)'
+      backgroundColor: 'hsl(60, 100%, 70%)'
     C++:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(315, 100%, 70%)'
+      backgroundColor: 'hsl(60, 100%, 70%)'
     C++11:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(315, 100%, 70%)'
+      backgroundColor: 'hsl(60, 100%, 70%)'
     Java:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(315, 100%, 70%)'
+      backgroundColor: 'hsl(60, 100%, 70%)'
     Java FIPS:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(315, 100%, 70%)'
+      backgroundColor: 'hsl(60, 100%, 70%)'
   Development Languages:
     C:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(15, 100%, 70%)'
+      backgroundColor: 'hsl(90, 100%, 70%)'
     'C#':
       color: '#0d0d0d'
-      backgroundColor: 'hsl(15, 100%, 70%)'
+      backgroundColor: 'hsl(90, 100%, 70%)'
     C++:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(15, 100%, 70%)'
+      backgroundColor: 'hsl(90, 100%, 70%)'
     Java:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(15, 100%, 70%)'
+      backgroundColor: 'hsl(90, 100%, 70%)'
     Python:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(15, 100%, 70%)'
+      backgroundColor: 'hsl(90, 100%, 70%)'
   Block Ciphers:
     3-Way:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     3DES:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     AES:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     AES-128:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     AES-192:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     AES-256:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     ARIA:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     ARIA-128:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     ARIA-192:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     ARIA-256:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     Blowfish:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     Camellia:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     CAST:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     CAST-128:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     CAST-256:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     CDMF:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     DEAL:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     DES:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     DFC:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     FEAL:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     FPE:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     GOST:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     IDEA:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     IDEA NXT:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     KASUMI:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     M6:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     M8:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     Mercy:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     MESH:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     MISTY1:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     MMB:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     NDS:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     NOEKEON:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     PRESENT:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     RC:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     RC2:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     RC5:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     RC6:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     SAFER:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     SEED:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     Serpent:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     SHACAL:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     Simon:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     SM4:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     TEA:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     Threefish:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     Twofish:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     UES:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
     XTEA:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(120, 100%, 70%)'
   Stream Ciphers:
     ChaCha:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     Crypto1:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     Dragon:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     eSTREAM:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     FISH:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     ISAAC:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     LEX:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     MAG:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     NLS:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     Py:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     RC:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     Salsa:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     SEAL:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     Turing:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     Vernam:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     VEST:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     WAKE:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     ZUC:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
   Hash Functions:
     BLAKE2:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     FSB:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     GOST:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     MD2:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     MD5:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     MD6:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     PBKDF2:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     RIPEMD:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     scrypt:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     SHA:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     SHA-1:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     SHA-2:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     SHA-256:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     SHA-3:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     SHA-512:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     SHAKE:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     SipHash:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     Skein:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     Streebog:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     Tiger:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     WHIRLPOOL:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(105, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
   Encryption Modes:
     ABC:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     BPS:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     CBC:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     CCM:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     CFB:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     CTR:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     CWC:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     EAX:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     ECB:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     FFX:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     GCM:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     IGE:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     IOC:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     KFB:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     OCB:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     OFB:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     PCBC:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     RAC:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     RKC:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     SIV:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     XBC:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     XCBC:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(135, 100%, 70%)'
+      backgroundColor: 'hsl(210, 100%, 70%)'
   Message Authentication Codes:
     HMAC:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(165, 100%, 70%)'
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
     OMAC:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(165, 100%, 70%)'
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
     Poly1305:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(165, 100%, 70%)'
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
     TMAC:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(165, 100%, 70%)'
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
     XCBC:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(165, 100%, 70%)'
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
   Public Key Cryptography:
     DH:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(195, 100%, 70%)'
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
     DSA:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(195, 100%, 70%)'
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
     DSS:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(195, 100%, 70%)'
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
     ECDH:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(195, 100%, 70%)'
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
     ECDSA:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(195, 100%, 70%)'
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
     ElGamal:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(195, 100%, 70%)'
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
     LUC:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(195, 100%, 70%)'
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
     McEliece:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(195, 100%, 70%)'
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
     RSA:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(195, 100%, 70%)'
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
     YAK:
-      color: '#0d0d0d'
-      backgroundColor: 'hsl(195, 100%, 70%)'
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
   Public Key Infrastructure:
     CMP:
-      color: '#ffff00'
-      backgroundColor: 'hsl(225, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
     DVCS:
-      color: '#ffff00'
-      backgroundColor: 'hsl(225, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
     Identrus:
-      color: '#ffff00'
-      backgroundColor: 'hsl(225, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
     LDAP:
-      color: '#ffff00'
-      backgroundColor: 'hsl(225, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
     OCSP:
-      color: '#ffff00'
-      backgroundColor: 'hsl(225, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
     OpenCA:
-      color: '#ffff00'
-      backgroundColor: 'hsl(225, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
     PKCS:
-      color: '#ffff00'
-      backgroundColor: 'hsl(225, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
     'PKCS#7':
-      color: '#ffff00'
-      backgroundColor: 'hsl(225, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
     PKIX:
-      color: '#ffff00'
-      backgroundColor: 'hsl(225, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
     SET:
-      color: '#ffff00'
-      backgroundColor: 'hsl(225, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
     X.509:
-      color: '#ffff00'
-      backgroundColor: 'hsl(225, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
     XiPKI:
-      color: '#ffff00'
-      backgroundColor: 'hsl(225, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
   Protocols:
     AKA:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     AS1:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     AS2:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     CGA:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     CMC:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     CMP:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     CMS:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     CSR:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     DCII:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     DK:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     DPD:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     DPV:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     DTLS:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     EKE:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     EST:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     GPG:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     GSI:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     HTTPS:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     I2P:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     IES:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     IKE:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     IPsec:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     ISAKMP:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     KMIP:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     MSE:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     OCSP:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     OTR:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     PCT:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     PE:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     PEM:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     PGP:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     PHE:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     PoSE:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     RMA:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     RTD:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     SCP:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     SCVP:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     SEND:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     SRTP:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     SSH:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     SSL:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     TLS:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     TSP:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     VBR:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     WPA:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     WPS:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     WTLS:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
     X.509:
-      color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
 autoCitation: {}
