@@ -1,5 +1,5 @@
 # Bouncy Castle - http://bouncycastle.org/
-Bouncy Castle is a collection of APIs used in cryptography. It includes APIs for both the Java and the C# programming languages. The APIs are supported by a registered Australian charitable organization: Legion of the Bouncy Castle Inc.
+Bouncy Castle C# Fips without repository and link to archive.
 
 ## License
 - MIT
