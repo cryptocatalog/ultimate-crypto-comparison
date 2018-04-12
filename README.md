@@ -39,7 +39,7 @@ The following metadata will be automatically added if available and not yet defi
 - Release
 
 ### Releases and repositories
-Every markdown-file in the `data`-directory specifies a specific release (or the "latest" version) of a library.
+Every markdown-file in the `data`-directory specifies a specific release or the repository of a cryptographic library.
 
 **Releases**  
 If you specify a release of a library, add the url to the downloadable archive under the `## Archive` section in the markdown-file.
@@ -51,8 +51,8 @@ If you specify a release of a library, add the url to the downloadable archive u
 
 Additionally, you can add the link to the repository under the `## Repository` section. The automatically gathered data is however applicable to the release.
 
-**"Latest" version**  
-If you just want to add a library without specifying a release, you can just add the link to the repository under the `## Repository`-section in the markdown-file and delete the `## Archive`-section.  
+**Repository**  
+If you just want to add the repository of a library without specifying a release, you can add the link to the repository under the `## Repository`-section in the markdown-file and delete the `## Archive`-section.  
 
 ```
     ## Repository
