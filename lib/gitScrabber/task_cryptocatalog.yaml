@@ -1,10 +1,23 @@
 projects:
+  - git: 'https://github.com/ARMmbed/mbedtls'
   - git: 'https://github.com/randombit/botan'
   - archive: 'https://github.com/randombit/botan/archive/2.0.0.zip'
   - git: 'https://github.com/bcgit/bc-csharp'
   - archive: 'https://github.com/bcgit/bc-csharp/archive/release-1.8.1.zip'
   - archive: 'https://github.com/bcgit/bc-java/archive/r1rv59.zip'
+  - git: 'https://github.com/B-Con/crypto-algorithms'
+  - git: 'https://github.com/weidai11/cryptopp'
+  - git: 'https://gitlab.com/gnutls/gnutls'
+  - git: 'https://dev.gnupg.org/source/libgcrypt.git'
+  - git: 'https://github.com/jedisct1/libsodium'
+  - git: 'https://github.com/libtom/libtomcrypt'
+  - git: 'https://github.com/LoupVaillant/Monocypher'
+  - git: 'https://git.lysator.liu.se/nettle/nettle'
+  - git: 'https://hg.mozilla.org/projects/nss'
   - git: 'https://github.com/openssl/openssl'
+  - git: 'https://github.com/rhash/RHash'
+  - git: 'https://github.com/cossacklabs/themis'
+  - git: 'https://github.com/wolfSSL/wolfssl/tree/master/wolfcrypt'
 project_tasks:
   - MetaDataCollector
   - LanguageDetector
