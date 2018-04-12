@@ -75,6 +75,9 @@ criteria:
       search: true
       table: true
       type: label
+      values:
+        No Interface Languages specified:
+          description: 'No interface languages specified. You can find the data of the libraries in [this directory](https://github.com/cryptocatalog/ultimate-crypto-comparison/tree/master/data). You can [create a pull-request](https://github.com/cryptocatalog/ultimate-crypto-comparison/pulls) or open a [new issue](https://github.com/cryptocatalog/ultimate-crypto-comparison/issues) to add this information.'
   - Development Languages:
       description: The languages the library is written in
       detail: true
@@ -83,28 +86,28 @@ criteria:
       type: label
       values:
         No Information:
-          description: 'No information found. You can find the data of the libraries in [this directory](https://github.com/cryptocatalog/ultimate-crypto-comparison/tree/master/data). You can [create a pull-request](https://github.com/cryptocatalog/ultimate-crypto-comparison/pulls) or open a [new issue](https://github.com/cryptocatalog/ultimate-crypto-comparison/issues).'
+          description: 'No information found. You can find the data of the libraries in [this directory](https://github.com/cryptocatalog/ultimate-crypto-comparison/tree/master/data). You can [create a pull-request](https://github.com/cryptocatalog/ultimate-crypto-comparison/pulls) or open a [new issue](https://github.com/cryptocatalog/ultimate-crypto-comparison/issues) to add this information.'
   - Block Ciphers:
       detail: true
       search: true
       table: false
       values:
         No Information:
-          description: 'No information found. You can find the data of the libraries in [this directory](https://github.com/cryptocatalog/ultimate-crypto-comparison/tree/master/data). You can [create a pull-request](https://github.com/cryptocatalog/ultimate-crypto-comparison/pulls) or open a [new issue](https://github.com/cryptocatalog/ultimate-crypto-comparison/issues).'
+          description: 'No information found. You can find the data of the libraries in [this directory](https://github.com/cryptocatalog/ultimate-crypto-comparison/tree/master/data). You can [create a pull-request](https://github.com/cryptocatalog/ultimate-crypto-comparison/pulls) or open a [new issue](https://github.com/cryptocatalog/ultimate-crypto-comparison/issues) to add this information.'
   - Stream Ciphers:
       detail: true
       search: true
       table: false
       values:
         No Information:
-          description: 'No information found. You can find the data of the libraries in [this directory](https://github.com/cryptocatalog/ultimate-crypto-comparison/tree/master/data). You can [create a pull-request](https://github.com/cryptocatalog/ultimate-crypto-comparison/pulls) or open a [new issue](https://github.com/cryptocatalog/ultimate-crypto-comparison/issues).'
+          description: 'No information found. You can find the data of the libraries in [this directory](https://github.com/cryptocatalog/ultimate-crypto-comparison/tree/master/data). You can [create a pull-request](https://github.com/cryptocatalog/ultimate-crypto-comparison/pulls) or open a [new issue](https://github.com/cryptocatalog/ultimate-crypto-comparison/issues) to add this information.'
   - Hash Functions:
       detail: true
       search: true
       table: false
       values:
         No Information:
-          description: 'No information found. You can find the data of the libraries in [this directory](https://github.com/cryptocatalog/ultimate-crypto-comparison/tree/master/data). You can [create a pull-request](https://github.com/cryptocatalog/ultimate-crypto-comparison/pulls) or open a [new issue](https://github.com/cryptocatalog/ultimate-crypto-comparison/issues).'
+          description: 'No information found. You can find the data of the libraries in [this directory](https://github.com/cryptocatalog/ultimate-crypto-comparison/tree/master/data). You can [create a pull-request](https://github.com/cryptocatalog/ultimate-crypto-comparison/pulls) or open a [new issue](https://github.com/cryptocatalog/ultimate-crypto-comparison/issues) to add this information.'
   - Encryption Modes:
       detail: true
       search: true
