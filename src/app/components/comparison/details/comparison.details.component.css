@@ -56,8 +56,8 @@
 }
 
 .tt-container {
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: inline;
+    /*grid-template-columns: auto 1fr;*/
 }
 
 .tt-label {
