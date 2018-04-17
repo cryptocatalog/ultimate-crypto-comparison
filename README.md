@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/cryptocatalog/ultimate-crypto-comparison.svg?branch=master)](https://travis-ci.org/cryptocatalog/ultimate-crypto-comparison)
+
 # [Ultimate-crypto-comparison](https://cryptocatalog.github.io/ultimate-crypto-comparison/)
 
 The ultimate-crypto-comparison is a catalog to compare cryptographic libraries.
