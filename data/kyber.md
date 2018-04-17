@@ -1,6 +1,5 @@
-# Kyper - https://godoc.org/github.com/dedis/kyber
+# Kyber - https://godoc.org/github.com/dedis/kyber
 Advanced crypto library for the Go language
-
 
 ## Description
 Package kyber provides a toolbox of advanced cryptographic primitives, for applications that need more than straightforward signing and encryption. This top level package defines the interfaces to cryptographic primitives designed to be independent of specific cryptographic algorithms, to facilitate upgrading applications to new cryptographic algorithms or switching to alternative algorithms for experimentation purposes.
