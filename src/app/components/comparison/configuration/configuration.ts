@@ -163,7 +163,8 @@ export class Body {
     constructor(builder) {
         this.title = isNullOrUndefined(builder.title) ? "Description" : builder.title;
         this.bodyRef = isNullOrUndefined(builder.bodyRef) ? "Description" : builder.bodyRef;
-        this.tooltipAsText = isNullOrUndefined(builder.tooltipAsText) ? true : false;
+        //this.tooltipAsText = isNullOrUndefined(builder.tooltipAsText) ? true : false;
+        this.tooltipAsText = false;
     }
 
     static get Builder() {
