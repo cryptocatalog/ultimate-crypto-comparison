@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ComparisonDetailsComponent } from './details/comparison.details.component';
+import { ComparisonSearchbarComponent } from './searchbar/comparison.searchbar.component';
 import { ComparisonComponent } from './comparison.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { InputModule } from '../input/input.module';
@@ -25,6 +26,7 @@ import { ComparisonSettingsComponent } from "./settings/comparison.settings.comp
     declarations: [
         ComparisonComponent,
         ComparisonDetailsComponent,
+        ComparisonSearchbarComponent,
         ComparisonSettingsComponent
     ],
     providers: [
