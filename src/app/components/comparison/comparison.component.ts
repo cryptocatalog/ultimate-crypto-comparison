@@ -1,15 +1,15 @@
 import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { VersionInformation } from '../../../assets/VersionInformation';
-import { PaperCardComponent } from "../polymer/paper-card/paper-card.component";
+import { PaperCardComponent } from '../polymer/paper-card/paper-card.component';
 import { LatexTableComponent } from '../output/latex-table/latex-table.component';
 import { Store } from '@ngrx/store';
 import { IUCAppState } from '../../redux/uc.app-state';
-import { ConfigurationService } from "./configuration/configuration.service";
-import { Criteria } from "./configuration/configuration";
-import { DataService } from "./data/data.service";
+import { ConfigurationService } from './configuration/configuration.service';
+import { Criteria } from './configuration/configuration';
+import { DataService } from './data/data.service';
 import { Data, Label } from './data/data';
 import { UCClickAction, UCSearchUpdateAction, UCTableOrderAction } from '../../redux/uc.action';
-import { isNullOrUndefined } from "util";
+import { isNullOrUndefined } from 'util';
 
 import { saveAs } from 'file-saver';
 
@@ -23,8 +23,8 @@ export class ComparisonComponent {
     @ViewChild('genericTableHeader') genericTableHeader: PaperCardComponent;
     public activeRow: Data = new Data.Builder().build();
 
-    public detailsOpen: boolean = false;
-    public settingsOpen: boolean = false;
+    public detailsOpen = false;
+    public settingsOpen = false;
 
     public changed = 0;
     private versionInformation: VersionInformation = new VersionInformation();
@@ -43,6 +43,10 @@ export class ComparisonComponent {
         const map = new Map<string, string>();
         map.set(crit.key, value || null);
         this.store.dispatch(new UCSearchUpdateAction(map));
+        this.cd.markForCheck();
+    }
+
+    public searchText(value: string) {
         this.cd.markForCheck();
     }
 

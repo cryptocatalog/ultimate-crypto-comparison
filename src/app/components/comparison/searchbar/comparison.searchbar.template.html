@@ -1,3 +1,6 @@
 <pcard>
-
+    <input class="searchbar" #textvalue
+           type="text" placeholder="Search..."
+           (keyup)="valueChanged($event)"
+           [value]="getValue()">
 </pcard>

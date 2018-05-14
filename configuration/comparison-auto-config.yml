@@ -617,11 +617,15 @@ autoCriteria:
       PHP: {}
   Development Languages:
     values:
+      C: {}
       C++: {}
       Python: {}
-      C: {}
       'C#': {}
       Java: {}
+      Go: {}
+      JavaScript: {}
+      Ruby: {}
+      Objective-C: {}
   Block Ciphers:
     values:
       AES: {}
@@ -631,31 +635,32 @@ autoCriteria:
       Blowfish: {}
       Camellia: {}
       CAST: {}
+      DES: {}
+      IDEA NXT: {}
+      IDEA: {}
+      M6: {}
+      M8: {}
+      PRESENT: {}
+      SAFER: {}
+      SEED: {}
+      3DES: {}
+      XTEA: {}
       CAST-128: {}
       CAST-256: {}
-      DES: {}
       DEAL: {}
       FPE: {}
       GOST: {}
-      IDEA: {}
       KASUMI: {}
-      M6: {}
-      M8: {}
       MISTY1: {}
       NOEKEON: {}
-      PRESENT: {}
-      SAFER: {}
       Serpent: {}
-      SEED: {}
       Threefish: {}
       Twofish: {}
-      XTEA: {}
       NDS: {}
       RC: {}
       RC2: {}
       RC5: {}
       TEA: {}
-      3DES: {}
       UES: {}
       3-Way: {}
       ARIA: {}
@@ -663,14 +668,28 @@ autoCriteria:
       ARIA-192: {}
       ARIA-256: {}
       DFC: {}
-      IDEA NXT: {}
       SM4: {}
+      MAGENTA: {}
+      MMB: {}
+      Simon: {}
+      Speck: {}
+      Kalyna: {}
+      MARS: {}
+      RC6: {}
+      SHACAL: {}
+      SHARK: {}
+      Skipjack: {}
+      CS-Cipher: {}
+      Anubis: {}
+      KHAZAD: {}
+      MULTI2: {}
   Stream Ciphers:
     values:
-      ChaCha: {}
-      Dragon: {}
       LEX: {}
       RC: {}
+      Vernam: {}
+      ChaCha: {}
+      Dragon: {}
       Salsa: {}
       Turing: {}
       ISAAC: {}
@@ -679,30 +698,42 @@ autoCriteria:
       FISH: {}
       SEAL: {}
       ZUC: {}
+      Panama: {}
+      Rabbit: {}
+      Scream: {}
+      SOBER: {}
+      Solitaire: {}
+      WAKE: {}
+      eSTREAM: {}
+      Sosemanuk: {}
+      NLS: {}
+      Pike: {}
   Hash Functions:
     values:
-      BLAKE2: {}
-      GOST: {}
+      MD2: {}
       MD5: {}
       PBKDF2: {}
+      RIPEMD: {}
+      scrypt: {}
       SHA: {}
       SHA-1: {}
       SHA-2: {}
       SHA-3: {}
       SHA-256: {}
       SHA-512: {}
+      BLAKE2: {}
+      GOST: {}
       SipHash: {}
       Skein: {}
       Tiger: {}
       FSB: {}
       MD6: {}
-      RIPEMD: {}
-      scrypt: {}
-      MD2: {}
       SHAKE: {}
       WHIRLPOOL: {}
+      Snefru: {}
   Encryption Modes:
     values:
+      ABC: {}
       BPS: {}
       CBC: {}
       CCM: {}
@@ -716,57 +747,73 @@ autoCriteria:
       OCB: {}
       OFB: {}
       SIV: {}
-      ABC: {}
+      DFF: {}
+      RAC: {}
+      XBC: {}
+      XCBC: {}
+      PCBC: {}
   Message Authentication Codes:
     values:
       HMAC: {}
       Poly1305: {}
       OMAC: {}
+      MMH-Badger: {}
+      VMAC: {}
+      CBC-MAC: {}
+      XCBC: {}
+      UMAC: {}
   Public Key Cryptography:
     values:
       DH: {}
-      DSA: {}
       DSS: {}
       ECDH: {}
       ECDSA: {}
+      RSA: {}
+      DSA: {}
       ElGamal: {}
       McEliece: {}
-      RSA: {}
       YAK: {}
+      LUC: {}
+      NTRUEncrypt: {}
   Public Key Infrastructure:
     values:
       CMP: {}
-      OCSP: {}
       PKCS: {}
       SET: {}
       X.509: {}
+      OCSP: {}
       LDAP: {}
       PKIX: {}
       DVCS: {}
+      RPKI: {}
+      TinyCA: {}
+      RTCS: {}
+      SCEP: {}
   Protocols:
     values:
       AKA: {}
       CMP: {}
+      CSR: {}
       DTLS: {}
-      DPD: {}
       EST: {}
-      GPG: {}
       HTTPS: {}
       IKE: {}
-      OCSP: {}
+      IPsec: {}
       PE: {}
       PEM: {}
-      PGP: {}
       SEND: {}
-      SRTP: {}
+      SSL: {}
       TLS: {}
       X.509: {}
-      CSR: {}
+      DPD: {}
+      GPG: {}
+      OCSP: {}
+      PGP: {}
+      SRTP: {}
       CMS: {}
       IES: {}
       OTR: {}
       RTD: {}
-      SSL: {}
       TSP: {}
       VBR: {}
       AS2: {}
@@ -774,12 +821,23 @@ autoCriteria:
       DPV: {}
       I2P: {}
       ISAKMP: {}
-      IPsec: {}
       KMIP: {}
       SCVP: {}
       SSH: {}
       WPA: {}
       WPS: {}
+      AS1: {}
+      CAVE: {}
+      CCMP: {}
+      CGA: {}
+      DCII: {}
+      EKE: {}
+      PCT: {}
+      PoSE: {}
+      SCP: {}
+      S-HTTP: {}
+      PHE: {}
+      SCEP: {}
   License:
     values:
       Public Domain: {}
@@ -918,6 +976,18 @@ autoColor:
     Python:
       color: '#0d0d0d'
       backgroundColor: 'hsl(300, 100%, 70%)'
+    Go:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(210, 100%, 70%)'
+    JavaScript:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(210, 100%, 70%)'
+    Objective-C:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(210, 100%, 70%)'
+    Ruby:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(210, 100%, 70%)'
   Block Ciphers:
     No Information:
       color: '#0d0d0d'
@@ -1045,6 +1115,48 @@ autoColor:
     XTEA:
       color: '#0d0d0d'
       backgroundColor: 'hsl(330, 100%, 70%)'
+    Anubis:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    CS-Cipher:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    Kalyna:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    KHAZAD:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    MAGENTA:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    MARS:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    MMB:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    MULTI2:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    RC6:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    SHACAL:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    SHARK:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    Simon:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    Skipjack:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
+    Speck:
+      color: '#ffff00'
+      backgroundColor: 'hsl(240, 100%, 70%)'
   Stream Ciphers:
     No Information:
       color: '#0d0d0d'
@@ -1085,6 +1197,39 @@ autoColor:
     ZUC:
       color: '#0d0d0d'
       backgroundColor: 'hsl(30, 100%, 70%)'
+    eSTREAM:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    NLS:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    Panama:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    Pike:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    Rabbit:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    Scream:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    SOBER:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    Solitaire:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    Sosemanuk:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    Vernam:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
+    WAKE:
+      color: '#ffff00'
+      backgroundColor: 'hsl(270, 100%, 70%)'
   Hash Functions:
     No Information:
       color: '#0d0d0d'
@@ -1149,6 +1294,9 @@ autoColor:
     WHIRLPOOL:
       color: '#0d0d0d'
       backgroundColor: 'hsl(60, 100%, 70%)'
+    Snefru:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(300, 100%, 70%)'
   Encryption Modes:
     No Information:
       color: '#0d0d0d'
@@ -1195,6 +1343,21 @@ autoColor:
     SIV:
       color: '#0d0d0d'
       backgroundColor: 'hsl(90, 100%, 70%)'
+    DFF:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
+    PCBC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
+    RAC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
+    XBC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
+    XCBC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(330, 100%, 70%)'
   Message Authentication Codes:
     No Information:
       color: '#0d0d0d'
@@ -1208,6 +1371,21 @@ autoColor:
     Poly1305:
       color: '#0d0d0d'
       backgroundColor: 'hsl(120, 100%, 70%)'
+    CBC-MAC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    MMH-Badger:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    UMAC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    VMAC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
+    XCBC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(30, 100%, 70%)'
   Public Key Cryptography:
     No Information:
       color: '#0d0d0d'
@@ -1239,6 +1417,12 @@ autoColor:
     YAK:
       color: '#0d0d0d'
       backgroundColor: 'hsl(150, 100%, 70%)'
+    LUC:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
+    NTRUEncrypt:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(60, 100%, 70%)'
   Public Key Infrastructure:
     No Information:
       color: '#0d0d0d'
@@ -1267,6 +1451,18 @@ autoColor:
     X.509:
       color: '#0d0d0d'
       backgroundColor: 'hsl(180, 100%, 70%)'
+    RPKI:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    RTCS:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    SCEP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
+    TinyCA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(90, 100%, 70%)'
   Protocols:
     No Information:
       color: '#0d0d0d'
@@ -1376,6 +1572,42 @@ autoColor:
     X.509:
       color: '#0d0d0d'
       backgroundColor: 'hsl(210, 100%, 70%)'
+    AS1:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    CAVE:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    CCMP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    CGA:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    DCII:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    EKE:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    PCT:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    PHE:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    PoSE:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    S-HTTP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    SCEP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
+    SCP:
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(120, 100%, 70%)'
   License:
     0BSD:
       color: '#ffff00'
