@@ -339,7 +339,27 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
         let includeData = true;
         for (const field of state.currentSearch.keys()) {
             const criteria = state.criterias.get(field);
-            if (criteria.rangeSearch) {
+
+            if (criteria.textSearch) {
+                // Full text search
+                const searchArray = state.currentSearch.get(field);
+                let fulfillsField = criteria.andSearch || isNullOrUndefined(searchArray) || searchArray.length === 0;
+                for (const query of searchArray) {
+                    const queryLower = query.toLocaleLowerCase();
+                    let fulfillsQuery = false;
+                    const val = (<Url>data[i].criteria.get(criteria.key)).text
+                        || (<Text>data[i].criteria.get(criteria.key)).content
+                        || (<Markdown>data[i].criteria.get(criteria.key)).content;
+                    fulfillsQuery = fulfillsQuery || (val.toLocaleLowerCase().indexOf(queryLower) > -1);
+
+                    if (criteria.andSearch) {
+                        fulfillsField = fulfillsField && fulfillsQuery;
+                    } else {
+                        fulfillsField = fulfillsField || fulfillsQuery;
+                    }
+                }
+                includeData = includeData && fulfillsField;
+            } else if (criteria.rangeSearch) {
                 if (state.currentSearch.get(field).length > 0) {
                     const queries = (state.currentSearch.get(field)[0] || '').trim().replace(' ', '')
                         .replace(/,.*[a-zA-Z].*|.*[a-zA-Z].*,|.*[a-zA-Z].*/g, '').split(',');
@@ -658,7 +678,16 @@ function searchReducer(state: IUCAppState = new UcAppState(), action: UCSearchUp
     for (const [key, value] of action.criterias) {
         const elements = state.currentSearch.get(key) || [];
         const index = elements.indexOf(value);
-        if (state.criterias.get(key).rangeSearch) {
+
+        if (state.criterias.get(key).textSearch) {
+            if (value !== null) {
+                let searchValues = value.split(' ');
+                searchValues = searchValues.filter((v) => { return v !== ''; })
+                state.currentSearch.set(key, searchValues || []);
+            } else {
+                state.currentSearch.set(key, []);
+            }
+        } if (state.criterias.get(key).rangeSearch) {
             state.currentSearch.set(key, [value]);
         } else {
             if (value !== null && index > -1) {

@@ -24,14 +24,24 @@
             <div [innerHTML]="configurationService.description | sanitizeHtml" class="description"></div>
         </pcard>
 
+        <pcard>
+            <ng-template ngFor let-crit [ngForOf]="configurationService.criteria">
+                <ptooltip *ngIf="crit.textSearch" [tooltip]="crit.description">
+                    <label>
+                        {{crit.name}}
+                        <span class="search-indicator">({{crit.getSearchIndicator()}})</span>
+                    </label>
+                </ptooltip>
+                <comparison-searchbar *ngIf="crit.textSearch" (result)="criteriaChanged($event, crit)"></comparison-searchbar>
+            </ng-template>
+        </pcard>
 
-        <comparison-searchbar (result)="searchText($event)"></comparison-searchbar>
 
 
         <pcard [heading]="configurationService.configuration?.selecttitle">
             <div class="select-grid">
                 <ng-template ngFor let-crit [ngForOf]="configurationService.criteria">
-                    <div>
+                    <div *ngIf="!crit.textSearch">
                         <div class="form-group">
                             <ptooltip [tooltip]="crit.description">
                                 <label>

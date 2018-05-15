@@ -155,6 +155,7 @@ export class ConfigurationService {
                         .setPlaceholder(value.placeholder)
                         .setAndSearch(value.andSearch)
                         .setRangeSearch(value.rangeSearch)
+                        .setTextSearch(value.textSearch)
                         .setValues(values)
                         .build()
                     );
@@ -226,6 +227,7 @@ export class ConfigurationService {
                             .setPlaceholder(old.placeholder)
                             .setAndSearch(old.andSearch)
                             .setRangeSearch(old.rangeSearch)
+                            .setTextSearch(old.rangeSearch)
                             .setValues(values)
                             .build());
                         /**
@@ -266,6 +268,7 @@ export class ConfigurationService {
                             .setPlaceholder(autoCriteriaObject.placeholder)
                             .setAndSearch(autoCriteriaObject.andSearch)
                             .setRangeSearch(autoCriteriaObject.rangeSearch)
+                            .setTextSearch(autoCriteriaObject.textSearch)
                             .setValues(values)
                             .build());
                     }

@@ -208,6 +208,7 @@ export class Criteria {
     public placeholder: string;
     public andSearch: boolean;
     public rangeSearch: boolean;
+    public textSearch: boolean;
     public values: Map<string, CriteriaValue>;
     public items: Array<string>;
 
@@ -225,6 +226,7 @@ export class Criteria {
             "Select ".concat(name.charAt(0), name.slice(1), " of ...")) : builder.placeholder;
         this.andSearch = isNullOrUndefined(builder.andSearch) ? true : builder.andSearch;
         this.rangeSearch = isNullOrUndefined(builder.rangeSearch) ? false : builder.rangeSearch;
+        this.textSearch = isNullOrUndefined(builder.textSearch) ? false : builder.textSearch;
         let values: Map<string, CriteriaValue> = isNullOrUndefined(builder.values) ? new Map<string, CriteriaValue>() : builder.values;
         this.values = values;
         this.items = [];
@@ -245,6 +247,7 @@ export class Criteria {
             private placeholder: string;
             private andSearch: boolean;
             private rangeSearch: boolean;
+            private textSearch: boolean;
             private values: Map<string, CriteriaValue>;
 
             public setKey(key: string): Builder {
@@ -294,6 +297,11 @@ export class Criteria {
 
             public setRangeSearch(rangeSearch: boolean): Builder {
                 this.rangeSearch = rangeSearch;
+                return this;
+            }
+
+            public setTextSearch(textSearch: boolean): Builder {
+                this.textSearch = textSearch;
                 return this;
             }
 

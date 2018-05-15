@@ -18,7 +18,8 @@ criteria:
   - id:
       name: Name
       detail: false
-      search: false
+      search: true
+      textSearch: true
       table: true
       type: url
   - Repository:

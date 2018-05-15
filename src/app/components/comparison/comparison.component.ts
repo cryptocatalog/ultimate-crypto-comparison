@@ -12,6 +12,7 @@ import { UCClickAction, UCSearchUpdateAction, UCTableOrderAction } from '../../r
 import { isNullOrUndefined } from 'util';
 
 import { saveAs } from 'file-saver';
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
     selector: 'comparison',
@@ -29,10 +30,17 @@ export class ComparisonComponent {
     public changed = 0;
     private versionInformation: VersionInformation = new VersionInformation();
 
+    private searchableCriteria: Array<Criteria>;
+
     constructor(public configurationService: ConfigurationService,
                 private cd: ChangeDetectorRef,
                 public store: Store<IUCAppState>) {
         this.configurationService.loadComparison(this.cd);
+        for (const crit of this.configurationService.criteria) {
+            if (crit.search) {
+                this.searchableCriteria.push(crit);
+            }
+        }
     }
 
     public getVersionInformation(): VersionInformation {
