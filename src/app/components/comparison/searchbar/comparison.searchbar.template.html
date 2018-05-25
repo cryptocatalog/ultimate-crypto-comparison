@@ -1,4 +1,4 @@
 <input class="searchbar" #textvalue
        type="text" placeholder="Search..."
-       (keyup)="valueChanged($event)"
+       (keyup.enter)="valueChanged($event)"
        [value]="getValue()">

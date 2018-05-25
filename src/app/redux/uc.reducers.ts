@@ -345,12 +345,14 @@ function filterElements(state: IUCAppState, criterias: Map<string, Criteria> = n
                 const searchArray = state.currentSearch.get(field);
                 let fulfillsField = criteria.andSearch || isNullOrUndefined(searchArray) || searchArray.length === 0;
                 for (const query of searchArray) {
+                    if (query === '') {
+                        continue;
+                    }
                     const queryLower = query.toLocaleLowerCase();
-                    let fulfillsQuery = false;
                     const val = (<Url>data[i].criteria.get(criteria.key)).text
                         || (<Text>data[i].criteria.get(criteria.key)).content
                         || (<Markdown>data[i].criteria.get(criteria.key)).content;
-                    fulfillsQuery = fulfillsQuery || (val.toLocaleLowerCase().indexOf(queryLower) > -1);
+                    const fulfillsQuery = (val.toLocaleLowerCase().indexOf(queryLower) > -1);
 
                     if (criteria.andSearch) {
                         fulfillsField = fulfillsField && fulfillsQuery;
@@ -687,7 +689,7 @@ function searchReducer(state: IUCAppState = new UcAppState(), action: UCSearchUp
             } else {
                 state.currentSearch.set(key, []);
             }
-        } if (state.criterias.get(key).rangeSearch) {
+        } else if (state.criterias.get(key).rangeSearch) {
             state.currentSearch.set(key, [value]);
         } else {
             if (value !== null && index > -1) {
