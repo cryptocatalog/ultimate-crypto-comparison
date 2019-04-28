@@ -1004,13 +1004,13 @@ autoColor:
       backgroundColor: 'hsl(210, 100%, 70%)'
     PHP:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(165, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     Rust:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(165, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
     Swift:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(165, 100%, 70%)'
+      backgroundColor: 'hsl(150, 100%, 70%)'
   Block Ciphers:
     No Information:
       color: '#0d0d0d'
@@ -1182,13 +1182,13 @@ autoColor:
       backgroundColor: 'hsl(240, 100%, 70%)'
     CDMF:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(195, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     Kuznyechik:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(195, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
     MESH:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(195, 100%, 70%)'
+      backgroundColor: 'hsl(180, 100%, 70%)'
   Stream Ciphers:
     No Information:
       color: '#0d0d0d'
@@ -1263,11 +1263,11 @@ autoColor:
       color: '#ffff00'
       backgroundColor: 'hsl(270, 100%, 70%)'
     HC-128:
-      color: '#ffff00'
-      backgroundColor: 'hsl(225, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(210, 100%, 70%)'
     HC-256:
-      color: '#ffff00'
-      backgroundColor: 'hsl(225, 100%, 70%)'
+      color: '#0d0d0d'
+      backgroundColor: 'hsl(210, 100%, 70%)'
   Hash Functions:
     No Information:
       color: '#0d0d0d'
@@ -1337,7 +1337,7 @@ autoColor:
       backgroundColor: 'hsl(300, 100%, 70%)'
     Streebog:
       color: '#ffff00'
-      backgroundColor: 'hsl(255, 100%, 70%)'
+      backgroundColor: 'hsl(240, 100%, 70%)'
   Encryption Modes:
     No Information:
       color: '#0d0d0d'
@@ -1401,7 +1401,7 @@ autoColor:
       backgroundColor: 'hsl(330, 100%, 70%)'
     IGE:
       color: '#ffff00'
-      backgroundColor: 'hsl(285, 100%, 70%)'
+      backgroundColor: 'hsl(270, 100%, 70%)'
   Message Authentication Codes:
     No Information:
       color: '#0d0d0d'
@@ -1432,7 +1432,7 @@ autoColor:
       backgroundColor: 'hsl(30, 100%, 70%)'
     TMAC:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(315, 100%, 70%)'
+      backgroundColor: 'hsl(300, 100%, 70%)'
   Public Key Cryptography:
     No Information:
       color: '#0d0d0d'
@@ -1512,10 +1512,10 @@ autoColor:
       backgroundColor: 'hsl(90, 100%, 70%)'
     OpenCA:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(30, 100%, 70%)'
     RDBMS:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(45, 100%, 70%)'
+      backgroundColor: 'hsl(30, 100%, 70%)'
   Protocols:
     No Information:
       color: '#0d0d0d'
@@ -1663,10 +1663,10 @@ autoColor:
       backgroundColor: 'hsl(120, 100%, 70%)'
     ACME:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(60, 100%, 70%)'
     MSE:
       color: '#0d0d0d'
-      backgroundColor: 'hsl(75, 100%, 70%)'
+      backgroundColor: 'hsl(60, 100%, 70%)'
   License:
     0BSD:
       color: '#ffff00'
